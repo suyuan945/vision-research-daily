@@ -39,7 +39,7 @@ def shell(title, description, body, prefix="../", extra_script=""):
             f'<link rel="stylesheet" href="{prefix}assets/style.css"></head>'
             f'<body>{header(prefix)}{body}'
             f'<footer class="site-footer">3D VISION RESEARCH HUB · RESEARCH FIRST, EVIDENCE FIRST.</footer>'
-            f'{extra_script}</body></html>')
+            f'<script src="{prefix}assets/research-store.js" defer></script>{extra_script}</body></html>')
 
 def paper_record(pid, title, date, tags, source="digest", abstract="", published=""):
     return {"id":pid, "title":title, "url":f"https://arxiv.org/abs/{pid}",
