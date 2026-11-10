@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-07",
+  "title": "动态几何优化、4D前馈与可扩展Splatting",
+  "summary": "XM4D、SM4RT、HIBS",
+  "tags": [
+    "4DGS",
+    "几何优化",
+    "3DGS"
+  ],
+  "highlights": [
+    "XM4D",
+    "SM4RT",
+    "HIBS"
+  ],
+  "kind": "历史摘要（非逐字原文）",
+  "markdown": "> 本文是此前聊天日报的主题索引，不代表本次重新核验了论文实验数值或代码状态。\n\n## 本期重点\n\nXM4D、SM4RT、HIBS。\n\n## 论文及项目入口\n\n- [XM4D](https://arxiv.org/abs/2611.07902)\n- [SM4RT](https://arxiv.org/abs/2611.08436)\n- [HIBS](https://arxiv.org/abs/2611.08288)\n\n## 技术价值\n\n围绕稀疏多相机、3DGS/4DGS以及可控世界生成，评估其几何可信度、复现条件、时间一致性和工程成本。论文细节请以原文为准。\n"
+}

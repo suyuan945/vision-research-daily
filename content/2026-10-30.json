@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-30",
+  "title": "几何约束前馈3DGS与相机模型",
+  "summary": "GeoGSplat、Any3R、GroundControl",
+  "tags": [
+    "3DGS",
+    "VGGT",
+    "生成式外展"
+  ],
+  "highlights": [
+    "GeoGSplat",
+    "Any3R",
+    "GroundControl"
+  ],
+  "kind": "历史摘要（非逐字原文）",
+  "markdown": "> 本文是此前聊天日报的主题索引，不代表本次重新核验了论文实验数值或代码状态。\n\n## 本期重点\n\nGeoGSplat、Any3R、GroundControl。\n\n## 论文及项目入口\n\n- [GeoGSplat](https://arxiv.org/abs/2610.36760)\n- [Any3R](https://arxiv.org/abs/2610.36150)\n- [GroundControl](https://arxiv.org/abs/2610.37545)\n\n## 技术价值\n\n围绕稀疏多相机、3DGS/4DGS以及可控世界生成，评估其几何可信度、复现条件、时间一致性和工程成本。论文细节请以原文为准。\n"
+}

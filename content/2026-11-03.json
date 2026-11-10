@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-03",
+  "title": "自监督几何与结构化Gaussian SLAM",
+  "summary": "Rethinking Asymmetry、DrawSplat、EgoHSI3R",
+  "tags": [
+    "VGGT",
+    "SLAM",
+    "4DGS"
+  ],
+  "highlights": [
+    "Rethinking Asymmetry",
+    "DrawSplat",
+    "EgoHSI3R"
+  ],
+  "kind": "历史摘要（非逐字原文）",
+  "markdown": "> 本文是此前聊天日报的主题索引，不代表本次重新核验了论文实验数值或代码状态。\n\n## 本期重点\n\nRethinking Asymmetry、DrawSplat、EgoHSI3R。\n\n## 论文及项目入口\n\n- [Rethinking Asymmetry](https://arxiv.org/search/?query=Rethinking+Asymmetry&searchtype=all)\n- [DrawSplat](https://arxiv.org/search/?query=DrawSplat&searchtype=all)\n\n## 技术价值\n\n围绕稀疏多相机、3DGS/4DGS以及可控世界生成，评估其几何可信度、复现条件、时间一致性和工程成本。论文细节请以原文为准。\n"
+}

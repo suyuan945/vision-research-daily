@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-31",
+  "title": "Gaussian记忆与可靠性引导生成",
+  "summary": "L3G-World、GradSplat、RGMV",
+  "tags": [
+    "3DGS",
+    "世界模型",
+    "几何优化"
+  ],
+  "highlights": [
+    "L3G-World",
+    "GradSplat",
+    "RGMV"
+  ],
+  "kind": "历史摘要（非逐字原文）",
+  "markdown": "> 本文是此前聊天日报的主题索引，不代表本次重新核验了论文实验数值或代码状态。\n\n## 本期重点\n\nL3G-World、GradSplat、RGMV。\n\n## 论文及项目入口\n\n- [L3G-World](https://arxiv.org/abs/2610.40614)\n- [GradSplat](https://arxiv.org/abs/2610.38951)\n- [RGMV](https://arxiv.org/abs/2610.38518)\n\n## 技术价值\n\n围绕稀疏多相机、3DGS/4DGS以及可控世界生成，评估其几何可信度、复现条件、时间一致性和工程成本。论文细节请以原文为准。\n"
+}

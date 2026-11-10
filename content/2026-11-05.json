@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-05",
+  "title": "异步多相机动态重建与世界记忆",
+  "summary": "Phase-DGS、SettleSplat、FlowBench",
+  "tags": [
+    "4DGS",
+    "多相机",
+    "世界模型"
+  ],
+  "highlights": [
+    "Phase-DGS",
+    "SettleSplat",
+    "FlowBench"
+  ],
+  "kind": "历史摘要（非逐字原文）",
+  "markdown": "> 本文是此前聊天日报的主题索引，不代表本次重新核验了论文实验数值或代码状态。\n\n## 本期重点\n\nPhase-DGS、SettleSplat、FlowBench。\n\n## 论文及项目入口\n\n- [Phase-DGS](https://arxiv.org/abs/2611.04666)\n- [FlowBench](https://arxiv.org/search/?query=FlowBench&searchtype=all)\n\n## 技术价值\n\n围绕稀疏多相机、3DGS/4DGS以及可控世界生成，评估其几何可信度、复现条件、时间一致性和工程成本。论文细节请以原文为准。\n"
+}

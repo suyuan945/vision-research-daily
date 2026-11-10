@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-10",
+  "title": "持久化3D资产与稀疏几何锚点",
+  "summary": "Video2Asset、MViS、Extrapolation Matters",
+  "tags": [
+    "世界模型",
+    "多相机",
+    "深度估计"
+  ],
+  "highlights": [
+    "Video2Asset",
+    "MViS",
+    "Extrapolation Matters"
+  ],
+  "kind": "历史摘要（非逐字原文）",
+  "markdown": "> 本文是此前聊天日报的主题索引，不代表本次重新核验了论文实验数值或代码状态。\n\n## 本期重点\n\nVideo2Asset、MViS、Extrapolation Matters。\n\n## 论文及项目入口\n\n- [Video2Asset](https://arxiv.org/abs/2611.09661)\n- [MViS](https://arxiv.org/abs/2611.09570)\n- [Extrapolation Matters](https://arxiv.org/abs/2611.08782)\n\n## 技术价值\n\n围绕稀疏多相机、3DGS/4DGS以及可控世界生成，评估其几何可信度、复现条件、时间一致性和工程成本。论文细节请以原文为准。\n"
+}

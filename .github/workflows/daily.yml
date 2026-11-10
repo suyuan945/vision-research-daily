@@ -1,0 +1,53 @@
+name: Generate and publish research daily
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '10 23 * * *' # 08:10 JST; may be delayed
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - name: Generate daily issue when configured
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-4.1-mini
+        run: |
+          if [ -n "$OPENAI_API_KEY" ]; then
+            python scripts/generate.py || echo "Generation failed; preserving previous issues"
+          else
+            echo "API key not set: deploying existing archive"
+          fi
+      - run: python scripts/build.py
+      - name: Commit generated archive
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/ site/index.json site/issues/
+          if ! git diff --cached --quiet; then git commit -m "Update daily research archive" && git push; fi
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4
