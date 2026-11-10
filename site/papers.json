@@ -1,0 +1,482 @@
+[
+  {
+    "id": "2611.09661",
+    "title": "Video2Asset",
+    "url": "https://arxiv.org/abs/2611.09661",
+    "first_seen": "2026-11-10",
+    "last_seen": "2026-11-10",
+    "digests": [
+      "2026-11-10"
+    ],
+    "tags": [
+      "世界模型",
+      "多相机",
+      "深度估计"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.09570",
+    "title": "MViS",
+    "url": "https://arxiv.org/abs/2611.09570",
+    "first_seen": "2026-11-10",
+    "last_seen": "2026-11-10",
+    "digests": [
+      "2026-11-10"
+    ],
+    "tags": [
+      "世界模型",
+      "多相机",
+      "深度估计"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.08782",
+    "title": "Extrapolation Matters",
+    "url": "https://arxiv.org/abs/2611.08782",
+    "first_seen": "2026-11-10",
+    "last_seen": "2026-11-10",
+    "digests": [
+      "2026-11-10"
+    ],
+    "tags": [
+      "世界模型",
+      "多相机",
+      "深度估计"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.07049",
+    "title": "Gaussolve",
+    "url": "https://arxiv.org/abs/2611.07049",
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "digests": [
+      "2026-11-09"
+    ],
+    "tags": [
+      "3DGS",
+      "渲染优化",
+      "几何优化"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.06974",
+    "title": "T²-Splat",
+    "url": "https://arxiv.org/abs/2611.06974",
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "digests": [
+      "2026-11-09"
+    ],
+    "tags": [
+      "3DGS",
+      "渲染优化",
+      "几何优化"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.08330",
+    "title": "InstantHand",
+    "url": "https://arxiv.org/abs/2611.08330",
+    "first_seen": "2026-11-08",
+    "last_seen": "2026-11-08",
+    "digests": [
+      "2026-11-08"
+    ],
+    "tags": [
+      "深度估计",
+      "4DGS",
+      "人物重建"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.07873",
+    "title": "PVDepth",
+    "url": "https://arxiv.org/abs/2611.07873",
+    "first_seen": "2026-11-08",
+    "last_seen": "2026-11-08",
+    "digests": [
+      "2026-11-08"
+    ],
+    "tags": [
+      "深度估计",
+      "4DGS",
+      "人物重建"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.08436",
+    "title": "SM4RT",
+    "url": "https://arxiv.org/abs/2611.08436",
+    "first_seen": "2026-11-07",
+    "last_seen": "2026-11-07",
+    "digests": [
+      "2026-11-07"
+    ],
+    "tags": [
+      "4DGS",
+      "几何优化",
+      "3DGS"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.08288",
+    "title": "HIBS",
+    "url": "https://arxiv.org/abs/2611.08288",
+    "first_seen": "2026-11-07",
+    "last_seen": "2026-11-07",
+    "digests": [
+      "2026-11-07"
+    ],
+    "tags": [
+      "4DGS",
+      "几何优化",
+      "3DGS"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.07902",
+    "title": "XM4D",
+    "url": "https://arxiv.org/abs/2611.07902",
+    "first_seen": "2026-11-07",
+    "last_seen": "2026-11-07",
+    "digests": [
+      "2026-11-07"
+    ],
+    "tags": [
+      "4DGS",
+      "几何优化",
+      "3DGS"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.06849",
+    "title": "Spotter",
+    "url": "https://arxiv.org/abs/2611.06849",
+    "first_seen": "2026-11-06",
+    "last_seen": "2026-11-06",
+    "digests": [
+      "2026-11-06"
+    ],
+    "tags": [
+      "VGGT",
+      "3DGS",
+      "世界模型"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.06593",
+    "title": "BudgetSplat",
+    "url": "https://arxiv.org/abs/2611.06593",
+    "first_seen": "2026-11-06",
+    "last_seen": "2026-11-06",
+    "digests": [
+      "2026-11-06"
+    ],
+    "tags": [
+      "VGGT",
+      "3DGS",
+      "世界模型"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.04666",
+    "title": "Phase-DGS",
+    "url": "https://arxiv.org/abs/2611.04666",
+    "first_seen": "2026-11-05",
+    "last_seen": "2026-11-05",
+    "digests": [
+      "2026-11-05"
+    ],
+    "tags": [
+      "4DGS",
+      "多相机",
+      "世界模型"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.03228",
+    "title": "AnchorComplete",
+    "url": "https://arxiv.org/abs/2611.03228",
+    "first_seen": "2026-11-04",
+    "last_seen": "2026-11-04",
+    "digests": [
+      "2026-11-04"
+    ],
+    "tags": [
+      "3D生成",
+      "多相机",
+      "深度估计"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.03098",
+    "title": "Ray-SCR",
+    "url": "https://arxiv.org/abs/2611.03098",
+    "first_seen": "2026-11-04",
+    "last_seen": "2026-11-04",
+    "digests": [
+      "2026-11-04"
+    ],
+    "tags": [
+      "3D生成",
+      "多相机",
+      "深度估计"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2610.40640",
+    "title": "SonoWorld4D",
+    "url": "https://arxiv.org/abs/2610.40640",
+    "first_seen": "2026-11-02",
+    "last_seen": "2026-11-02",
+    "digests": [
+      "2026-11-02"
+    ],
+    "tags": [
+      "4DGS",
+      "VGGT",
+      "世界模型"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2610.39812",
+    "title": "GROME",
+    "url": "https://arxiv.org/abs/2610.39812",
+    "first_seen": "2026-11-01",
+    "last_seen": "2026-11-01",
+    "digests": [
+      "2026-11-01"
+    ],
+    "tags": [
+      "世界模型",
+      "3DGS",
+      "多相机"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2610.37818",
+    "title": "GOFish",
+    "url": "https://arxiv.org/abs/2610.37818",
+    "first_seen": "2026-11-01",
+    "last_seen": "2026-11-01",
+    "digests": [
+      "2026-11-01"
+    ],
+    "tags": [
+      "世界模型",
+      "3DGS",
+      "多相机"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2610.40614",
+    "title": "L3G-World",
+    "url": "https://arxiv.org/abs/2610.40614",
+    "first_seen": "2026-10-31",
+    "last_seen": "2026-10-31",
+    "digests": [
+      "2026-10-31"
+    ],
+    "tags": [
+      "3DGS",
+      "世界模型",
+      "几何优化"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2610.38951",
+    "title": "GradSplat",
+    "url": "https://arxiv.org/abs/2610.38951",
+    "first_seen": "2026-10-31",
+    "last_seen": "2026-10-31",
+    "digests": [
+      "2026-10-31"
+    ],
+    "tags": [
+      "3DGS",
+      "世界模型",
+      "几何优化"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2610.38518",
+    "title": "RGMV",
+    "url": "https://arxiv.org/abs/2610.38518",
+    "first_seen": "2026-10-31",
+    "last_seen": "2026-10-31",
+    "digests": [
+      "2026-10-31"
+    ],
+    "tags": [
+      "3DGS",
+      "世界模型",
+      "几何优化"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2610.37545",
+    "title": "GroundControl",
+    "url": "https://arxiv.org/abs/2610.37545",
+    "first_seen": "2026-10-30",
+    "last_seen": "2026-10-30",
+    "digests": [
+      "2026-10-30"
+    ],
+    "tags": [
+      "3DGS",
+      "VGGT",
+      "生成式外展"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2610.36760",
+    "title": "GeoGSplat",
+    "url": "https://arxiv.org/abs/2610.36760",
+    "first_seen": "2026-10-30",
+    "last_seen": "2026-10-30",
+    "digests": [
+      "2026-10-30"
+    ],
+    "tags": [
+      "3DGS",
+      "VGGT",
+      "生成式外展"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2610.36150",
+    "title": "Any3R",
+    "url": "https://arxiv.org/abs/2610.36150",
+    "first_seen": "2026-10-30",
+    "last_seen": "2026-10-30",
+    "digests": [
+      "2026-10-30"
+    ],
+    "tags": [
+      "3DGS",
+      "VGGT",
+      "生成式外展"
+    ],
+    "abstract": "",
+    "published": "",
+    "source": "digest",
+    "code_url": null,
+    "code_status": "未核实"
+  }
+]
