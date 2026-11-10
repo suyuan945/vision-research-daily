@@ -35,6 +35,8 @@ d=json.loads(content);md=d['markdown']
 links=set(re.findall(r'https://arxiv.org/abs/\d{4}\.\d+',md))
 allowed={p['url'] for p in papers}
 if not links or not links.issubset(allowed) or links&recent or len(md)<350:raise RuntimeError('Generated digest failed evidence/duplicate checks')
-data={'date':day,'kind':'自动生成 · 独立网页版','title':d['title'],'summary':d['summary'],'tags':d['tags'],'highlights':d['highlights'],'markdown':md+'\n\n---\n\n*由模型根据arXiv元数据生成，复现状态及指标请以官方论文为准。*'}
+selected=[p for p in papers if p['url'] in links]
+selected_papers=[{'id':p['url'].rsplit('/',1)[-1],'title':p['title'],'summary':p['summary'],'url':p['url'],'published':p['published']} for p in selected]
+data={'papers':selected_papers,'date':day,'kind':'自动生成 · 独立网页版','title':d['title'],'summary':d['summary'],'tags':d['tags'],'highlights':d['highlights'],'markdown':md+'\n\n---\n\n*由模型根据arXiv元数据生成，复现状态及指标请以官方论文为准。*'}
 OUT.mkdir(exist_ok=True);(OUT/f'{day}.json').write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
 print('Published content:',day)
