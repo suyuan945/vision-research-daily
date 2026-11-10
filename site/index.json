@@ -1,0 +1,202 @@
+[
+  {
+    "date": "2026-11-10",
+    "title": "持久化3D资产与稀疏几何锚点",
+    "summary": "Video2Asset、MViS、Extrapolation Matters",
+    "kind": "历史摘要（非逐字原文）",
+    "tags": [
+      "世界模型",
+      "多相机",
+      "深度估计"
+    ],
+    "highlights": [
+      "Video2Asset",
+      "MViS",
+      "Extrapolation Matters"
+    ],
+    "url": "issues/2026-11-10.html"
+  },
+  {
+    "date": "2026-11-09",
+    "title": "Mesh与Gaussian混合场景表示",
+    "summary": "T²-Splat、Gaussolve",
+    "kind": "历史摘要（非逐字原文）",
+    "tags": [
+      "3DGS",
+      "渲染优化",
+      "几何优化"
+    ],
+    "highlights": [
+      "T²-Splat",
+      "Gaussolve"
+    ],
+    "url": "issues/2026-11-09.html"
+  },
+  {
+    "date": "2026-11-08",
+    "title": "全景视频深度与可驱动Gaussian",
+    "summary": "PVDepth、InstantHand",
+    "kind": "历史摘要（非逐字原文）",
+    "tags": [
+      "深度估计",
+      "4DGS",
+      "人物重建"
+    ],
+    "highlights": [
+      "PVDepth",
+      "InstantHand"
+    ],
+    "url": "issues/2026-11-08.html"
+  },
+  {
+    "date": "2026-11-07",
+    "title": "动态几何优化、4D前馈与可扩展Splatting",
+    "summary": "XM4D、SM4RT、HIBS",
+    "kind": "历史摘要（非逐字原文）",
+    "tags": [
+      "4DGS",
+      "几何优化",
+      "3DGS"
+    ],
+    "highlights": [
+      "XM4D",
+      "SM4RT",
+      "HIBS"
+    ],
+    "url": "issues/2026-11-07.html"
+  },
+  {
+    "date": "2026-11-06",
+    "title": "VGGT领域适配与可控Gaussian预算",
+    "summary": "Spotter、BudgetSplat、EvoWorld",
+    "kind": "历史摘要（非逐字原文）",
+    "tags": [
+      "VGGT",
+      "3DGS",
+      "世界模型"
+    ],
+    "highlights": [
+      "Spotter",
+      "BudgetSplat",
+      "EvoWorld"
+    ],
+    "url": "issues/2026-11-06.html"
+  },
+  {
+    "date": "2026-11-05",
+    "title": "异步多相机动态重建与世界记忆",
+    "summary": "Phase-DGS、SettleSplat、FlowBench",
+    "kind": "历史摘要（非逐字原文）",
+    "tags": [
+      "4DGS",
+      "多相机",
+      "世界模型"
+    ],
+    "highlights": [
+      "Phase-DGS",
+      "SettleSplat",
+      "FlowBench"
+    ],
+    "url": "issues/2026-11-05.html"
+  },
+  {
+    "date": "2026-11-04",
+    "title": "观测约束的几何补全与统一相机射线",
+    "summary": "AnchorComplete、Ray-SCR、CoLa3D",
+    "kind": "历史摘要（非逐字原文）",
+    "tags": [
+      "3D生成",
+      "多相机",
+      "深度估计"
+    ],
+    "highlights": [
+      "AnchorComplete",
+      "Ray-SCR",
+      "CoLa3D"
+    ],
+    "url": "issues/2026-11-04.html"
+  },
+  {
+    "date": "2026-11-03",
+    "title": "自监督几何与结构化Gaussian SLAM",
+    "summary": "Rethinking Asymmetry、DrawSplat、EgoHSI3R",
+    "kind": "历史摘要（非逐字原文）",
+    "tags": [
+      "VGGT",
+      "SLAM",
+      "4DGS"
+    ],
+    "highlights": [
+      "Rethinking Asymmetry",
+      "DrawSplat",
+      "EgoHSI3R"
+    ],
+    "url": "issues/2026-11-03.html"
+  },
+  {
+    "date": "2026-11-02",
+    "title": "动态4D世界与几何条件扩散",
+    "summary": "SonoWorld4D、PhysInsert",
+    "kind": "历史摘要（非逐字原文）",
+    "tags": [
+      "4DGS",
+      "VGGT",
+      "世界模型"
+    ],
+    "highlights": [
+      "SonoWorld4D",
+      "PhysInsert"
+    ],
+    "url": "issues/2026-11-02.html"
+  },
+  {
+    "date": "2026-11-01",
+    "title": "静动态场景记忆与超广角Gaussian",
+    "summary": "GROME、GOFish",
+    "kind": "历史摘要（非逐字原文）",
+    "tags": [
+      "世界模型",
+      "3DGS",
+      "多相机"
+    ],
+    "highlights": [
+      "GROME",
+      "GOFish"
+    ],
+    "url": "issues/2026-11-01.html"
+  },
+  {
+    "date": "2026-10-31",
+    "title": "Gaussian记忆与可靠性引导生成",
+    "summary": "L3G-World、GradSplat、RGMV",
+    "kind": "历史摘要（非逐字原文）",
+    "tags": [
+      "3DGS",
+      "世界模型",
+      "几何优化"
+    ],
+    "highlights": [
+      "L3G-World",
+      "GradSplat",
+      "RGMV"
+    ],
+    "url": "issues/2026-10-31.html"
+  },
+  {
+    "date": "2026-10-30",
+    "title": "几何约束前馈3DGS与相机模型",
+    "summary": "GeoGSplat、Any3R、GroundControl",
+    "kind": "历史摘要（非逐字原文）",
+    "tags": [
+      "3DGS",
+      "VGGT",
+      "生成式外展"
+    ],
+    "highlights": [
+      "GeoGSplat",
+      "Any3R",
+      "GroundControl"
+    ],
+    "url": "issues/2026-10-30.html"
+  }
+]
