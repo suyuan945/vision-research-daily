@@ -1,6 +1,14 @@
 name: Generate and publish research daily
 on:
   workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - 'site/index.html'
+      - 'site/assets/**'
+      - 'scripts/build.py'
+      - 'content/**'
+      - '.github/workflows/daily.yml'
   schedule:
     - cron: '10 23 * * *' # 08:10 JST; may be delayed
 permissions:
