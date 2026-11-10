@@ -12,5 +12,5 @@
     "PhysInsert"
   ],
   "kind": "历史摘要（非逐字原文）",
-  "markdown": "> 本文是此前聊天日报的主题索引，不代表本次重新核验了论文实验数值或代码状态。\n\n## 本期重点\n\nSonoWorld4D、PhysInsert。\n\n## 论文及项目入口\n\n- [SonoWorld4D](https://arxiv.org/abs/2610.40640)\n- [PhysInsert](https://arxiv.org/abs/2610.40300)\n\n## 技术价值\n\n围绕稀疏多相机、3DGS/4DGS以及可控世界生成，评估其几何可信度、复现条件、时间一致性和工程成本。论文细节请以原文为准。\n"
+  "markdown": "> 本文是此前聊天日报的主题索引，不代表本次重新核验了论文实验数值或代码状态。\n\n## 本期重点\n\nSonoWorld4D、PhysInsert。\n\n## 论文及项目入口\n\n- [SonoWorld4D](https://arxiv.org/abs/2610.40640)\n- **PhysInsert**：论文链接未在本次导入中核实，暂不提供链接。\n\n## 技术价值\n\n围绕稀疏多相机、3DGS/4DGS以及可控世界生成，评估其几何可信度、复现条件、时间一致性和工程成本。论文细节请以原文为准。\n"
 }
