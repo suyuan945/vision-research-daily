@@ -1,12 +1,24 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="3DGS、4DGS、VGGT与世界模型前沿论文技术日报及历史归档"><title>3D Vision Research Daily · 三维视觉论文日报</title><link rel="stylesheet" href="assets/style.css"></head>
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="3DGS、4DGS、VGGT、世界模型：每日精选、可检索论文库、个人收藏与AI精读入口。">
+<title>3D Vision Research Hub · 每日论文情报库</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
 <body>
-<header class="site-header"><div class="header-inner"><a class="brand" href="./"><span class="brand-mark">◈</span><span>3D <em>VISION</em> DAILY</span></a><nav class="site-nav" aria-label="主导航"><a href="#latest">最新日报</a><a href="#archive">历史归档</a></nav></div></header>
-<main class="page-shell">
-<section class="hero"><div class="eyebrow">RESEARCH INTELLIGENCE / DAILY DIGEST</div><h1>追踪三维视觉的<br><span>每一次重要进展。</span></h1><p class="lead">聚焦 3D Gaussian Splatting、VGGT、动态重建与世界模型。精选高价值论文，梳理核心技术、复现状态与研究价值。</p><div class="hero-bottom"><div class="metric"><strong id="count">—</strong><small>已归档日报</small></div><div class="metric"><strong id="latest-date">—</strong><small>最近更新</small></div><a class="hero-link" href="#archive">浏览全部研究归档 ↗</a></div></section>
-<section id="latest" class="section"><div class="section-title"><h2>最新一期</h2><span class="meta">LATEST RESEARCH BRIEF</span></div><div id="featured" class="featured" aria-live="polite">读取中…</div></section>
-<section id="archive" class="section"><div class="section-title"><h2>历史日报</h2><span class="meta">RESEARCH ARCHIVE</span></div><div class="controls"><label class="search-box"><input id="search" type="search" aria-label="搜索论文与技术关键词" placeholder="搜索论文名称、3DGS、VGGT、世界模型…"></label><select id="topic" aria-label="技术方向"><option value="">所有研究方向</option></select></div><p class="result-summary" id="resultcount"></p><div id="results" class="archive-grid" aria-live="polite"></div></section>
-<aside class="site-note">关于归档：早期内容为原有 ChatGPT 日报的摘要索引；新文章由独立自动化流程生成。历史记录不会自动等同于聊天推送全文，技术指标与开源情况应以论文和项目官方信息为准。</aside>
-</main><footer class="site-footer">3D VISION RESEARCH DAILY <span aria-hidden="true"> · </span> RESEARCH FIRST, EVIDENCE FIRST.</footer><script src="assets/app.js" defer></script>
+<header class="site-header"><div class="header-inner"><a class="brand" href="./"><span class="brand-mark">◈</span><span>3D <em>VISION</em> HUB</span></a><nav class="site-nav"><a href="#today" data-route="today">今日</a><a href="#papers" data-route="papers">论文库</a><a href="#favorites" data-route="favorites">我的收藏 <span id="saved-count"></span></a><a href="#archive" data-route="archive">历史日报</a></nav></div></header>
+<main class="page-shell hub">
+<section id="today" class="hub-view">
+<div class="hub-hero"><div><div class="eyebrow">3D RESEARCH INTELLIGENCE / DAILY</div><h1>今天有哪些<br><span>值得读的论文？</span></h1><p class="lead">聚焦稀疏视角4DGS、3D Gaussian Splatting、视觉几何基础模型与可控世界生成。先看重要变化，再深入研究。</p></div><div class="hub-stats"><div class="metric"><strong id="count">—</strong><small>历史日报</small></div><div class="metric"><strong id="paper-count">—</strong><small>已收录论文</small></div></div></div>
+<div class="section-title"><h2>最新研究简报</h2><span class="meta" id="latest-date">—</span></div><div id="featured" class="featured">正在读取最新日报…</div>
+<div class="section-title section-offset"><h2>本期相关论文</h2><a href="#papers" class="section-link">浏览全部 ↗</a></div><div id="today-papers" class="paper-grid"></div>
+</section>
+<section id="papers" class="hub-view" hidden><div class="view-heading"><div class="eyebrow">RESEARCH DATABASE</div><h1>论文数据库</h1><p class="muted">基于 arXiv ID 去重，检索已收录论文；早期条目为历史索引，部分摘要和代码信息尚待核实。</p></div><div class="controls"><label class="search-box"><input id="paper-search" type="search" placeholder="搜索论文名称、arXiv ID、摘要与关键词…" aria-label="搜索论文"></label><select id="paper-topic" aria-label="按方向筛选"><option value="">全部方向</option></select><select id="paper-order" aria-label="排序方式"><option value="recent">最近收录</option><option value="title">名称 A–Z</option></select></div><p id="paper-results-count" class="result-summary"></p><div id="paper-results" class="paper-grid"></div></section>
+<section id="favorites" class="hub-view" hidden><div class="view-heading"><div class="eyebrow">YOUR RESEARCH SPACE</div><h1>我的收藏</h1><p class="muted">所有收藏与研究状态默认仅保存在当前浏览器。可导出 JSON 备份，换设备后导入恢复。</p></div><div class="backup-actions"><button type="button" class="outline-btn" id="export-favorites">↓ 导出收藏 JSON</button><label class="outline-btn import-label" for="import-file">↑ 导入收藏 JSON</label><input type="file" id="import-file" accept=".json,application/json" hidden><span id="backup-message" role="status"></span></div><div class="controls"><label class="search-box"><input id="favorite-search" type="search" placeholder="搜索我的收藏…" aria-label="搜索我的收藏"></label><select id="favorite-status" aria-label="筛选阅读状态"><option value="">所有阅读状态</option><option value="unread">待读</option><option value="reading">精读中</option><option value="reproduce">待复现</option><option value="done">已完成</option></select></div><p id="favorite-results-count" class="result-summary"></p><div id="favorite-results" class="paper-grid"></div></section>
+<section id="archive" class="hub-view" hidden><div class="view-heading"><div class="eyebrow">DAILY ARCHIVE</div><h1>历史日报</h1><p class="muted">每天的研究判断独立保存，按日期回看过去关注过的论文和方向。</p></div><div class="controls"><label class="search-box"><input id="search" type="search" placeholder="搜索日报标题、日期与关键词…" aria-label="搜索日报"></label><select id="topic" aria-label="日报研究方向"><option value="">所有方向</option></select></div><p class="result-summary" id="resultcount"></p><div id="results" class="archive-grid"></div></section>
+<aside class="site-note">数据说明：早期日报由聊天内容整理为摘要索引，论文名称可能是简写；原始发表日期和实验结果以 arXiv 原文为准。收藏仅保存在当前浏览器，不会上传至公开 GitHub 仓库；ChatGPT 解读操作是复制研究提示词，由你自主粘贴并发送。</aside>
+</main>
+<footer class="site-footer">3D VISION RESEARCH HUB · RESEARCH FIRST, EVIDENCE FIRST.</footer>
+<script src="assets/research-store.js" defer></script><script src="assets/app.js" defer></script>
 </body></html>
