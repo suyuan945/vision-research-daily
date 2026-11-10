@@ -4,7 +4,7 @@
 
 - 历史文章位于 `content/YYYY-MM-DD.json`；初始12期为前序聊天的**摘要索引**，不是全文，也未重新核实实验数据。
 - `scripts/build.py` 生成静态网站，输出到 `site/`。
-- `scripts/generate.py` 从 arXiv 元数据生成新增一期；需要单独计费的 `OPENAI_API_KEY`。
+- `scripts/generate.py` 从 arXiv 元数据调用 DeepSeek 生成新增一期；需要单独计费的 `DEEPSEEK_API_KEY`。
 - `.github/workflows/daily.yml` 每天定时构建并发布 GitHub Pages。
 
 ## 本地预览
