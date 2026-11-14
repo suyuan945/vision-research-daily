@@ -21,6 +21,66 @@
   "articles": [
     {
       "account": "量子位",
+      "title": "70+机器人公司投出具身第一云：优化Ego视频位姿恢复，砍掉43%GPU用时",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247943628&idx=1&sn=d20f3d68729aad76e6db84be5e78cf35",
+      "date": "2026-11-12",
+      "tags": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
+    {
+      "account": "我爱计算机视觉",
+      "title": "英国萨里大学等提出NitroFusion2：首次将对抗判别引入MMDiT文本流，刷新1步极速图像生成纪录",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ%3D%3D&mid=2247667247&idx=1&sn=3e0182bb6bee22cfc3a8849821ba9ee2",
+      "date": "2026-11-12",
+      "tags": [
+        "图像生成"
+      ],
+      "paper_ids": []
+    },
+    {
+      "account": "量子位",
+      "title": "100轮图像编辑这道「毙刷题」，新出的Seedream 5.5稳上来了！",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247942445&idx=1&sn=18eb40f983ce6f226d5e91685b655b10",
+      "date": "2026-11-10",
+      "tags": [
+        "可控生成"
+      ],
+      "paper_ids": []
+    },
+    {
+      "account": "我爱计算机视觉",
+      "title": "ACM MM 2026 Oral | 北航等提出CamoDreamer：要融入，先解耦：通过上下文解耦同化渲染重新思考伪装图像生成",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ%3D%3D&mid=2247667151&idx=1&sn=c54221464fa11b5bc80a34827198d022",
+      "date": "2026-11-10",
+      "tags": [
+        "图像生成"
+      ],
+      "paper_ids": []
+    },
+    {
+      "account": "量子位",
+      "title": "具身智能出海，物流先行",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247940695&idx=2&sn=6c551886ee57dd136d7f99371d2c7fb0",
+      "date": "2026-11-09",
+      "tags": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
+    {
+      "account": "我爱计算机视觉",
+      "title": "TPAMI 2026｜西南财大&电子科大等提出MIIB：打破多视角冗余假设，多模态自监督解耦新范式",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ%3D%3D&mid=2247667101&idx=1&sn=7b4c685e16148b46331aca210015799c",
+      "date": "2026-11-09",
+      "tags": [
+        "三维几何"
+      ],
+      "paper_ids": []
+    },
+    {
+      "account": "量子位",
       "title": "从图像生成到可交互的三维世界",
       "date": "2026-10-12",
       "url": "https://www.qbitai.com/2026/10/502701.html",

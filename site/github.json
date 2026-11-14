@@ -1,8 +1,82 @@
 {
   "status": "ok",
-  "checked_at": "2026-11-14T12:04:08+08:00",
+  "checked_at": "2026-11-14T12:37:25+08:00",
   "failed_sources": [],
   "repositories": [
+    {
+      "id": "1453122965",
+      "name": "AdamPrototype/muvee-reveal-desktop",
+      "url": "https://github.com/AdamPrototype/muvee-reveal-desktop",
+      "description": "Muvee-Reveal: HD Video Editing and Slideshow Software for Windows",
+      "created_at": "2026-11-10T19:51:03Z",
+      "first_seen": "2026-11-14",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "视频编辑"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1451428480",
+      "name": "aigc3d/PhysOPSD",
+      "url": "https://github.com/aigc3d/PhysOPSD",
+      "description": "PhysOPSD: Code as Privilege for Physically Plausible Video Generation",
+      "created_at": "2026-11-09T13:51:27Z",
+      "first_seen": "2026-11-14",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "视频生成"
+      ],
+      "paper_ids": [
+        "2611.12411"
+      ]
+    },
+    {
+      "id": "1454923883",
+      "name": "alinuo666/ComfyUI-Banzhang-All",
+      "url": "https://github.com/alinuo666/ComfyUI-Banzhang-All",
+      "description": "ComfyUI custom node pack for MiniMax H3 video generation - three-pass workflow, HD video on a 6 GB GPU. 面向 MiniMax H3 的 ComfyUI 中文插件：三采工作流，6GB 显存也能跑高清视频。",
+      "created_at": "2026-11-12T06:37:26Z",
+      "first_seen": "2026-11-14",
+      "license": "GPL-3.0",
+      "license_name": "GNU General Public License v3.0",
+      "topics": [
+        "视频生成"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1454769413",
+      "name": "blueif16/vla_final",
+      "url": "https://github.com/blueif16/vla_final",
+      "description": "CS 6180 final project on vision-language-action models: learning chapters, status and (later) code",
+      "created_at": "2026-11-12T03:12:00Z",
+      "first_seen": "2026-11-14",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": [
+        "2602.17659"
+      ]
+    },
+    {
+      "id": "1457235941",
+      "name": "brave-plum-co/leonardo-ai-desktop",
+      "url": "https://github.com/brave-plum-co/leonardo-ai-desktop",
+      "description": "Leonardo AI 2026 desktop setup with text-to-image generation using fine-tuned models, canvas editor with inpainting and outpainting, plus real-time generation and image-to-motion for Windows 11",
+      "created_at": "2026-11-14T00:23:46Z",
+      "first_seen": "2026-11-14",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "图像生成"
+      ],
+      "paper_ids": []
+    },
     {
       "id": "1094841344",
       "name": "ByteDance-Seed/Depth-Anything-3",
@@ -20,6 +94,20 @@
       ]
     },
     {
+      "id": "1456118951",
+      "name": "chakravarthi589/frontier-action-models",
+      "url": "https://github.com/chakravarthi589/frontier-action-models",
+      "description": "Vision Language Action Models vs World Action Models Resources brought together!",
+      "created_at": "2026-11-13T03:45:34Z",
+      "first_seen": "2026-11-14",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1455966158",
       "name": "cs184-fa26-gaussiansplatting/final-project-proposal",
       "url": "https://github.com/cs184-fa26-gaussiansplatting/final-project-proposal",
@@ -30,6 +118,34 @@
       "license_name": "",
       "topics": [
         "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1449055140",
+      "name": "ctrlbysunidhi/task_aware_vla",
+      "url": "https://github.com/ctrlbysunidhi/task_aware_vla",
+      "description": "Task-aware neural representations and controllability in vision-language-action models",
+      "created_at": "2026-11-07T05:23:32Z",
+      "first_seen": "2026-11-14",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1456312458",
+      "name": "DouglasLafortune7668/virtual-card-usdt-world-models-embodied-ai-sim-vcc",
+      "url": "https://github.com/DouglasLafortune7668/virtual-card-usdt-world-models-embodied-ai-sim-vcc",
+      "description": "An architectural FinOps and payment-clearing guide for Embodied AI & World Model training clusters (Google Genie 4 / NVIDIA Cosmos / Isaac Lab), preventing cloud GPU cluster payment freezes and runaway simulation billing via USDT-funded CoreGold Virtual Cards (VCC) and Apple Pay.",
+      "created_at": "2026-11-13T07:50:30Z",
+      "first_seen": "2026-11-14",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "世界模型"
       ],
       "paper_ids": []
     },
@@ -80,6 +196,20 @@
       ]
     },
     {
+      "id": "1455585943",
+      "name": "GolovchenkoA/text-to-image",
+      "url": "https://github.com/GolovchenkoA/text-to-image",
+      "description": "text-to-image AI models",
+      "created_at": "2026-11-12T16:57:00Z",
+      "first_seen": "2026-11-14",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "图像生成"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "662028682",
       "name": "graphdeco-inria/gaussian-splatting",
       "url": "https://github.com/graphdeco-inria/gaussian-splatting",
@@ -90,6 +220,20 @@
       "license_name": "Other",
       "topics": [
         "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1453111578",
+      "name": "guhytrghfghtr/honestech-video-editor",
+      "url": "https://github.com/guhytrghfghtr/honestech-video-editor",
+      "description": "Honestech Video Editor: Windows Video Editing with Trimming, Merging, and Audio Tools",
+      "created_at": "2026-11-10T19:39:34Z",
+      "first_seen": "2026-11-14",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "视频编辑"
       ],
       "paper_ids": []
     },
@@ -111,6 +255,22 @@
       ]
     },
     {
+      "id": "1452531582",
+      "name": "HybridRobotics/supermimic",
+      "url": "https://github.com/HybridRobotics/supermimic",
+      "description": "Humanoid whole-body motion tracking with one differentiable world model.",
+      "created_at": "2026-11-10T10:46:56Z",
+      "first_seen": "2026-11-14",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "世界模型"
+      ],
+      "paper_ids": [
+        "2610.28480"
+      ]
+    },
+    {
       "id": "1456686765",
       "name": "jayjayhust/waypoint-studio",
       "url": "https://github.com/jayjayhust/waypoint-studio",
@@ -121,6 +281,34 @@
       "license_name": "Apache License 2.0",
       "topics": [
         "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1451163585",
+      "name": "jeevangowda973113-star/video-generation",
+      "url": "https://github.com/jeevangowda973113-star/video-generation",
+      "description": "An affordable, open-source AI video generation platform designed to make professional video creation accessible to everyone. Generate videos from text prompts and images, edit content, add effects and captions, and export high-quality videos. Built with open-source AI models, scalable architecture, and a focus on minimizing infrastructure costs.",
+      "created_at": "2026-11-09T09:24:44Z",
+      "first_seen": "2026-11-14",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "视频生成"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1453138469",
+      "name": "mahmodkhalid7171-cmd/video-flick",
+      "url": "https://github.com/mahmodkhalid7171-cmd/video-flick",
+      "description": "Video-Flick: Visual Video Editing and Presentation Workflow for Windows",
+      "created_at": "2026-11-10T20:06:58Z",
+      "first_seen": "2026-11-14",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "视频编辑"
       ],
       "paper_ids": []
     },
@@ -149,6 +337,20 @@
       "license_name": "Other",
       "topics": [
         "动态重建"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1454691359",
+      "name": "Mouni-0909/video-generation",
+      "url": "https://github.com/Mouni-0909/video-generation",
+      "description": "Generating video using SCALE framework via JSON",
+      "created_at": "2026-11-12T01:26:48Z",
+      "first_seen": "2026-11-14",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "视频生成"
       ],
       "paper_ids": []
     },
@@ -197,6 +399,20 @@
       "paper_ids": []
     },
     {
+      "id": "1449625089",
+      "name": "rudranaresh0201/so101-world-model",
+      "url": "https://github.com/rudranaresh0201/so101-world-model",
+      "description": "SAC picks a box with a simulated SO-101 arm in MuJoCo; a second policy trains inside a learned world model, exploits it, and is tested back in real physics",
+      "created_at": "2026-11-07T18:21:14Z",
+      "first_seen": "2026-11-14",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "世界模型"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1449936740",
       "name": "sidhantbas/affectpropogation",
       "url": "https://github.com/sidhantbas/affectpropogation",
@@ -207,6 +423,20 @@
       "license_name": "",
       "topics": [
         "世界模型"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1453116642",
+      "name": "sohail-ai-dev/machete-media-tool",
+      "url": "https://github.com/sohail-ai-dev/machete-media-tool",
+      "description": "Machete: Visual Video Editing for Fast Scene Cuts and Flow",
+      "created_at": "2026-11-10T19:44:48Z",
+      "first_seen": "2026-11-14",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "视频编辑"
       ],
       "paper_ids": []
     },
@@ -241,6 +471,20 @@
       "paper_ids": []
     },
     {
+      "id": "1456049760",
+      "name": "Travis-Yu/Travis-Yu.github.io",
+      "url": "https://github.com/Travis-Yu/Travis-Yu.github.io",
+      "description": "Haoyang Yu — Embodied AI and Vision-Language-Action research portfolio",
+      "created_at": "2026-11-13T02:10:21Z",
+      "first_seen": "2026-11-14",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1456959703",
       "name": "zerokhong1/gs4d_viewer",
       "url": "https://github.com/zerokhong1/gs4d_viewer",
@@ -253,6 +497,22 @@
         "动态重建"
       ],
       "paper_ids": []
+    },
+    {
+      "id": "1449039856",
+      "name": "ZouShilong1024/Pelican-Sim1.0",
+      "url": "https://github.com/ZouShilong1024/Pelican-Sim1.0",
+      "description": "Code for paper: Pelican-Sim 1.0: A General World Model Simulator for Embodied Intelligence",
+      "created_at": "2026-11-07T04:57:08Z",
+      "first_seen": "2026-11-14",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "世界模型"
+      ],
+      "paper_ids": [
+        "2609.12036"
+      ]
     }
   ],
   "events": [
@@ -320,6 +580,15 @@
       "url": "https://github.com/Tencent-Hunyuan/HunyuanWorld-1.0"
     },
     {
+      "id": "repo:1457235941",
+      "repository_id": "1457235941",
+      "kind": "new",
+      "date": "2026-11-14T00:23:46Z",
+      "first_seen": "2026-11-14",
+      "title": "brave-plum-co/leonardo-ai-desktop",
+      "url": "https://github.com/brave-plum-co/leonardo-ai-desktop"
+    },
+    {
       "id": "repo:1457040015",
       "repository_id": "1457040015",
       "kind": "new",
@@ -356,6 +625,33 @@
       "url": "https://github.com/jayjayhust/waypoint-studio"
     },
     {
+      "id": "repo:1456312458",
+      "repository_id": "1456312458",
+      "kind": "new",
+      "date": "2026-11-13T07:50:30Z",
+      "first_seen": "2026-11-14",
+      "title": "DouglasLafortune7668/virtual-card-usdt-world-models-embodied-ai-sim-vcc",
+      "url": "https://github.com/DouglasLafortune7668/virtual-card-usdt-world-models-embodied-ai-sim-vcc"
+    },
+    {
+      "id": "repo:1456118951",
+      "repository_id": "1456118951",
+      "kind": "new",
+      "date": "2026-11-13T03:45:34Z",
+      "first_seen": "2026-11-14",
+      "title": "chakravarthi589/frontier-action-models",
+      "url": "https://github.com/chakravarthi589/frontier-action-models"
+    },
+    {
+      "id": "repo:1456049760",
+      "repository_id": "1456049760",
+      "kind": "new",
+      "date": "2026-11-13T02:10:21Z",
+      "first_seen": "2026-11-14",
+      "title": "Travis-Yu/Travis-Yu.github.io",
+      "url": "https://github.com/Travis-Yu/Travis-Yu.github.io"
+    },
+    {
       "id": "repo:1455966158",
       "repository_id": "1455966158",
       "kind": "new",
@@ -363,6 +659,54 @@
       "first_seen": "2026-11-14",
       "title": "cs184-fa26-gaussiansplatting/final-project-proposal",
       "url": "https://github.com/cs184-fa26-gaussiansplatting/final-project-proposal"
+    },
+    {
+      "id": "repo:1455585943",
+      "repository_id": "1455585943",
+      "kind": "new",
+      "date": "2026-11-12T16:57:00Z",
+      "first_seen": "2026-11-14",
+      "title": "GolovchenkoA/text-to-image",
+      "url": "https://github.com/GolovchenkoA/text-to-image"
+    },
+    {
+      "id": "release:442656897",
+      "repository_id": "1454923883",
+      "kind": "release",
+      "date": "2026-11-12T08:16:07Z",
+      "first_seen": "2026-11-14",
+      "title": "v2.1.1 首个公开版本",
+      "version": "v2.1.1",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/alinuo666/ComfyUI-Banzhang-All/releases/tag/v2.1.1"
+    },
+    {
+      "id": "repo:1454923883",
+      "repository_id": "1454923883",
+      "kind": "new",
+      "date": "2026-11-12T06:37:26Z",
+      "first_seen": "2026-11-14",
+      "title": "alinuo666/ComfyUI-Banzhang-All",
+      "url": "https://github.com/alinuo666/ComfyUI-Banzhang-All"
+    },
+    {
+      "id": "repo:1454769413",
+      "repository_id": "1454769413",
+      "kind": "new",
+      "date": "2026-11-12T03:12:00Z",
+      "first_seen": "2026-11-14",
+      "title": "blueif16/vla_final",
+      "url": "https://github.com/blueif16/vla_final"
+    },
+    {
+      "id": "repo:1454691359",
+      "repository_id": "1454691359",
+      "kind": "new",
+      "date": "2026-11-12T01:26:48Z",
+      "first_seen": "2026-11-14",
+      "title": "Mouni-0909/video-generation",
+      "url": "https://github.com/Mouni-0909/video-generation"
     },
     {
       "id": "repo:1453933411",
@@ -383,6 +727,69 @@
       "url": "https://github.com/pouyasam1996/gaussian-slam"
     },
     {
+      "id": "repo:1453138469",
+      "repository_id": "1453138469",
+      "kind": "new",
+      "date": "2026-11-10T20:06:58Z",
+      "first_seen": "2026-11-14",
+      "title": "mahmodkhalid7171-cmd/video-flick",
+      "url": "https://github.com/mahmodkhalid7171-cmd/video-flick"
+    },
+    {
+      "id": "repo:1453122965",
+      "repository_id": "1453122965",
+      "kind": "new",
+      "date": "2026-11-10T19:51:03Z",
+      "first_seen": "2026-11-14",
+      "title": "AdamPrototype/muvee-reveal-desktop",
+      "url": "https://github.com/AdamPrototype/muvee-reveal-desktop"
+    },
+    {
+      "id": "repo:1453116642",
+      "repository_id": "1453116642",
+      "kind": "new",
+      "date": "2026-11-10T19:44:48Z",
+      "first_seen": "2026-11-14",
+      "title": "sohail-ai-dev/machete-media-tool",
+      "url": "https://github.com/sohail-ai-dev/machete-media-tool"
+    },
+    {
+      "id": "repo:1453111578",
+      "repository_id": "1453111578",
+      "kind": "new",
+      "date": "2026-11-10T19:39:34Z",
+      "first_seen": "2026-11-14",
+      "title": "guhytrghfghtr/honestech-video-editor",
+      "url": "https://github.com/guhytrghfghtr/honestech-video-editor"
+    },
+    {
+      "id": "repo:1452531582",
+      "repository_id": "1452531582",
+      "kind": "new",
+      "date": "2026-11-10T10:46:56Z",
+      "first_seen": "2026-11-14",
+      "title": "HybridRobotics/supermimic",
+      "url": "https://github.com/HybridRobotics/supermimic"
+    },
+    {
+      "id": "repo:1451428480",
+      "repository_id": "1451428480",
+      "kind": "new",
+      "date": "2026-11-09T13:51:27Z",
+      "first_seen": "2026-11-14",
+      "title": "aigc3d/PhysOPSD",
+      "url": "https://github.com/aigc3d/PhysOPSD"
+    },
+    {
+      "id": "repo:1451163585",
+      "repository_id": "1451163585",
+      "kind": "new",
+      "date": "2026-11-09T09:24:44Z",
+      "first_seen": "2026-11-14",
+      "title": "jeevangowda973113-star/video-generation",
+      "url": "https://github.com/jeevangowda973113-star/video-generation"
+    },
+    {
       "id": "repo:1449936740",
       "repository_id": "1449936740",
       "kind": "new",
@@ -401,6 +808,15 @@
       "url": "https://github.com/nour769/3DGS-Localization"
     },
     {
+      "id": "repo:1449625089",
+      "repository_id": "1449625089",
+      "kind": "new",
+      "date": "2026-11-07T18:21:14Z",
+      "first_seen": "2026-11-14",
+      "title": "rudranaresh0201/so101-world-model",
+      "url": "https://github.com/rudranaresh0201/so101-world-model"
+    },
+    {
       "id": "repo:1449303976",
       "repository_id": "1449303976",
       "kind": "new",
@@ -408,6 +824,24 @@
       "first_seen": "2026-11-14",
       "title": "evan01624/rijks-studio-scan",
       "url": "https://github.com/evan01624/rijks-studio-scan"
+    },
+    {
+      "id": "repo:1449055140",
+      "repository_id": "1449055140",
+      "kind": "new",
+      "date": "2026-11-07T05:23:32Z",
+      "first_seen": "2026-11-14",
+      "title": "ctrlbysunidhi/task_aware_vla",
+      "url": "https://github.com/ctrlbysunidhi/task_aware_vla"
+    },
+    {
+      "id": "repo:1449039856",
+      "repository_id": "1449039856",
+      "kind": "new",
+      "date": "2026-11-07T04:57:08Z",
+      "first_seen": "2026-11-14",
+      "title": "ZouShilong1024/Pelican-Sim1.0",
+      "url": "https://github.com/ZouShilong1024/Pelican-Sim1.0"
     }
   ]
 }
