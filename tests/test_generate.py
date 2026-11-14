@@ -18,6 +18,31 @@ def response(content, reason="stop"):
 
 
 class GenerateDigestTests(unittest.TestCase):
+    def test_daily_status_distinguishes_no_new_from_failure(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory)
+            with (
+                patch.object(generate, "CONTENT", output),
+                patch.object(generate, "collect_papers", side_effect=[{}, TimeoutError("arXiv timed out")]),
+                patch.dict(generate.os.environ, {"DEEPSEEK_API_KEY": "test-key"}),
+            ):
+                generate.main()
+                check = next((output / "checks").glob("*.json"))
+                self.assertEqual(json.loads(check.read_text(encoding="utf-8"))["status"], "no_new")
+                with self.assertRaises(TimeoutError):
+                    generate.main()
+                self.assertEqual(json.loads(check.read_text(encoding="utf-8"))["status"], "failed")
+            self.assertEqual(list(output.glob("*.json")), [])
+
+    def test_archived_links_include_older_issues(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory)
+            for day in range(1, 10):
+                (output / f"2026-11-{day:02d}.json").write_text("{}", encoding="utf-8")
+            (output / "2026-10-01.json").write_text(json.dumps({"markdown": PAPER_URL}), encoding="utf-8")
+            with patch.object(generate, "CONTENT", output):
+                self.assertEqual(generate.archived_links(), {PAPER_URL})
+
     def test_truncated_json_is_retried_then_archived(self):
         digest = {
             "title": "研究日报",

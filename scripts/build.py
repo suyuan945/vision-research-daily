@@ -20,6 +20,15 @@ markdown = mistune.create_markdown(plugins=["table", "strikethrough", "url"])
 PAPER_LINK = re.compile(r'\[([^\]\n]{2,200})\]\(https?://arxiv\.org/abs/(\d{4}\.\d{4,5})(?:v\d+)?(?:[?#][^)]*)?\)')
 PAPER_URL = re.compile(r'https?://arxiv\.org/abs/(\d{4}\.\d{4,5})(?:v\d+)?')
 PAPER_ID = re.compile(r'^\d{4}\.\d{4,5}$')
+PAPER_TOPICS = {
+    "4DGS / 动态重建": r"\b4dgs\b|\b4d (?:gaussian|reconstruction)|dynamic (?:gaussian|scene reconstruction)|4d scene",
+    "3DGS / 渲染": r"\b3dgs\b|gaussian splatting|splatting|radiance fields?",
+    "多视角 / 相机几何": r"multi[- ]?(?:view|camera)|camera (?:pose|models?|calibration)|\bslam\b|structure.from.motion|novel view synthesis",
+    "几何基础模型": r"geometry foundation model|visual geometry foundation|\bvggt\b|\bdust3r\b|\bmast3r\b|feed[- ]?forward.{0,28}3d reconstruction",
+    "三维重建 / 深度": r"(?:3d|three.dimensional|geometric) reconstruction|depth (?:estimation|completion)|scene geometry|point clouds?|mesh(?:es)?",
+    "可控生成 / 世界模型": r"world model|world generation|video (?:diffusion|generation|editing)|camera.conditioned|camera.controlled|multi.view diffusion",
+    "具身视觉": r"robot(?:s|ic)? manipulation|embodied|vision.language.action|\bvla\b",
+}
 
 source_config = json.loads((ROOT / "sources.json").read_text(encoding="utf-8"))
 github_index = SITE / "github.json"
@@ -171,8 +180,24 @@ for file in sorted(CONTENT.glob("*.json")):
         label, pid = match.group(1).strip(), match.group(2)
         merge_paper(papers, paper_record(pid, label, date, topic_tags))
 
+metadata_path = CONTENT / "paper-metadata" / "arxiv.json"
+if metadata_path.exists():
+    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+    for pid, paper in papers.items():
+        if pid not in metadata or paper["source"] == "arxiv_metadata":
+            continue
+        original = metadata[pid]
+        if paper["title"] != original["title"]:
+            paper["aliases"] = [paper["title"]]
+        paper.update(title=original["title"], abstract=original["abstract"],
+                     published=original["published"], source="arxiv_metadata")
+
 for pid, paper in papers.items():
     title = paper["title"]
+    heading_topics = [label for label, match in PAPER_TOPICS.items() if re.search(match, title, re.I)]
+    abstract_topics = [label for label, match in PAPER_TOPICS.items()
+                       if re.search(match, paper["abstract"], re.I)]
+    paper["tags"] = list(dict.fromkeys(heading_topics + abstract_topics)) or paper["tags"]
     description = paper["abstract"] or "历史日报中收录的论文；详细资料请访问 arXiv 原文核实。"
     dates = "".join(f'<a href="../issues/{safe(d)}.html">{safe(d)}</a> ' for d in paper["digests"])
     # Details only display verified metadata or explicitly labelled historical index data.
@@ -190,9 +215,10 @@ for pid, paper in papers.items():
     if linked_articles:
         related_html += f"<h2>相关解读</h2><ul>{article_links(linked_articles)}</ul>"
     main = (f'<main class="article-shell paper-detail" data-paper-id="{safe(pid)}">'
-            f'<a class="article-back" href="../#papers">← 返回论文库</a>'
+            f'<a class="article-back" href="../#papers?date={safe(paper["first_seen"])}">← 返回收录日</a>'
             f'<div class="article-header"><div class="article-kicker">ARXIV · {safe(pid)}</div>'
             f'<h1>{safe(title)}</h1><p class="article-intro">首次收录：{safe(paper["first_seen"])}'
+            f'{(" · arXiv 提交：" + safe(paper["published"][:10]) + " UTC") if paper["published"] else ""}'
             f' · 代码状态：未核实</p><div class="tag-list">{tags_html(paper["tags"])}</div></div>'
             f'<div class="paper-actions"><button class="btn save-paper" data-paper-id="{safe(pid)}" type="button">☆ 收藏论文</button>'
             f'<button class="outline-btn ai-paper" data-paper-id="{safe(pid)}" type="button">✦ 复制 ChatGPT 解读问题</button>'
@@ -211,6 +237,10 @@ for pid, paper in papers.items():
     )
 
 ordered_papers = sorted(papers.values(), key=lambda d:(d["last_seen"], d["id"]), reverse=True)
+checks = []
+for file in sorted((CONTENT / "checks").glob("*.json"), reverse=True):
+    checks.append(json.loads(file.read_text(encoding="utf-8")))
+(SITE / "paper-checks.json").write_text(json.dumps(checks, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 (SITE / "papers.json").write_text(json.dumps(ordered_papers, ensure_ascii=False, indent=2), encoding="utf-8")
 (SITE / "index.json").write_text(json.dumps(sorted(issues,key=lambda d:d["date"],reverse=True),ensure_ascii=False,indent=2),encoding="utf-8")
 print(f"Built {len(issues)} digests and {len(ordered_papers)} unique arXiv paper records")

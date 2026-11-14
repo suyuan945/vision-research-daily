@@ -75,9 +75,9 @@ def collect_papers(now):
     return papers
 
 
-def recent_links():
+def archived_links():
     links = set()
-    for path in sorted(CONTENT.glob("*.json"), reverse=True)[:8]:
+    for path in CONTENT.glob("*.json"):
         issue = json.loads(path.read_text(encoding="utf-8"))
         links.update(ARXIV_LINK.findall(issue.get("markdown", "")))
         links.update(paper["url"] for paper in issue.get("papers", []) if "url" in paper)
@@ -153,32 +153,49 @@ def generate_digest(key, papers):
                 raise RuntimeError("No valid DeepSeek digest after two attempts") from error
 
 
-def main():
-    now = datetime.now(SHANGHAI)
+def write_json(path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temp_path = path.with_suffix(".tmp")
+    temp_path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    temp_path.replace(path)
+
+
+def generate_issue(now):
     day = now.date().isoformat()
     path = CONTENT / f"{day}.json"
     if path.exists():
         print(f"Issue already exists for {day}; skipping")
-        return
+        return "published"
     key = os.getenv("DEEPSEEK_API_KEY")
     if not key:
-        raise SystemExit("DEEPSEEK_API_KEY is required to generate a new issue")
+        raise RuntimeError("DEEPSEEK_API_KEY is required to generate a new issue")
 
-    seen = recent_links()
+    seen = archived_links()
     papers = {url: paper for url, paper in collect_papers(now).items() if url not in seen}
     print(f"Eligible arXiv records after deduplication: {len(papers)}")
     if not papers:
         print("No new arXiv records for this issue; keeping the archive")
-        return
+        return "no_new"
 
     digest = generate_digest(key, papers)
     digest.update(date=day, kind="自动生成 · 网页日报")
     digest["markdown"] += "\n\n---\n\n*由模型根据 arXiv 元数据生成，复现状态及指标请以官方论文为准。*"
-    CONTENT.mkdir(exist_ok=True)
-    temp_path = path.with_suffix(".tmp")
-    temp_path.write_text(json.dumps(digest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    temp_path.replace(path)
+    write_json(path, digest)
     print(f"Published content: {day} ({len(digest['papers'])} papers)")
+    return "published"
+
+
+def main():
+    started = datetime.now(SHANGHAI)
+    day = started.date().isoformat()
+    status = "failed"
+    try:
+        status = generate_issue(started)
+    finally:
+        write_json(CONTENT / "checks" / f"{day}.json", {
+            "date": day, "status": status,
+            "checked_at": datetime.now(SHANGHAI).isoformat(timespec="seconds"),
+        })
 
 
 if __name__ == "__main__":

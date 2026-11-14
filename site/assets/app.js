@@ -17,6 +17,12 @@ let articles = [];
 let githubUnavailable = false;
 let articlesUnavailable = false;
 let currentRoute;
+let paperChecks = [];
+let paperDay;
+let calendarMonth;
+let paperGroupLimit = 8;
+const issueByDate = new Map();
+const checkByDate = new Map();
 
 function paperCard(paper, saved) {
   const state = saved[paper.id] || { starred: false, status: "unread" };
@@ -46,7 +52,7 @@ function renderCards(container, rows, emptyMessage) {
 }
 
 function route() {
-  const hash = location.hash.slice(1);
+  const [hash, params] = location.hash.slice(1).split("?");
   const next = routes.includes(hash) ? hash : "today";
   document.querySelectorAll(".hub-view").forEach(section => { section.hidden = section.id !== next; });
   document.querySelectorAll("[data-route]").forEach(link => {
@@ -58,6 +64,12 @@ function route() {
     $("#" + next + " h1").focus({ preventScroll: true });
   }
   currentRoute = next;
+  if (next === "papers" && paperDay) {
+    const day = new URLSearchParams(params).get("date");
+    if (day && validPaperDate(day) && day !== paperDay) {
+      selectPaperDay(day, false);
+    }
+  }
 }
 
 function renderToday() {
@@ -77,18 +89,164 @@ function renderToday() {
 }
 
 function matchesPaper(paper, query) {
-  return [paper.id, paper.title, paper.abstract, ...(paper.tags || [])].join(" ").toLowerCase().includes(query);
+  return [paper.id, paper.title, paper.abstract, ...(paper.tags || []), ...(paper.aliases || [])]
+    .join(" ").toLowerCase().includes(query);
+}
+
+function validPaperDate(value) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value) || value > chinaDate(Date.now())) return false;
+  const parsed = new Date(value + "T00:00:00Z");
+  return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === value
+    && value >= (digests.at(-1)?.date || value);
+}
+
+function paperDateLabel(day) {
+  const [year, month, date] = day.split("-").map(Number);
+  return year + "年" + month + "月" + date + "日";
+}
+
+function paperDayRows(day) {
+  const preferred = issueByDate.get(day)?.paper_ids || [];
+  const matched = papers.filter(paper => paper.digests.includes(day));
+  if (!preferred.length) return matched;
+  const order = new Map(preferred.map((id, index) => [id, index]));
+  return matched.sort((a, b) => (order.get(a.id) ?? Infinity) - (order.get(b.id) ?? Infinity) || 0);
+}
+
+function selectPaperDay(day, updateUrl = true) {
+  paperDay = day;
+  calendarMonth = day.slice(0, 7);
+  $('input[name="paper-scope"][value="day"]').checked = true;
+  if (updateUrl) history.replaceState(null, "", "#papers?date=" + day);
+  renderPaperCalendar();
+  renderPapers();
+}
+
+function monthShift(offset) {
+  const [year, month] = calendarMonth.split("-").map(Number);
+  calendarMonth = new Date(Date.UTC(year, month - 1 + offset, 1)).toISOString().slice(0, 7);
+  renderPaperCalendar();
+}
+
+function renderPaperCalendar() {
+  if (!calendarMonth) return;
+  const [year, month] = calendarMonth.split("-").map(Number);
+  const offset = (new Date(Date.UTC(year, month - 1, 1)).getUTCDay() + 6) % 7;
+  const days = new Date(Date.UTC(year, month, 0)).getUTCDate();
+  const today = chinaDate(Date.now());
+  $("#paper-month").textContent = year + "年" + month + "月";
+  $("#paper-next-month").disabled = calendarMonth >= today.slice(0, 7);
+  const oldest = (digests.at(-1)?.date || today).slice(0, 7);
+  $("#paper-prev-month").disabled = calendarMonth <= oldest;
+  $("#paper-calendar-days").innerHTML = '<span aria-hidden="true"></span>'.repeat(offset)
+    + Array.from({ length: days }, (_, index) => {
+      const number = index + 1;
+      const date = calendarMonth + "-" + String(number).padStart(2, "0");
+      const state = issueByDate.has(date) ? "issue" : checkByDate.get(date)?.status || "";
+      const label = ({ issue: "有日报", no_new: "已检查，无新收录", failed: "采集失败" })[state] || "无归档";
+      return '<button type="button" data-paper-day="' + date + '" data-state="' + state
+        + '" aria-label="' + paperDateLabel(date) + "，" + label + '" aria-pressed="' + (date === paperDay) + '"'
+        + (date === today ? ' aria-current="date"' : '') + (date > today ? ' disabled' : '') + '>'
+        + number + '</button>';
+    }).join("");
+}
+
+function archivePaperRow(paper, saved, showReceived) {
+  const state = saved[paper.id] || { starred: false, status: "unread" };
+  const detail = "papers/" + encodeURIComponent(paper.id) + ".html";
+  const published = paper.published ? "arXiv 提交 " + escapeHTML(paper.published.slice(0, 10)) + " UTC" : "提交日期待核实";
+  return '<article class="archive-paper">'
+    + '<div class="archive-paper-meta"><span>' + published + '</span>'
+    + (showReceived ? '<span>首次收录 ' + escapeHTML(paper.first_seen) + '</span>' : '') + '</div>'
+    + '<h3><a href="' + detail + '">' + escapeHTML(paper.title) + '</a></h3>'
+    + (paper.abstract ? '<p class="paper-blurb">' + escapeHTML(paper.abstract) + '</p>' : '')
+    + '<div class="archive-paper-foot">' + tagsHTML(paper.tags.slice(0, 3))
+    + '<div class="paper-links"><a href="https://arxiv.org/abs/' + encodeURIComponent(paper.id) + '">arXiv ↗</a>'
+    + '<button type="button" data-ai="' + escapeHTML(paper.id) + '">复制 AI 解读问题</button></div></div>'
+    + '<button type="button" class="bookmark-btn" data-save="' + escapeHTML(paper.id)
+    + '" aria-label="收藏" aria-pressed="' + state.starred + '">' + (state.starred ? "★" : "☆") + '</button>'
+    + (state.status === "unread" ? "" : '<span class="archive-paper-reading" data-reading="'
+      + escapeHTML(paper.id) + '">' + statuses[state.status] + '</span>') + '</article>';
+}
+
+function paperDateGroup(day, rows, { issue, message, showReceived, title, caption } = {}) {
+  const saved = ResearchStore.read().papers;
+  return '<section class="paper-date-group"><header class="paper-day-header">'
+    + '<div><h2>' + escapeHTML(title || paperDateLabel(day)) + '</h2><p>'
+    + escapeHTML(caption || rows.length + " 篇论文") + '</p></div>'
+    + (issue ? '<a class="section-link" href="' + encodeURI(issue.url) + '">阅读当期日报 ↗</a>' : '')
+    + '</header>' + (rows.length ? rows.map(paper => archivePaperRow(paper, saved, showReceived)).join("")
+      : '<p class="paper-day-empty">' + escapeHTML(message) + '</p>') + '</section>';
 }
 
 function renderPapers() {
+  if (!paperDay) return;
+  const scope = $('input[name="paper-scope"]:checked').value;
   const query = $("#paper-search").value.trim().toLowerCase();
   const topic = $("#paper-topic").value;
   const order = $("#paper-order").value;
-  const rows = papers.filter(paper => (!topic || paper.tags?.includes(topic)) && matchesPaper(paper, query));
-  if (order === "title") rows.sort((a, b) => a.title.localeCompare(b.title));
-  if (order === "published") rows.sort((a, b) => (b.published || "").localeCompare(a.published || ""));
-  $("#paper-results-count").textContent = rows.length + " / " + papers.length + " 篇论文";
-  renderCards("#paper-results", rows, "没有找到符合条件的论文。");
+  const filter = paper => (!topic || paper.tags.includes(topic)) && matchesPaper(paper, query);
+  $("#paper-order").hidden = scope === "day";
+  $("#paper-more").hidden = true;
+  if (scope === "day") {
+    const issue = issueByDate.get(paperDay);
+    const all = paperDayRows(paperDay);
+    const rows = all.filter(filter);
+    const check = checkByDate.get(paperDay);
+    const today = chinaDate(Date.now());
+    const empty = all.length ? "这一天没有匹配的论文。"
+      : issue ? "这期日报没有可单独收录的论文，可以查看原日报。"
+        : check?.status === "no_new" ? "当天已检查，没有新论文入库。"
+          : check?.status === "failed" ? "当天采集失败，尚无日报。"
+            : paperDay === today ? "今天的采集尚未记录，最近一期仍可查阅。" : "这一天没有归档记录。";
+    $("#paper-results-count").textContent = paperDateLabel(paperDay) + "，" + rows.length + " 篇论文";
+    $("#paper-results").innerHTML = paperDateGroup(paperDay, rows, {
+      issue, message: empty, showReceived: false,
+      caption: issue && (query || topic) ? rows.length + " / " + all.length + " 篇论文" : undefined,
+    });
+    return;
+  }
+  const rows = papers.filter(filter);
+  $("#paper-results-count").textContent = "找到 " + rows.length + " 篇论文";
+  const groups = new Map();
+  for (const paper of rows) {
+    const date = order === "published" ? paper.published?.slice(0, 10) || "" : paper.first_seen;
+    if (!groups.has(date)) groups.set(date, []);
+    groups.get(date).push(paper);
+  }
+  const keys = [...groups.keys()].sort().reverse();
+  $("#paper-more").hidden = keys.length <= paperGroupLimit;
+  $("#paper-results").innerHTML = keys.length ? keys.slice(0, paperGroupLimit).map(day =>
+    paperDateGroup(day, groups.get(day), {
+      title: day ? undefined : "提交日期待核实",
+      caption: groups.get(day).length + " 篇论文" + (day && order === "published" ? " · UTC" : ""),
+      issue: order === "recent" ? issueByDate.get(day) : undefined,
+      showReceived: order === "published",
+    })
+  ).join("") : '<p class="paper-day-empty">没有找到符合条件的论文。</p>';
+}
+
+function initializePapers() {
+  digests.forEach(issue => issueByDate.set(issue.date, issue));
+  paperChecks.forEach(check => checkByDate.set(check.date, check));
+  const today = chinaDate(Date.now());
+  const latest = digests[0]?.date;
+  const first = digests.at(-1)?.date;
+  $("#paper-coverage").textContent = first
+    ? papers.length + " 篇论文 · " + digests.length + " 期日报 · " + first + " 至 " + latest
+    : papers.length + " 篇论文";
+  const check = checkByDate.get(today);
+  const health = issueByDate.has(today) ? "今天已归档"
+    : ({ no_new: "今日已检查 · 无新收录", failed: "今日采集失败" })[check?.status]
+      || "等待今日采集";
+  const time = check?.checked_at ? " · 北京时间 " + new Intl.DateTimeFormat("zh-CN", {
+    timeZone: "Asia/Shanghai", hour: "2-digit", minute: "2-digit", hourCycle: "h23",
+  }).format(new Date(check.checked_at)) : "";
+  $("#paper-health").dataset.state = issueByDate.has(today) ? "published" : check?.status || "pending";
+  $("#paper-health").textContent = health + time;
+  const requested = new URLSearchParams(location.hash.split("?")[1]).get("date");
+  const date = requested && validPaperDate(requested) ? requested : today;
+  selectPaperDay(date, false);
 }
 
 function renderFavorites() {
@@ -114,7 +272,11 @@ function compactItem(meta, title, href) {
 }
 
 function chinaDate(value) {
-  return new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Shanghai" }).format(new Date(value));
+  const parts = new Intl.DateTimeFormat("en", {
+    timeZone: "Asia/Shanghai", year: "numeric", month: "2-digit", day: "2-digit",
+  }).formatToParts(new Date(value));
+  const date = Object.fromEntries(parts.map(part => [part.type, part.value]));
+  return date.year + "-" + date.month + "-" + date.day;
 }
 
 function gitEventCard(event) {
@@ -181,7 +343,8 @@ function renderArchive() {
   $("#results").innerHTML = rows.length ? rows.map(digest =>
     '<article class="issue-card"><div class="issue-meta">' + escapeHTML(digest.date) + " · " + escapeHTML(digest.kind || "")
     + '</div><h3><a href="' + encodeURI(digest.url) + '">' + escapeHTML(digest.title) + '</a></h3><p>'
-    + escapeHTML(digest.summary) + '</p>' + tagsHTML(digest.tags) + '</article>'
+    + escapeHTML(digest.summary) + '</p>' + tagsHTML(digest.tags)
+    + '<a class="issue-papers-link section-link" href="#papers?date=' + escapeHTML(digest.date) + '">查看本期论文 ↗</a></article>'
   ).join("") : '<p class="empty-state">没有符合条件的日报。</p>';
 }
 
@@ -244,9 +407,38 @@ function setTopics(selector, entries) {
   $(selector).append(...tags.map(tag => new Option(tag)));
 }
 
-$("#paper-search").addEventListener("input", renderPapers);
-$("#paper-topic").addEventListener("change", renderPapers);
-$("#paper-order").addEventListener("change", renderPapers);
+function applyPaperFilters() {
+  paperGroupLimit = 8;
+  renderPapers();
+}
+
+$("#paper-search").addEventListener("input", () => {
+  if ($("#paper-search").value.trim() && $('input[name="paper-scope"][value="day"]').checked) {
+    $('input[name="paper-scope"][value="all"]').checked = true;
+    history.replaceState(null, "", "#papers");
+  }
+  applyPaperFilters();
+});
+$("#paper-topic").addEventListener("change", applyPaperFilters);
+$("#paper-order").addEventListener("change", applyPaperFilters);
+document.querySelectorAll('input[name="paper-scope"]').forEach(input => input.addEventListener("change", () => {
+  history.replaceState(null, "", input.value === "day" ? "#papers?date=" + paperDay : "#papers");
+  applyPaperFilters();
+}));
+$("#paper-prev-month").addEventListener("click", () => monthShift(-1));
+$("#paper-next-month").addEventListener("click", () => monthShift(1));
+$("#paper-today").addEventListener("click", () => selectPaperDay(chinaDate(Date.now())));
+$("#paper-latest").addEventListener("click", () => selectPaperDay(digests[0]?.date || chinaDate(Date.now())));
+$("#paper-calendar-days").addEventListener("click", event => {
+  const button = event.target.closest("[data-paper-day]");
+  if (!button) return;
+  selectPaperDay(button.dataset.paperDay);
+  $("#paper-calendar-days [aria-pressed=true]").focus();
+});
+$("#paper-more").addEventListener("click", () => {
+  paperGroupLimit += 8;
+  renderPapers();
+});
 $("#github-search").addEventListener("input", renderGithub);
 $("#github-topic").addEventListener("change", renderGithub);
 $("#github-kind").addEventListener("change", renderGithub);
@@ -274,15 +466,19 @@ async function loadIndexes() {
   try {
     const responses = await Promise.all(["index.json", "papers.json"].map(url => fetch(url, { cache: "no-store" })));
     if (responses.some(response => !response.ok)) throw Error("索引请求失败");
-    const [issueData, paperData] = await Promise.all(responses.map(response => response.json()));
+    const [issueData, paperData, checks] = await Promise.all([
+      ...responses.map(response => response.json()),
+      readIndex("paper-checks.json").catch(() => []),
+    ]);
     if (!Array.isArray(issueData) || !Array.isArray(paperData)) throw Error("索引数据类型错误");
     digests = issueData.sort((a, b) => b.date.localeCompare(a.date));
     papers = paperData;
+    paperChecks = Array.isArray(checks) ? checks : [];
     byId = new Map(papers.map(paper => [paper.id, paper]));
     setTopics("#paper-topic", papers);
     setTopics("#topic", digests);
     renderToday();
-    renderPapers();
+    initializePapers();
     renderFavorites();
     renderArchive();
   } catch (error) {
