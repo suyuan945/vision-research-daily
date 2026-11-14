@@ -8,7 +8,7 @@
 
 ## 每日任务
 
-GitHub Actions 在东京时间约08:10触发（可能延迟）；DeepSeek API 与 ChatGPT 订阅分开计费。ChatGPT 自动推送保留原样，网站从 arXiv 生成独立文章，不会自动复制聊天内容。若当天没有有价值的新增论文，生成器可跳过发布。
+GitHub Actions 计划在北京时间 07:10 触发，实际运行可能延迟。网页日报由 arXiv 和 DeepSeek 独立生成，DeepSeek API 单独计费。若没有新来源，网站保留最近一期。若生成失败，网站仍会部署现有归档，运行会标为失败。可展开 `Generate daily issue` 查看失败原因和 DeepSeek 结束状态。
 
 ## 数据安全
 

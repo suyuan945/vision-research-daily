@@ -1,24 +1,81 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="3DGS、4DGS、VGGT、世界模型：每日精选、可检索论文库、个人收藏与AI精读入口。">
-<title>3D Vision Research Hub · 每日论文情报库</title>
-<link rel="stylesheet" href="assets/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="3DGS、4DGS、视觉几何与世界模型研究日报和论文库。">
+  <title>3D Vision Research Hub · 每日论文情报库</title>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<header class="site-header"><div class="header-inner"><a class="brand" href="./"><span class="brand-mark">◈</span><span>3D <em>VISION</em> HUB</span></a><nav class="site-nav"><a href="#today" data-route="today">今日</a><a href="#papers" data-route="papers">论文库</a><a href="#favorites" data-route="favorites">我的收藏 <span id="saved-count"></span></a><a href="#archive" data-route="archive">历史日报</a></nav></div></header>
-<main class="page-shell hub">
-<section id="today" class="hub-view">
-<div class="hub-hero"><div><div class="eyebrow">3D RESEARCH INTELLIGENCE / DAILY</div><h1>今天有哪些<br><span>值得读的论文？</span></h1><p class="lead">聚焦稀疏视角4DGS、3D Gaussian Splatting、视觉几何基础模型与可控世界生成。先看重要变化，再深入研究。</p></div><div class="hub-stats"><div class="metric"><strong id="count">—</strong><small>历史日报</small></div><div class="metric"><strong id="paper-count">—</strong><small>已收录论文</small></div></div></div>
-<div class="section-title"><h2>最新研究简报</h2><span class="meta" id="latest-date">—</span></div><div id="featured" class="featured">正在读取最新日报…</div>
-<div class="section-title section-offset"><h2>本期相关论文</h2><a href="#papers" class="section-link">浏览全部 ↗</a></div><div id="today-papers" class="paper-grid"></div>
-</section>
-<section id="papers" class="hub-view" hidden><div class="view-heading"><div class="eyebrow">RESEARCH DATABASE</div><h1>论文数据库</h1><p class="muted">基于 arXiv ID 去重，检索已收录论文；早期条目为历史索引，部分摘要和代码信息尚待核实。</p></div><div class="controls"><label class="search-box"><input id="paper-search" type="search" placeholder="搜索论文名称、arXiv ID、摘要与关键词…" aria-label="搜索论文"></label><select id="paper-topic" aria-label="按方向筛选"><option value="">全部方向</option></select><select id="paper-order" aria-label="排序方式"><option value="recent">最近收录</option><option value="title">名称 A–Z</option></select></div><p id="paper-results-count" class="result-summary"></p><div id="paper-results" class="paper-grid"></div></section>
-<section id="favorites" class="hub-view" hidden><div class="view-heading"><div class="eyebrow">YOUR RESEARCH SPACE</div><h1>我的收藏</h1><p class="muted">所有收藏与研究状态默认仅保存在当前浏览器。可导出 JSON 备份，换设备后导入恢复。</p></div><div class="backup-actions"><button type="button" class="outline-btn" id="export-favorites">↓ 导出收藏 JSON</button><label class="outline-btn import-label" for="import-file">↑ 导入收藏 JSON</label><input type="file" id="import-file" accept=".json,application/json" hidden><span id="backup-message" role="status"></span></div><div class="controls"><label class="search-box"><input id="favorite-search" type="search" placeholder="搜索我的收藏…" aria-label="搜索我的收藏"></label><select id="favorite-status" aria-label="筛选阅读状态"><option value="">所有阅读状态</option><option value="unread">待读</option><option value="reading">精读中</option><option value="reproduce">待复现</option><option value="done">已完成</option></select></div><p id="favorite-results-count" class="result-summary"></p><div id="favorite-results" class="paper-grid"></div></section>
-<section id="archive" class="hub-view" hidden><div class="view-heading"><div class="eyebrow">DAILY ARCHIVE</div><h1>历史日报</h1><p class="muted">每天的研究判断独立保存，按日期回看过去关注过的论文和方向。</p></div><div class="controls"><label class="search-box"><input id="search" type="search" placeholder="搜索日报标题、日期与关键词…" aria-label="搜索日报"></label><select id="topic" aria-label="日报研究方向"><option value="">所有方向</option></select></div><p class="result-summary" id="resultcount"></p><div id="results" class="archive-grid"></div></section>
-<aside class="site-note">数据说明：早期日报由聊天内容整理为摘要索引，论文名称可能是简写；原始发表日期和实验结果以 arXiv 原文为准。收藏仅保存在当前浏览器，不会上传至公开 GitHub 仓库；ChatGPT 解读操作是复制研究提示词，由你自主粘贴并发送。</aside>
-</main>
-<footer class="site-footer">3D VISION RESEARCH HUB · RESEARCH FIRST, EVIDENCE FIRST.</footer>
-<script src="assets/research-store.js" defer></script><script src="assets/app.js" defer></script>
-</body></html>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#today"><span class="brand-mark" aria-hidden="true">◈</span><span>3D <em>VISION</em> HUB</span></a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="#today" data-route="today">日报</a>
+        <a href="#papers" data-route="papers">论文库</a>
+        <a href="#favorites" data-route="favorites">我的收藏 <span id="saved-count"></span></a>
+        <a href="#archive" data-route="archive">历史</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page-shell hub">
+    <p id="load-error" class="empty-state" role="alert" hidden>数据加载失败，请刷新页面后再试。</p>
+    <section id="today" class="hub-view">
+      <div class="brief-layout">
+        <div>
+          <h1 class="page-title">研究日报</h1>
+          <article id="featured" class="featured" aria-label="最新一期">正在读取最新日报…</article>
+        </div>
+        <aside class="brief-sidebar" aria-labelledby="highlights-heading">
+          <h2 id="highlights-heading">本期要点</h2>
+          <ul id="highlights" class="highlights"></ul>
+          <div class="hub-stats">
+            <a class="metric" href="#papers"><strong id="paper-count">—</strong><small>收录论文</small></a>
+            <a class="metric" href="#archive"><strong id="count">—</strong><small>历史日报</small></a>
+          </div>
+        </aside>
+      </div>
+      <div class="section-title section-offset"><h2>本期论文</h2><a href="#papers" class="section-link">查看论文库 ↗</a></div>
+      <div id="today-papers" class="paper-grid"></div>
+    </section>
+    <section id="papers" class="hub-view" hidden>
+      <div class="view-heading"><h1>论文库</h1></div>
+      <div class="controls">
+        <label class="search-box"><input id="paper-search" type="search" placeholder="搜索标题、arXiv ID、摘要与关键词" aria-label="搜索论文"></label>
+        <select id="paper-topic" aria-label="按方向筛选"><option value="">全部方向</option></select>
+        <select id="paper-order" aria-label="排序方式"><option value="recent">最近收录</option><option value="published">最新发表</option><option value="title">名称 A–Z</option></select>
+      </div>
+      <p id="paper-results-count" class="result-summary" role="status"></p>
+      <div id="paper-results" class="paper-grid paper-list"></div>
+    </section>
+    <section id="favorites" class="hub-view" hidden>
+      <div class="view-heading"><h1>我的收藏</h1><p class="muted">收藏与研究状态保存在当前浏览器。可导出 JSON 备份，换设备后导入。</p></div>
+      <div class="backup-actions">
+        <button type="button" class="outline-btn" id="export-favorites">导出 JSON</button>
+        <button type="button" class="outline-btn" id="import-favorites">导入 JSON</button>
+        <input type="file" id="import-file" accept=".json,application/json" hidden>
+        <span id="backup-message" role="status"></span>
+      </div>
+      <div class="controls">
+        <label class="search-box"><input id="favorite-search" type="search" placeholder="搜索我的收藏" aria-label="搜索我的收藏"></label>
+        <select id="favorite-status" aria-label="筛选阅读状态"><option value="">全部状态</option><option value="unread">待读</option><option value="reading">精读中</option><option value="reproduce">待复现</option><option value="done">已完成</option></select>
+      </div>
+      <p id="favorite-results-count" class="result-summary" role="status"></p>
+      <div id="favorite-results" class="paper-grid paper-list"></div>
+    </section>
+    <section id="archive" class="hub-view" hidden>
+      <div class="view-heading"><h1>历史日报</h1></div>
+      <div class="controls">
+        <label class="search-box"><input id="search" type="search" placeholder="搜索标题、日期与关键词" aria-label="搜索日报"></label>
+        <select id="topic" aria-label="日报研究方向"><option value="">全部方向</option></select>
+      </div>
+      <p class="result-summary" id="resultcount" role="status"></p>
+      <div id="results" class="archive-grid"></div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>3D Vision Research Hub</span><a href="https://github.com/suyuan945/vision-research-daily/actions">查看更新记录 ↗</a></footer>
+  <script src="assets/research-store.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

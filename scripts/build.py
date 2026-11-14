@@ -26,10 +26,10 @@ def tags_html(tags):
 def header(prefix):
     return (f'<header class="site-header"><div class="header-inner">'
             f'<a class="brand" href="{prefix}"><span class="brand-mark">◈</span>'
-            f'<span>3D <em>VISION</em> DAILY</span></a>'
-            f'<nav class="site-nav"><a href="{prefix}#today">今日</a>'
+            f'<span>3D <em>VISION</em> HUB</span></a>'
+            f'<nav class="site-nav" aria-label="主导航"><a href="{prefix}#today">日报</a>'
             f'<a href="{prefix}#papers">论文库</a><a href="{prefix}#favorites">我的收藏</a>'
-            f'<a href="{prefix}#archive">历史日报</a></nav></div></header>')
+            f'<a href="{prefix}#archive">历史</a></nav></div></header>')
 
 def shell(title, description, body, prefix="../", extra_script=""):
     return (f'<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">'
@@ -38,7 +38,8 @@ def shell(title, description, body, prefix="../", extra_script=""):
             f'<title>{safe(title)} · 3D Vision Research Hub</title>'
             f'<link rel="stylesheet" href="{prefix}assets/style.css"></head>'
             f'<body>{header(prefix)}{body}'
-            f'<footer class="site-footer">3D VISION RESEARCH HUB · RESEARCH FIRST, EVIDENCE FIRST.</footer>'
+            f'<footer class="site-footer"><span>3D Vision Research Hub</span>'
+            f'<a href="https://github.com/suyuan945/vision-research-daily/actions">查看更新记录 ↗</a></footer>'
             f'<script src="{prefix}assets/research-store.js" defer></script>{extra_script}</body></html>')
 
 def paper_record(pid, title, date, tags, source="digest", abstract="", published=""):
