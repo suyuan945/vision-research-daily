@@ -5,8 +5,12 @@
       "高斯渲染": "\"3D Gaussian Splatting\"",
       "多视角重建": "\"multi-view reconstruction\"",
       "几何基础模型": "\"geometry foundation model\"",
-      "可控视频生成": "\"camera-controlled\" \"video generation\"",
-      "世界模型": "\"world model\" \"3D\""
+      "世界模型": "\"world model\"",
+      "视频生成": "\"video generation\"",
+      "可控生成": "\"controllable generation\"",
+      "视频编辑": "\"video editing\"",
+      "图像生成": "\"text-to-image\"",
+      "多模态 / 具身视觉": "\"vision-language-action\""
     },
     "watch": {
       "hustvl/4DGaussians": "动态重建",
@@ -33,7 +37,10 @@
         "date": "2026-10-12",
         "url": "https://www.qbitai.com/2026/10/502701.html",
         "summary": "报道字节跳动世界模型的现场演示，梳理场景生成、交互和持久状态的区别，以及空间一致性和物理关系仍面临的挑战。",
-        "tags": ["世界模型", "可控视频生成"]
+        "tags": [
+          "世界模型",
+          "可控生成"
+        ]
       }
     ]
   }

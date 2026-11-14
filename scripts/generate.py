@@ -12,6 +12,11 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+if __package__:
+    from .topics import ARXIV_QUERIES, classify
+else:
+    from topics import ARXIV_QUERIES, classify
+
 CONTENT = Path(__file__).resolve().parents[1] / "content"
 SHANGHAI = timezone(timedelta(hours=8))
 ATOM = {"a": "http://www.w3.org/2005/Atom"}
@@ -41,37 +46,44 @@ def request_data(request, timeout):
 
 
 def collect_papers(now):
-    params = urllib.parse.urlencode({
-        "search_query": "cat:cs.CV OR cat:cs.AI OR cat:cs.RO",
-        "start": 0,
-        "max_results": 180,
-        "sortBy": "submittedDate",
-        "sortOrder": "descending",
-    })
-    request = urllib.request.Request(
-        "https://export.arxiv.org/api/query?" + params,
-        headers={"User-Agent": "VisionResearchDaily/2.0"},
-    )
-    root = ET.fromstring(request_data(request, timeout=55))
     cutoff = now - timedelta(days=8)
     papers = {}
-    for entry in root.findall("a:entry", ATOM):
-        url = entry.findtext("a:id", "", ATOM).replace("http://", "https://")
-        if "/api/errors" in url:
-            raise RuntimeError("arXiv returned an error feed")
-        url = re.sub(r"v\d+$", "", url)
-        if not ARXIV_LINK.fullmatch(url):
-            continue
-        published = entry.findtext("a:published", "", ATOM)
-        if datetime.fromisoformat(published.replace("Z", "+00:00")) < cutoff:
-            continue
-        papers[url] = {
-            "id": url.rsplit("/", 1)[-1],
-            "title": " ".join(entry.findtext("a:title", "", ATOM).split()),
-            "summary": " ".join(entry.findtext("a:summary", "", ATOM).split())[:1200],
-            "url": url,
-            "published": published,
-        }
+    for index, (family, query) in enumerate(ARXIV_QUERIES.items()):
+        if index:
+            time.sleep(3.1)
+        params = urllib.parse.urlencode({
+            "search_query": "(cat:cs.CV OR cat:cs.AI OR cat:cs.RO OR cat:cs.LG) AND (" + query + ")",
+            "start": 0, "max_results": 40,
+            "sortBy": "submittedDate", "sortOrder": "descending",
+        })
+        request = urllib.request.Request(
+            "https://export.arxiv.org/api/query?" + params,
+            headers={"User-Agent": "VisionResearchDaily/4.0"},
+        )
+        root = ET.fromstring(request_data(request, timeout=55))
+        count = 0
+        for entry in root.findall("a:entry", ATOM):
+            url = entry.findtext("a:id", "", ATOM).replace("http://", "https://")
+            if "/api/errors" in url:
+                raise RuntimeError("arXiv returned an error feed for " + family)
+            url = re.sub(r"v\d+$", "", url)
+            if not ARXIV_LINK.fullmatch(url):
+                continue
+            published = entry.findtext("a:published", "", ATOM)
+            date = datetime.fromisoformat(published.replace("Z", "+00:00"))
+            if not cutoff <= date <= now:
+                continue
+            title = " ".join(entry.findtext("a:title", "", ATOM).split())
+            summary = " ".join(entry.findtext("a:summary", "", ATOM).split())[:1200]
+            topics = classify(title + " " + summary)
+            if not topics:
+                continue
+            papers[url] = {
+                "id": url.rsplit("/", 1)[-1], "title": title, "summary": summary,
+                "url": url, "published": published, "topics": topics,
+            }
+            count += 1
+        print(f"arXiv {family}: {count} recent matching records")
     return papers
 
 
@@ -116,9 +128,9 @@ def parse_digest(response, papers):
 
 def generate_digest(key, papers):
     prompt = (
-        "从给定的 arXiv 记录中筛选与 3DGS、4DGS、VGGT、几何基础模型、世界模型相关的重点论文。"
+        "从给定 arXiv 记录筛选视觉研究重点论文，平等关注视频生成、世界模型、可控生成、图像生成、三维几何、高斯渲染、动态重建、几何基础模型、多模态与具身视觉。"
         "优先最近24小时，必要时扩展至7天。优先选3至6篇，相关论文不足时按实际数量写。"
-        "逐篇概括方法、差异、对稀疏同步多机位4DGS或可控生成的价值与复现状态。"
+        "优先覆盖不同方向，同一方向最多2篇；候选不足时可放宽，严禁为凑方向编造论文。逐篇概括研究问题、方法、证据支持的差异、适用场景、限制和复现状态。不要把所有论文强行关联到4DGS。"
         "只使用输入给出的真实日期、链接和指标；代码状态缺少资料时写未核实。"
         "title 只写主题，不加日期，归档日期由系统显示。"
         "summary 用两至三句概括，详细内容放在 markdown。"

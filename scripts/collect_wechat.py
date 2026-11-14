@@ -18,14 +18,10 @@ else:
     from generate import request_data
 
 INDEX = ROOT / "site" / "articles.json"
-TOPICS = {
-    "动态重建": r"\b4dgs\b|4d gaussian|动态重建|动态高斯|动态场景重建",
-    "高斯渲染": r"\b3dgs\b|gaussian splatting|高斯泼溅|高斯溅射|高斯渲染",
-    "多视角重建": r"多视角重建|多视图重建|三维重建|3d reconstruction|新视角合成|novel view synthesis|视觉slam|visual slam",
-    "几何基础模型": r"\bvggt\b|dust3r|mast3r|mapanything|depth anything|几何基础模型|geometry foundation model",
-    "可控视频生成": r"相机可控|相机控制|camera.controlled|视角可控|可控视频生成",
-    "世界模型": r"世界模型|world model",
-}
+if __package__:
+    from .topics import TOPICS
+else:
+    from topics import TOPICS
 
 
 class FeedDescription(HTMLParser):

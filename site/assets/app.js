@@ -18,6 +18,7 @@ let githubUnavailable = false;
 let articlesUnavailable = false;
 let currentRoute;
 let paperChecks = [];
+let researchTopics = [];
 let paperDay;
 let calendarMonth;
 let paperGroupLimit = 8;
@@ -66,7 +67,13 @@ function route() {
   currentRoute = next;
   if (next === "papers" && paperDay) {
     const day = new URLSearchParams(params).get("date");
-    if (day && validPaperDate(day) && day !== paperDay) {
+    const topic = new URLSearchParams(params).get("topic");
+    if (topic && researchTopics.includes(topic)) {
+      $("#paper-topic").value = topic;
+      $("#paper-search").value = "";
+      $('input[name="paper-scope"][value="all"]').checked = true;
+      renderPapers();
+    } else if (day && validPaperDate(day)) {
       selectPaperDay(day, false);
     }
   }
@@ -114,6 +121,8 @@ function paperDayRows(day) {
 }
 
 function selectPaperDay(day, updateUrl = true) {
+  $("#paper-search").value = "";
+  $("#paper-topic").value = "";
   paperDay = day;
   calendarMonth = day.slice(0, 7);
   $('input[name="paper-scope"][value="day"]').checked = true;
@@ -186,6 +195,7 @@ function renderPapers() {
   const topic = $("#paper-topic").value;
   const order = $("#paper-order").value;
   const filter = paper => (!topic || paper.tags.includes(topic)) && matchesPaper(paper, query);
+  $("#paper-reset").hidden = !query && !topic;
   $("#paper-order").hidden = scope === "day";
   $("#paper-more").hidden = true;
   if (scope === "day") {
@@ -223,7 +233,7 @@ function renderPapers() {
       issue: order === "recent" ? issueByDate.get(day) : undefined,
       showReceived: order === "published",
     })
-  ).join("") : '<p class="paper-day-empty">没有找到符合条件的论文。</p>';
+  ).join("") : '<p class="paper-day-empty">当前档案尚无匹配论文。可清除筛选或稍后查看，未收录不代表没有相关研究。</p>';
 }
 
 function initializePapers() {
@@ -244,9 +254,11 @@ function initializePapers() {
   }).format(new Date(check.checked_at)) : "";
   $("#paper-health").dataset.state = issueByDate.has(today) ? "published" : check?.status || "pending";
   $("#paper-health").textContent = health + time;
+  $("#today-status").textContent = health + time + " · 每日北京时间 07:10 计划检查，执行可能延迟";
   const requested = new URLSearchParams(location.hash.split("?")[1]).get("date");
   const date = requested && validPaperDate(requested) ? requested : today;
   selectPaperDay(date, false);
+  route();
 }
 
 function renderFavorites() {
@@ -320,7 +332,9 @@ function renderGithub() {
 function renderArticles() {
   const query = $("#article-search").value.trim().toLowerCase();
   const account = $("#article-account").value;
+  const topic = $("#article-topic").value;
   const rows = articles.filter(article => (!account || article.account === account)
+    && (!topic || article.tags?.includes(topic))
     && [article.title, article.account, article.summary, ...(article.tags || [])].join(" ").toLowerCase().includes(query));
   $("#article-count").textContent = articlesUnavailable ? "" : rows.length + " 篇文章";
   $("#article-results").innerHTML = rows.length ? rows.map(article =>
@@ -419,7 +433,17 @@ $("#paper-search").addEventListener("input", () => {
   }
   applyPaperFilters();
 });
-$("#paper-topic").addEventListener("change", applyPaperFilters);
+$("#paper-topic").addEventListener("change", () => {
+  if ($("#paper-topic").value) $('input[name="paper-scope"][value="all"]').checked = true;
+  history.replaceState(null, "", "#papers" + ($("#paper-topic").value ? "?topic=" + encodeURIComponent($("#paper-topic").value) : ""));
+  applyPaperFilters();
+});
+$("#paper-reset").addEventListener("click", () => {
+  $("#paper-search").value = "";
+  $("#paper-topic").value = "";
+  history.replaceState(null, "", "#papers");
+  applyPaperFilters();
+});
 $("#paper-order").addEventListener("change", applyPaperFilters);
 document.querySelectorAll('input[name="paper-scope"]').forEach(input => input.addEventListener("change", () => {
   history.replaceState(null, "", input.value === "day" ? "#papers?date=" + paperDay : "#papers");
@@ -443,6 +467,7 @@ $("#github-search").addEventListener("input", renderGithub);
 $("#github-topic").addEventListener("change", renderGithub);
 $("#github-kind").addEventListener("change", renderGithub);
 $("#article-search").addEventListener("input", renderArticles);
+$("#article-topic").addEventListener("change", renderArticles);
 $("#article-account").addEventListener("change", renderArticles);
 $("#favorite-search").addEventListener("input", renderFavorites);
 $("#favorite-status").addEventListener("change", renderFavorites);
@@ -466,16 +491,23 @@ async function loadIndexes() {
   try {
     const responses = await Promise.all(["index.json", "papers.json"].map(url => fetch(url, { cache: "no-store" })));
     if (responses.some(response => !response.ok)) throw Error("索引请求失败");
-    const [issueData, paperData, checks] = await Promise.all([
+    const [issueData, paperData, checks, topicData] = await Promise.all([
       ...responses.map(response => response.json()),
       readIndex("paper-checks.json").catch(() => []),
+      readIndex("topics.json").catch(() => []),
     ]);
     if (!Array.isArray(issueData) || !Array.isArray(paperData)) throw Error("索引数据类型错误");
     digests = issueData.sort((a, b) => b.date.localeCompare(a.date));
     papers = paperData;
     paperChecks = Array.isArray(checks) ? checks : [];
     byId = new Map(papers.map(paper => [paper.id, paper]));
-    setTopics("#paper-topic", papers);
+    researchTopics = Array.isArray(topicData) && topicData.length ? topicData : [...new Set(papers.flatMap(paper => paper.tags))];
+    $("#paper-topic").append(...researchTopics.map(topic => new Option(topic)));
+    $("#direction-links").innerHTML = researchTopics.map(topic => {
+      const count = papers.filter(paper => paper.tags.includes(topic)).length;
+      return '<a href="#papers?topic=' + encodeURIComponent(topic) + '"><span>' + escapeHTML(topic)
+        + '</span><span class="direction-count">' + (count ? count + ' 篇' : '待收录') + '</span></a>';
+    }).join("");
     setTopics("#topic", digests);
     renderToday();
     initializePapers();
@@ -524,6 +556,7 @@ async function loadArticles() {
   try {
     const archive = await readIndex("articles.json");
     articles = archive.articles;
+    setTopics("#article-topic", articles);
     const accounts = Object.keys(archive.sources).sort((a, b) => a.localeCompare(b, "zh"));
     const sourceLabels = { ok: "自动追踪", failed: "读取失败", stale: "订阅源近期未更新", pending: "等待验证", manual: "链接收录" };
     $("#article-sources").innerHTML = accounts.map(account => {
@@ -544,3 +577,8 @@ async function loadArticles() {
 
 loadGithub(loadIndexes());
 loadArticles();
+
+const compactCalendar = window.matchMedia("(max-width: 740px)");
+const adaptCalendar = () => { $("#calendar-disclosure").open = !compactCalendar.matches; };
+compactCalendar.addEventListener("change", adaptCalendar);
+adaptCalendar();

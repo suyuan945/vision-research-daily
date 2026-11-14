@@ -20,15 +20,10 @@ markdown = mistune.create_markdown(plugins=["table", "strikethrough", "url"])
 PAPER_LINK = re.compile(r'\[([^\]\n]{2,200})\]\(https?://arxiv\.org/abs/(\d{4}\.\d{4,5})(?:v\d+)?(?:[?#][^)]*)?\)')
 PAPER_URL = re.compile(r'https?://arxiv\.org/abs/(\d{4}\.\d{4,5})(?:v\d+)?')
 PAPER_ID = re.compile(r'^\d{4}\.\d{4,5}$')
-PAPER_TOPICS = {
-    "4DGS / 动态重建": r"\b4dgs\b|\b4d (?:gaussian|reconstruction)|dynamic (?:gaussian|scene reconstruction)|4d scene",
-    "3DGS / 渲染": r"\b3dgs\b|gaussian splatting|splatting|radiance fields?",
-    "多视角 / 相机几何": r"multi[- ]?(?:view|camera)|camera (?:pose|models?|calibration)|\bslam\b|structure.from.motion|novel view synthesis",
-    "几何基础模型": r"geometry foundation model|visual geometry foundation|\bvggt\b|\bdust3r\b|\bmast3r\b|feed[- ]?forward.{0,28}3d reconstruction",
-    "三维重建 / 深度": r"(?:3d|three.dimensional|geometric) reconstruction|depth (?:estimation|completion)|scene geometry|point clouds?|mesh(?:es)?",
-    "可控生成 / 世界模型": r"world model|world generation|video (?:diffusion|generation|editing)|camera.conditioned|camera.controlled|multi.view diffusion",
-    "具身视觉": r"robot(?:s|ic)? manipulation|embodied|vision.language.action|\bvla\b",
-}
+from topics import TOPICS as PAPER_TOPICS
+
+
+(SITE / "topics.json").write_text(json.dumps(list(PAPER_TOPICS), ensure_ascii=False) + "\n", encoding="utf-8")
 
 source_config = json.loads((ROOT / "sources.json").read_text(encoding="utf-8"))
 github_index = SITE / "github.json"
@@ -91,7 +86,7 @@ def article_links(rows):
 def header(prefix):
     return (f'<header class="site-header"><div class="header-inner">'
             f'<a class="brand" href="{prefix}"><span class="brand-mark" aria-hidden="true">◈</span>'
-            f'<span>3D Vision <em>Research</em></span></a>'
+            f'<span>Vision <em>Research</em></span></a>'
             f'<nav class="site-nav" aria-label="主导航"><a href="{prefix}#today">今日</a>'
             f'<a href="{prefix}#papers">论文</a><a href="{prefix}#opensource">开源</a>'
             f'<a href="{prefix}#articles">文章</a><a href="{prefix}#favorites">收藏</a>'
@@ -101,10 +96,10 @@ def shell(title, description, body, prefix="../", extra_script=""):
     return (f'<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">'
             f'<meta name="viewport" content="width=device-width,initial-scale=1">'
             f'<meta name="description" content="{safe(description)}">'
-            f'<title>{safe(title)} · 3D Vision Research Hub</title>'
+            f'<title>{safe(title)} · Vision Research Hub</title>'
             f'<link rel="stylesheet" href="{prefix}assets/style.css"></head>'
             f'<body>{header(prefix)}{body}'
-            f'<footer class="site-footer"><span>3D Vision Research Hub</span>'
+            f'<footer class="site-footer"><span>Vision Research Hub</span>'
             f'<a href="https://github.com/suyuan945/vision-research-daily/actions">查看更新记录 ↗</a></footer>'
             f'<script src="{prefix}assets/research-store.js" defer></script>{extra_script}</body></html>')
 
@@ -197,7 +192,7 @@ for pid, paper in papers.items():
     heading_topics = [label for label, match in PAPER_TOPICS.items() if re.search(match, title, re.I)]
     abstract_topics = [label for label, match in PAPER_TOPICS.items()
                        if re.search(match, paper["abstract"], re.I)]
-    paper["tags"] = list(dict.fromkeys(heading_topics + abstract_topics)) or paper["tags"]
+    paper["tags"] = list(dict.fromkeys(heading_topics + abstract_topics)) or ["待分类"]
     description = paper["abstract"] or "历史日报中收录的论文；详细资料请访问 arXiv 原文核实。"
     dates = "".join(f'<a href="../issues/{safe(d)}.html">{safe(d)}</a> ' for d in paper["digests"])
     # Details only display verified metadata or explicitly labelled historical index data.

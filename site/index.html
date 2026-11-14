@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="追踪 3DGS、4DGS、视觉几何与世界模型的论文、开源项目和技术解读。">
-  <title>3D Vision Research Hub · 每日论文情报库</title>
+  <meta name="description" content="每日追踪视频生成、世界模型、可控生成、图像生成与三维视觉的论文、开源和技术文章。">
+  <title>Vision Research Hub · 每日论文情报库</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="#today"><span class="brand-mark" aria-hidden="true">◈</span><span>3D Vision <em>Research</em></span></a>
+      <a class="brand" href="#today"><span class="brand-mark" aria-hidden="true">◈</span><span>Vision <em>Research</em></span></a>
       <nav class="site-nav" aria-label="主导航">
         <a href="#today" data-route="today">今日</a>
         <a href="#papers" data-route="papers">论文</a>
@@ -26,11 +26,12 @@
     <section id="today" class="hub-view">
       <div class="edition">
         <div>
-          <h1 class="page-title">3D 视觉研究简报</h1>
-          <p>动态重建、视觉几何与世界模型</p>
+          <h1 class="page-title">视觉研究简报</h1>
+          <p>视频生成 · 世界模型 · 可控生成 · 三维视觉</p>
         </div>
         <time id="edition-date"></time>
       </div>
+      <p id="today-status" class="daily-status" role="status"></p>
       <div class="brief-layout">
         <div class="brief-main">
           <article id="featured" class="featured" aria-label="最新一期">正在读取最新日报…</article>
@@ -38,7 +39,7 @@
           <div id="today-papers" class="paper-grid paper-list"></div>
         </div>
         <div class="brief-sidebar">
-          <div class="brief-art" aria-hidden="true"></div>
+          <section class="direction-panel" aria-labelledby="direction-heading"><p class="eyebrow">RESEARCH AREAS</p><h2 id="direction-heading">研究方向</h2><p class="muted">按方向进入论文档案</p><div id="direction-links"></div><p class="coverage-note">数量为已收录论文，方向可交叉。未收录不代表该方向没有新进展。</p></section>
           <section class="side-section" aria-labelledby="github-heading">
             <div class="section-title"><h2 id="github-heading">GitHub 动态</h2><a href="#opensource" class="section-link">查看全部 ↗</a></div>
             <div id="latest-github" class="compact-feed">正在读取 GitHub 动态…</div>
@@ -69,6 +70,7 @@
       <details class="article-sources"><summary>公众号追踪状态</summary><ul id="article-sources"></ul></details>
       <div class="controls">
         <label class="search-box"><input id="article-search" type="search" placeholder="搜索文章标题、公众号或关键词" aria-label="搜索文章"></label>
+        <select id="article-topic" aria-label="文章研究方向"><option value="">全部方向</option></select>
         <select id="article-account" aria-label="微信公众号"><option value="">全部公众号</option></select>
       </div>
       <p id="article-count" class="result-summary" role="status"></p>
@@ -91,6 +93,7 @@
               <button id="paper-next-month" type="button" aria-label="下个月">›</button>
             </div>
           </div>
+          <details id="calendar-disclosure" open><summary>收录日历 · 展开 / 收起</summary>
           <div class="calendar-grid calendar-week" aria-hidden="true"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
           <div id="paper-calendar-days" class="calendar-grid"></div>
           <div class="calendar-footer">
@@ -98,6 +101,7 @@
             <button type="button" id="paper-latest">最新一期</button>
           </div>
           <p class="calendar-key"><span></span> 有日报 <span></span> 无新收录 <span></span> 采集失败</p>
+          </details>
         </aside>
         <div class="paper-main">
           <div class="paper-toolbar">
@@ -112,7 +116,7 @@
               <select id="paper-order" aria-label="日期维度" hidden><option value="recent">按首次收录日</option><option value="published">按 arXiv 提交日</option></select>
             </div>
           </div>
-          <p id="paper-results-count" class="sr-only" role="status"></p>
+          <div class="filter-summary"><p id="paper-results-count" class="result-summary" role="status"></p><button id="paper-reset" type="button" class="text-button" hidden>清除筛选</button></div>
           <div id="paper-results" class="paper-timeline"></div>
           <button type="button" class="outline-btn" id="paper-more" hidden>加载更早记录</button>
         </div>
@@ -143,7 +147,7 @@
       <div id="results" class="archive-grid"></div>
     </section>
   </main>
-  <footer class="site-footer"><span>3D Vision Research Hub</span><a href="https://github.com/suyuan945/vision-research-daily/actions">查看更新记录 ↗</a></footer>
+  <footer class="site-footer"><span>Vision Research Hub</span><a href="https://github.com/suyuan945/vision-research-daily/actions">查看更新记录 ↗</a></footer>
   <script src="assets/research-store.js" defer></script>
   <script src="assets/app.js" defer></script>
 </body>
