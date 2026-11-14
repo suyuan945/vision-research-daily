@@ -1,5 +1,137 @@
 [
   {
+    "id": "2611.17336",
+    "title": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
+    "url": "https://arxiv.org/abs/2611.17336",
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "digests": [
+      "2026-11-14"
+    ],
+    "tags": [
+      "3DGS",
+      "4DGS",
+      "几何基础模型",
+      "世界模型",
+      "可控生成"
+    ],
+    "abstract": "Frontier video generation models work in a VAE latent space that compresses video in both space and time. This compression made training tractable, but now limits high-resolution, controllable, and interactive generation -- doubling resolution quadruples token count, conditions apply to groups of frames rather than individual ones, and each response must wait for the rest of its multi-frame block. We present PixVid, a simple yet effective method that lifts a pretrained latent video model to directly generate every frame in pixel space. PixVid keeps the diffusion transformer and replaces the VAE decoder with a convolutional head that renders its outputs into pixels. We find that predicting clean video rather than velocity, together with a larger noise shift, is key to quality. Finetuned from Wan2.1-14B, PixVid is competitive with the latent baseline within $\\sim 1.3$M training clips. Working framewise in pixels, it generates at $2\\times$ higher resolution with the same per-frame token count, keeps depth-conditioned video editing aligned under fast motion, and responds to each action at the next frame. Project page: https://chenshuo20.github.io/PixVid/",
+    "published": "2026-11-12T18:59:55Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.17331",
+    "title": "TTB: Test-time Baking for Efficient Rendering of Decoder-only View Synthesis Models",
+    "url": "https://arxiv.org/abs/2611.17331",
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "digests": [
+      "2026-11-14"
+    ],
+    "tags": [
+      "3DGS",
+      "4DGS",
+      "几何基础模型",
+      "世界模型",
+      "可控生成"
+    ],
+    "abstract": "Decoder-only Large View Synthesis Models (LVSMs) with KV-cache have recently achieved state-of-the-art quality by regressing novel views from neural networks without reconstructing 3D geometry, while Test-Time Training (TTT) layers save computation but sacrifice quality. We propose Test-Time Baking (TTB), a strategy that learns to bake global scene information from cross-view attention into a lightweight MLP, enabling fast and high-fidelity novel-view decoding. The first key is to repurpose the fast-weight MLP of TTT to learn the cross-view attention mapping explicitly from its input-output pairs, rather than replacing attention entirely, achieving the same rendering efficiency as TTT while delivering substantially higher quality. The second key addresses a modality misalignment between context prefilling and novel-view rendering: we disentangle context tokens into camera-only context rendering tokens to serve as TTB input, and context ground-truth tokens with image content to serve as the TTB mapping target, ensuring the baked MLPs are relieved of the modality generalization challenge between context and novel-view processing. Our method achieves up to **23x** rendering speedup wi",
+    "published": "2026-11-12T18:59:52Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.17324",
+    "title": "K2V: Generative Keyframing For Physically Plausible Video Generation",
+    "url": "https://arxiv.org/abs/2611.17324",
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "digests": [
+      "2026-11-14"
+    ],
+    "tags": [
+      "3DGS",
+      "4DGS",
+      "几何基础模型",
+      "世界模型",
+      "可控生成"
+    ],
+    "abstract": "Video diffusion models are able to generate samples with high-quality appearance and textural qualities. However, content produced by these methods is known to exhibit significant physical errors. This is because, in a classical video generation setting, all physical reasoning must take place simultaneously and exclusively within the diffusion process.We propose to resolve these issues by redistributing the task of physical reasoning onto a language model-backed keyframe generation module, which allows for explicit reasoning in language, and fine-grained control over the appearance of the video at important moments in the video. We then condition a video generation model with these keyframes, reducing the role of the diffusion model to the simpler task of interpolating between physically-correct intermediate states, rather than inferring an entire sequence with diffusion. Results demonstrate that our approach significantly outperforms existing approaches, achieving state-of-the-art performance on the Physics-IQ Verified benchmark and PhyGenBench.",
+    "published": "2026-11-12T18:59:09Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.17318",
+    "title": "Spatial Foundry: A Multimodal Dataset for Spatial Intelligence",
+    "url": "https://arxiv.org/abs/2611.17318",
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "digests": [
+      "2026-11-14"
+    ],
+    "tags": [
+      "3DGS",
+      "4DGS",
+      "几何基础模型",
+      "世界模型",
+      "可控生成"
+    ],
+    "abstract": "Spatial intelligence requires connecting visual observations to the geometry, objects, and persistent state of an environment. Images alone leave these relationships implicit, while disconnected annotations make it difficult to study appearance, camera motion, and scene changes under a common reference. We introduce Spatial Foundry, a collection of 5,280 furnished residential 3D scene configurations with editable assets and aligned visual, geometric, and temporal data. Its modalities include floor plans, perspective and panoramic RGB, metric depth, point clouds, meshes, instance-level 3D bounding boxes, and camera trajectories paired with video. Shared scene coordinates link observations across views and time; editable source scenes enable additional camera paths and controlled object changes. We describe the data representation and construction workflow, and discuss applications in floor-plan-conditioned 3D generation, geometric reconstruction, instance-level perception, camera-conditioned video generation, shared world modeling, and scene editing. Controlled camera and scene variations support spatial perception and world-model research. The public project page provides videos an",
+    "published": "2026-11-12T18:58:36Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.16840",
+    "title": "Kosmo-GFM: A Production-Ready Geometry Foundation Model",
+    "url": "https://arxiv.org/abs/2611.16840",
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "digests": [
+      "2026-11-14"
+    ],
+    "tags": [
+      "3DGS",
+      "4DGS",
+      "几何基础模型",
+      "世界模型",
+      "可控生成"
+    ],
+    "abstract": "We present Kosmo-GFM, a scene reconstruction system that integrates a geometry foundation model (GFM), a pose optimization engine (PoseEngine), and reconstruction-derived supervision from KosmoWorld. GFM predicts camera parameters, depth, cross-view correspondences, and dynamic 3D points from images and videos. PoseEngine combines these predictions with geometric optimization to recover scene-level camera poses and geometry for downstream 3D and 4D Gaussian Splatting. KosmoWorld generates images and geometric supervision from reconstructed real-world scenes to improve GFM's geometric predictions. On the Sparse and Medium subsets of SpatialBench, GFM achieves the lowest absolute relative depth error and the highest relative-pose AUC at 5 degrees among the compared methods. It also achieves the lowest mean endpoint errors for dynamic points and scene flow across the five evaluated datasets. Across 34 scenes completed by all compared reconstruction systems, PoseEngine achieves the highest scene-averaged pose AUC at thresholds of 1, 3, and 5 degrees, with a cumulative runtime of 14.07 hours, approximately 20% of GLUEMAP's 69.67 hours. PoseEngine Flash provides a further accuracy-effici",
+    "published": "2026-11-12T14:17:22Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.16589",
+    "title": "STVLA: Spatial-aware and Temporal-memory forVision-Language-Action Models",
+    "url": "https://arxiv.org/abs/2611.16589",
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "digests": [
+      "2026-11-14"
+    ],
+    "tags": [
+      "3DGS",
+      "4DGS",
+      "几何基础模型",
+      "世界模型",
+      "可控生成"
+    ],
+    "abstract": "Robotic manipulation often requires both spatial scene understanding and task history. However, many vision-language-action (VLA) policies rely primarily on current observations, without explicitly integrating spatial structure and task history. Appearance-based memories can be sensitive to occlusion and viewpoint changes, while spatial representations of the current scene alone do not preserve how the scene has changed during task execution. We introduce STVLA, a framework that incorporates features from a pretrained visual geometry foundation model into temporal memory alongside visual representations. This allows the policy to recall past scene structure as context for current action decisions. To select informative history, STVLA uses a mathematically grounded scoring rule that balances relevance to the current observation with complementary evidence from memory. Across evaluations on LIBERO, LIBERO-Mem, MIKASA-Robo, and SimplerEnv Bridge, STVLA achieves the highest average success rate among the compared methods on each benchmark. On real-world block stacking, object organization, and phone packaging, it improves success over $π_{0.5}$ by $58.33$, $30.00$, and $35.00$ percenta",
+    "published": "2026-11-12T10:21:49Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
     "id": "2611.09661",
     "title": "Video2Asset",
     "url": "https://arxiv.org/abs/2611.09661",

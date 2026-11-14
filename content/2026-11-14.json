@@ -1,0 +1,66 @@
+{
+  "title": "3DGS/4DGS 与几何基础模型科研日报（2026-11-12）",
+  "summary": "本期从 2026-11-12 的 arXiv 记录中，筛选出与 3DGS、4DGS、几何基础模型（GFM）、世界模型相关的重点论文 6 篇。核心看点：Kosmo-GFM 提出端到端场景重建系统，将几何基础模型、位姿优化引擎与重建监督整合，并明确服务于下游 3D/4D 高斯泼溅；STVLA 将几何基础模型特征引入具身策略的时序记忆，为多机位/多视角同步建模提供可迁移范式；TTB 面向 decoder-only 视角合成模型，通过测试时烘焙实现最高 23 倍渲染加速，对大场景多视角重建部署有直接价值；Spatial Foundry 提供共享场景坐标的多模态数据集，支撑世界模型与相机条件视频生成；PixVid 将潜空间视频扩散提升到像素空间逐帧生成，且首帧响应，对可控生成与逐帧条件注入意义明显；K2V 将物理推理外移到语言模型驱动的关键帧模块，实现物理合理的关键帧条件生成。整体而言，几何基础模型正从静态重建走向“重建—位姿—4D 泼溅”一体化，而可控生成的逐帧化、关键帧化趋势与稀疏同步多机位 4DGS 的需求高度契合。复现状态方面，多数条目未在摘要中给出代码链接，仅记录明确公开的部分。",
+  "tags": [
+    "3DGS",
+    "4DGS",
+    "几何基础模型",
+    "世界模型",
+    "可控生成"
+  ],
+  "highlights": [
+    "Kosmo-GFM 将几何基础模型、位姿优化与 KosmoWorld 监督整合，直接支撑下游 3D/4D 高斯泼溅",
+    "TTB 通过测试时烘焙把跨视角注意力写入轻量 MLP，decoder-only 视角合成最高 23 倍渲染加速",
+    "PixVid 把潜空间视频扩散提升到像素空间逐帧生成，同 token 数下分辨率翻倍且逐帧响应动作",
+    "STVLA 将几何基础模型特征引入 VLA 时序记忆，多基准成功率领先并可迁移至多视角场景",
+    "Spatial Foundry 以共享场景坐标统一外观、几何与时间数据，服务世界模型与相机条件生成",
+    "K2V 由语言模型生成物理合理关键帧，扩散模型仅负责插值，兼顾可控与物理一致性"
+  ],
+  "markdown": "## Kosmo-GFM: A Production-Ready Geometry Foundation Model\n[arXiv](https://arxiv.org/abs/2611.16840)\n方法：提出 Kosmo-GFM 场景重建系统，由几何基础模型（GFM）、位姿优化引擎 PoseEngine 与来自 KosmoWorld 的重建监督三部分组成。GFM 从图像和视频中预测相机参数、深度、跨视角对应关系与动态 3D 点；PoseEngine 将预测与几何优化结合，恢复场景级相机位姿与几何；KosmoWorld 从重建的真实场景生成图像与几何监督以持续改进 GFM 预测。差异：不是单一前馈网络，而是“预测—优化—自监督”闭环，并明确服务下游 3D 与 4D 高斯泼溅。价值：对稀疏同步多机位 4DGS，其位姿优化与动态点/场景流预测可直接作为相机与几何初始化；在 SpatialBench 的 Sparse 与 Medium 子集上取得最低绝对相对深度误差与最高 5° 相对位姿 AUC，五个数据集上动态点与场景流平均端点误差最低，34 个场景累计运行 14.07 小时，约为 GLUEMAP 69.67 小时的 20%。复现状态：摘要未给出代码或权重链接，未核实。\n\n## TTB: Test-time Baking for Efficient Rendering of Decoder-only View Synthesis Models\n[arXiv](https://arxiv.org/abs/2611.17331)\n方法：面向带 KV-cache 的 decoder-only 大视角合成模型（LVSM），提出测试时烘焙（TTB），把跨视角注意力中的全局场景信息显式学习并烘焙进轻量 MLP，从而快速解码新视角。差异：没有像 TTT 那样用快速权重 MLP 替代注意力，而是利用其输入—输出对显式学习跨视角注意力映射；并把上下文 token 拆分为仅相机的渲染上下文 token（TTB 输入）与含图像内容真值的上下文 token（烘焙目标），以消除上下文预填充与新视角渲染之间的模态错位。价值：对稀疏同步多机位采集，跨视角注意力向轻量 MLP 的烘焙意味着多机位上下文可离线压缩、在线快速渲染，利于大场景实时新视角合成；摘要称实现最高 23 倍渲染加速。复现状态：摘要未提供代码链接，未核实。\n\n## PixVid: Back to Pixels—Lifting Latent Video Diffusion into Pixel Space\n[arXiv](https://arxiv.org/abs/2611.17336)\n方法：保留预训练潜空间视频扩散的扩散 Transformer，将 VAE 解码器替换为卷积头，直接在像素空间逐帧生成；发现预测干净视频而非速度、配合更大的噪声偏移是质量关键。由 Wan2.1-14B 微调而来。差异：与潜空间方案相比，压缩在时空两维同时发生，导致分辨率翻倍 token 数四倍、条件只能施加于帧组、响应需等待整个多帧块；PixVid 在像素空间逐帧工作，同每帧 token 数下生成 2 倍分辨率。价值：对可控生成意义直接——逐帧条件可对齐到单帧而非帧组，快速运动下深度条件视频编辑仍保持对齐，且每个动作在下一帧即响应；这对面向 4DGS 的多机位逐帧条件注入（相机、时间戳、视角掩码）提供了可行路径。指标：约 1.3M 训练片段内与潜空间基线竞争力相当。复现状态：摘要给出项目页 https://chenshuo20.github.io/PixVid/ ，代码未明确声明，未核实。\n\n## STVLA: Spatial-aware and Temporal-memory for Vision-Language-Action Models\n[arXiv](https://arxiv.org/abs/2611.16589)\n方法：将预训练视觉几何基础模型的特征与视觉表示一并纳入时序记忆，使策略能回忆历史场景结构作为当前动作决策的上下文；并设计有理论依据的打分规则，在当前观测相关性与记忆补充证据之间做平衡以选取信息性历史。差异：区别于纯外观记忆（易受遮挡与视角变化影响）与仅用当前场景空间表示（不保留场景演化）两类做法。价值：把几何基础模型作为“空间—时间”记忆骨架，正是稀疏同步多机位 4DGS 所需的跨视角、跨时刻一致表征来源；在 LIBERO、LIBERO-Mem、MIKASA-Robo、SimplerEnv Bridge 上平均成功率均为对比方法最高，真实世界叠块、整理与手机包装任务分别较 π0.5 提升 58.33、30.00、35.00 个百分点。复现状态：摘要未给出代码链接，未核实。\n\n## Spatial Foundry: A Multimodal Dataset for Spatial Intelligence\n[arXiv](https://arxiv.org/abs/2611.17318)\n方法：构建 5,280 个带可编辑资产的住宅 3D 场景配置，模态包括平面图、透视与全景 RGB、度量深度、点云、网格、实例级 3D 包围盒，以及与视频配对的相机轨迹；所有观测通过共享场景坐标跨视角与跨时间关联，可编辑源场景支持追加相机路径与受控物体变化。差异：不是孤立标注集合，而是以统一场景坐标系把外观、相机运动与场景变化放在同一参考下。价值：直接对应世界模型与相机条件视频生成研究，其受控相机与场景变化可用于评测多视角一致性与 4D 时序变化，对构建稀疏同步多机位 4DGS 的评测基准有参考价值。复现状态：摘要称公开项目页提供视频等资料，具体代码与许可未在摘要中说明，未核实。\n\n## K2V: Generative Keyframing For Physically Plausible Video Generation\n[arXiv](https://arxiv.org/abs/2611.17324)\n方法：把物理推理转移到语言模型驱动的关键帧生成模块，用语言显式推理并对关键时间点的外观做细粒度控制，再以这些关键帧条件化视频生成模型，使扩散模型只需插值物理正确的中间状态。差异：经典设定要求物理推理完全在扩散过程中同时发生，易产生物理错误；K2V 将任务重新分配。价值：关键帧化控制天然适配 4DGS 的稀疏时间采样与关键帧锚定，可用于可控生成中的时序锚点与物理约束注入；在 Physics-IQ Verified 与 PhyGenBench 上取得 SOTA。复现状态：摘要未提供代码链接，未核实。\n\n---\n\n*由模型根据 arXiv 元数据生成，复现状态及指标请以官方论文为准。*",
+  "papers": [
+    {
+      "id": "2611.16840",
+      "title": "Kosmo-GFM: A Production-Ready Geometry Foundation Model",
+      "summary": "We present Kosmo-GFM, a scene reconstruction system that integrates a geometry foundation model (GFM), a pose optimization engine (PoseEngine), and reconstruction-derived supervision from KosmoWorld. GFM predicts camera parameters, depth, cross-view correspondences, and dynamic 3D points from images and videos. PoseEngine combines these predictions with geometric optimization to recover scene-level camera poses and geometry for downstream 3D and 4D Gaussian Splatting. KosmoWorld generates images and geometric supervision from reconstructed real-world scenes to improve GFM's geometric predictions. On the Sparse and Medium subsets of SpatialBench, GFM achieves the lowest absolute relative depth error and the highest relative-pose AUC at 5 degrees among the compared methods. It also achieves the lowest mean endpoint errors for dynamic points and scene flow across the five evaluated datasets. Across 34 scenes completed by all compared reconstruction systems, PoseEngine achieves the highest scene-averaged pose AUC at thresholds of 1, 3, and 5 degrees, with a cumulative runtime of 14.07 hours, approximately 20% of GLUEMAP's 69.67 hours. PoseEngine Flash provides a further accuracy-effici",
+      "url": "https://arxiv.org/abs/2611.16840",
+      "published": "2026-11-12T14:17:22Z"
+    },
+    {
+      "id": "2611.17331",
+      "title": "TTB: Test-time Baking for Efficient Rendering of Decoder-only View Synthesis Models",
+      "summary": "Decoder-only Large View Synthesis Models (LVSMs) with KV-cache have recently achieved state-of-the-art quality by regressing novel views from neural networks without reconstructing 3D geometry, while Test-Time Training (TTT) layers save computation but sacrifice quality. We propose Test-Time Baking (TTB), a strategy that learns to bake global scene information from cross-view attention into a lightweight MLP, enabling fast and high-fidelity novel-view decoding. The first key is to repurpose the fast-weight MLP of TTT to learn the cross-view attention mapping explicitly from its input-output pairs, rather than replacing attention entirely, achieving the same rendering efficiency as TTT while delivering substantially higher quality. The second key addresses a modality misalignment between context prefilling and novel-view rendering: we disentangle context tokens into camera-only context rendering tokens to serve as TTB input, and context ground-truth tokens with image content to serve as the TTB mapping target, ensuring the baked MLPs are relieved of the modality generalization challenge between context and novel-view processing. Our method achieves up to **23x** rendering speedup wi",
+      "url": "https://arxiv.org/abs/2611.17331",
+      "published": "2026-11-12T18:59:52Z"
+    },
+    {
+      "id": "2611.17336",
+      "title": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
+      "summary": "Frontier video generation models work in a VAE latent space that compresses video in both space and time. This compression made training tractable, but now limits high-resolution, controllable, and interactive generation -- doubling resolution quadruples token count, conditions apply to groups of frames rather than individual ones, and each response must wait for the rest of its multi-frame block. We present PixVid, a simple yet effective method that lifts a pretrained latent video model to directly generate every frame in pixel space. PixVid keeps the diffusion transformer and replaces the VAE decoder with a convolutional head that renders its outputs into pixels. We find that predicting clean video rather than velocity, together with a larger noise shift, is key to quality. Finetuned from Wan2.1-14B, PixVid is competitive with the latent baseline within $\\sim 1.3$M training clips. Working framewise in pixels, it generates at $2\\times$ higher resolution with the same per-frame token count, keeps depth-conditioned video editing aligned under fast motion, and responds to each action at the next frame. Project page: https://chenshuo20.github.io/PixVid/",
+      "url": "https://arxiv.org/abs/2611.17336",
+      "published": "2026-11-12T18:59:55Z"
+    },
+    {
+      "id": "2611.16589",
+      "title": "STVLA: Spatial-aware and Temporal-memory forVision-Language-Action Models",
+      "summary": "Robotic manipulation often requires both spatial scene understanding and task history. However, many vision-language-action (VLA) policies rely primarily on current observations, without explicitly integrating spatial structure and task history. Appearance-based memories can be sensitive to occlusion and viewpoint changes, while spatial representations of the current scene alone do not preserve how the scene has changed during task execution. We introduce STVLA, a framework that incorporates features from a pretrained visual geometry foundation model into temporal memory alongside visual representations. This allows the policy to recall past scene structure as context for current action decisions. To select informative history, STVLA uses a mathematically grounded scoring rule that balances relevance to the current observation with complementary evidence from memory. Across evaluations on LIBERO, LIBERO-Mem, MIKASA-Robo, and SimplerEnv Bridge, STVLA achieves the highest average success rate among the compared methods on each benchmark. On real-world block stacking, object organization, and phone packaging, it improves success over $π_{0.5}$ by $58.33$, $30.00$, and $35.00$ percenta",
+      "url": "https://arxiv.org/abs/2611.16589",
+      "published": "2026-11-12T10:21:49Z"
+    },
+    {
+      "id": "2611.17318",
+      "title": "Spatial Foundry: A Multimodal Dataset for Spatial Intelligence",
+      "summary": "Spatial intelligence requires connecting visual observations to the geometry, objects, and persistent state of an environment. Images alone leave these relationships implicit, while disconnected annotations make it difficult to study appearance, camera motion, and scene changes under a common reference. We introduce Spatial Foundry, a collection of 5,280 furnished residential 3D scene configurations with editable assets and aligned visual, geometric, and temporal data. Its modalities include floor plans, perspective and panoramic RGB, metric depth, point clouds, meshes, instance-level 3D bounding boxes, and camera trajectories paired with video. Shared scene coordinates link observations across views and time; editable source scenes enable additional camera paths and controlled object changes. We describe the data representation and construction workflow, and discuss applications in floor-plan-conditioned 3D generation, geometric reconstruction, instance-level perception, camera-conditioned video generation, shared world modeling, and scene editing. Controlled camera and scene variations support spatial perception and world-model research. The public project page provides videos an",
+      "url": "https://arxiv.org/abs/2611.17318",
+      "published": "2026-11-12T18:58:36Z"
+    },
+    {
+      "id": "2611.17324",
+      "title": "K2V: Generative Keyframing For Physically Plausible Video Generation",
+      "summary": "Video diffusion models are able to generate samples with high-quality appearance and textural qualities. However, content produced by these methods is known to exhibit significant physical errors. This is because, in a classical video generation setting, all physical reasoning must take place simultaneously and exclusively within the diffusion process.We propose to resolve these issues by redistributing the task of physical reasoning onto a language model-backed keyframe generation module, which allows for explicit reasoning in language, and fine-grained control over the appearance of the video at important moments in the video. We then condition a video generation model with these keyframes, reducing the role of the diffusion model to the simpler task of interpolating between physically-correct intermediate states, rather than inferring an entire sequence with diffusion. Results demonstrate that our approach significantly outperforms existing approaches, achieving state-of-the-art performance on the Physics-IQ Verified benchmark and PhyGenBench.",
+      "url": "https://arxiv.org/abs/2611.17324",
+      "published": "2026-11-12T18:59:09Z"
+    }
+  ],
+  "date": "2026-11-14",
+  "kind": "自动生成 · 网页日报"
+}
