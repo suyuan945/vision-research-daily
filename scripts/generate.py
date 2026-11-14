@@ -120,6 +120,8 @@ def generate_digest(key, papers):
         "优先最近24小时，必要时扩展至7天。优先选3至6篇，相关论文不足时按实际数量写。"
         "逐篇概括方法、差异、对稀疏同步多机位4DGS或可控生成的价值与复现状态。"
         "只使用输入给出的真实日期、链接和指标；代码状态缺少资料时写未核实。"
+        "title 只写主题，不加日期，归档日期由系统显示。"
+        "summary 用两至三句概括，详细内容放在 markdown。"
         "markdown 正文使用 Markdown 链接并逐篇附上完整 arXiv 链接。"
         "严格按以下 JSON 结构输出，示例中的内容不能出现在日报中：\n"
         + json.dumps(JSON_EXAMPLE, ensure_ascii=False)
