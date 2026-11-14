@@ -1,38 +1,7 @@
 {
-  "status": "partial",
-  "checked_at": "2026-11-14T11:10:04+08:00",
-  "failed_sources": [
-    "ByteDance-Seed/Depth-Anything-3 README",
-    "ByteDance-Seed/Depth-Anything-3 Releases",
-    "Tencent-Hunyuan/HunyuanWorld-1.0 README",
-    "Tencent-Hunyuan/HunyuanWorld-1.0 Releases",
-    "engrenage0409/Atlas-style-3D-World-Model README",
-    "engrenage0409/Atlas-style-3D-World-Model Releases",
-    "evan01624/rijks-studio-scan README",
-    "evan01624/rijks-studio-scan Releases",
-    "facebookresearch/map-anything README",
-    "facebookresearch/map-anything Releases",
-    "facebookresearch/vggt README",
-    "facebookresearch/vggt Releases",
-    "graphdeco-inria/gaussian-splatting README",
-    "graphdeco-inria/gaussian-splatting Releases",
-    "hustvl/4DGaussians README",
-    "hustvl/4DGaussians Releases",
-    "jayjayhust/waypoint-studio README",
-    "jayjayhust/waypoint-studio Releases",
-    "jlucasmcrell/capybarais.land README",
-    "jlucasmcrell/capybarais.land Releases",
-    "minjaetidtid/SurgMark README",
-    "minjaetidtid/SurgMark Releases",
-    "nerfstudio-project/gsplat README",
-    "nerfstudio-project/gsplat Releases",
-    "nour769/3DGS-Localization README",
-    "nour769/3DGS-Localization Releases",
-    "pouyasam1996/gaussian-slam README",
-    "pouyasam1996/gaussian-slam Releases",
-    "sidhantbas/affectpropogation README",
-    "sidhantbas/affectpropogation Releases"
-  ],
+  "status": "ok",
+  "checked_at": "2026-11-14T11:21:37+08:00",
+  "failed_sources": [],
   "repositories": [
     {
       "id": "1094841344",
@@ -49,6 +18,20 @@
       "paper_ids": [
         "2511.10647"
       ]
+    },
+    {
+      "id": "1455966158",
+      "name": "cs184-fa26-gaussiansplatting/final-project-proposal",
+      "url": "https://github.com/cs184-fa26-gaussiansplatting/final-project-proposal",
+      "description": "CS184 Final Project Proposal - 2D to 3D Gaussian Splatting pipeline",
+      "created_at": "2026-11-13T00:10:11Z",
+      "first_seen": "2026-11-14",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "高斯渲染"
+      ],
+      "paper_ids": []
     },
     {
       "id": "1449303976",
@@ -371,6 +354,15 @@
       "first_seen": "2026-11-14",
       "title": "jayjayhust/waypoint-studio",
       "url": "https://github.com/jayjayhust/waypoint-studio"
+    },
+    {
+      "id": "repo:1455966158",
+      "repository_id": "1455966158",
+      "kind": "new",
+      "date": "2026-11-13T00:10:11Z",
+      "first_seen": "2026-11-14",
+      "title": "cs184-fa26-gaussiansplatting/final-project-proposal",
+      "url": "https://github.com/cs184-fa26-gaussiansplatting/final-project-proposal"
     },
     {
       "id": "repo:1453933411",
