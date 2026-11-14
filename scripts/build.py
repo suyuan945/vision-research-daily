@@ -5,7 +5,11 @@ import json
 import re
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import urlsplit
 import mistune
+
+from collect_wechat import article_index, canonical_url
+from collect_github import ASIA_SHANGHAI
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / "site"
@@ -17,18 +21,71 @@ PAPER_LINK = re.compile(r'\[([^\]\n]{2,200})\]\(https?://arxiv\.org/abs/(\d{4}\.
 PAPER_URL = re.compile(r'https?://arxiv\.org/abs/(\d{4}\.\d{4,5})(?:v\d+)?')
 PAPER_ID = re.compile(r'^\d{4}\.\d{4,5}$')
 
+source_config = json.loads((ROOT / "sources.json").read_text(encoding="utf-8"))
+github_index = SITE / "github.json"
+if not github_index.exists():
+    github_index.write_text('{"status":"pending","repositories":[],"events":[]}\n', encoding="utf-8")
+github_archive = json.loads(github_index.read_text(encoding="utf-8"))
+repositories = {repo["id"]: repo for repo in github_archive["repositories"]}
+related_by_paper = {}
+github_by_day = {}
+EVENT_LABELS = {"new": "新仓库", "discovered": "首次收录", "release": "版本发布"}
+for event in github_archive["events"]:
+    repo = repositories[event["repository_id"]]
+    if event["kind"] != "discovered":
+        day = datetime.fromisoformat(event["date"].replace("Z", "+00:00")).astimezone(ASIA_SHANGHAI).date().isoformat()
+        github_by_day.setdefault(day, []).append((repo, event))
+    for pid in repo["paper_ids"]:
+        related_by_paper.setdefault(pid, []).append((repo, event))
+
+wechat = source_config["wechat"]
+article_path = SITE / "articles.json"
+previous = json.loads(article_path.read_text(encoding="utf-8")) if article_path.exists() else {}
+article_archive = article_index(previous, wechat)
+article_rows = {article["url"]: article for article in article_archive["articles"]}
+for article in wechat["articles"]:
+    if article["account"] not in wechat["accounts"]:
+        raise ValueError("Add the article's public account to sources.json first")
+    datetime.strptime(article["date"], "%Y-%m-%d")
+    parsed = urlsplit(article["url"])
+    if article["account"] == "量子位" and parsed.scheme == "https" and parsed.netloc == "www.qbitai.com":
+        url = f"https://www.qbitai.com{parsed.path}"
+    else:
+        url = canonical_url(article["url"])
+    article_rows[url] = {**article, "url": url}
+articles = sorted(article_rows.values(), key=lambda item: item["date"], reverse=True)
+article_archive["articles"] = articles
+article_path.write_text(
+    json.dumps(article_archive, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+)
+
 def safe(value):
     return html.escape(str(value or ""), quote=True)
 
 def tags_html(tags):
     return "".join('<span class="tag">' + safe(x) + '</span>' for x in tags)
 
+def github_links(updates):
+    return "".join(
+        f'<li>{EVENT_LABELS[event["kind"]]} · '
+        f'<a href="{safe(event["url"])}">{safe(repo["name"])}'
+        f'{(" · " + safe(event["version"])) if event.get("version") else ""}</a></li>'
+        for repo, event in updates
+    )
+
+def article_links(rows):
+    return "".join(
+        f'<li><a href="{safe(article["url"])}">{safe(article["title"])}</a>'
+        f' · {safe(article["account"])}</li>' for article in rows
+    )
+
 def header(prefix):
     return (f'<header class="site-header"><div class="header-inner">'
-            f'<a class="brand" href="{prefix}"><span class="brand-mark">◈</span>'
-            f'<span>3D <em>VISION</em> HUB</span></a>'
-            f'<nav class="site-nav" aria-label="主导航"><a href="{prefix}#today">日报</a>'
-            f'<a href="{prefix}#papers">论文库</a><a href="{prefix}#favorites">我的收藏</a>'
+            f'<a class="brand" href="{prefix}"><span class="brand-mark" aria-hidden="true">◈</span>'
+            f'<span>3D Vision <em>Research</em></span></a>'
+            f'<nav class="site-nav" aria-label="主导航"><a href="{prefix}#today">今日</a>'
+            f'<a href="{prefix}#papers">论文</a><a href="{prefix}#opensource">开源</a>'
+            f'<a href="{prefix}#articles">文章</a><a href="{prefix}#favorites">收藏</a>'
             f'<a href="{prefix}#archive">历史</a></nav></div></header>')
 
 def shell(title, description, body, prefix="../", extra_script=""):
@@ -83,6 +140,12 @@ for file in sorted(CONTENT.glob("*.json")):
     md_text = item.get("markdown", "")
     body = markdown(md_text)
     body = re.sub(r"(<table>.*?</table>)", r'<div class="table-scroll">\1</div>', body, flags=re.S)
+    github_updates = github_by_day.get(date, [])
+    if github_updates:
+        body += f"<h2>同日 GitHub 动态</h2><ul>{github_links(github_updates)}</ul>"
+    article_updates = [article for article in articles if article["date"] == date]
+    if article_updates:
+        body += f"<h2>同日技术文章</h2><ul>{article_links(article_updates)}</ul>"
     article = (
         f'<main class="article-shell"><a class="article-back" href="../#archive">← 返回历史日报</a>'
         f'<div class="article-header"><div class="article-kicker">{safe(date)} / {safe(kind)}</div>'
@@ -95,7 +158,7 @@ for file in sorted(CONTENT.glob("*.json")):
         shell(title, subtitle, article), encoding="utf-8"
     )
     issues.append({key: item[key] for key in ("date","title","summary","kind","tags","highlights") if key in item}
-                  | {"url":f"issues/{date}.html"})
+                  | {"url": f"issues/{date}.html", "paper_ids": [paper["id"] for paper in item.get("papers", []) if "id" in paper]})
     for paper in item.get("papers", []):
         pid = paper.get("id") or PAPER_URL.search(paper.get("url","")).group(1) if PAPER_URL.search(paper.get("url","")) else paper.get("id")
         if not pid or not PAPER_ID.fullmatch(pid):
@@ -116,6 +179,16 @@ for pid, paper in papers.items():
     abstract = (f'<h2>摘要（arXiv 元数据）</h2><p>{safe(paper["abstract"])}</p>'
                 if paper.get("abstract") else
                 '<p class="site-note">该论文来自历史日报索引；目前没有导入经核实的原文摘要，名称可能为历史简写。</p>')
+    related = related_by_paper.get(pid, [])
+    related_html = ""
+    if related:
+        related_html = (
+            "<h2>相关仓库动态</h2><p>以下仓库的 README 提及这篇论文。</p>"
+            f"<ul>{github_links(related[:10])}</ul>"
+        )
+    linked_articles = [article for article in articles if pid in article.get("paper_ids", [])]
+    if linked_articles:
+        related_html += f"<h2>相关解读</h2><ul>{article_links(linked_articles)}</ul>"
     main = (f'<main class="article-shell paper-detail" data-paper-id="{safe(pid)}">'
             f'<a class="article-back" href="../#papers">← 返回论文库</a>'
             f'<div class="article-header"><div class="article-kicker">ARXIV · {safe(pid)}</div>'
@@ -128,7 +201,7 @@ for pid, paper in papers.items():
             f'<select id="paper-status" class="paper-status" data-paper-id="{safe(pid)}">'
             f'<option value="unread">待读</option><option value="reading">精读中</option>'
             f'<option value="reproduce">待复现</option><option value="done">已完成</option></select></div>'
-            f'<article class="prose">{abstract}<h2>历史收录</h2><p>{dates}</p>'
+            f'<article class="prose">{abstract}{related_html}<h2>历史收录</h2><p>{dates}</p>'
             f'<h2>下一步研究</h2><p>点击上方“复制 ChatGPT 解读问题”，粘贴至 ChatGPT 对话，'
             f'可以继续分析方法机制、4DGS 适用性、复现条件与实验规划。</p></article>'
             f'</main>')

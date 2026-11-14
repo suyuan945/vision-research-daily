@@ -7,10 +7,15 @@ const tagsHTML = (tags = []) => '<div class="tag-list">'
   + '</div>';
 
 const statuses = { unread: "待读", reading: "精读中", reproduce: "待复现", done: "已完成" };
-const routes = ["today", "papers", "favorites", "archive"];
+const routes = ["today", "papers", "opensource", "articles", "favorites", "archive"];
+const eventLabels = { new: "新仓库", release: "版本发布", discovered: "首次收录" };
 let digests = [];
 let papers = [];
 let byId = new Map();
+let githubFeed = [];
+let articles = [];
+let githubUnavailable = false;
+let articlesUnavailable = false;
 let currentRoute;
 
 function paperCard(paper, saved) {
@@ -57,19 +62,18 @@ function route() {
 
 function renderToday() {
   const digest = digests[0];
-  $("#count").textContent = digests.length;
-  $("#paper-count").textContent = papers.length;
+  const date = $("#edition-date");
+  date.textContent = digest?.date || "";
+  date.dateTime = digest?.date || "";
   $("#featured").innerHTML = digest
-    ? '<div class="brief-meta"><time datetime="' + escapeHTML(digest.date) + '">' + escapeHTML(digest.date) + '</time>'
-      + '<span>' + escapeHTML(digest.kind || "研究日报") + '</span></div>'
+    ? '<div class="brief-meta">最新一期</div>'
       + '<h2>' + escapeHTML(digest.title) + '</h2><p>' + escapeHTML(digest.summary) + '</p>'
-      + tagsHTML(digest.tags)
-      + '<a class="btn brief-cta" href="' + encodeURI(digest.url) + '">阅读完整日报 ↗</a>'
+      + '<div class="brief-footer">' + tagsHTML(digest.tags)
+      + '<a class="section-link" href="' + encodeURI(digest.url) + '">阅读完整日报 ↗</a></div>'
     : "暂无日报";
-  $("#highlights").innerHTML = (digest?.highlights?.length ? digest.highlights : ["暂无本期要点"])
-    .slice(0, 5).map(item => '<li>' + escapeHTML(item) + '</li>').join("");
-  const latest = papers.filter(paper => paper.digests.includes(digest?.date)).slice(0, 6);
-  renderCards("#today-papers", latest, "暂无本期论文。");
+  const latest = digest?.paper_ids?.length ? digest.paper_ids.map(id => byId.get(id)).filter(Boolean)
+    : papers.filter(paper => paper.digests.includes(digest?.date));
+  renderCards("#today-papers", latest.slice(0, 6), "暂无本期论文。");
 }
 
 function matchesPaper(paper, query) {
@@ -97,6 +101,73 @@ function renderFavorites() {
   $("#favorite-results-count").textContent = "已收藏 " + entries.length + " 篇 · 当前显示 " + rows.length + " 篇";
   renderCards("#favorite-results", rows, entries.length
     ? "没有符合筛选条件的收藏。" : "在日报或论文库中点击 ☆ 收藏论文。");
+  const reproduce = entries.filter(paper => saved[paper.id].status === "reproduce").slice(0, 4);
+  $("#reproduce-section").hidden = !reproduce.length;
+  $("#reproduce-papers").innerHTML = reproduce.map(paper =>
+    compactItem("arXiv " + paper.id, paper.title, "papers/" + encodeURIComponent(paper.id) + ".html")
+  ).join("");
+}
+
+function compactItem(meta, title, href) {
+  return '<article class="compact-item"><p>' + escapeHTML(meta) + '</p>'
+    + '<h3><a href="' + escapeHTML(href) + '">' + escapeHTML(title) + '</a></h3></article>';
+}
+
+function chinaDate(value) {
+  return new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Shanghai" }).format(new Date(value));
+}
+
+function gitEventCard(event) {
+  const repo = event.repo;
+  const license = repo.license && repo.license !== "NOASSERTION" ? repo.license
+    : repo.license_name && repo.license_name !== "Other" ? repo.license_name : "许可证待核实";
+  const sources = repo.paper_ids.filter(id => byId.has(id)).slice(0, 4).map(id =>
+    '<a href="papers/' + encodeURIComponent(id) + '.html">相关论文 ' + escapeHTML(id) + ' ↗</a>'
+  );
+  if (event.kind === "release") sources.unshift('<a href="' + escapeHTML(repo.url) + '">项目仓库 ↗</a>');
+  const assets = event.weights?.length
+    ? '<p class="feed-meta">疑似权重附件 · ' + escapeHTML(event.weights.join("、")) + '</p>' : "";
+  return '<article class="feed-entry">'
+    + '<p class="feed-meta"><strong>' + eventLabels[event.kind] + '</strong> · ' + chinaDate(event.date)
+    + (event.prerelease ? " · 预发行" : "") + '</p>'
+    + '<h3><a href="' + escapeHTML(event.url) + '">' + escapeHTML(repo.name)
+    + (event.version ? ' <span class="version">' + escapeHTML(event.version) + '</span>' : '') + ' ↗</a></h3>'
+    + (event.title !== repo.name && event.title !== event.version ? '<p>' + escapeHTML(event.title) + '</p>' : '')
+    + (repo.description ? '<p>' + escapeHTML(repo.description) + '</p>' : '')
+    + tagsHTML(repo.topics)
+    + '<p class="feed-meta">' + escapeHTML(license) + ' · 仓库创建 ' + chinaDate(repo.created_at)
+    + ' · 首次收录 ' + escapeHTML(event.first_seen) + '</p>'
+    + assets + (sources.length ? '<div class="feed-links">' + sources.join("") + '</div>' : '')
+    + '</article>';
+}
+
+function renderGithub() {
+  const query = $("#github-search").value.trim().toLowerCase();
+  const topic = $("#github-topic").value;
+  const kind = $("#github-kind").value;
+  const rows = githubFeed.filter(event => {
+    const searchable = [event.repo.name, event.repo.description, event.title, event.version, ...event.repo.topics];
+    return (!topic || event.repo.topics.includes(topic)) && (!kind || event.kind === kind)
+      && searchable.join(" ").toLowerCase().includes(query);
+  });
+  $("#github-count").textContent = githubUnavailable ? "" : rows.length + " 条动态";
+  $("#github-results").innerHTML = rows.length ? rows.map(gitEventCard).join("")
+    : '<p class="empty-state">' + (githubUnavailable ? "暂时无法读取 GitHub 动态。" : "没有符合条件的 GitHub 动态。") + '</p>';
+}
+
+function renderArticles() {
+  const query = $("#article-search").value.trim().toLowerCase();
+  const account = $("#article-account").value;
+  const rows = articles.filter(article => (!account || article.account === account)
+    && [article.title, article.account, article.summary, ...(article.tags || [])].join(" ").toLowerCase().includes(query));
+  $("#article-count").textContent = articlesUnavailable ? "" : rows.length + " 篇文章";
+  $("#article-results").innerHTML = rows.length ? rows.map(article =>
+    '<article class="feed-entry"><p class="feed-meta">' + escapeHTML(article.account) + ' · ' + escapeHTML(article.date) + '</p>'
+    + '<h3><a href="' + escapeHTML(article.url) + '">' + escapeHTML(article.title) + ' ↗</a></h3>'
+    + (article.summary ? '<p>' + escapeHTML(article.summary) + '</p>' : '') + tagsHTML(article.tags)
+    + '</article>'
+  ).join("") : '<p class="empty-state">' + (articlesUnavailable ? "暂时无法读取文章。"
+    : articles.length ? "没有符合条件的文章。" : "尚未收录公众号文章。") + '</p>';
 }
 
 function renderArchive() {
@@ -176,6 +247,11 @@ function setTopics(selector, entries) {
 $("#paper-search").addEventListener("input", renderPapers);
 $("#paper-topic").addEventListener("change", renderPapers);
 $("#paper-order").addEventListener("change", renderPapers);
+$("#github-search").addEventListener("input", renderGithub);
+$("#github-topic").addEventListener("change", renderGithub);
+$("#github-kind").addEventListener("change", renderGithub);
+$("#article-search").addEventListener("input", renderArticles);
+$("#article-account").addEventListener("change", renderArticles);
 $("#favorite-search").addEventListener("input", renderFavorites);
 $("#favorite-status").addEventListener("change", renderFavorites);
 $("#search").addEventListener("input", renderArchive);
@@ -216,4 +292,59 @@ async function loadIndexes() {
   }
 }
 
-loadIndexes();
+async function readIndex(path) {
+  const response = await fetch(path, { cache: "no-store" });
+  if (!response.ok) throw Error("索引请求失败");
+  return response.json();
+}
+
+async function loadGithub(indexes) {
+  try {
+    const archive = await readIndex("github.json");
+    const repos = new Map(archive.repositories.map(repo => [repo.id, repo]));
+    githubFeed = archive.events.filter(event => repos.has(event.repository_id) && eventLabels[event.kind])
+      .map(event => ({ ...event, repo: repos.get(event.repository_id) }));
+    setTopics("#github-topic", archive.repositories.map(repo => ({ tags: repo.topics })));
+    const latest = githubFeed.filter(event => event.kind !== "discovered").slice(0, 4);
+    const rows = latest.length ? latest : githubFeed.slice(0, 4);
+    $("#latest-github").innerHTML = rows.length ? rows.map(event => compactItem(
+      eventLabels[event.kind] + " · " + chinaDate(event.date),
+      event.repo.name + (event.version ? " · " + event.version : ""),
+      event.url
+    )).join("") : '<p class="muted">暂时没有收录的动态。</p>';
+    const checked = archive.checked_at ? " · 最近检查 " + chinaDate(archive.checked_at) : "";
+    $("#github-status").textContent = (({ ok: "采集正常", partial: "部分来源读取失败，保留历史记录",
+      failed: "本次采集失败，保留历史记录" })[archive.status] || "等待首次采集") + checked;
+  } catch {
+    githubUnavailable = true;
+    $("#github-status").textContent = "暂时无法读取采集状态。";
+    $("#latest-github").textContent = "暂时无法读取 GitHub 动态。";
+  }
+  await indexes;
+  renderGithub();
+}
+
+async function loadArticles() {
+  try {
+    const archive = await readIndex("articles.json");
+    articles = archive.articles;
+    const accounts = Object.keys(archive.sources).sort((a, b) => a.localeCompare(b, "zh"));
+    const sourceLabels = { ok: "自动追踪", failed: "读取失败", stale: "订阅源近期未更新", pending: "等待验证", manual: "链接收录" };
+    $("#article-sources").innerHTML = accounts.map(account => {
+      const source = archive.sources[account];
+      return '<li><strong>' + escapeHTML(account) + '</strong> · ' + sourceLabels[source.state]
+        + (source.newest ? ' · 来源最新 ' + escapeHTML(source.newest) : '') + '</li>';
+    }).join("");
+    $("#article-account").append(...accounts.map(account => new Option(account)));
+    $("#reading-section").hidden = !articles.length;
+    $("#latest-articles").innerHTML = articles.slice(0, 4).map(article =>
+      compactItem(article.account + " · " + article.date, article.title, article.url)
+    ).join("");
+  } catch {
+    articlesUnavailable = true;
+  }
+  renderArticles();
+}
+
+loadGithub(loadIndexes());
+loadArticles();

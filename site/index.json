@@ -19,7 +19,15 @@
       "Spatial Foundry 以共享场景坐标统一外观、几何与时间数据，服务世界模型与相机条件生成",
       "K2V 由语言模型生成物理合理关键帧，扩散模型仅负责插值，兼顾可控与物理一致性"
     ],
-    "url": "issues/2026-11-14.html"
+    "url": "issues/2026-11-14.html",
+    "paper_ids": [
+      "2611.16840",
+      "2611.17331",
+      "2611.17336",
+      "2611.16589",
+      "2611.17318",
+      "2611.17324"
+    ]
   },
   {
     "date": "2026-11-10",
@@ -36,7 +44,8 @@
       "MViS",
       "Extrapolation Matters"
     ],
-    "url": "issues/2026-11-10.html"
+    "url": "issues/2026-11-10.html",
+    "paper_ids": []
   },
   {
     "date": "2026-11-09",
@@ -52,7 +61,8 @@
       "T²-Splat",
       "Gaussolve"
     ],
-    "url": "issues/2026-11-09.html"
+    "url": "issues/2026-11-09.html",
+    "paper_ids": []
   },
   {
     "date": "2026-11-08",
@@ -68,7 +78,8 @@
       "PVDepth",
       "InstantHand"
     ],
-    "url": "issues/2026-11-08.html"
+    "url": "issues/2026-11-08.html",
+    "paper_ids": []
   },
   {
     "date": "2026-11-07",
@@ -85,7 +96,8 @@
       "SM4RT",
       "HIBS"
     ],
-    "url": "issues/2026-11-07.html"
+    "url": "issues/2026-11-07.html",
+    "paper_ids": []
   },
   {
     "date": "2026-11-06",
@@ -102,7 +114,8 @@
       "BudgetSplat",
       "EvoWorld"
     ],
-    "url": "issues/2026-11-06.html"
+    "url": "issues/2026-11-06.html",
+    "paper_ids": []
   },
   {
     "date": "2026-11-05",
@@ -119,7 +132,8 @@
       "SettleSplat",
       "FlowBench"
     ],
-    "url": "issues/2026-11-05.html"
+    "url": "issues/2026-11-05.html",
+    "paper_ids": []
   },
   {
     "date": "2026-11-04",
@@ -136,7 +150,8 @@
       "Ray-SCR",
       "CoLa3D"
     ],
-    "url": "issues/2026-11-04.html"
+    "url": "issues/2026-11-04.html",
+    "paper_ids": []
   },
   {
     "date": "2026-11-03",
@@ -153,7 +168,8 @@
       "DrawSplat",
       "EgoHSI3R"
     ],
-    "url": "issues/2026-11-03.html"
+    "url": "issues/2026-11-03.html",
+    "paper_ids": []
   },
   {
     "date": "2026-11-02",
@@ -169,7 +185,8 @@
       "SonoWorld4D",
       "PhysInsert"
     ],
-    "url": "issues/2026-11-02.html"
+    "url": "issues/2026-11-02.html",
+    "paper_ids": []
   },
   {
     "date": "2026-11-01",
@@ -185,7 +202,8 @@
       "GROME",
       "GOFish"
     ],
-    "url": "issues/2026-11-01.html"
+    "url": "issues/2026-11-01.html",
+    "paper_ids": []
   },
   {
     "date": "2026-10-31",
@@ -202,7 +220,8 @@
       "GradSplat",
       "RGMV"
     ],
-    "url": "issues/2026-10-31.html"
+    "url": "issues/2026-10-31.html",
+    "paper_ids": []
   },
   {
     "date": "2026-10-30",
@@ -219,6 +238,7 @@
       "Any3R",
       "GroundControl"
     ],
-    "url": "issues/2026-10-30.html"
+    "url": "issues/2026-10-30.html",
+    "paper_ids": []
   }
 ]

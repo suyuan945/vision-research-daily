@@ -1,0 +1,421 @@
+{
+  "status": "partial",
+  "checked_at": "2026-11-14T11:10:04+08:00",
+  "failed_sources": [
+    "ByteDance-Seed/Depth-Anything-3 README",
+    "ByteDance-Seed/Depth-Anything-3 Releases",
+    "Tencent-Hunyuan/HunyuanWorld-1.0 README",
+    "Tencent-Hunyuan/HunyuanWorld-1.0 Releases",
+    "engrenage0409/Atlas-style-3D-World-Model README",
+    "engrenage0409/Atlas-style-3D-World-Model Releases",
+    "evan01624/rijks-studio-scan README",
+    "evan01624/rijks-studio-scan Releases",
+    "facebookresearch/map-anything README",
+    "facebookresearch/map-anything Releases",
+    "facebookresearch/vggt README",
+    "facebookresearch/vggt Releases",
+    "graphdeco-inria/gaussian-splatting README",
+    "graphdeco-inria/gaussian-splatting Releases",
+    "hustvl/4DGaussians README",
+    "hustvl/4DGaussians Releases",
+    "jayjayhust/waypoint-studio README",
+    "jayjayhust/waypoint-studio Releases",
+    "jlucasmcrell/capybarais.land README",
+    "jlucasmcrell/capybarais.land Releases",
+    "minjaetidtid/SurgMark README",
+    "minjaetidtid/SurgMark Releases",
+    "nerfstudio-project/gsplat README",
+    "nerfstudio-project/gsplat Releases",
+    "nour769/3DGS-Localization README",
+    "nour769/3DGS-Localization Releases",
+    "pouyasam1996/gaussian-slam README",
+    "pouyasam1996/gaussian-slam Releases",
+    "sidhantbas/affectpropogation README",
+    "sidhantbas/affectpropogation Releases"
+  ],
+  "repositories": [
+    {
+      "id": "1094841344",
+      "name": "ByteDance-Seed/Depth-Anything-3",
+      "url": "https://github.com/ByteDance-Seed/Depth-Anything-3",
+      "description": "Depth Anything 3",
+      "created_at": "2025-11-12T08:44:03Z",
+      "first_seen": "2026-11-14",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "几何基础模型"
+      ],
+      "paper_ids": [
+        "2511.10647"
+      ]
+    },
+    {
+      "id": "1449303976",
+      "name": "evan01624/rijks-studio-scan",
+      "url": "https://github.com/evan01624/rijks-studio-scan",
+      "description": "Rijksakademie A55: phone-friendly 3D Gaussian Splatting scan viewer",
+      "created_at": "2026-11-07T11:43:39Z",
+      "first_seen": "2026-11-14",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1050515012",
+      "name": "facebookresearch/map-anything",
+      "url": "https://github.com/facebookresearch/map-anything",
+      "description": "MapAnything: Universal Feed-Forward Metric 3D Reconstruction",
+      "created_at": "2025-09-04T14:37:36Z",
+      "first_seen": "2026-11-14",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "多视角重建"
+      ],
+      "paper_ids": [
+        "2509.13414"
+      ]
+    },
+    {
+      "id": "934997412",
+      "name": "facebookresearch/vggt",
+      "url": "https://github.com/facebookresearch/vggt",
+      "description": "[CVPR 2025 Best Paper Award] VGGT: Visual Geometry Grounded Transformer",
+      "created_at": "2025-02-18T18:32:14Z",
+      "first_seen": "2026-11-14",
+      "license": "NOASSERTION",
+      "license_name": "Other",
+      "topics": [
+        "几何基础模型"
+      ],
+      "paper_ids": [
+        "2503.11651"
+      ]
+    },
+    {
+      "id": "662028682",
+      "name": "graphdeco-inria/gaussian-splatting",
+      "url": "https://github.com/graphdeco-inria/gaussian-splatting",
+      "description": "Original reference implementation of \"3D Gaussian Splatting for Real-Time Radiance Field Rendering\"",
+      "created_at": "2023-07-04T07:51:38Z",
+      "first_seen": "2026-11-14",
+      "license": "NOASSERTION",
+      "license_name": "Other",
+      "topics": [
+        "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "699641579",
+      "name": "hustvl/4DGaussians",
+      "url": "https://github.com/hustvl/4DGaussians",
+      "description": "[CVPR 2024] 4D Gaussian Splatting for Real-Time Dynamic Scene Rendering",
+      "created_at": "2023-10-03T03:26:33Z",
+      "first_seen": "2026-11-14",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "动态重建"
+      ],
+      "paper_ids": [
+        "2310.08528",
+        "2401.16416"
+      ]
+    },
+    {
+      "id": "1456686765",
+      "name": "jayjayhust/waypoint-studio",
+      "url": "https://github.com/jayjayhust/waypoint-studio",
+      "description": "Browser-based PCD & 3D Gaussian Splatting viewer with fly-through waypoint authoring — single-file vanilla WebGL, zero dependencies",
+      "created_at": "2026-11-13T14:17:38Z",
+      "first_seen": "2026-11-14",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1456953923",
+      "name": "minjaetidtid/Mark4D",
+      "url": "https://github.com/minjaetidtid/Mark4D",
+      "description": "[CVPR 2026] Mark4D: Temporally-Consistent Watermarking for 4D Gaussian Splatting",
+      "created_at": "2026-11-13T18:24:05Z",
+      "first_seen": "2026-11-14",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "动态重建"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1457040015",
+      "name": "minjaetidtid/SurgMark",
+      "url": "https://github.com/minjaetidtid/SurgMark",
+      "description": "[MICCAI 2026] SurgMark: Structure-Aware Watermarking for 4D Gaussian Splatting in Surgical Scenes",
+      "created_at": "2026-11-13T19:55:58Z",
+      "first_seen": "2026-11-14",
+      "license": "NOASSERTION",
+      "license_name": "Other",
+      "topics": [
+        "动态重建"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "683223775",
+      "name": "nerfstudio-project/gsplat",
+      "url": "https://github.com/nerfstudio-project/gsplat",
+      "description": "CUDA accelerated rasterization of gaussian splatting",
+      "created_at": "2023-08-25T22:48:24Z",
+      "first_seen": "2026-11-14",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "高斯渲染"
+      ],
+      "paper_ids": [
+        "2409.06765"
+      ]
+    },
+    {
+      "id": "1449718791",
+      "name": "nour769/3DGS-Localization",
+      "url": "https://github.com/nour769/3DGS-Localization",
+      "description": "3D Gaussian Splatting-based 3D Scene Reconstruction and Localization",
+      "created_at": "2026-11-07T20:34:51Z",
+      "first_seen": "2026-11-14",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1453382329",
+      "name": "pouyasam1996/gaussian-slam",
+      "url": "https://github.com/pouyasam1996/gaussian-slam",
+      "description": "SLAM with 3D Gaussian Splatting for training",
+      "created_at": "2026-11-11T01:22:22Z",
+      "first_seen": "2026-11-14",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1449936740",
+      "name": "sidhantbas/affectpropogation",
+      "url": "https://github.com/sidhantbas/affectpropogation",
+      "description": "AffectSplat: Low-Spec 3D Gaussian World Models via Multiplicative Affect Propagation & JEPA (ESP32-S3 + Samsung S22 Ultra)",
+      "created_at": "2026-11-08T03:21:35Z",
+      "first_seen": "2026-11-14",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "世界模型"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1022300160",
+      "name": "Tencent-Hunyuan/HunyuanWorld-1.0",
+      "url": "https://github.com/Tencent-Hunyuan/HunyuanWorld-1.0",
+      "description": "Generating Immersive, Explorable, and Interactive 3D Worlds from Words or Pixels with Hunyuan3D World Model",
+      "created_at": "2025-07-18T19:58:43Z",
+      "first_seen": "2026-11-14",
+      "license": "NOASSERTION",
+      "license_name": "Other",
+      "topics": [
+        "世界模型"
+      ],
+      "paper_ids": [
+        "2507.21809"
+      ]
+    },
+    {
+      "id": "1453933411",
+      "name": "tianyi-star/4d_cattle",
+      "url": "https://github.com/tianyi-star/4d_cattle",
+      "description": "Cattle4DGS: 4D Gaussian Splatting for Bovine Gait Recognition and Prediction",
+      "created_at": "2026-11-11T12:11:29Z",
+      "first_seen": "2026-11-14",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "动态重建"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1456959703",
+      "name": "zerokhong1/gs4d_viewer",
+      "url": "https://github.com/zerokhong1/gs4d_viewer",
+      "description": "Browser viewer (viser) for 4D Gaussian Splatting results with a time slider",
+      "created_at": "2026-11-13T18:30:00Z",
+      "first_seen": "2026-11-14",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "动态重建"
+      ],
+      "paper_ids": []
+    }
+  ],
+  "events": [
+    {
+      "id": "repo:699641579",
+      "repository_id": "699641579",
+      "kind": "discovered",
+      "date": "2026-11-14T11:10:04+08:00",
+      "first_seen": "2026-11-14",
+      "title": "hustvl/4DGaussians",
+      "url": "https://github.com/hustvl/4DGaussians"
+    },
+    {
+      "id": "repo:683223775",
+      "repository_id": "683223775",
+      "kind": "discovered",
+      "date": "2026-11-14T11:10:04+08:00",
+      "first_seen": "2026-11-14",
+      "title": "nerfstudio-project/gsplat",
+      "url": "https://github.com/nerfstudio-project/gsplat"
+    },
+    {
+      "id": "repo:662028682",
+      "repository_id": "662028682",
+      "kind": "discovered",
+      "date": "2026-11-14T11:10:04+08:00",
+      "first_seen": "2026-11-14",
+      "title": "graphdeco-inria/gaussian-splatting",
+      "url": "https://github.com/graphdeco-inria/gaussian-splatting"
+    },
+    {
+      "id": "repo:934997412",
+      "repository_id": "934997412",
+      "kind": "discovered",
+      "date": "2026-11-14T11:10:04+08:00",
+      "first_seen": "2026-11-14",
+      "title": "facebookresearch/vggt",
+      "url": "https://github.com/facebookresearch/vggt"
+    },
+    {
+      "id": "repo:1050515012",
+      "repository_id": "1050515012",
+      "kind": "discovered",
+      "date": "2026-11-14T11:10:04+08:00",
+      "first_seen": "2026-11-14",
+      "title": "facebookresearch/map-anything",
+      "url": "https://github.com/facebookresearch/map-anything"
+    },
+    {
+      "id": "repo:1094841344",
+      "repository_id": "1094841344",
+      "kind": "discovered",
+      "date": "2026-11-14T11:10:04+08:00",
+      "first_seen": "2026-11-14",
+      "title": "ByteDance-Seed/Depth-Anything-3",
+      "url": "https://github.com/ByteDance-Seed/Depth-Anything-3"
+    },
+    {
+      "id": "repo:1022300160",
+      "repository_id": "1022300160",
+      "kind": "discovered",
+      "date": "2026-11-14T11:10:04+08:00",
+      "first_seen": "2026-11-14",
+      "title": "Tencent-Hunyuan/HunyuanWorld-1.0",
+      "url": "https://github.com/Tencent-Hunyuan/HunyuanWorld-1.0"
+    },
+    {
+      "id": "repo:1457040015",
+      "repository_id": "1457040015",
+      "kind": "new",
+      "date": "2026-11-13T19:55:58Z",
+      "first_seen": "2026-11-14",
+      "title": "minjaetidtid/SurgMark",
+      "url": "https://github.com/minjaetidtid/SurgMark"
+    },
+    {
+      "id": "repo:1456959703",
+      "repository_id": "1456959703",
+      "kind": "new",
+      "date": "2026-11-13T18:30:00Z",
+      "first_seen": "2026-11-14",
+      "title": "zerokhong1/gs4d_viewer",
+      "url": "https://github.com/zerokhong1/gs4d_viewer"
+    },
+    {
+      "id": "repo:1456953923",
+      "repository_id": "1456953923",
+      "kind": "new",
+      "date": "2026-11-13T18:24:05Z",
+      "first_seen": "2026-11-14",
+      "title": "minjaetidtid/Mark4D",
+      "url": "https://github.com/minjaetidtid/Mark4D"
+    },
+    {
+      "id": "repo:1456686765",
+      "repository_id": "1456686765",
+      "kind": "new",
+      "date": "2026-11-13T14:17:38Z",
+      "first_seen": "2026-11-14",
+      "title": "jayjayhust/waypoint-studio",
+      "url": "https://github.com/jayjayhust/waypoint-studio"
+    },
+    {
+      "id": "repo:1453933411",
+      "repository_id": "1453933411",
+      "kind": "new",
+      "date": "2026-11-11T12:11:29Z",
+      "first_seen": "2026-11-14",
+      "title": "tianyi-star/4d_cattle",
+      "url": "https://github.com/tianyi-star/4d_cattle"
+    },
+    {
+      "id": "repo:1453382329",
+      "repository_id": "1453382329",
+      "kind": "new",
+      "date": "2026-11-11T01:22:22Z",
+      "first_seen": "2026-11-14",
+      "title": "pouyasam1996/gaussian-slam",
+      "url": "https://github.com/pouyasam1996/gaussian-slam"
+    },
+    {
+      "id": "repo:1449936740",
+      "repository_id": "1449936740",
+      "kind": "new",
+      "date": "2026-11-08T03:21:35Z",
+      "first_seen": "2026-11-14",
+      "title": "sidhantbas/affectpropogation",
+      "url": "https://github.com/sidhantbas/affectpropogation"
+    },
+    {
+      "id": "repo:1449718791",
+      "repository_id": "1449718791",
+      "kind": "new",
+      "date": "2026-11-07T20:34:51Z",
+      "first_seen": "2026-11-14",
+      "title": "nour769/3DGS-Localization",
+      "url": "https://github.com/nour769/3DGS-Localization"
+    },
+    {
+      "id": "repo:1449303976",
+      "repository_id": "1449303976",
+      "kind": "new",
+      "date": "2026-11-07T11:43:39Z",
+      "first_seen": "2026-11-14",
+      "title": "evan01624/rijks-studio-scan",
+      "url": "https://github.com/evan01624/rijks-studio-scan"
+    }
+  ]
+}

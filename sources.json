@@ -1,0 +1,40 @@
+{
+  "github": {
+    "topics": {
+      "动态重建": "\"4D Gaussian Splatting\"",
+      "高斯渲染": "\"3D Gaussian Splatting\"",
+      "多视角重建": "\"multi-view reconstruction\"",
+      "几何基础模型": "\"geometry foundation model\"",
+      "可控视频生成": "\"camera-controlled\" \"video generation\"",
+      "世界模型": "\"world model\" \"3D\""
+    },
+    "watch": {
+      "hustvl/4DGaussians": "动态重建",
+      "nerfstudio-project/gsplat": "高斯渲染",
+      "graphdeco-inria/gaussian-splatting": "高斯渲染",
+      "facebookresearch/vggt": "几何基础模型",
+      "facebookresearch/map-anything": "多视角重建",
+      "ByteDance-Seed/Depth-Anything-3": "几何基础模型",
+      "Tencent-Hunyuan/HunyuanWorld-1.0": "世界模型"
+    }
+  },
+  "wechat": {
+    "accounts": {
+      "CVer": null,
+      "量子位": "https://wechat2rss.xlab.app/feed/7131b577c61365cb47e81000738c10d872685908.xml",
+      "我爱计算机视觉": "https://wechat2rss.xlab.app/feed/b81ffcfff1107b5265cd7e39de610dc7ca72caf4.xml",
+      "3D视觉工坊": null,
+      "计算机视觉life": null
+    },
+    "articles": [
+      {
+        "account": "量子位",
+        "title": "从图像生成到可交互的三维世界",
+        "date": "2026-10-12",
+        "url": "https://www.qbitai.com/2026/10/502701.html",
+        "summary": "报道字节跳动世界模型的现场演示，梳理场景生成、交互和持久状态的区别，以及空间一致性和物理关系仍面临的挑战。",
+        "tags": ["世界模型", "可控视频生成"]
+      }
+    ]
+  }
+}

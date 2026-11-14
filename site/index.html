@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="3DGS、4DGS、视觉几何与世界模型研究日报和论文库。">
+  <meta name="description" content="追踪 3DGS、4DGS、视觉几何与世界模型的论文、开源项目和技术解读。">
   <title>3D Vision Research Hub · 每日论文情报库</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="#today"><span class="brand-mark" aria-hidden="true">◈</span><span>3D <em>VISION</em> HUB</span></a>
+      <a class="brand" href="#today"><span class="brand-mark" aria-hidden="true">◈</span><span>3D Vision <em>Research</em></span></a>
       <nav class="site-nav" aria-label="主导航">
-        <a href="#today" data-route="today">日报</a>
-        <a href="#papers" data-route="papers">论文库</a>
-        <a href="#favorites" data-route="favorites">我的收藏 <span id="saved-count"></span></a>
+        <a href="#today" data-route="today">今日</a>
+        <a href="#papers" data-route="papers">论文</a>
+        <a href="#opensource" data-route="opensource">开源</a>
+        <a href="#articles" data-route="articles">文章</a>
+        <a href="#favorites" data-route="favorites">收藏 <span id="saved-count"></span></a>
         <a href="#archive" data-route="archive">历史</a>
       </nav>
     </div>
@@ -22,22 +24,55 @@
   <main class="page-shell hub">
     <p id="load-error" class="empty-state" role="alert" hidden>数据加载失败，请刷新页面后再试。</p>
     <section id="today" class="hub-view">
-      <div class="brief-layout">
+      <div class="edition">
         <div>
-          <h1 class="page-title">研究日报</h1>
-          <article id="featured" class="featured" aria-label="最新一期">正在读取最新日报…</article>
+          <h1 class="page-title">3D 视觉研究简报</h1>
+          <p>动态重建、视觉几何与世界模型</p>
         </div>
-        <aside class="brief-sidebar" aria-labelledby="highlights-heading">
-          <h2 id="highlights-heading">本期要点</h2>
-          <ul id="highlights" class="highlights"></ul>
-          <div class="hub-stats">
-            <a class="metric" href="#papers"><strong id="paper-count">—</strong><small>收录论文</small></a>
-            <a class="metric" href="#archive"><strong id="count">—</strong><small>历史日报</small></a>
-          </div>
-        </aside>
+        <time id="edition-date"></time>
       </div>
-      <div class="section-title section-offset"><h2>本期论文</h2><a href="#papers" class="section-link">查看论文库 ↗</a></div>
-      <div id="today-papers" class="paper-grid"></div>
+      <div class="brief-layout">
+        <div class="brief-main">
+          <article id="featured" class="featured" aria-label="最新一期">正在读取最新日报…</article>
+          <div class="section-title section-offset"><h2>本期论文</h2><a href="#papers" class="section-link">全部论文 ↗</a></div>
+          <div id="today-papers" class="paper-grid paper-list"></div>
+        </div>
+        <div class="brief-sidebar">
+          <div class="brief-art" aria-hidden="true"></div>
+          <section class="side-section" aria-labelledby="github-heading">
+            <div class="section-title"><h2 id="github-heading">GitHub 动态</h2><a href="#opensource" class="section-link">查看全部 ↗</a></div>
+            <div id="latest-github" class="compact-feed">正在读取 GitHub 动态…</div>
+          </section>
+          <section id="reading-section" class="side-section" aria-labelledby="reading-heading" hidden>
+            <div class="section-title"><h2 id="reading-heading">技术阅读</h2><a href="#articles" class="section-link">查看全部 ↗</a></div>
+            <div id="latest-articles" class="compact-feed"></div>
+          </section>
+          <section id="reproduce-section" class="side-section" aria-labelledby="reproduce-heading" hidden>
+            <div class="section-title"><h2 id="reproduce-heading">待复现</h2><a href="#favorites" class="section-link">查看收藏 ↗</a></div>
+            <div id="reproduce-papers" class="compact-feed"></div>
+          </section>
+        </div>
+      </div>
+    </section>
+    <section id="opensource" class="hub-view" hidden>
+      <div class="view-heading"><h1>开源动态</h1><p class="muted" id="github-status" role="status">正在读取采集状态…</p></div>
+      <div class="controls">
+        <label class="search-box"><input id="github-search" type="search" placeholder="搜索仓库、版本或关键词" aria-label="搜索开源动态"></label>
+        <select id="github-topic" aria-label="开源研究方向"><option value="">全部方向</option></select>
+        <select id="github-kind" aria-label="动态类型"><option value="">全部动态</option><option value="new">新仓库</option><option value="release">版本发布</option><option value="discovered">首次收录</option></select>
+      </div>
+      <p id="github-count" class="result-summary" role="status"></p>
+      <div id="github-results" class="research-feed"></div>
+    </section>
+    <section id="articles" class="hub-view" hidden>
+      <div class="view-heading"><h1>技术文章</h1></div>
+      <details class="article-sources"><summary>公众号追踪状态</summary><ul id="article-sources"></ul></details>
+      <div class="controls">
+        <label class="search-box"><input id="article-search" type="search" placeholder="搜索文章标题、公众号或关键词" aria-label="搜索文章"></label>
+        <select id="article-account" aria-label="微信公众号"><option value="">全部公众号</option></select>
+      </div>
+      <p id="article-count" class="result-summary" role="status"></p>
+      <div id="article-results" class="research-feed"></div>
     </section>
     <section id="papers" class="hub-view" hidden>
       <div class="view-heading"><h1>论文库</h1></div>
