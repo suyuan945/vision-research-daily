@@ -9,11 +9,7 @@
       "2026-11-14"
     ],
     "tags": [
-      "3DGS",
-      "4DGS",
-      "几何基础模型",
-      "世界模型",
-      "可控生成"
+      "可控生成 / 世界模型"
     ],
     "abstract": "Frontier video generation models work in a VAE latent space that compresses video in both space and time. This compression made training tractable, but now limits high-resolution, controllable, and interactive generation -- doubling resolution quadruples token count, conditions apply to groups of frames rather than individual ones, and each response must wait for the rest of its multi-frame block. We present PixVid, a simple yet effective method that lifts a pretrained latent video model to directly generate every frame in pixel space. PixVid keeps the diffusion transformer and replaces the VAE decoder with a convolutional head that renders its outputs into pixels. We find that predicting clean video rather than velocity, together with a larger noise shift, is key to quality. Finetuned from Wan2.1-14B, PixVid is competitive with the latent baseline within $\\sim 1.3$M training clips. Working framewise in pixels, it generates at $2\\times$ higher resolution with the same per-frame token count, keeps depth-conditioned video editing aligned under fast motion, and responds to each action at the next frame. Project page: https://chenshuo20.github.io/PixVid/",
     "published": "2026-11-12T18:59:55Z",
@@ -53,11 +49,7 @@
       "2026-11-14"
     ],
     "tags": [
-      "3DGS",
-      "4DGS",
-      "几何基础模型",
-      "世界模型",
-      "可控生成"
+      "可控生成 / 世界模型"
     ],
     "abstract": "Video diffusion models are able to generate samples with high-quality appearance and textural qualities. However, content produced by these methods is known to exhibit significant physical errors. This is because, in a classical video generation setting, all physical reasoning must take place simultaneously and exclusively within the diffusion process.We propose to resolve these issues by redistributing the task of physical reasoning onto a language model-backed keyframe generation module, which allows for explicit reasoning in language, and fine-grained control over the appearance of the video at important moments in the video. We then condition a video generation model with these keyframes, reducing the role of the diffusion model to the simpler task of interpolating between physically-correct intermediate states, rather than inferring an entire sequence with diffusion. Results demonstrate that our approach significantly outperforms existing approaches, achieving state-of-the-art performance on the Physics-IQ Verified benchmark and PhyGenBench.",
     "published": "2026-11-12T18:59:09Z",
@@ -75,11 +67,8 @@
       "2026-11-14"
     ],
     "tags": [
-      "3DGS",
-      "4DGS",
-      "几何基础模型",
-      "世界模型",
-      "可控生成"
+      "三维重建 / 深度",
+      "可控生成 / 世界模型"
     ],
     "abstract": "Spatial intelligence requires connecting visual observations to the geometry, objects, and persistent state of an environment. Images alone leave these relationships implicit, while disconnected annotations make it difficult to study appearance, camera motion, and scene changes under a common reference. We introduce Spatial Foundry, a collection of 5,280 furnished residential 3D scene configurations with editable assets and aligned visual, geometric, and temporal data. Its modalities include floor plans, perspective and panoramic RGB, metric depth, point clouds, meshes, instance-level 3D bounding boxes, and camera trajectories paired with video. Shared scene coordinates link observations across views and time; editable source scenes enable additional camera paths and controlled object changes. We describe the data representation and construction workflow, and discuss applications in floor-plan-conditioned 3D generation, geometric reconstruction, instance-level perception, camera-conditioned video generation, shared world modeling, and scene editing. Controlled camera and scene variations support spatial perception and world-model research. The public project page provides videos an",
     "published": "2026-11-12T18:58:36Z",
@@ -97,11 +86,10 @@
       "2026-11-14"
     ],
     "tags": [
-      "3DGS",
-      "4DGS",
       "几何基础模型",
-      "世界模型",
-      "可控生成"
+      "4DGS / 动态重建",
+      "3DGS / 渲染",
+      "多视角 / 相机几何"
     ],
     "abstract": "We present Kosmo-GFM, a scene reconstruction system that integrates a geometry foundation model (GFM), a pose optimization engine (PoseEngine), and reconstruction-derived supervision from KosmoWorld. GFM predicts camera parameters, depth, cross-view correspondences, and dynamic 3D points from images and videos. PoseEngine combines these predictions with geometric optimization to recover scene-level camera poses and geometry for downstream 3D and 4D Gaussian Splatting. KosmoWorld generates images and geometric supervision from reconstructed real-world scenes to improve GFM's geometric predictions. On the Sparse and Medium subsets of SpatialBench, GFM achieves the lowest absolute relative depth error and the highest relative-pose AUC at 5 degrees among the compared methods. It also achieves the lowest mean endpoint errors for dynamic points and scene flow across the five evaluated datasets. Across 34 scenes completed by all compared reconstruction systems, PoseEngine achieves the highest scene-averaged pose AUC at thresholds of 1, 3, and 5 degrees, with a cumulative runtime of 14.07 hours, approximately 20% of GLUEMAP's 69.67 hours. PoseEngine Flash provides a further accuracy-effici",
     "published": "2026-11-12T14:17:22Z",
@@ -119,11 +107,8 @@
       "2026-11-14"
     ],
     "tags": [
-      "3DGS",
-      "4DGS",
-      "几何基础模型",
-      "世界模型",
-      "可控生成"
+      "具身视觉",
+      "几何基础模型"
     ],
     "abstract": "Robotic manipulation often requires both spatial scene understanding and task history. However, many vision-language-action (VLA) policies rely primarily on current observations, without explicitly integrating spatial structure and task history. Appearance-based memories can be sensitive to occlusion and viewpoint changes, while spatial representations of the current scene alone do not preserve how the scene has changed during task execution. We introduce STVLA, a framework that incorporates features from a pretrained visual geometry foundation model into temporal memory alongside visual representations. This allows the policy to recall past scene structure as context for current action decisions. To select informative history, STVLA uses a mathematically grounded scoring rule that balances relevance to the current observation with complementary evidence from memory. Across evaluations on LIBERO, LIBERO-Mem, MIKASA-Robo, and SimplerEnv Bridge, STVLA achieves the highest average success rate among the compared methods on each benchmark. On real-world block stacking, object organization, and phone packaging, it improves success over $π_{0.5}$ by $58.33$, $30.00$, and $35.00$ percenta",
     "published": "2026-11-12T10:21:49Z",
@@ -133,7 +118,7 @@
   },
   {
     "id": "2611.09661",
-    "title": "Video2Asset",
+    "title": "Video2Asset: Online Construction of Persistent 3D Street-Scene Assets",
     "url": "https://arxiv.org/abs/2611.09661",
     "first_seen": "2026-11-10",
     "last_seen": "2026-11-10",
@@ -141,19 +126,21 @@
       "2026-11-10"
     ],
     "tags": [
-      "世界模型",
-      "多相机",
-      "深度估计"
+      "多视角 / 相机几何",
+      "三维重建 / 深度"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Online 3D street-scene asset construction turns multi-view video into a continually updated scene of independently editable objects. The central challenge is to accumulate partial, intermittent observations under motion and occlusion without fragmenting identities or mixing evidence across objects. To address this challenge, we propose Video2Asset, an online framework for constructing persistent 3D assets from multi-view video. Using occupancy as an intermediate representation, we construct identity-aware observations with Historical Carrier Guidance for instance decoding and an identity encoder fusing instance-aligned 3D features with multi-view appearance. Accumulated-Evidence Association compares current observations with identity, geometric, and appearance evidence accumulated within asset records to determine identity inheritance and update world-coordinate states. We instantiate meshes from an asset library using these states and combine them with an occupancy-derived static background to support scene visualization, mesh replacement, object deletion, and trajectory editing. Experiments on several datasets demonstrate improvements in temporal identity consistency and asset quality across multiple occupancy models, including a 15.4% reduction in asset fragmentation on nuScenes with SGE.",
+    "published": "2026-11-06T16:08:45Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "Video2Asset"
+    ]
   },
   {
     "id": "2611.09570",
-    "title": "MViS",
+    "title": "Video Stitching from Multiple Moving Cameras",
     "url": "https://arxiv.org/abs/2611.09570",
     "first_seen": "2026-11-10",
     "last_seen": "2026-11-10",
@@ -161,19 +148,20 @@
       "2026-11-10"
     ],
     "tags": [
-      "世界模型",
-      "多相机",
-      "深度估计"
+      "多视角 / 相机几何"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "We address geometric video alignment for the same scene captured by multiple freely moving cameras. Existing methods, which are based on image stitching or video stabilization, are typically limited to two cameras or must assume the restrictive setting of a fixed linear ordering of the cameras. We propose MViS, a lightweight test-time optimization framework for joint multi-view alignment with temporal consistency. MViS uses a spatial-transformer-inspired net to jointly process frames from all views within a short temporal window and predict per-view, per-time homographies. Optimization proceeds in two stages: geometry-guided alignment followed by appearance-based refinement, with both stages enforcing multi-view and temporal consistency across the sequence. The method requires no scene-specific hyperparameter tuning, handles arbitrary and time-varying view-intersection graphs, and remains robust under rapid camera motion. On a standard two-view video benchmark, MViS matches or surpasses the state of the art. To facilitate evaluation in more complex scenarios, we introduce an annotated dataset with more than two freely moving cameras and establish the first benchmark for this setting. Project page: https://bgu-cs-vil.github.io/MViS-project/ .",
+    "published": "2026-11-06T15:10:05Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "MViS"
+    ]
   },
   {
     "id": "2611.08782",
-    "title": "Extrapolation Matters",
+    "title": "Extrapolation Matters: Sparse-Only Depth Completion Beyond LiDAR Coverage",
     "url": "https://arxiv.org/abs/2611.08782",
     "first_seen": "2026-11-10",
     "last_seen": "2026-11-10",
@@ -181,19 +169,20 @@
       "2026-11-10"
     ],
     "tags": [
-      "世界模型",
-      "多相机",
-      "深度估计"
+      "三维重建 / 深度"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Extrapolation beyond LiDAR coverage is an important yet under-evaluated challenge of depth completion. In real camera--LiDAR systems, partial sensor overlap, occlusions, and limited field coverage often leave large image regions weakly observed or completely unobserved by LiDAR. Thus, we investigate depth completion in this beyond-coverage regime using only sparse supervision from raw single-sweep LiDAR, without dense depth labels, LiDAR accumulation, or pseudo-LiDAR generation. Our approach leverages a frozen monocular depth foundation model, lightweight per-frame alignment to sparse LiDAR geometry, and a refinement module that fuses the aligned prior with sparse LiDAR anchors to predict dense metric depth. To regularize learning under raw sparse supervision, we introduce a high-frequency normal-consistency loss defined as the image-space gradient of the per-pixel normal cosine discrepancy. This term penalizes spatial variation in scalar angular error; it does not directly match changes in neighboring normal vectors. We further introduce an evaluation protocol that explicitly separates LiDAR-supported and beyond-coverage regions, revealing extrapolative behavior that conventional depth-completion metrics can obscure. Our method achieves strong depth accuracy beyond LiDAR coverage while remaining competitive in LiDAR-covered regions, providing a practical way to deploy monocular foundation priors in multi-sensor systems.",
+    "published": "2026-11-05T23:05:31Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "Extrapolation Matters"
+    ]
   },
   {
     "id": "2611.07049",
-    "title": "Gaussolve",
+    "title": "Gaussians Can Subtract: Neural Dissolve Fields for Hybrid Scene Rendering",
     "url": "https://arxiv.org/abs/2611.07049",
     "first_seen": "2026-11-09",
     "last_seen": "2026-11-09",
@@ -201,19 +190,21 @@
       "2026-11-09"
     ],
     "tags": [
-      "3DGS",
-      "渲染优化",
-      "几何优化"
+      "多视角 / 相机几何",
+      "三维重建 / 深度"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Hybrid Mesh-Gaussian rendering combines compact textured surfaces with flexible 3D Gaussian primitives, offering an efficient alternative to purely Gaussian scene representations for structured environments. Existing scene-reconstruction hybrids commonly follow an additive formulation, where Gaussian residuals compensate for errors left by the mesh. However, not every Mesh-Gaussian conflict is caused by missing content: residual geometry errors, occlusion mismatch, texture-projection artifacts, and view-dependent appearance can make the same mesh content consistent in one view but inconsistent in another. We therefore formulate hybrid rendering as a multi-view inconsistency problem and present Gaussolve, a subtract-and-refill framework that selectively dissolves inconsistent mesh content before residual Gaussians refill the revealed regions. We introduce a lightweight Neural Dissolve Field, parameterized by scalar spherical-harmonic Gaussians, to learn where and from which viewing directions mesh content should be dissolved. A continuous transmittance fusion rule progressively exposes residual Gaussians behind the dissolved mesh, preserving their reconstruction gradients and avoiding hard visibility discontinuities. Experiments on structured and semi-structured scenes demonstrate higher visual fidelity with fewer Gaussian primitives and faster rendering. Project page: https://ooosn.github.io/gaussians-can-subtract/",
+    "published": "2026-11-04T19:08:50Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "Gaussolve"
+    ]
   },
   {
     "id": "2611.06974",
-    "title": "T²-Splat",
+    "title": "T$^2$-Splat: Adaptive Topology Mesh Splatting with Texture Residuals",
     "url": "https://arxiv.org/abs/2611.06974",
     "first_seen": "2026-11-09",
     "last_seen": "2026-11-09",
@@ -221,19 +212,22 @@
       "2026-11-09"
     ],
     "tags": [
-      "3DGS",
-      "渲染优化",
-      "几何优化"
+      "3DGS / 渲染",
+      "三维重建 / 深度",
+      "多视角 / 相机几何"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Triangle-based splatting connects novel view synthesis with conventional graphics pipelines, but often requires excessive tessellation to preserve appearance details. We present T$^2$-Splat, which decouples topology adaptation from appearance refinement. Safe Restricted Delaunay Triangulation (Safe RDT) initializes mesh connectivity. Dynamic Topology Evolution (DTE) then adapts triangle allocation through edge collapse and vertex split operations. Residual per-face Mip-textures then refine appearance on the fixed mesh using scale-adaptive filtering. Experiments on Mip-NeRF 360, Tanks & Temples, and DTU demonstrate competitive results with compact meshes. T$^2$-Splat improves PSNR by 0.71dB over MeshSplatting on Mip-NeRF 360. Additional compression experiments demonstrate flexible control of mesh complexity, supporting face budgets as low as 10% of the original face count. Project page: https://t2-splat.github.io/.",
+    "published": "2026-11-04T13:09:22Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "T²-Splat"
+    ]
   },
   {
     "id": "2611.08330",
-    "title": "InstantHand",
+    "title": "InstantHand: Feed-Forward 3D Gaussian Splatting for Animatable Hand Avatar Reconstruction from a Single Image",
     "url": "https://arxiv.org/abs/2611.08330",
     "first_seen": "2026-11-08",
     "last_seen": "2026-11-08",
@@ -241,19 +235,21 @@
       "2026-11-08"
     ],
     "tags": [
-      "深度估计",
-      "4DGS",
-      "人物重建"
+      "3DGS / 渲染",
+      "多视角 / 相机几何"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Hand avatar reconstruction typically relies on multi-view capture or per-subject optimization, limiting its scalability. We introduce InstantHand, a feed-forward framework that constructs an animatable 3D Gaussian hand avatar from a single image using off-the-shelf MANO, camera, and mask estimates, without test-time optimization. Image-averaged losses provide insufficient supervision for alpha leakage, which thickens thin finger contours. To address this issue, we propose a Soft Alpha Band regularizer that concentrates supervision on silhouette boundaries. Furthermore, colors regressed from image features can drift toward a learned prior even in observed regions. Our Reliability-gated Appearance Transfer preserves observed appearance by transferring source colors according to each Gaussian's rendering contribution, while completing unobserved regions using the learned prior conditioned on global source identity. InstantHand constructs an avatar in 2.84 seconds and renders at 161 FPS, matching per-subject-optimized baselines on InterHand2.6M and remaining competitive in zero-shot evaluation on HanCo.",
+    "published": "2026-11-05T17:21:08Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "InstantHand"
+    ]
   },
   {
     "id": "2611.07873",
-    "title": "PVDepth",
+    "title": "PVDepth: Panoramic Video Depth Estimation via Geometry-Aware Spatiotemporal Adaptation",
     "url": "https://arxiv.org/abs/2611.07873",
     "first_seen": "2026-11-08",
     "last_seen": "2026-11-08",
@@ -261,19 +257,21 @@
       "2026-11-08"
     ],
     "tags": [
-      "深度估计",
-      "4DGS",
-      "人物重建"
+      "三维重建 / 深度",
+      "可控生成 / 世界模型"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Panoramic video depth estimation is pivotal for applications such as Virtual Reality and World Models. However, advancements in this field are impeded by two primary obstacles: the scarcity of large-scale training data and the unique spatiotemporal challenges of Equirectangular Projection (ERP), which hinder the direct transfer of perspective models. In this paper, we first present PanoCARLA, a large-scale synthetic RGB-D panoramic video dataset, featuring natural motion trajectories and drone-like roaming perspectives. Building on this foundation, we propose PVDepth, an end-to-end framework adapted from perspective video depth models. To tackle ERP-specific geometric distortions and consequent non-linear temporal dynamics, we introduce two core mechanisms: (1) A Progressive Sphere-aware Noise Initialization strategy that anneals the noise distribution from planar to spherical, guiding the model to adapt to non-uniform information density; and (2) A Cube-rectified Temporal Modeling module that incorporates an auxiliary cubemap temporal branch to rectify non-linear temporal dynamics in the ERP domain. Extensive experiments demonstrate that PVDepth achieves superior performance, generating geometrically accurate and temporally consistent depth sequences. Code and data will be released at https:// github.com/ChuanxinSong/PVDepth.",
+    "published": "2026-11-05T11:47:33Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "PVDepth"
+    ]
   },
   {
     "id": "2611.08436",
-    "title": "SM4RT",
+    "title": "SM4RT: Cascaded Feed-forward Model for 4D Reconstruction",
     "url": "https://arxiv.org/abs/2611.08436",
     "first_seen": "2026-11-07",
     "last_seen": "2026-11-07",
@@ -281,19 +279,20 @@
       "2026-11-07"
     ],
     "tags": [
-      "4DGS",
-      "几何优化",
-      "3DGS"
+      "4DGS / 动态重建"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "We introduce SM4RT, a multi-task cascade feed-forward model for dynamic scene reconstruction from RGB videos. While existing feed-forward approaches typically address geometry reconstruction and motion estimation separately--and often predict motions in a single coordinate frame that must account for camera movement--SM4RT solves these tasks sequentially by first reconstructing 3D geometry and then bootstrapping motion estimation from the predicted structure. By expressing each pixel's 3D motion in its corresponding camera frame, SM4RT reduces ambiguity arising from camera motion. To address the sparsity of real-world motion labels, SM4RT further incorporates a weakly supervised loss that regularizes unlabeled point motions using labeled point positions at the other time step. We evaluate motion estimation on three dynamic-scene datasets--Kubric, Waymo, and Point Odyssey--and SM4RT achieves the best performance on most metrics compared with prior baselines. We additionally benchmark geometry reconstruction on five dynamic scene datasets and show that SM4RT achieves competitive performance with state-of-the-art methods. Overall, our unified framework demonstrates that combining geometry reconstruction and motion estimation in a cascade not only avoids performance trade-offs but also enhances motion estimation through improved geometric reasoning.",
+    "published": "2026-11-05T18:28:38Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "SM4RT"
+    ]
   },
   {
     "id": "2611.08288",
-    "title": "HIBS",
+    "title": "Hierarchical Incremental Beta Splatting for Online Reconstruction",
     "url": "https://arxiv.org/abs/2611.08288",
     "first_seen": "2026-11-07",
     "last_seen": "2026-11-07",
@@ -301,19 +300,21 @@
       "2026-11-07"
     ],
     "tags": [
-      "4DGS",
-      "几何优化",
-      "3DGS"
+      "3DGS / 渲染",
+      "多视角 / 相机几何"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Online 3D Gaussian Splatting reconstructs a scene during capture: each keyframe spawns primitives once and refines them for only a few dozen iterations, leaving little chance to fix poor initialization or missing detail. Gaussians are also inherently soft, needing many overlaps for solid surfaces. We present Hierarchical Incremental Beta Splatting (HIBS), which brings beta kernels to incremental reconstruction. Their shape parameter interpolates between a soft, Gaussian-like profile and a flat-topped, near-opaque surfel, acting as a confidence dial for geometry. Our confidence-aware spawning uses geometric observability and multi-view depth agreement to initialize both opacity and shape, producing solid primitives where geometry is verifiable and soft, correctable primitives where it is not. As online densification, error-driven relocation recycles stale primitives into photometric-error hotspots. Bounded beta kernel support enables exact tile culling and faster rasterization, and a closed-form, shape-preserving merging formulation provides a level-of-detail (LOD) hierarchy for fast optimization and real-time rendering. On Mip-NeRF 360 in the on-the-fly protocol, HIBS improves PSNR by up to 0.8 dB while reducing optimization time by up to 40%. Project page: https://linus-franke.com/hibs/",
+    "published": "2026-11-05T16:52:46Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "HIBS"
+    ]
   },
   {
     "id": "2611.07902",
-    "title": "XM4D",
+    "title": "XM4D: 4D Reconstruction through Certifiable Geometric Optimization",
     "url": "https://arxiv.org/abs/2611.07902",
     "first_seen": "2026-11-07",
     "last_seen": "2026-11-07",
@@ -321,19 +322,23 @@
       "2026-11-07"
     ],
     "tags": [
-      "4DGS",
-      "几何优化",
-      "3DGS"
+      "4DGS / 动态重建",
+      "3DGS / 渲染",
+      "多视角 / 相机几何",
+      "三维重建 / 深度"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Accurate 4D reconstruction remains challenging: jointly estimating camera motion, scene geometry, and non-rigid deformation entails highly nonconvex optimization, making global optimality difficult to guarantee. We present XM4D, a framework for accurate and efficient 4D reconstruction built upon certifiably globally optimal geometric optimization. By separating the estimation of camera motion from non-rigid deformation, we formulate both stages as structured quadratically constrained quadratic programs (QCQP) that admit semidefinite programming (SDP) relaxations and verifiable global optimality certificates. For camera motion estimation, we lift static point tracks into 3D using foundational depth prediction models and formulate a scaled bundle adjustment problem that jointly estimates camera poses, depth scales, and static landmarks. By analytically eliminating translations and landmarks, we reduce the problem to a QCQP over scaled rotations. For non-rigid reconstruction, we represent dynamic motion using an embedded deformation graph (EDG) and show that its tracking, rigidity, and temporal regularization objectives similarly reduce to a rotation-only QCQP. Both problems admit SDP relaxations that we solve efficiently with a GPU-accelerated Burer-Monteiro solver based on Riemannian optimization. The recovered geometry further initializes dynamic Gaussian splatting for photometric refinement. Extensive experiments across seven benchmarks demonstrate accurate camera motion estimation on both static and dynamic scenes, efficient optimization that scales to thousands of frames, and state-of-the-art novel-view rendering quality.",
+    "published": "2026-11-05T12:20:52Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "XM4D"
+    ]
   },
   {
     "id": "2611.06849",
-    "title": "Spotter",
+    "title": "Trainspotting: Learning Object-Centric 3D Reconstruction from Found Photos",
     "url": "https://arxiv.org/abs/2611.06849",
     "first_seen": "2026-11-06",
     "last_seen": "2026-11-06",
@@ -341,19 +346,22 @@
       "2026-11-06"
     ],
     "tags": [
-      "VGGT",
-      "3DGS",
-      "世界模型"
+      "三维重建 / 深度",
+      "多视角 / 相机几何",
+      "几何基础模型"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "State-of-the-art feedforward reconstruction models perform poorly on in-the-wild object-centric photo collections. They are trained largely on single-session object captures whose images vary in viewpoint while the object and its environment remain nearly fixed. Public photo archives contain a different form of multi-view data. They hold found photos of the same object or design: photos taken independently by many people across years, environments, cameras, and sometimes physical units. In this work, we introduce Trainspotting, a dataset of 12,068 objects and 311,886 photos from Wikimedia Commons. We reconstruct each object to recover camera poses, multi-view stereo depth, and object masks. We categorize the objects into three regimes: objects fixed at one site, objects that move between sites, and designs shared by many physical units. Evaluating recent feedforward reconstruction models on Trainspotting shows that they fail most severely in the last two regimes. Fine-tuning VGGT-$Ω$ on Trainspotting significantly improves camera pose, depth, and 3D geometry on held-out objects. We observe similar improvements on the independent NAVI in-the-wild benchmark, which contains photos of each object in different environments. Performance on conventional benchmarks remains largely unchanged.",
+    "published": "2026-11-04T18:05:22Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "Spotter"
+    ]
   },
   {
     "id": "2611.06593",
-    "title": "BudgetSplat",
+    "title": "BudgetSplat: Budget-Controllable Generalizable Gaussian Splatting",
     "url": "https://arxiv.org/abs/2611.06593",
     "first_seen": "2026-11-06",
     "last_seen": "2026-11-06",
@@ -361,19 +369,21 @@
       "2026-11-06"
     ],
     "tags": [
-      "VGGT",
-      "3DGS",
-      "世界模型"
+      "3DGS / 渲染",
+      "多视角 / 相机几何"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Feed-forward 3D Gaussian Splatting enables efficient generalizable novel view synthesis, but existing pixel-aligned methods often generate highly redundant Gaussian primitives, causing the final representation size and rendering cost to grow rapidly with image resolution and the number of input views. We propose BudgetSplat, a budget-controllable feed-forward framework that adapts the final Gaussian representation to a user-specified preservation ratio. Rather than treating compaction as simple importance ranking, we formulate it as a joint problem of importance estimation, spatial coverage, and cross-view redundancy. A single trained model supports varying numbers of context views and multiple test-time budgets without per-budget retraining or per-scene compression. To realize this formulation, Intra-Cross Mask Supervision provides structure-, coverage-, and redundancy-aware guidance for learning Gaussian importance, while budget-conditioned feature modulation adapts Gaussian opacity and attributes to the requested preservation ratio. Coverage-Aware Budget Selection further combines patch-wise pre-selection, view-wise opacity ranking, and 3D redundancy suppression to construct compact yet spatially distributed Gaussian representations. Experiments on indoor reconstruction and cross-dataset generalization demonstrate consistent quality--size trade-offs across different input view counts and preservation ratios, substantially reducing final representation storage and rendering cost while preserving rendering quality.",
+    "published": "2026-11-04T14:46:59Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "BudgetSplat"
+    ]
   },
   {
     "id": "2611.04666",
-    "title": "Phase-DGS",
+    "title": "Phase-DGS: Phase-guided Dynamic Gaussian Splatting from Unsynchronized Multi-view Video",
     "url": "https://arxiv.org/abs/2611.04666",
     "first_seen": "2026-11-05",
     "last_seen": "2026-11-05",
@@ -381,19 +391,22 @@
       "2026-11-05"
     ],
     "tags": [
-      "4DGS",
-      "多相机",
-      "世界模型"
+      "4DGS / 动态重建",
+      "3DGS / 渲染",
+      "多视角 / 相机几何"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Spatiotemporal scene reconstruction with Dynamic Gaussian Splatting (DGS) fundamentally depends on perfect temporal synchronization across all cameras, an assumption rarely achievable in practice. Industry-standard synchronization requires expensive specialized hardware and complex setup, while data-driven alternatives including audio-based alignment, geometry matching, and pose tracking remain limited by restrictive environmental or scene-specific assumptions. To overcome these limitations, we propose Phase-DGS, a framework that replaces conventional timestamps with a semantic phase representing each frame's inherent state within the underlying motion cycle. Frames capturing the same motion state share the same phase regardless of which camera records them or when, naturally establishing spatiotemporal correspondence across unsynchronized cameras. We validate Phase-DGS under temporal offsets, frame drops, and camera freezes, achieving up to +8.5 dB PSNR improvement over baselines while enabling seamless integration with existing DGS backbones including RealTime-4DGS and FreeTimeGS.",
+    "published": "2026-11-03T10:51:33Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "Phase-DGS"
+    ]
   },
   {
     "id": "2611.03228",
-    "title": "AnchorComplete",
+    "title": "AnchorComplete: Recovering Complete Scene Meshes from Partial Point Clouds",
     "url": "https://arxiv.org/abs/2611.03228",
     "first_seen": "2026-11-04",
     "last_seen": "2026-11-04",
@@ -401,19 +414,20 @@
       "2026-11-04"
     ],
     "tags": [
-      "3D生成",
-      "多相机",
-      "深度估计"
+      "三维重建 / 深度"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Most image-based 3D reconstructors primarily recover visible surfaces, producing partial point clouds with large holes and leaving unobserved geometry unresolved. To address this limitation, we introduce AnchorComplete, a framework that reconstructs complete scene meshes from partial point clouds while preserving observed geometry and supporting scenes of varying scales. Building on TRELLIS.2, our method combines partial-point conditioning, which integrates global scene tokens with local spatial evidence to anchor generation to the input, and metric-scale coarse-to-fine generation, which progressively refines scene geometry within fixed-size windows while maintaining global structural consistency. Experiments on Replica and SCRREAM demonstrate that AnchorComplete consistently outperforms strong baselines in complete-scene reconstruction, particularly under sparse-view settings.",
+    "published": "2026-11-02T14:48:09Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "AnchorComplete"
+    ]
   },
   {
     "id": "2611.03098",
-    "title": "Ray-SCR",
+    "title": "Ray-SCR: Generalizing Scene Coordinate Regression Across Camera Models",
     "url": "https://arxiv.org/abs/2611.03098",
     "first_seen": "2026-11-04",
     "last_seen": "2026-11-04",
@@ -421,19 +435,20 @@
       "2026-11-04"
     ],
     "tags": [
-      "3D生成",
-      "多相机",
-      "深度估计"
+      "多视角 / 相机几何"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Among visual localization strategies, scene coordinate regression (SCR) has emerged as an attractive approach for its compactness, accuracy, and speed. Despite these advantages, SCR models generalize poorly across substantially different camera models, such as omnidirectional or strongly rectified imagery. This limitation arises because, changes in field of view, lens distortion, or rectification-induced resampling can make the same scene content appear differently depending on its pixel position, degrading localization accuracy. To cope with this limitation, we introduce Ray-SCR, a lightweight extension to existing SCR architectures that conditions local visual features on their calibrated viewing rays and refines neighboring ray-conditioned features with a shallow local Transformer. We further formulate supervision directly in ray space and use sparse SfM points as metric anchors that link observations across views and camera models. Taken together, these components enable a single scene representation built from a panoramic mapping sequence to accurately localize query images captured with very different cameras, including pinhole, fisheye, and omnidirectional cameras. We evaluate Ray-SCR across multiple SCR architectures and on datasets with pinhole, fisheye, and omnidirectional cameras. The proposed ray conditioning substantially improves generalization across cameras and leads to state-of-the-art localization performance in these challenging cross-camera settings. The project page is available at https://jaeminch0.github.io/ray-scr-generalizing-scene-coordinate-regression-across-camera-models/.",
+    "published": "2026-11-02T13:15:12Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "Ray-SCR"
+    ]
   },
   {
     "id": "2610.40640",
-    "title": "SonoWorld4D",
+    "title": "SonoWorld4D: From One Video to a 4D Audio-Visual Scene via Diffusion Synchronization",
     "url": "https://arxiv.org/abs/2610.40640",
     "first_seen": "2026-11-02",
     "last_seen": "2026-11-02",
@@ -441,19 +456,21 @@
       "2026-11-02"
     ],
     "tags": [
-      "4DGS",
-      "VGGT",
-      "世界模型"
+      "4DGS / 动态重建",
+      "三维重建 / 深度"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Recent progress in visual scene generation has extended beyond static 3D scenes toward the more challenging problem of generating dynamic 4D scenes from minimal input. However, sound, despite being intrinsically coupled with dynamic objects and events, remains largely unmodeled in prior work. We introduce Video-to-4DAVScene, a new task that turns a video into an explorable, time-varying 4D audio-visual scene, and present the SonoWorld4D framework for this task. Given a monocular video, our method generates a 360 static background, reconstructs explicit motion trajectories of dynamic, sound-emitting foreground objects, and synthesizes a physically-grounded sound field consistent across multiple sources through dual-space audio diffusion synchronization. The resulting 4D scene supports real-time novel-view visual and spatial audio rendering. Evaluation on real-world dynamic scenes and a user study demonstrates SonoWorld4D generates 4D audio-visual scenes with perceptually realistic, physically grounded spatial audio consistent with scene geometry and visual content.",
+    "published": "2026-10-29T17:58:45Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "SonoWorld4D"
+    ]
   },
   {
     "id": "2610.39812",
-    "title": "GROME",
+    "title": "GROME: GROunding Factorized MEmory into Video World Models",
     "url": "https://arxiv.org/abs/2610.39812",
     "first_seen": "2026-11-01",
     "last_seen": "2026-11-01",
@@ -461,19 +478,21 @@
       "2026-11-01"
     ],
     "tags": [
-      "世界模型",
-      "3DGS",
-      "多相机"
+      "可控生成 / 世界模型",
+      "三维重建 / 深度"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Long-horizon consistency is essential for video world models, yet it becomes difficult to maintain once observed content falls outside the context window. Existing memory mechanisms either retrieve history as implicit context, which remains constrained by context capacity and entangles static and dynamic information or consolidate history into explicit global representations, which struggle to model evolving dynamics and accumulate geometric errors. To overcome these limitations, we introduce GROME, a novel factorized memory framework that augments video world models for long-horizon coherence across both static scenes and dynamic entities. GROME operates via three synergistic components: 1) Static-Dynamic Factorization decouples historical evidence into static and dynamic components, preserving static scene geometry and dynamic entity states separately; 2) Local Memory Retrieval selects spatially aligned static history to eliminate geometric drift alongside the latest dynamic entity states to ensure temporal continuity; 3) Training-Free Memory Injection seamlessly grounds the factorized memory into video world models via their native conditioning pathways. Experiments on long-horizon revisit scenarios demonstrate that GROME substantially enhances scene persistence and dynamic entity fidelity over existing methods, all while preserving the visual quality and controllability of the frozen backbone without additional training. Beyond self-rollouts, GROME readily accommodates external observations as plug-and-play memory, unlocking flexible and controllable video continuation and scene exploration.",
+    "published": "2026-10-29T10:54:32Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "GROME"
+    ]
   },
   {
     "id": "2610.37818",
-    "title": "GOFish",
+    "title": "GOFish: Full Field-of-View Gaussian Splatting and Mesh Extraction",
     "url": "https://arxiv.org/abs/2610.37818",
     "first_seen": "2026-11-01",
     "last_seen": "2026-11-01",
@@ -481,19 +500,21 @@
       "2026-11-01"
     ],
     "tags": [
-      "世界模型",
-      "3DGS",
-      "多相机"
+      "3DGS / 渲染",
+      "三维重建 / 深度"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Robots, autonomous vehicles, and consumer 360° cameras use fisheye lenses for wide fields of view (FoVs). Simulation-ready digital twins require photorealistic rendering across the full FoV and an aligned collision mesh. However, prior fisheye Gaussian Splatting methods only rasterize up to 180° and do not produce meshes, while Gaussian surface reconstruction methods assume pinhole training images. We present GOFish, the first 3D Gaussian Splatting surface reconstruction method to train directly on fisheye images, rasterize FoVs beyond 180°, and extract an aligned mesh from the same scene. Calibrated densification recovers the surface across the entire FoV, while Calibrated Mip Filtering and Wide-Angle Appearance Modeling keep pixel blur and lens falloff out of the scene and mesh. Across the 200° FIORD and 205° FullCircle benchmarks, GOFish improves PSNR over the best prior method by 2.28 and 1.97 dB, respectively. It also outperforms fisheye rendering baselines within their own FoVs and achieves the highest mesh F-score on FIORD and the main ScanNet++ set. Together, the Gaussian scene and mesh form a LiDAR-free, simulation-ready digital twin that renders in real time, ray traces the full FoV, and provides collision geometry.",
+    "published": "2026-10-27T18:32:45Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "GOFish"
+    ]
   },
   {
     "id": "2610.40614",
-    "title": "L3G-World",
+    "title": "L3G-World: Real-Time Infinite World Generation with Latent 3D Gaussian Memory",
     "url": "https://arxiv.org/abs/2610.40614",
     "first_seen": "2026-10-31",
     "last_seen": "2026-10-31",
@@ -501,19 +522,20 @@
       "2026-10-31"
     ],
     "tags": [
-      "3DGS",
-      "世界模型",
-      "几何优化"
+      "可控生成 / 世界模型"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Interactive world models generate visual content conditioned on user actions, yet maintaining spatial consistency over long-horizon exploration in real time remains challenging. Existing approaches rely on either temporal context or explicit 3D memory, both of which scale poorly because memory grows with the length of the generated stream. Moreover, explicit 3D memories condition latent video generators by re-encoding RGB renderings, which precludes real-time generation. In this paper, we introduce a Latent 3D Gaussian Memory (L3G) that combines the efficiency of feed-forward reconstruction with a compact, rapidly renderable scene representation. Building on this memory, we propose L3G-World, in which a memory updater and a video diffusion transformer (DiT) alternate autoregressively to generate spatially consistent worlds. The memory updater spawns Gaussians in newly observed regions and refines existing ones, so that the memory grows with scene extent rather than stream length. Each Gaussian further stores a VAE latent feature, allowing the memory to be rendered directly into the DiT's latent space without VAE re-encoding. Experiments show that L3G-World achieves state-of-the-art generation quality and long-horizon spatial consistency, with up to $38.6\\times$ fewer 3D primitives, $3.2\\times$ faster memory updates, and $359\\times$ faster memory rendering relative to the most efficient prior 3D-memory baseline for each metric, enabling real-time world generation at 9 FPS.",
+    "published": "2026-10-29T17:54:42Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "L3G-World"
+    ]
   },
   {
     "id": "2610.38951",
-    "title": "GradSplat",
+    "title": "GradSplat: Gradients Inside the Forward Pass for Feed-Forward 3D Gaussian Splatting",
     "url": "https://arxiv.org/abs/2610.38951",
     "first_seen": "2026-10-31",
     "last_seen": "2026-10-31",
@@ -521,19 +543,20 @@
       "2026-10-31"
     ],
     "tags": [
-      "3DGS",
-      "世界模型",
-      "几何优化"
+      "3DGS / 渲染"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Feed-forward 3D Gaussian Splatting predicts a scene from a few images, but our predictor is less accurate than its own Gaussians optimized per scene on those images. This gap lies mostly in the shape of the Gaussians, their scale and rotation, since optimizing the shape alone recovers almost all of it and opacity and color recover less. Gradient steps on the input views correct this shape, and the model holds these views at inference. Log-anisotropy correction changes the axis ratios of each Gaussian in log space at constant volume, and in-forward gradient refinement renders the Gaussians into the input views and applies the gradient of the photometric loss with a learned recurrent update, first to opacity and color and then to the shape. GradSplat is a feed-forward model that refines its own Gaussians by learned gradient steps inside its forward pass, with no target view. On both complete six-view RealEstate10K protocols, it has the best PSNR and SSIM among nine methods and keeps its accuracy from $6$ to $42$ input views. Without fine-tuning, it is the most accurate on DL3DV and has the best PSNR and SSIM on ScanNet++. The code will be released at https://github.com/Jingong-Chen/GradSplat/.",
+    "published": "2026-10-28T21:36:34Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "GradSplat"
+    ]
   },
   {
     "id": "2610.38518",
-    "title": "RGMV",
+    "title": "Self-Consistency Geometry Injection for Multi-view Consistent Image Generation",
     "url": "https://arxiv.org/abs/2610.38518",
     "first_seen": "2026-10-31",
     "last_seen": "2026-10-31",
@@ -541,19 +564,20 @@
       "2026-10-31"
     ],
     "tags": [
-      "3DGS",
-      "世界模型",
-      "几何优化"
+      "多视角 / 相机几何"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Recent diffusion models have achieved impressive progress in single image to multi-view generation by synthesizing consistent novel views efficiently. Existing methods usually explicitly or implicitly couple geometry inference and texture synthesis, making generation vulnerable to inaccurate geometry prediction. Although several geometry-guided methods have explored decoupling, they usually treat predicted geometry as a fixed condition and do not explicitly model whether the geometry is reliable. We therefore propose Reliability-Guided Multi-View Generation (RGMV), which comprises a parameter-free Self-Consistency Geometry Gate (SCG) and a Reliability-aware Geometry Injection (RGI) module. Specifically, a geometry proposal generator produces multiple geometry predictions for the same reference image and target viewpoints under different stochastic sampling configurations. SCG measures their spatial agreement to derive a reliability map, which RGI uses to modulate the injection strength of geometry-conditioned residuals in the RGB synthesis model. Moreover, RGMV can adapt to different geometry proposal generators. As a result, RGMV preserves stronger geometric guidance in stable regions while attenuating unreliable geometry cues before they propagate into multi-view RGB generation. Extensive experiments show that reliability-aware geometry injection improves the geometric quality of multi-view generation. Code: https://github.com/WISLab-GDUT/RGMV.",
+    "published": "2026-10-28T09:29:51Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "RGMV"
+    ]
   },
   {
     "id": "2610.37545",
-    "title": "GroundControl",
+    "title": "GroundControl: Satellite-Conditioned Multi-View Diffusion for Reconstruction-Free Novel View Synthesis",
     "url": "https://arxiv.org/abs/2610.37545",
     "first_seen": "2026-10-30",
     "last_seen": "2026-10-30",
@@ -561,19 +585,21 @@
       "2026-10-30"
     ],
     "tags": [
-      "3DGS",
-      "VGGT",
-      "生成式外展"
+      "多视角 / 相机几何",
+      "可控生成 / 世界模型"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Multi-view or video diffusion models have recently emerged as state-of-the-art approaches for novel-view synthesis from sparse image collections. While they can produce high quality images, they tend to hallucinate unrealistic spatial layouts when synthesizing views outside the input views (scene extrapolation). We propose to address this challenge for outdoor scenes by using satellite images as an additional information source to condition the multi-view generative model. We introduce a new satellite-conditioned multi-view diffusion model that combines conditioning from a satellite image and street-level input images when generating novel-views. Our cross-attention based conditioning allows us to retain pretrained multi-view diffusion priors to generate seamless, realistic, novel views from a handful of source views, while also adhering to the scene layout as seen from satellite images. Our model does not use 3D scene reconstruction, and only relies on posed street and satellite views. Our experiments on outdoor datasets show that our model is better than both satellite-conditioned or street-view conditioned baselines on novel-view synthesis, especially on challenging cases where target views have very little overlap with source views. Project page: https://nianticspatial.github.io/groundcontrol",
+    "published": "2026-10-27T16:56:45Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "GroundControl"
+    ]
   },
   {
     "id": "2610.36760",
-    "title": "GeoGSplat",
+    "title": "GeoGSplat: Geometry-Grounded Non-Pixel-Aligned Gaussian Splatting",
     "url": "https://arxiv.org/abs/2610.36760",
     "first_seen": "2026-10-30",
     "last_seen": "2026-10-30",
@@ -581,19 +607,22 @@
       "2026-10-30"
     ],
     "tags": [
-      "3DGS",
-      "VGGT",
-      "生成式外展"
+      "3DGS / 渲染",
+      "多视角 / 相机几何",
+      "三维重建 / 深度"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Feed-forward Gaussian Splatting enables efficient novel view synthesis, but pixel-aligned prediction makes the primitive count grow with image resolution and view count, leading to substantial redundancy and increased computational cost. Non-pixel-aligned methods address this limitation by predicting a fixed number of Gaussians. Without explicit ray and depth constraints, these methods yield misplaced Gaussian centers, causing rendering artifacts under large viewpoint changes. To address this issue, we introduce GeoGSplat, a geometry-grounded feed-forward model that explicitly incorporates geometric priors into the non-pixel-aligned framework. A dual-branch encoder constructs Anchors and Triplane to capture coarse 3D structure and fine-grained scene features, respectively. Subsequently, a hierarchical decoder progressively decodes dense 3D points and Gaussian primitives, enabling 3D reconstruction and novel view synthesis. GeoGSplat surpasses both state-of-the-art pixel-aligned and non-pixel-aligned Gaussian Splatting methods on DTU and NRGBD in terms of novel view synthesis and reconstruction. The advantage of our geometry-grounded paradigm further increases as target viewpoints move farther from the input cameras, demonstrating stronger generalization to large viewpoint changes. Project Page: https://comedy0913.github.io/projects/geogsplat",
+    "published": "2026-10-27T07:15:03Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "GeoGSplat"
+    ]
   },
   {
     "id": "2610.36150",
-    "title": "Any3R",
+    "title": "Any3R: Feedforward 3D Reconstruction from Any Camera Type",
     "url": "https://arxiv.org/abs/2610.36150",
     "first_seen": "2026-10-30",
     "last_seen": "2026-10-30",
@@ -601,14 +630,17 @@
       "2026-10-30"
     ],
     "tags": [
-      "3DGS",
-      "VGGT",
-      "生成式外展"
+      "几何基础模型",
+      "三维重建 / 深度",
+      "多视角 / 相机几何"
     ],
-    "abstract": "",
-    "published": "",
-    "source": "digest",
+    "abstract": "Geometry foundation models recover camera poses and dense geometry from a set of images with a feed-forward network, but they expect pinhole images. That assumption is inside the backbone too: the positional encoding and the training loss both bind an image position to a direction in space, and both depend on the lens. We condition both on the dense ray field, the unit direction through every pixel, which describes any central camera without a lens type, distortion coefficients or a bound on field of view. Angular coordinates give the rotary encoding the measured ray angle of each patch, evaluated per view, and solid-angle weighting scales the point loss by the area each pixel covers on the sphere, so neither the encoding nor the supervision depends on the lens. Any3R is therefore a feed-forward model that takes any central camera, and is robust to mixing many camera types per scene, with no retraining per lens. On a benchmark of thirteen central cameras across three datasets, where every method reconstructs with its own predicted camera poses, it is the most consistently accurate method. Any3R enables scalable 3D reconstruction from heterogeneous crowdsourced and archival imagery collections sourced across diverse camera types. Project page: https://jingong-chen.github.io/Any3R/",
+    "published": "2026-10-26T18:53:14Z",
+    "source": "arxiv_metadata",
     "code_url": null,
-    "code_status": "未核实"
+    "code_status": "未核实",
+    "aliases": [
+      "Any3R"
+    ]
   }
 ]
