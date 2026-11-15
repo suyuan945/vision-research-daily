@@ -1,5 +1,120 @@
 [
   {
+    "id": "2611.16517",
+    "title": "UniSpark: Exploring Hybrid Attention for Multimodal Understanding and Generation",
+    "url": "https://arxiv.org/abs/2611.16517",
+    "first_seen": "2026-11-15",
+    "last_seen": "2026-11-15",
+    "digests": [
+      "2026-11-15"
+    ],
+    "tags": [
+      "图像生成"
+    ],
+    "abstract": "We present UniSpark-9B, a unified multimodal model that investigates hybrid attention for visual understanding and generation. Built on a Mixture-of-Transformer-Experts backbone with approximately 9B parameters in each branch, UniSpark combines full attention for explicit token interactions with GatedDeltaNet linear attention for compact context propagation. Autoregressive text prediction and visual flow matching jointly support visual question answering, text-to-image generation, instruction-guided editing, and interleaved text-image prediction. In interleaved generation, noisy visual targets are isolated from subsequent predictions, while clean visual representations provide context for later outputs. A blockwise protocol enforces this distinction through attention masks in full-attention layers and recurrent-state retention rules in linear-attention layers. The selected training sources contain 159.7M generation samples, 213.4M understanding samples, and 624.8K interleaved sequences. A four-stage curriculum jointly trains multimodal understanding and visual generation, refining answer accuracy and instruction following while extending image synthesis to 2K. UniSpark scores 2470.",
+    "published": "2026-11-12T09:16:10Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.16221",
+    "title": "BWM-Forge: Agentic World Programming for Embodied Intelligence",
+    "url": "https://arxiv.org/abs/2611.16221",
+    "first_seen": "2026-11-15",
+    "last_seen": "2026-11-15",
+    "digests": [
+      "2026-11-15"
+    ],
+    "tags": [
+      "多模态 / 具身视觉",
+      "视频生成",
+      "可控生成",
+      "三维几何"
+    ],
+    "abstract": "Generating diverse robot videos requires control over scene geometry, robot motion, and viewpoints. End-to-end video generation offers limited direct access to these variables, making targeted edits and reuse across tasks difficult. We present BWM-Forge, a code-driven framework for controllable video generation in robotics. Given robot assets and a task description, the framework accepts an initial image, an image with motion data, or a human demonstration video. A coding agent constructs editable Blender scene programs that specify objects, robot motion, and cameras. The resulting proxy videos provide structural and motion references for a video generation model, which adds visual detail. A multi-agent harness coordinates input processing, scene construction, review, and rendering. Automated evaluation and user feedback support iterative refinement, while an experience repository stores and retrieves reusable modeling and rendering rules. This design supports multiple robot embodiments, synchronized viewpoints, and appearance variation from a shared scene program. We evaluate the framework on 15 tasks covering five robot types. Compared with LingBot-World Base Cam on these tasks, ",
+    "published": "2026-11-12T03:14:48Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.16012",
+    "title": "Topology-Aware 4D Gaussian Splatting for Egocentric Videos",
+    "url": "https://arxiv.org/abs/2611.16012",
+    "first_seen": "2026-11-15",
+    "last_seen": "2026-11-15",
+    "digests": [
+      "2026-11-15"
+    ],
+    "tags": [
+      "动态重建",
+      "高斯渲染",
+      "多模态 / 具身视觉"
+    ],
+    "abstract": "Reconstructing dynamic scenes and objects from monocular egocentric video is crucial for embodied AI, yet existing 4D Gaussian Splatting (4DGS) approaches struggle with everyday interactions involving topological changes, such as cutting, assembly, opening, or closing. Since 4DGS methods rely on deforming a fixed representation, events that split, merge, or reveal surfaces cause severe visual artifacts. To address this challenge, we introduce TopoEgo, the first benchmark dedicated to topological changes in egocentric video (covering fission, fusion, open, and close), alongside Topo-4DGS, a topology-aware reconstruction method. Topo4DGS jointly models part-level motion and time-varying surface support by assigning independent rigid transformations to interacting parts and dynamically activating or deactivating Gaussians as surfaces appear, disappear, or separate. Extensive experiments demonstrate that Topo-4DGS significantly outperforms state-of-the-art 4DGS approaches across topological changes, especially on post-event frames. Code and data will be made publicly available.",
+    "published": "2026-11-11T21:13:08Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.13453",
+    "title": "Camera3R: Feed-Forward 3D Reconstruction from Heterogeneous Camera Models",
+    "url": "https://arxiv.org/abs/2611.13453",
+    "first_seen": "2026-11-15",
+    "last_seen": "2026-11-15",
+    "digests": [
+      "2026-11-15"
+    ],
+    "tags": [
+      "三维几何",
+      "几何基础模型"
+    ],
+    "abstract": "Feed-forward 3D reconstruction (3R) from unconstrained multi-view images has recently emerged as a prominent research direction in 3D computer vision. Various foundational reconstruction models have been proposed with different architectures and reconstruction paradigms. Despite being trained on large-scale perspective datasets with substantial computational resources, these models generally struggle to generalize to non-perspective images. This limitation hinders their deployment in applications involving arbitrary, unknown, and potentially heterogeneous camera models. To build on the capabilities of existing reconstruction models with minimal retraining, we propose Camera3R, a low-rank adaptation framework that efficiently extends perspective-pretrained 3R networks to any other camera models. Extensive experiments demonstrate that, with only 0.5% additional parameters and less than a day of training, Camera3R adapts a foundational 3D reconstruction model to non-perspective cameras while fully preserving its original performance on perspective inputs. Code is available at https://github.com/android-xr/camera3r.",
+    "published": "2026-11-10T01:56:04Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.12678",
+    "title": "Library of Hands: Fix the Hands, Not the World Model",
+    "url": "https://arxiv.org/abs/2611.12678",
+    "first_seen": "2026-11-15",
+    "last_seen": "2026-11-15",
+    "digests": [
+      "2026-11-15"
+    ],
+    "tags": [
+      "世界模型"
+    ],
+    "abstract": "A world model predicts how a scene changes after an action, and a planner uses it to search for actions that reach a goal. If the camera moves or the controller changes, the same command moves the robot differently: when its commands are turned by 90 degrees, a frozen planner with the LeWM world model that succeeds in 77.5% of episodes succeeds in only 7.8%. Current fixes retrain the model, need training data, or forget a set-up when it returns. We propose Library of Hands (LoH), a training-free method that keeps the world model frozen and corrects only the map from commands to applied actions, which we call the hand. LoH reads the hand through the frozen model, with no extra sensor: it finds the action that best explains the change between two camera images (a reading). It stores every hand it identifies, so a returning set-up is recognised rather than re-learnt. In closed-loop tests, LoH more than doubles success on three simulated tasks, from 28.6% to 62.3%, and loses only 0.6 percentage points when nothing changes. It also works, unchanged, with two other world models and on two of three models pretrained on real robot data, and its gain grows with the quality of its readings.",
+    "published": "2026-11-09T16:45:11Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.12557",
+    "title": "WanderBench: Can World Models Explore Dynamic Worlds from Video?",
+    "url": "https://arxiv.org/abs/2611.12557",
+    "first_seen": "2026-11-15",
+    "last_seen": "2026-11-15",
+    "digests": [
+      "2026-11-15"
+    ],
+    "tags": [
+      "世界模型",
+      "多模态 / 具身视觉"
+    ],
+    "abstract": "Video world models conditioned on an input video make it possible to explore real, recorded dynamic scenes, enabling re-shooting of footage, free-viewpoint replay, and real-to-sim environments for embodied agents. Such uses require the generated rollout to stay faithful to the recorded world, yet existing benchmarks start from a single image or a text prompt, and video-conditioned generation is evaluated mainly on perceptual quality and camera following. These evaluations do not directly assess whether exploration preserves subject identity, event progression, and scene consistency upon revisiting a location. We introduce WanderBench, a benchmark for exploring dynamic worlds from video. It comprises 745 single-shot source videos of real and AI-generated content in three difficulty tiers (3-25 s), paired with camera routes given as keyboard actions, and evaluates six dimensions with 24 human-validated sub-metrics. Benchmarking eight models, we find that as clips grow longer, models keep the static scene and visual quality but lose camera control and the source dynamics, and that none keeps revisited places consistent. We further propose WanderLand, a training-free framework that con",
+    "published": "2026-11-09T15:23:53Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
     "id": "2611.17336",
     "title": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
     "url": "https://arxiv.org/abs/2611.17336",

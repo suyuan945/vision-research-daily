@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "checked_at": "2026-11-14T12:37:25+08:00",
+  "checked_at": "2026-11-15T10:34:34+08:00",
   "failed_sources": [],
   "repositories": [
     {
@@ -104,6 +104,20 @@
       "license_name": "Apache License 2.0",
       "topics": [
         "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1457087337",
+      "name": "cocktailpeanut/supersplat.pinokio",
+      "url": "https://github.com/cocktailpeanut/supersplat.pinokio",
+      "description": "One-click Pinokio launcher for the SuperSplat 3D Gaussian splat editor.",
+      "created_at": "2026-11-13T20:51:13Z",
+      "first_seen": "2026-11-15",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "高斯渲染"
       ],
       "paper_ids": []
     },
@@ -271,6 +285,20 @@
       ]
     },
     {
+      "id": "1457630994",
+      "name": "iyadnou/text-to-image",
+      "url": "https://github.com/iyadnou/text-to-image",
+      "description": "Generating images from text with Stable Diffusion on Apple Silicon",
+      "created_at": "2026-11-14T10:21:55Z",
+      "first_seen": "2026-11-15",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "图像生成"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1456686765",
       "name": "jayjayhust/waypoint-studio",
       "url": "https://github.com/jayjayhust/waypoint-studio",
@@ -295,6 +323,40 @@
       "license_name": "",
       "topics": [
         "视频生成"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1457732010",
+      "name": "KhushiJ2911/microVLA",
+      "url": "https://github.com/KhushiJ2911/microVLA",
+      "description": "A small pi0.5-style vision-language-action model you can train from scratch on a 4 GB laptop GPU, plus running the real pi0.5 on the same GPU.",
+      "created_at": "2026-11-14T12:29:57Z",
+      "first_seen": "2026-11-15",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": [
+        "2210.02747",
+        "2303.15343",
+        "2306.03310",
+        "2410.24164",
+        "2504.16054"
+      ]
+    },
+    {
+      "id": "1455794508",
+      "name": "lonevetad/WorldModeler",
+      "url": "https://github.com/lonevetad/WorldModeler",
+      "description": "A massive project to model RPGs with the highest level of dynamism possible: using abstract and concrete ontologies, a custom reasoner, graph-alike hierarchies of events and priorities, Prolog-alike enhanced reasoning capabilities and some C++ code to glue everything together, I wish to be able to model EVERY possible (fantasy) game and evolve it!",
+      "created_at": "2026-11-12T20:26:00Z",
+      "first_seen": "2026-11-15",
+      "license": "GPL-3.0",
+      "license_name": "GNU General Public License v3.0",
+      "topics": [
+        "世界模型"
       ],
       "paper_ids": []
     },
@@ -385,6 +447,20 @@
       "paper_ids": []
     },
     {
+      "id": "1457685899",
+      "name": "PaxOrcnode/Cineloop-resp",
+      "url": "https://github.com/PaxOrcnode/Cineloop-resp",
+      "description": "Agentic video editing engine/skill/plugin ",
+      "created_at": "2026-11-14T11:31:10Z",
+      "first_seen": "2026-11-15",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "视频编辑"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1453382329",
       "name": "pouyasam1996/gaussian-slam",
       "url": "https://github.com/pouyasam1996/gaussian-slam",
@@ -399,6 +475,24 @@
       "paper_ids": []
     },
     {
+      "id": "1456253324",
+      "name": "RoboticsResearchHubVN/InstantAMP",
+      "url": "https://github.com/RoboticsResearchHubVN/InstantAMP",
+      "description": "Train AMP in 30 minutes on 1 RTX 5090: Unitree G1 locomotion and get-up through a differentiable world model (JAX + MuJoCo Warp)",
+      "created_at": "2026-11-13T06:44:30Z",
+      "first_seen": "2026-11-15",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "世界模型"
+      ],
+      "paper_ids": [
+        "2104.02180",
+        "2610.28480",
+        "2611.01729"
+      ]
+    },
+    {
       "id": "1449625089",
       "name": "rudranaresh0201/so101-world-model",
       "url": "https://github.com/rudranaresh0201/so101-world-model",
@@ -409,6 +503,20 @@
       "license_name": "",
       "topics": [
         "世界模型"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1458131026",
+      "name": "Sanjayyykumar/video-generations",
+      "url": "https://github.com/Sanjayyykumar/video-generations",
+      "description": "Turn a few lines of JSON into a voiced, captioned video — offline, no GPU. Kokoro TTS + FFmpeg.",
+      "created_at": "2026-11-14T20:06:04Z",
+      "first_seen": "2026-11-15",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "视频生成"
       ],
       "paper_ids": []
     },
@@ -517,6 +625,33 @@
   ],
   "events": [
     {
+      "id": "repo:1458131026",
+      "repository_id": "1458131026",
+      "kind": "new",
+      "date": "2026-11-14T20:06:04Z",
+      "first_seen": "2026-11-15",
+      "title": "Sanjayyykumar/video-generations",
+      "url": "https://github.com/Sanjayyykumar/video-generations"
+    },
+    {
+      "id": "repo:1457732010",
+      "repository_id": "1457732010",
+      "kind": "new",
+      "date": "2026-11-14T12:29:57Z",
+      "first_seen": "2026-11-15",
+      "title": "KhushiJ2911/microVLA",
+      "url": "https://github.com/KhushiJ2911/microVLA"
+    },
+    {
+      "id": "repo:1457685899",
+      "repository_id": "1457685899",
+      "kind": "new",
+      "date": "2026-11-14T11:31:10Z",
+      "first_seen": "2026-11-15",
+      "title": "PaxOrcnode/Cineloop-resp",
+      "url": "https://github.com/PaxOrcnode/Cineloop-resp"
+    },
+    {
       "id": "repo:699641579",
       "repository_id": "699641579",
       "kind": "discovered",
@@ -580,6 +715,15 @@
       "url": "https://github.com/Tencent-Hunyuan/HunyuanWorld-1.0"
     },
     {
+      "id": "repo:1457630994",
+      "repository_id": "1457630994",
+      "kind": "new",
+      "date": "2026-11-14T10:21:55Z",
+      "first_seen": "2026-11-15",
+      "title": "iyadnou/text-to-image",
+      "url": "https://github.com/iyadnou/text-to-image"
+    },
+    {
       "id": "repo:1457235941",
       "repository_id": "1457235941",
       "kind": "new",
@@ -587,6 +731,15 @@
       "first_seen": "2026-11-14",
       "title": "brave-plum-co/leonardo-ai-desktop",
       "url": "https://github.com/brave-plum-co/leonardo-ai-desktop"
+    },
+    {
+      "id": "repo:1457087337",
+      "repository_id": "1457087337",
+      "kind": "new",
+      "date": "2026-11-13T20:51:13Z",
+      "first_seen": "2026-11-15",
+      "title": "cocktailpeanut/supersplat.pinokio",
+      "url": "https://github.com/cocktailpeanut/supersplat.pinokio"
     },
     {
       "id": "repo:1457040015",
@@ -634,6 +787,15 @@
       "url": "https://github.com/DouglasLafortune7668/virtual-card-usdt-world-models-embodied-ai-sim-vcc"
     },
     {
+      "id": "repo:1456253324",
+      "repository_id": "1456253324",
+      "kind": "new",
+      "date": "2026-11-13T06:44:30Z",
+      "first_seen": "2026-11-15",
+      "title": "RoboticsResearchHubVN/InstantAMP",
+      "url": "https://github.com/RoboticsResearchHubVN/InstantAMP"
+    },
+    {
       "id": "repo:1456118951",
       "repository_id": "1456118951",
       "kind": "new",
@@ -659,6 +821,15 @@
       "first_seen": "2026-11-14",
       "title": "cs184-fa26-gaussiansplatting/final-project-proposal",
       "url": "https://github.com/cs184-fa26-gaussiansplatting/final-project-proposal"
+    },
+    {
+      "id": "repo:1455794508",
+      "repository_id": "1455794508",
+      "kind": "new",
+      "date": "2026-11-12T20:26:00Z",
+      "first_seen": "2026-11-15",
+      "title": "lonevetad/WorldModeler",
+      "url": "https://github.com/lonevetad/WorldModeler"
     },
     {
       "id": "repo:1455585943",

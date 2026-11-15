@@ -1,0 +1,21 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="过去24小时至7天内，视觉研究呈现两条主线：一是面向物理一致性的视频与世界模型，强调几何控制、动作后果评测与生成可靠性；二是三维重建与高斯渲染，在动态场景、拓扑变化与异质相机适配上持续扩展。此外，可控生成与多模态具身视觉在评测和方法层面均有代表性工作。"><title>视觉研究方向近期重点论文速览 · Vision Research Hub</title><link rel="stylesheet" href="../assets/style.css"></head><body><header class="site-header"><div class="header-inner"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">◈</span><span>Vision <em>Research</em></span></a><nav class="site-nav" aria-label="主导航"><a href="../#today">今日</a><a href="../#papers">论文</a><a href="../#opensource">开源</a><a href="../#articles">文章</a><a href="../#favorites">收藏</a><a href="../#archive">历史</a></nav></div></header><main class="article-shell"><a class="article-back" href="../#archive">← 返回历史日报</a><div class="article-header"><div class="article-kicker">2026-11-15 / 自动生成 · 网页日报</div><h1>视觉研究方向近期重点论文速览</h1><p class="article-intro">过去24小时至7天内，视觉研究呈现两条主线：一是面向物理一致性的视频与世界模型，强调几何控制、动作后果评测与生成可靠性；二是三维重建与高斯渲染，在动态场景、拓扑变化与异质相机适配上持续扩展。此外，可控生成与多模态具身视觉在评测和方法层面均有代表性工作。</p><div class="tag-list"><span class="tag">视频生成</span><span class="tag">世界模型</span><span class="tag">三维几何</span><span class="tag">高斯渲染</span><span class="tag">动态重建</span><span class="tag">具身视觉</span></div></div><article class="prose"><h2>BWM-Forge: Agentic World Programming for Embodied Intelligence</h2>
+<p><a href="https://arxiv.org/abs/2611.16221">arXiv</a>
+研究问题：机器人视频生成需要同时控制场景几何、机器人运动与视角，端到端模型难以直接编辑这些变量。方法上，该工作用编码智能体构造可编辑的 Blender 场景程序，生成代理视频作为结构参考，再由视频生成模型补全视觉细节，并用多智能体流程协调输入处理、场景构建、审查与渲染。证据显示其在覆盖五类机器人、15 项任务的评测中与基线比较，说明共享场景程序支持多视角同步与外观变化；具体数值指标输入未完整给出。适用场景为具身数据合成与可控世界模型训练；限制在于依赖 Blender 场景搭建质量。代码状态未核实。</p>
+<h2>WanderBench: Can World Models Explore Dynamic Worlds from Video?</h2>
+<p><a href="https://arxiv.org/abs/2611.12557">arXiv</a>
+研究问题：视频条件的世界模型能否在探索录制场景时保持主体身份、事件推进与重访一致性。该工作构建 745 段单镜头源视频、三级难度与键盘相机路线，使用 24 个经人工验证的子指标评测八个模型。结果表明随片段变长，模型保持静态场景与画质却丢失相机控制与源动态，且无一模型能维持重访地点一致；作者另提出免训练框架 WanderLand。适用场景为真实视频重拍与 real-to-sim；限制是基准以评测为主，方法改进范围有限。代码状态未核实。</p>
+<h2>Topology-Aware 4D Gaussian Splatting for Egocentric Videos</h2>
+<p><a href="https://arxiv.org/abs/2611.16012">arXiv</a>
+研究问题：单目自我中心视频中切割、装配、开合等拓扑变化会使依赖固定形变的 4DGS 产生严重伪影。Topo-4DGS 为交互部件分配独立刚体变换，并随时间动态激活或停用高斯，以建模部件级运动与时变表面支撑；同时提出 TopoEgo 基准覆盖分裂、融合、打开与关闭。实验显示其在拓扑变化、尤其是事件后帧上明显优于现有 4DGS 方法。适用场景为具身交互重建；限制是依赖部件级建模假设。代码与数据称将公开，当前未核实。</p>
+<h2>Camera3R: Feed-Forward 3D Reconstruction from Heterogeneous Camera Models</h2>
+<p><a href="https://arxiv.org/abs/2611.13453">arXiv</a>
+研究问题：透视数据预训练的前馈三维重建模型难以泛化到非透视与异质相机。Camera3R 采用低秩适配框架，仅增加约 0.5% 参数、训练不足一天，即可将基础重建网络扩展到其他相机模型，同时保留原透视输入性能。该工作提供代码链接，复现性相对明确。适用场景为任意未知相机模型的多视图重建；限制是适配范围取决于基础模型能力。</p>
+<h2>Library of Hands: Fix the Hands, Not the World Model</h2>
+<p><a href="https://arxiv.org/abs/2611.12678">arXiv</a>
+研究问题：相机移动或控制器更换会改变命令到实际动作的映射，冻结世界模型的规划器在命令旋转 90 度时成功率从 77.5% 骤降至 7.8%。LoH 保持世界模型冻结，仅通过冻结模型从两帧图像读取并校正&quot;手&quot;映射，并存储已识别配置以识别回归场景。闭环测试中三个模拟任务成功率由 28.6% 提升至 62.3%，环境不变时仅损失 0.6 个百分点，并可迁移到另外两个世界模型。适用场景为部署条件变化下的机器人规划；限制是依赖读取质量。代码状态未核实。</p>
+<h2>UniSpark: Exploring Hybrid Attention for Multimodal Understanding and Generation</h2>
+<p><a href="https://arxiv.org/abs/2611.16517">arXiv</a>
+研究问题：统一多模态模型需兼顾理解与生成的注意力效率。UniSpark-9B 在混合 Transformer 专家骨干上结合全注意力与 GatedDeltaNet 线性注意力，联合自回归文本预测与视觉流匹配，并用分块协议隔离含噪视觉目标与干净上下文。训练数据含 1.597 亿生成样本、2.134 亿理解样本与 62.48 万交错序列，四阶段课程将图像合成扩展至 2K。适用场景为交错图文生成与编辑；限制是模型规模大、复现成本高。代码状态未核实。</p>
+<hr />
+<p><em>由模型根据 arXiv 元数据生成，复现状态及指标请以官方论文为准。</em></p>
+<h2>同日 GitHub 动态</h2><ul><li>新仓库 · <a href="https://github.com/Sanjayyykumar/video-generations">Sanjayyykumar/video-generations</a></li></ul></article><div class="article-end"><a href="../#papers">浏览论文库 ↗</a></div></main><footer class="site-footer"><span>Vision Research Hub</span><a href="https://github.com/suyuan945/vision-research-daily/actions">查看更新记录 ↗</a></footer><script src="../assets/research-store.js" defer></script></body></html>
