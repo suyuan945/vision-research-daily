@@ -1,0 +1,88 @@
+{
+  "title": "视觉研究前沿日报：从统一几何生成到动作世界模型",
+  "summary": "本期从近期视觉论文中选取五个方向：统一几何生成、世界模型评测与动作优化、可控视频编辑、动态场景重建与三维几何基础模型。整体趋势从单项指标转向方法分工与评测可信度，例如统一生成内部的模态分工、世界模型对反事实动作的响应、稀疏视角下高斯表示的正则方式。",
+  "tags": [
+    "统一几何生成",
+    "世界模型",
+    "高斯渲染",
+    "可控生成",
+    "三维几何"
+  ],
+  "highlights": [
+    "UGG 用跨模态噪声级把视频生成与深度、位姿预测统一为一套条件补全",
+    "WATO 在训练期引入可微轨迹优化，使世界-动作联合生成同时满足任务目标与动力学",
+    "RAWATTA 通过统计注意力层角色实现免训练的多视图 Transformer 推理加速",
+    "ReCan-GS 借助形变敏感度分离动态主体与瞬态干扰物"
+  ],
+  "markdown": "## UGG：统一生成式几何模型\n[arXiv](https://arxiv.org/abs/2611.14440)\n研究问题：现有 4D 场景理解被拆成前馈几何预测与生成式视觉合成两条路线，缺少同时刻画几何、外观与动态的统一模型。方法：UGG 通过为不同模态和时间分配不同噪声级，把 RGB 视频生成与深度、相机位姿预测统一表述为单一生成模型内的条件补全，使其能从几何与视觉标注不齐的异构数据中学习，并在推理时用观测 RGB 提供的几何证据做假设搜索。证据：摘要称其在相机控制视频生成、深度估计与位姿预测上优于非统一基线。适用场景：需要几何与外观联合推理的动态场景理解与可控视频生成。限制：摘要未给出缺陷场景的定量下限，推理时搜索的计算成本需以全文核实。复现状态：未核实代码与权重发布情况。\n\n## WATO：通过可微轨迹优化联合世界与动作模型\n[arXiv](https://arxiv.org/abs/2611.17626)\n研究问题：联合世界-动作模型生成的未来动作与状态轨迹，经模仿学习训练后未必任务有效，也未必满足环境动力学。方法：WATO 把生成的动作与未来状态作为动力学约束轨迹优化的参考，将任务损失穿过优化后的轨迹回传训练生成器，轨迹优化只在训练期使用；部署时直接生成候选轨迹并由世界模型排序，不做迭代优化。证据：在 7 个视觉控制环境中，平均成功率从模仿式联合 WAM 的 79.9% 提升到 91.7%，相对 CEM 平均快 11.5 倍、世界模型评估次数少 600.5 倍。适用场景：机器人视觉控制与候选轨迹筛选。限制：结果均为仿真环境，真实硬件迁移与长时域任务尚需验证。复现状态：摘要未提及开源。\n\n## RAWATTA：多视图三维 Transformer 的免训练加速\n[arXiv](https://arxiv.org/abs/2611.17629)\n研究问题：VGGT 等前馈多视图重建模型的全局注意力随图像数二次增长，直接套用 LLM 稀疏注意力会掉精度或收益有限。方法：作者在三个模型、七个数据集上分析注意力，发现每层承担全局平均、跨图匹配或首图锚定三种角色之一；RAWATTA 因此以 8 比特运行注意力，仅在最坏情况校准检查要求处保留 16 比特，快速版本进一步近似平均层与锚定层，匹配层保留全部键。证据：在 12GB GPU、50 张图像条件下，RAWATTA 比官方实现更快，主要来自自研 CUDA 引擎。适用场景：多视图重建的显存受限部署。限制：精度损失的上界与跨模型泛化需读全文确认。复现状态：未见代码发布说明，未核实。\n\n## ReCan-GS：无干扰物的 4D 高斯重建\n[arXiv](https://arxiv.org/abs/2611.16259)\n研究问题：从随意拍摄视频做动态重建时，既要保留主体真实运动，又要抑制行人、阴影、烟雾等瞬态观测，现有方法常在二者间失衡，产生鬼影。方法：ReCan-GS 从学到的形变场推导雅可比形变敏感度分数，作为重建歧义的经验代理，据此把高斯分为动态核心与逐视图干扰物，或事后剪除敏感核心高斯；无需掩码、预训练分割器或介质专用监督。证据：在合成与真实动态场景及合成烟雾、雾场景上验证了跨干扰类型的有效性。适用场景：含瞬态遮挡的日常动态视频重建。限制：摘要未报告与各基线逐项指标的差距。复现状态：未核实。\n\n## Click3R：稀疏点击交互式立体重建\n[arXiv](https://arxiv.org/abs/2611.12875)\n研究问题：前馈大重建模型一次输出不可修改，失败时无法纠正。方法：Click3R 通过轻量点对应适配器把少量人工跨视图对应点注入重建网络，用于解决重复纹理、对称结构、大视角差与无纹理区域的歧义。证据：作者构建了暴露既有失败模式的基准，最少一次点击即可降低重建误差，并在标准与新基准上均有提升。适用场景：人机协同的重建纠错与交互式内容生产。限制：需人工点击，规模化和实时性未在摘要中说明。复现状态：未核实。\n\n## TokenStream：多主体个性化视频生成\n[arXiv](https://arxiv.org/abs/2611.16897)\n研究问题：从单图学习的主体外观易混入静态图像偏置，独立训练的适配器合并时会串身份。方法：Token-wise LoRA 仅将低秩更新限制在主体关联文本 token 的交叉注意力 value 投影上，为每个主体提供独立适应路径；T2V 引导流在去噪早期从冻结基础模型复制 query 与 key，以继承布局与运动先验。证据：在 1.3B 规模的多主体基准 Multi-DB 上，身份保持从 DreamBooth 的 0.422 升至 0.467，文本对齐从 0.652 升至 0.688。适用场景：广告、影视中的多角色个性化视频。限制：绝对分数仍不高，复杂交互与长视频一致性需全文核实。复现状态：未核实。\n\n---\n\n*由模型根据 arXiv 元数据生成，复现状态及指标请以官方论文为准。*",
+  "papers": [
+    {
+      "id": "2611.14440",
+      "title": "UGG: Unified Generative Geometry Model",
+      "summary": "Understanding 4D scenes is a core challenge in visual intelligence, requiring models to jointly capture scene geometry, appearance, and dynamics from partial observations. However, existing approaches are subdivided into feedforward models for direct geometric prediction, and generative models for visual synthesis. We introduce UGG, a unified framework for 4D scene understanding that jointly models RGB video and geometric representations such as depth and camera pose. By assigning different noise levels across modalities and time, UGG formulates visual generation and geometric prediction as conditional completion within a single generative model. This flexible formulation enables the model to learn from diverse, heterogeneous datasets with different subsets of geometric and visual annotations. Furthermore, our generative formulation enables inference-time search over multiple plausible scene hypotheses, using geometric evidence extracted from observed RGB frames to improve geometric prediction without ground truth geometry. We demonstrate UGG's effectiveness over non-unified baselines across camera-controlled video generation, depth estimation, and camera pose prediction, including",
+      "url": "https://arxiv.org/abs/2611.14440",
+      "published": "2026-11-10T18:11:40Z",
+      "topics": [
+        "视频生成",
+        "可控生成",
+        "动态重建",
+        "三维几何"
+      ]
+    },
+    {
+      "id": "2611.17626",
+      "title": "Joint World Action Models through Differentiable Trajectory Optimization",
+      "summary": "Joint world action models (WAMs) generate future actions and states together, modeling world-action trajectories rather than actions alone. However, trajectory imitation does not ensure that these trajectories are task-effective or consistent with dynamics. We present \\textbf{world action trajectory optimization (WATO)}, which optimizes generated actions and future states jointly for control. WATO uses both as references in a dynamics-constrained trajectory optimization problem and differentiates the task loss through the optimized trajectory to train the generator. This makes generated trajectories task-aware and dynamics-consistent while using trajectory optimization only during training. At deployment, WATO directly generates candidate trajectories and ranks them with a world model, without iterative trajectory optimization. Across $7$ visual control environments, WATO improves average success from $79.9\\%$ for the imitation joint WAM to $91.7\\%$, outperforming strong model-based, goal-conditioned RL, and generative control baselines. Compared with cross-entropy method (CEM), WATO is on average $11.5\\times$ faster and uses $600.5\\times$ fewer world model evaluations at deploymen",
+      "url": "https://arxiv.org/abs/2611.17626",
+      "published": "2026-11-13T00:54:12Z",
+      "topics": [
+        "世界模型"
+      ]
+    },
+    {
+      "id": "2611.17629",
+      "title": "Training-Free Acceleration of Multi-View 3D Transformers via Regime-Aware Attention Approximation",
+      "summary": "Multi-view 3D transformers such as VGGT reconstruct a scene from a set of unposed images in a single forward pass, predicting camera poses, depth and 3D points, but the cost of their global attention grows quadratically with the num- ber of images. Accelerators borrowed from large language models assume that each token attends to only a few oth- ers; on these models they lose accuracy or gain little speed. We study the global attention of three multi-view transform- ers on seven datasets and find that every layer plays one of three roles: it averages over the whole scene, matches points across many images, or anchors on the first image, whose coordinates the outputs use. Building on this anal- ysis, we propose Regime-AWare ATTention Approximation (RAWATTA), a training-free method that runs attention in 8- bit precision and keeps 16-bit precision only in the layers where a worst-case calibration check requires it. Its fast set- ting, RAWATTA-Fast, also approximates attention in a few averaging and anchoring layers, while matching layers and the first image keep all their keys. On a 12 GB GPU at 50 im- ages, RAWATTA runs VGGT faster than the released code, mostly through our CUDA eng",
+      "url": "https://arxiv.org/abs/2611.17629",
+      "published": "2026-11-13T00:59:07Z",
+      "topics": [
+        "三维几何",
+        "几何基础模型"
+      ]
+    },
+    {
+      "id": "2611.16259",
+      "title": "Reconstruct What You Can: Distractor-free 4D Gaussian Splatting",
+      "summary": "Dynamic reconstruction from casual video must preserve valid subject motion while suppressing transient occluders, shadows, and volumetric effects. Existing methods either suppress valid motion through static-scene assumptions or model all observations jointly, producing ghosting and unstable geometry. We introduce ReCan-GS, a 4D Gaussian Splatting framework that separates coherent scene content from inconsistent observations. It derives a Jacobian-based deformation-sensitivity score from the learned deformation field, using it as an empirical proxy for reconstruction ambiguity. The score guides separation into dynamic Core Gaussians and per-view Distractor Gaussians, or post-hoc pruning of sensitive Core Gaussians. The same criterion supports removal of spatial occluders, photometric artifacts, and evolving smoke or fog without masks, pretrained segmenters, or medium-specific supervision. Experiments on synthetic and real dynamic scenes and synthetic smoke/fog scenes demonstrate its usefulness across the evaluated distractor regimes.",
+      "url": "https://arxiv.org/abs/2611.16259",
+      "published": "2026-11-12T03:59:45Z",
+      "topics": [
+        "动态重建",
+        "高斯渲染"
+      ]
+    },
+    {
+      "id": "2611.12875",
+      "title": "Click3R: Interactive Stereo 3D Reconstruction with Sparse Correspondence Clicks",
+      "summary": "Despite impressive progress, existing feed-forward large 3D reconstruction models produce a single, irrevocable prediction. When these models fail, there is no mechanism to correct their mistakes. To address this limitation, we introduce Click3R, a framework for interactive geometric correction of feed-forward models using sparse human correspondence clicks. Given an image pair and a small set of cross-view point correspondences provided by a user, Click3R injects geometric constraints into the 3D reconstruction networks through a lightweight point correspondence adapter, enabling the model to resolve ambiguities in challenging scenarios such as repetitive textures, symmetric structures, large viewpoint changes, or textureless regions. To evaluate interactive reconstruction, we curate a challenging benchmark specifically designed to expose failure modes of existing feed-forward 3D reconstruction methods. Experiments show that Click3R reduces reconstruction error with as few as a single correspondence click, improving performance on both standard and our curated benchmarks. Our results highlight that sparse human interaction provides an effective and practical mechanism for correcti",
+      "url": "https://arxiv.org/abs/2611.12875",
+      "published": "2026-11-09T18:58:02Z",
+      "topics": [
+        "三维几何",
+        "几何基础模型"
+      ]
+    },
+    {
+      "id": "2611.16897",
+      "title": "TokenStream: Multi-Subject Personalized Video Generation with Token-wise LoRA and Guided Attention",
+      "summary": "We introduce TokenStream, an optimization-based framework that composes independently learned subject identities in text-to-video generation without a reference-video training dataset or joint optimization of each new subject combination. Learning from a single reference image makes subject appearance difficult to separate from static-image bias, while merging independently trained adapters can mix identities. Token-wise LoRA (ToRA) restricts low-rank updates to the cross-attention value projections of subject-associated text tokens, providing a separate adaptation path for each subject. A T2V-guided stream copies queries and keys from the frozen base model during early denoising to reuse its layout and motion priors while retaining personalized values. We also introduce Multi-DB, a 30-subject, 122-prompt benchmark with appearance-free prompts and varied interactions. On Multi-DB at 1.3B, TokenStream improves identity preservation from 0.422 for DreamBooth to 0.467 and textual alignment from 0.652 to 0.688.",
+      "url": "https://arxiv.org/abs/2611.16897",
+      "published": "2026-11-12T14:54:14Z",
+      "topics": [
+        "视频生成"
+      ]
+    }
+  ],
+  "date": "2026-11-16",
+  "kind": "自动生成 · 网页日报"
+}

@@ -5,11 +5,11 @@
     },
     "量子位": {
       "state": "ok",
-      "newest": "2026-11-14"
+      "newest": "2026-11-15"
     },
     "我爱计算机视觉": {
       "state": "ok",
-      "newest": "2026-11-14"
+      "newest": "2026-11-15"
     },
     "3D视觉工坊": {
       "state": "manual"
@@ -19,6 +19,26 @@
     }
   },
   "articles": [
+    {
+      "account": "量子位",
+      "title": "MEET2027含金量加码：第二批嘉宾强势来袭！",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247944090&idx=1&sn=7ad196ef9360e26ca192f22ef5645bbb",
+      "date": "2026-11-15",
+      "tags": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
+    {
+      "account": "我爱计算机视觉",
+      "title": "TPAMI 2026 华科&清华等发布强化学习扩散模型全景综述：从语言、多模态到具身与科学计算",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ%3D%3D&mid=2247667569&idx=1&sn=68d7ac3d167cf14221476df1b7214b1b",
+      "date": "2026-11-15",
+      "tags": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
     {
       "account": "量子位",
       "title": "70+机器人公司投出具身第一云：优化Ego视频位姿恢复，砍掉43%GPU用时",

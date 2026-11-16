@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "checked_at": "2026-11-15T10:34:34+08:00",
+  "checked_at": "2026-11-16T10:41:40+08:00",
   "failed_sources": [],
   "repositories": [
     {
@@ -34,6 +34,20 @@
       ]
     },
     {
+      "id": "1458573057",
+      "name": "alex-quiterio/pixel-dino-splats",
+      "url": "https://github.com/alex-quiterio/pixel-dino-splats",
+      "description": "Pixel-art dinosaur made of 3D gaussian splats",
+      "created_at": "2026-11-15T07:56:59Z",
+      "first_seen": "2026-11-16",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1454923883",
       "name": "alinuo666/ComfyUI-Banzhang-All",
       "url": "https://github.com/alinuo666/ComfyUI-Banzhang-All",
@@ -44,6 +58,20 @@
       "license_name": "GNU General Public License v3.0",
       "topics": [
         "视频生成"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1458477726",
+      "name": "ArthureCodage/forge-telegram-bot",
+      "url": "https://github.com/ArthureCodage/forge-telegram-bot",
+      "description": "Production-ready Telegram Remote Control & Generation Studio for Stable Diffusion WebUI Forge Neo and Ollama",
+      "created_at": "2026-11-15T05:31:58Z",
+      "first_seen": "2026-11-16",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "可控生成"
       ],
       "paper_ids": []
     },
@@ -535,6 +563,20 @@
       "paper_ids": []
     },
     {
+      "id": "1458717140",
+      "name": "silent-foam-03/heygen-desktop",
+      "url": "https://github.com/silent-foam-03/heygen-desktop",
+      "description": "HeyGen 2026 desktop setup with offline video generation, multilingual voice assets, template library and portable mode for Windows 11.",
+      "created_at": "2026-11-15T11:13:10Z",
+      "first_seen": "2026-11-16",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "视频生成"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1453116642",
       "name": "sohail-ai-dev/machete-media-tool",
       "url": "https://github.com/sohail-ai-dev/machete-media-tool",
@@ -624,6 +666,33 @@
     }
   ],
   "events": [
+    {
+      "id": "repo:1458717140",
+      "repository_id": "1458717140",
+      "kind": "new",
+      "date": "2026-11-15T11:13:10Z",
+      "first_seen": "2026-11-16",
+      "title": "silent-foam-03/heygen-desktop",
+      "url": "https://github.com/silent-foam-03/heygen-desktop"
+    },
+    {
+      "id": "repo:1458573057",
+      "repository_id": "1458573057",
+      "kind": "new",
+      "date": "2026-11-15T07:56:59Z",
+      "first_seen": "2026-11-16",
+      "title": "alex-quiterio/pixel-dino-splats",
+      "url": "https://github.com/alex-quiterio/pixel-dino-splats"
+    },
+    {
+      "id": "repo:1458477726",
+      "repository_id": "1458477726",
+      "kind": "new",
+      "date": "2026-11-15T05:31:58Z",
+      "first_seen": "2026-11-16",
+      "title": "ArthureCodage/forge-telegram-bot",
+      "url": "https://github.com/ArthureCodage/forge-telegram-bot"
+    },
     {
       "id": "repo:1458131026",
       "repository_id": "1458131026",
