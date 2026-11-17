@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "checked_at": "2026-11-16T10:41:40+08:00",
+  "checked_at": "2026-11-17T13:04:23+08:00",
   "failed_sources": [],
   "repositories": [
     {
@@ -44,6 +44,20 @@
       "license_name": "",
       "topics": [
         "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1456468805",
+      "name": "alexturkey/wan22-pascal-4gb",
+      "url": "https://github.com/alexturkey/wan22-pascal-4gb",
+      "description": "Wan 2.2 TI2V-5B video generation on a 4 GB GTX 1050 Ti (Pascal): stable-diffusion.cpp patches, byte-identical speedups, recipe and agent-readable install guide",
+      "created_at": "2026-11-13T10:37:47Z",
+      "first_seen": "2026-11-17",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "视频生成"
       ],
       "paper_ids": []
     },
@@ -178,6 +192,20 @@
       "paper_ids": []
     },
     {
+      "id": "1460163615",
+      "name": "dinooorange/rsvgs-compression",
+      "url": "https://github.com/dinooorange/rsvgs-compression",
+      "description": "Geometry–Color Decoupled Post-Training Compression for 3D Gaussian Splatting",
+      "created_at": "2026-11-16T14:55:22Z",
+      "first_seen": "2026-11-17",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1456312458",
       "name": "DouglasLafortune7668/virtual-card-usdt-world-models-embodied-ai-sim-vcc",
       "url": "https://github.com/DouglasLafortune7668/virtual-card-usdt-world-models-embodied-ai-sim-vcc",
@@ -188,6 +216,20 @@
       "license_name": "",
       "topics": [
         "世界模型"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1459725298",
+      "name": "Dowon-Study/recovering-latent-capability-in-frozen-vision-language-action-policies-via-test-time-verification",
+      "url": "https://github.com/Dowon-Study/recovering-latent-capability-in-frozen-vision-language-action-policies-via-test-time-verification",
+      "description": "Code for training and evaluating a lightweight verifier that selects among stochastic action candidates of a frozen vision-language-action (VLA) policy. At every decision step the policy samples K candidate action chunks, the verifier scores each candidate, and the highest-scoring candidate is executed. The policy weights are never updated.",
+      "created_at": "2026-11-16T08:11:19Z",
+      "first_seen": "2026-11-17",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "多模态 / 具身视觉"
       ],
       "paper_ids": []
     },
@@ -236,6 +278,20 @@
       "paper_ids": [
         "2503.11651"
       ]
+    },
+    {
+      "id": "1459873094",
+      "name": "GillchLee/VideoRC",
+      "url": "https://github.com/GillchLee/VideoRC",
+      "description": "Video generation with Region Cache",
+      "created_at": "2026-11-16T10:35:37Z",
+      "first_seen": "2026-11-17",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "视频生成"
+      ],
+      "paper_ids": []
     },
     {
       "id": "1455585943",
@@ -461,6 +517,20 @@
       ]
     },
     {
+      "id": "1456230886",
+      "name": "nihui/h3image-ncnn-vulkan",
+      "url": "https://github.com/nihui/h3image-ncnn-vulkan",
+      "description": "ncnn implementation of MiniMax-H3-Image, with text-to-image and multi-reference image editing",
+      "created_at": "2026-11-13T06:17:57Z",
+      "first_seen": "2026-11-17",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "图像生成"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1449718791",
       "name": "nour769/3DGS-Localization",
       "url": "https://github.com/nour769/3DGS-Localization",
@@ -607,6 +677,20 @@
       ]
     },
     {
+      "id": "1460502865",
+      "name": "terranceh12/pixel-city-splat-test",
+      "url": "https://github.com/terranceh12/pixel-city-splat-test",
+      "description": "3d gaussian splat pixel art",
+      "created_at": "2026-11-16T20:00:40Z",
+      "first_seen": "2026-11-17",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1453933411",
       "name": "tianyi-star/4d_cattle",
       "url": "https://github.com/tianyi-star/4d_cattle",
@@ -666,6 +750,54 @@
     }
   ],
   "events": [
+    {
+      "id": "release:447868781",
+      "repository_id": "1456230886",
+      "kind": "release",
+      "date": "2026-11-17T01:11:06Z",
+      "first_seen": "2026-11-17",
+      "title": "Release 20261117",
+      "version": "20261117",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/nihui/h3image-ncnn-vulkan/releases/tag/20261117"
+    },
+    {
+      "id": "repo:1460502865",
+      "repository_id": "1460502865",
+      "kind": "new",
+      "date": "2026-11-16T20:00:40Z",
+      "first_seen": "2026-11-17",
+      "title": "terranceh12/pixel-city-splat-test",
+      "url": "https://github.com/terranceh12/pixel-city-splat-test"
+    },
+    {
+      "id": "repo:1460163615",
+      "repository_id": "1460163615",
+      "kind": "new",
+      "date": "2026-11-16T14:55:22Z",
+      "first_seen": "2026-11-17",
+      "title": "dinooorange/rsvgs-compression",
+      "url": "https://github.com/dinooorange/rsvgs-compression"
+    },
+    {
+      "id": "repo:1459873094",
+      "repository_id": "1459873094",
+      "kind": "new",
+      "date": "2026-11-16T10:35:37Z",
+      "first_seen": "2026-11-17",
+      "title": "GillchLee/VideoRC",
+      "url": "https://github.com/GillchLee/VideoRC"
+    },
+    {
+      "id": "repo:1459725298",
+      "repository_id": "1459725298",
+      "kind": "new",
+      "date": "2026-11-16T08:11:19Z",
+      "first_seen": "2026-11-17",
+      "title": "Dowon-Study/recovering-latent-capability-in-frozen-vision-language-action-policies-via-test-time-verification",
+      "url": "https://github.com/Dowon-Study/recovering-latent-capability-in-frozen-vision-language-action-policies-via-test-time-verification"
+    },
     {
       "id": "repo:1458717140",
       "repository_id": "1458717140",
@@ -847,6 +979,27 @@
       "url": "https://github.com/jayjayhust/waypoint-studio"
     },
     {
+      "id": "release:444102796",
+      "repository_id": "1456468805",
+      "kind": "release",
+      "date": "2026-11-13T10:41:36Z",
+      "first_seen": "2026-11-17",
+      "title": "v0.1.0: Wan 2.2 TI2V-5B on a 4 GB GTX 1050 Ti",
+      "version": "v0.1.0",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/alexturkey/wan22-pascal-4gb/releases/tag/v0.1.0"
+    },
+    {
+      "id": "repo:1456468805",
+      "repository_id": "1456468805",
+      "kind": "new",
+      "date": "2026-11-13T10:37:47Z",
+      "first_seen": "2026-11-17",
+      "title": "alexturkey/wan22-pascal-4gb",
+      "url": "https://github.com/alexturkey/wan22-pascal-4gb"
+    },
+    {
       "id": "repo:1456312458",
       "repository_id": "1456312458",
       "kind": "new",
@@ -863,6 +1016,15 @@
       "first_seen": "2026-11-15",
       "title": "RoboticsResearchHubVN/InstantAMP",
       "url": "https://github.com/RoboticsResearchHubVN/InstantAMP"
+    },
+    {
+      "id": "repo:1456230886",
+      "repository_id": "1456230886",
+      "kind": "new",
+      "date": "2026-11-13T06:17:57Z",
+      "first_seen": "2026-11-17",
+      "title": "nihui/h3image-ncnn-vulkan",
+      "url": "https://github.com/nihui/h3image-ncnn-vulkan"
     },
     {
       "id": "repo:1456118951",
