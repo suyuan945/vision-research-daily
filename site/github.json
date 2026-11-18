@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "checked_at": "2026-11-17T13:04:23+08:00",
+  "checked_at": "2026-11-18T12:11:39+08:00",
   "failed_sources": [],
   "repositories": [
     {
@@ -76,6 +76,20 @@
       "paper_ids": []
     },
     {
+      "id": "1461380419",
+      "name": "amrutha206/NeRF-3DGS",
+      "url": "https://github.com/amrutha206/NeRF-3DGS",
+      "description": "NeRF and 3D Gaussian Splatting Research Project",
+      "created_at": "2026-11-17T12:29:15Z",
+      "first_seen": "2026-11-18",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1458477726",
       "name": "ArthureCodage/forge-telegram-bot",
       "url": "https://github.com/ArthureCodage/forge-telegram-bot",
@@ -136,6 +150,20 @@
       ]
     },
     {
+      "id": "1455724310",
+      "name": "CatchArtisanDone86/Movavi-Video-Editor-For-Windows",
+      "url": "https://github.com/CatchArtisanDone86/Movavi-Video-Editor-For-Windows",
+      "description": "Movavi Video Editor for Windows — desktop video editing application for cutting clips, adding effects, transitions, titles and exporting videos for social media and everyday projects.",
+      "created_at": "2026-11-12T19:12:12Z",
+      "first_seen": "2026-11-18",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "视频编辑"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1456118951",
       "name": "chakravarthi589/frontier-action-models",
       "url": "https://github.com/chakravarthi589/frontier-action-models",
@@ -192,6 +220,20 @@
       "paper_ids": []
     },
     {
+      "id": "1455399572",
+      "name": "DeckhandIgnite/Davinci-Resolve-Studio-For-Windows",
+      "url": "https://github.com/DeckhandIgnite/Davinci-Resolve-Studio-For-Windows",
+      "description": "DaVinci Resolve Studio for Windows — professional video editing, color grading, visual effects and audio post-production suite for desktop workflows.",
+      "created_at": "2026-11-12T14:18:31Z",
+      "first_seen": "2026-11-18",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "视频编辑"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1460163615",
       "name": "dinooorange/rsvgs-compression",
       "url": "https://github.com/dinooorange/rsvgs-compression",
@@ -230,6 +272,20 @@
       "license_name": "Apache License 2.0",
       "topics": [
         "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1461307378",
+      "name": "Edward-eng-crypto/LigSplat",
+      "url": "https://github.com/Edward-eng-crypto/LigSplat",
+      "description": "LigSplat - 本地 3D Gaussian Splatting 工作站 / A local 3D Gaussian Splatting workstation",
+      "created_at": "2026-11-17T11:20:59Z",
+      "first_seen": "2026-11-18",
+      "license": "GPL-3.0",
+      "license_name": "GNU General Public License v3.0",
+      "topics": [
+        "高斯渲染"
       ],
       "paper_ids": []
     },
@@ -431,6 +487,20 @@
       ]
     },
     {
+      "id": "1459212988",
+      "name": "kokarai/premiere-elements",
+      "url": "https://github.com/kokarai/premiere-elements",
+      "description": "Premiere Elements: Story-First Home Video Editing Workflow",
+      "created_at": "2026-11-15T20:27:07Z",
+      "first_seen": "2026-11-18",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "视频编辑"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1455794508",
       "name": "lonevetad/WorldModeler",
       "url": "https://github.com/lonevetad/WorldModeler",
@@ -443,6 +513,23 @@
         "世界模型"
       ],
       "paper_ids": []
+    },
+    {
+      "id": "1458485870",
+      "name": "LynnReal-AI/LynnReal",
+      "url": "https://github.com/LynnReal-AI/LynnReal",
+      "description": "Hand-controlled video world models with full-sequence and three-step causal generation.",
+      "created_at": "2026-11-15T05:45:18Z",
+      "first_seen": "2026-11-18",
+      "license": "NOASSERTION",
+      "license_name": "Other",
+      "topics": [
+        "世界模型"
+      ],
+      "paper_ids": [
+        "2606.10135",
+        "2609.15863"
+      ]
     },
     {
       "id": "1453138469",
@@ -543,6 +630,22 @@
         "高斯渲染"
       ],
       "paper_ids": []
+    },
+    {
+      "id": "1461228177",
+      "name": "pareekshit28/4danyone-workbench",
+      "url": "https://github.com/pareekshit28/4danyone-workbench",
+      "description": "Monocular video to dynamic 4D Gaussian splats with the upstream 4DAnyone trainer.",
+      "created_at": "2026-11-17T10:06:54Z",
+      "first_seen": "2026-11-18",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "动态重建"
+      ],
+      "paper_ids": [
+        "2608.20335"
+      ]
     },
     {
       "id": "1457685899",
@@ -661,6 +764,22 @@
       "paper_ids": []
     },
     {
+      "id": "1461188971",
+      "name": "suho-yoo/VSpark",
+      "url": "https://github.com/suho-yoo/VSpark",
+      "description": "VSpark: Speculative Decoding for Autoregressive Vision-Language-Action Models",
+      "created_at": "2026-11-17T09:31:19Z",
+      "first_seen": "2026-11-18",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": [
+        "2607.05147"
+      ]
+    },
+    {
       "id": "1022300160",
       "name": "Tencent-Hunyuan/HunyuanWorld-1.0",
       "url": "https://github.com/Tencent-Hunyuan/HunyuanWorld-1.0",
@@ -687,6 +806,20 @@
       "license_name": "",
       "topics": [
         "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1457065667",
+      "name": "thenextnewthing/Video-Feedback",
+      "url": "https://github.com/thenextnewthing/Video-Feedback",
+      "description": "Give your agent feedback on its video edits.",
+      "created_at": "2026-11-13T20:25:40Z",
+      "first_seen": "2026-11-18",
+      "license": "NOASSERTION",
+      "license_name": "Other",
+      "topics": [
+        "视频编辑"
       ],
       "paper_ids": []
     },
@@ -719,6 +852,22 @@
       "paper_ids": []
     },
     {
+      "id": "1455242807",
+      "name": "yulin-luo/deepvision-vla",
+      "url": "https://github.com/yulin-luo/deepvision-vla",
+      "description": "Look Before Acting: Enhancing Vision Foundation Representations for Vision-Language-Action Models (ACM MM 2026)",
+      "created_at": "2026-11-12T12:01:20Z",
+      "first_seen": "2026-11-18",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": [
+        "2603.15618"
+      ]
+    },
+    {
       "id": "1456959703",
       "name": "zerokhong1/gs4d_viewer",
       "url": "https://github.com/zerokhong1/gs4d_viewer",
@@ -729,6 +878,20 @@
       "license_name": "MIT License",
       "topics": [
         "动态重建"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1460940801",
+      "name": "zhudongwork/GR-SAC",
+      "url": "https://github.com/zhudongwork/GR-SAC",
+      "description": "Gated Residual Reinforcement Learning for Vision-Language-Action Models",
+      "created_at": "2026-11-17T05:08:22Z",
+      "first_seen": "2026-11-18",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "多模态 / 具身视觉"
       ],
       "paper_ids": []
     },
@@ -750,6 +913,75 @@
     }
   ],
   "events": [
+    {
+      "id": "repo:1461380419",
+      "repository_id": "1461380419",
+      "kind": "new",
+      "date": "2026-11-17T12:29:15Z",
+      "first_seen": "2026-11-18",
+      "title": "amrutha206/NeRF-3DGS",
+      "url": "https://github.com/amrutha206/NeRF-3DGS"
+    },
+    {
+      "id": "release:448531357",
+      "repository_id": "1461307378",
+      "kind": "release",
+      "date": "2026-11-17T11:28:33Z",
+      "first_seen": "2026-11-18",
+      "title": "LigSplat 0.2.0-preview · Windows x64",
+      "version": "v0.2.0",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/Edward-eng-crypto/LigSplat/releases/tag/v0.2.0"
+    },
+    {
+      "id": "repo:1461307378",
+      "repository_id": "1461307378",
+      "kind": "new",
+      "date": "2026-11-17T11:20:59Z",
+      "first_seen": "2026-11-18",
+      "title": "Edward-eng-crypto/LigSplat",
+      "url": "https://github.com/Edward-eng-crypto/LigSplat"
+    },
+    {
+      "id": "release:448481722",
+      "repository_id": "1454923883",
+      "kind": "release",
+      "date": "2026-11-17T10:42:07Z",
+      "first_seen": "2026-11-18",
+      "title": "v2.1.2",
+      "version": "v2.1.2",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/alinuo666/ComfyUI-Banzhang-All/releases/tag/v2.1.2"
+    },
+    {
+      "id": "repo:1461228177",
+      "repository_id": "1461228177",
+      "kind": "new",
+      "date": "2026-11-17T10:06:54Z",
+      "first_seen": "2026-11-18",
+      "title": "pareekshit28/4danyone-workbench",
+      "url": "https://github.com/pareekshit28/4danyone-workbench"
+    },
+    {
+      "id": "repo:1461188971",
+      "repository_id": "1461188971",
+      "kind": "new",
+      "date": "2026-11-17T09:31:19Z",
+      "first_seen": "2026-11-18",
+      "title": "suho-yoo/VSpark",
+      "url": "https://github.com/suho-yoo/VSpark"
+    },
+    {
+      "id": "repo:1460940801",
+      "repository_id": "1460940801",
+      "kind": "new",
+      "date": "2026-11-17T05:08:22Z",
+      "first_seen": "2026-11-18",
+      "title": "zhudongwork/GR-SAC",
+      "url": "https://github.com/zhudongwork/GR-SAC"
+    },
     {
       "id": "release:447868781",
       "repository_id": "1456230886",
@@ -799,6 +1031,15 @@
       "url": "https://github.com/Dowon-Study/recovering-latent-capability-in-frozen-vision-language-action-policies-via-test-time-verification"
     },
     {
+      "id": "repo:1459212988",
+      "repository_id": "1459212988",
+      "kind": "new",
+      "date": "2026-11-15T20:27:07Z",
+      "first_seen": "2026-11-18",
+      "title": "kokarai/premiere-elements",
+      "url": "https://github.com/kokarai/premiere-elements"
+    },
+    {
       "id": "repo:1458717140",
       "repository_id": "1458717140",
       "kind": "new",
@@ -815,6 +1056,15 @@
       "first_seen": "2026-11-16",
       "title": "alex-quiterio/pixel-dino-splats",
       "url": "https://github.com/alex-quiterio/pixel-dino-splats"
+    },
+    {
+      "id": "repo:1458485870",
+      "repository_id": "1458485870",
+      "kind": "new",
+      "date": "2026-11-15T05:45:18Z",
+      "first_seen": "2026-11-18",
+      "title": "LynnReal-AI/LynnReal",
+      "url": "https://github.com/LynnReal-AI/LynnReal"
     },
     {
       "id": "repo:1458477726",
@@ -943,6 +1193,15 @@
       "url": "https://github.com/cocktailpeanut/supersplat.pinokio"
     },
     {
+      "id": "repo:1457065667",
+      "repository_id": "1457065667",
+      "kind": "new",
+      "date": "2026-11-13T20:25:40Z",
+      "first_seen": "2026-11-18",
+      "title": "thenextnewthing/Video-Feedback",
+      "url": "https://github.com/thenextnewthing/Video-Feedback"
+    },
+    {
       "id": "repo:1457040015",
       "repository_id": "1457040015",
       "kind": "new",
@@ -1063,6 +1322,15 @@
       "url": "https://github.com/lonevetad/WorldModeler"
     },
     {
+      "id": "repo:1455724310",
+      "repository_id": "1455724310",
+      "kind": "new",
+      "date": "2026-11-12T19:12:12Z",
+      "first_seen": "2026-11-18",
+      "title": "CatchArtisanDone86/Movavi-Video-Editor-For-Windows",
+      "url": "https://github.com/CatchArtisanDone86/Movavi-Video-Editor-For-Windows"
+    },
+    {
       "id": "repo:1455585943",
       "repository_id": "1455585943",
       "kind": "new",
@@ -1070,6 +1338,36 @@
       "first_seen": "2026-11-14",
       "title": "GolovchenkoA/text-to-image",
       "url": "https://github.com/GolovchenkoA/text-to-image"
+    },
+    {
+      "id": "repo:1455399572",
+      "repository_id": "1455399572",
+      "kind": "new",
+      "date": "2026-11-12T14:18:31Z",
+      "first_seen": "2026-11-18",
+      "title": "DeckhandIgnite/Davinci-Resolve-Studio-For-Windows",
+      "url": "https://github.com/DeckhandIgnite/Davinci-Resolve-Studio-For-Windows"
+    },
+    {
+      "id": "release:442893803",
+      "repository_id": "1455242807",
+      "kind": "release",
+      "date": "2026-11-12T12:07:06Z",
+      "first_seen": "2026-11-18",
+      "title": "v0.1.0 — Inference and RLBench evaluation",
+      "version": "v0.1.0",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/yulin-luo/deepvision-vla/releases/tag/v0.1.0"
+    },
+    {
+      "id": "repo:1455242807",
+      "repository_id": "1455242807",
+      "kind": "new",
+      "date": "2026-11-12T12:01:20Z",
+      "first_seen": "2026-11-18",
+      "title": "yulin-luo/deepvision-vla",
+      "url": "https://github.com/yulin-luo/deepvision-vla"
     },
     {
       "id": "release:442656897",

@@ -1,5 +1,101 @@
 [
   {
+    "id": "2611.23226",
+    "title": "FastFrames: Video Generation at Interactive Latency",
+    "url": "https://arxiv.org/abs/2611.23226",
+    "first_seen": "2026-11-18",
+    "last_seen": "2026-11-18",
+    "digests": [
+      "2026-11-18"
+    ],
+    "tags": [
+      "视频生成",
+      "可控生成"
+    ],
+    "abstract": "Autoregressive video diffusion models generate frames based on new observations and inputs, making them a promising medium for interactive visual experiences. However, existing models are orders of magnitude too slow for fluid interaction. This paper introduces FastFrames, a family of fast autoregressive video diffusion models that achieves interactive latency without compromising quality. We profile the inference pipeline of state-of-the-art models and find that operations often treated as fixed implementation details, such as VAE decoding and KV cache updates, in fact account for over half of end-to-end inference latency. We challenge the assumption that these components are indispensable and replace them with lightweight alternatives. Our 1.3B variant runs at 36 ms per frame, or 28 responses per second (RPS), on a single B200 GPU while matching the generation quality of a state-of-the-art model that is nearly 8x slower. Our 14B variant runs at 45 ms per frame, or 22 RPS, on an 8x B200 GPU node and yields significantly better visual quality and realism. We show that FastFrames enables real-time interaction in applications such as camera-conditioned and physics-conditioned video g",
+    "published": "2026-11-17T18:59:13Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.23051",
+    "title": "Refin3R: Geometry-Guided Refinement for Feed-Forward 3D Reconstruction",
+    "url": "https://arxiv.org/abs/2611.23051",
+    "first_seen": "2026-11-18",
+    "last_seen": "2026-11-18",
+    "digests": [
+      "2026-11-18"
+    ],
+    "tags": [
+      "三维几何",
+      "几何基础模型"
+    ],
+    "abstract": "Feed-forward 3D reconstruction models predict dense point maps from multiple images in a single pass. Without explicit geometric constraints, however, their predictions are often inconsistent across views and lack fine-grained precision. Recent methods incorporate geometric priors such as camera pose or depth, but use them merely as auxiliary inputs, process each view independently, or refine the geometry only where the priors are available. We present Refin3R, which refines feed-forward point maps with Structure-from-Motion (SfM) points, propagating SfM geometry over the image grid. In its dual-branch architecture, a 2D branch extends SfM geometry beyond its coverage using geometry-aware backbone features, while a 3D branch reasons over the SfM points of all views, capturing multi-view structure that the image grid alone cannot represent. The two branches exchange information bidirectionally to jointly refine each view, yielding dense and accurate point maps. Across ScanNet++, ETH3D, Tanks\\&Temples, and out-of-domain human and surgical scenes, Refin3R consistently outperforms feed-forward and geometry-guided methods in point map accuracy while running faster than the strongest geo",
+    "published": "2026-11-17T16:46:34Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.22925",
+    "title": "Code World Model 2.0: Towards Infinite Controllable Video Generation",
+    "url": "https://arxiv.org/abs/2611.22925",
+    "first_seen": "2026-11-18",
+    "last_seen": "2026-11-18",
+    "digests": [
+      "2026-11-18"
+    ],
+    "tags": [
+      "视频生成",
+      "世界模型",
+      "可控生成"
+    ],
+    "abstract": "Visual proxies decouple explicit world-state simulation from photorealistic video synthesis, offering a controllable interface for both offline clip creation and real-time interactive streaming. Yet a practical renderer must address two challenges. Upstream proxies vary from coarse layouts to fine articulated geometry depending on the interaction, and streaming inference must operate in a few causal steps without accumulating drift across self-generated history. We present Invoker-Render, pairing a bidirectional creation model with a causal four-step streaming model under a shared conditioning interface over structural proxies, an appearance reference, and language. Trained on an aligned approximately 200-hour multi-granularity corpus, Invoker-Render honors fine geometric constraints when supplied while synthesizing plausible local motion under coarse proxies, enabling runtime selection of input detail. To bridge bidirectional creation and real-time streaming without compounding step compression and rollout drift, we introduce Progressive Forcing (ProForcing). ProForcing first trains a causal predictor and distills it into a four-step renderer using histories derived from training ",
+    "published": "2026-11-17T15:23:57Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.22494",
+    "title": "Fast and Strong Image Protection against Diffusion Personalization",
+    "url": "https://arxiv.org/abs/2611.22494",
+    "first_seen": "2026-11-18",
+    "last_seen": "2026-11-18",
+    "digests": [
+      "2026-11-18"
+    ],
+    "tags": [
+      "图像生成"
+    ],
+    "abstract": "Personalized text-to-image diffusion models can reproduce a person from a handful of photographs. Image protection perturbs each image before publication so that fine-tuning on it fails, but it optimizes every perturbation from scratch, so its cost grows with the number of images. We present the protective diffusion model (PDM), which is trained once and samples the perturbation of a new image over many denoising steps. PDM distills an iterative teacher and is then post-trained with the target residual projection (TRP) loss as a reward, a stronger objective than existing ones. PDM outperforms nine baselines on faces and artworks and nearly matches its teacher at a tenth of the cost.",
+    "published": "2026-11-17T09:49:41Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.20899",
+    "title": "SciWorldBench: Do Video World Models Really Understand Scientific Experiments?",
+    "url": "https://arxiv.org/abs/2611.20899",
+    "first_seen": "2026-11-18",
+    "last_seen": "2026-11-18",
+    "digests": [
+      "2026-11-18"
+    ],
+    "tags": [
+      "世界模型",
+      "视频生成",
+      "多模态 / 具身视觉"
+    ],
+    "abstract": "While the ability of video generation models to accurately depict scientific phenomena has received growing attention, determining whether these models genuinely understand the underlying principles remains a critical challenge. Existing benchmarks typically evaluate video samples in isolation, making it difficult to expose models that simply fit superficial visual priors. In scientific experiments, a small change in one condition produces a markedly different outcome even when the rest of the setup remains fixed. Capitalizing on this sensitivity, we introduce SciWorldBench, a benchmark comprising paired scientific experiments. Each pair varies a single condition in an otherwise fixed setup, yielding two mutually exclusive expected outcomes. Each generation prompt specifies the condition but omits the expected outcome. We evaluate ten text-and-image-to-video (TI2V) models using an independent vision-language model (VLM) that assesses each video without access to the condition text or the label identifying the correct outcome. A pair is scored as correct only when both videos depict their respective scientifically correct outcomes. Across all ten models, we find that the two videos ",
+    "published": "2026-11-16T11:09:07Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
     "id": "2611.17629",
     "title": "Training-Free Acceleration of Multi-View 3D Transformers via Regime-Aware Attention Approximation",
     "url": "https://arxiv.org/abs/2611.17629",

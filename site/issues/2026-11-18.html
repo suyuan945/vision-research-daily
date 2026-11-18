@@ -1,0 +1,23 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="当日 arXiv 视觉研究重点集中在低延迟交互视频生成、可控世界模型与三维几何重建。选取 5 篇论文，覆盖视频生成、世界模型、可控生成与三维重建等方向，兼顾方法差异与实证结论。"><title>视觉研究日报：交互视频生成与三维重建进展 · Vision Research Hub</title><link rel="stylesheet" href="../assets/style.css"></head><body><header class="site-header"><div class="header-inner"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">◈</span><span>Vision <em>Research</em></span></a><nav class="site-nav" aria-label="主导航"><a href="../#today">今日</a><a href="../#papers">论文</a><a href="../#opensource">开源</a><a href="../#articles">文章</a><a href="../#favorites">收藏</a><a href="../#archive">历史</a></nav></div></header><main class="article-shell"><a class="article-back" href="../#archive">← 返回历史日报</a><div class="article-header"><div class="article-kicker">2026-11-18 / 自动生成 · 网页日报</div><h1>视觉研究日报：交互视频生成与三维重建进展</h1><p class="article-intro">当日 arXiv 视觉研究重点集中在低延迟交互视频生成、可控世界模型与三维几何重建。选取 5 篇论文，覆盖视频生成、世界模型、可控生成与三维重建等方向，兼顾方法差异与实证结论。</p><div class="tag-list"><span class="tag">视频生成</span><span class="tag">世界模型</span><span class="tag">三维几何</span></div></div><article class="prose"><h2>FastFrames：交互级延迟的视频生成</h2>
+<p><a href="https://arxiv.org/abs/2611.23226">arXiv</a>
+FastFrames 关注自回归视频扩散推理过慢问题，目标是让交互式视频生成达到可交互的帧率。作者分析发现，VAE 解码与 KV 缓存更新等常被视作固定实现细节的环节占端到端延迟一半以上，于是用轻量替代方案重构推理管线。1.3B 模型在单张 B200 上达每帧 36 ms（28 RPS），质量接近慢约 8 倍的强基线；14B 模型在 8 卡节点上为每帧 45 ms，视觉质量更佳。
+该方法适用于实时交互、相机条件与物理条件视频等场景。证据主要来自速度与质量对比及与强基线的对齐，但超长时程稳定性与不同硬件泛化尚未充分展开，代码状态未核实。</p>
+<h2>Invoker-Render：面向无限可控视频生成的世界模型</h2>
+<p><a href="https://arxiv.org/abs/2611.22925">arXiv</a>
+论文提出以视觉代理作为可交互的世界状态接口，同时支持离线片段创作与实时流式生成，难点在于上游代理从粗布局到精细关节几何差异大，且流式推理易累积漂移。作者将双向创作模型与四步因果流式模型置于共享条件接口下，并引入 ProForcing 以衔接创作与实时流式，缓解压缩与 rollout 漂移的叠加。
+方法在约 200 小时多粒度对齐语料上训练，可在粗代理下合成合理局部运动，也能遵循细几何约束。适用于交互式内容与仿真类应用，但长时程一致性与真实场景迁移仍待验证，代码状态未核实。</p>
+<h2>SciWorldBench：视频世界模型是否理解科学实验</h2>
+<p><a href="https://arxiv.org/abs/2611.20899">arXiv</a>
+该基准针对“视频看起来合理但未必理解原理”的问题，构造成对科学实验：每对只改变一个条件，得到两个互斥的预期结果，提示词只给条件不给结果。独立 VLM 在不知道条件文本与标签的情况下评估视频，一对两段都正确才算通过。
+在十个文本/图像到视频模型上，成对表现明显不足，说明模型更易拟合表面视觉先验而非条件敏感性。该评测适合诊断世界模型的理解能力，但依赖 VLM 作为裁判可能引入偏差，扩展性与细粒度归因仍有局限，代码状态未核实。</p>
+<h2>Fin3R：几何引导的前馈三维重建精化</h2>
+<p><a href="https://arxiv.org/abs/2611.23051">arXiv</a>
+前馈三维重建可一次预测稠密点图，但缺少显式几何约束时跨视角不一致、精度不足。Fin3R 用 SfM 点云引导点图精化：2D 分支借助几何感知特征在图像网格上扩展 SfM 几何覆盖，3D 分支对所有视角的 SfM 点建模多视角结构，两分支双向交换信息联合精化。
+在 ScanNet++、ETH3D、Tanks&amp;Temples 及域外人体与手术场景上，点图精度优于前馈与几何引导方法，且快于最强几何基线。适用于稀疏观测下的稠密重建，但对 SfM 点质量与覆盖依赖较强，代码状态未核实。</p>
+<h2>Fast and Strong Image Protection against Diffusion Personalization</h2>
+<p><a href="https://arxiv.org/abs/2611.22494">arXiv</a>
+针对个性化文本到图像模型可复现个人形象的风险，论文提出保护扩散模型 PDM：一次训练后对新图像经多步去噪采样扰动，而非逐图从头优化；并以目标残差投影损失作为奖励进行后训练，强化保护目标。
+在人脸与艺术作品上优于九个基线，且以约十分之一成本接近其教师模型。适合批量图像发布前的防护，但面对更强微调或不同个性化流程的鲁棒性仍需核实，代码状态未核实。</p>
+<hr />
+<p><em>由模型根据 arXiv 元数据生成，复现状态及指标请以官方论文为准。</em></p>
+</article><div class="article-end"><a href="../#papers">浏览论文库 ↗</a></div></main><footer class="site-footer"><span>Vision Research Hub</span><a href="https://github.com/suyuan945/vision-research-daily/actions">查看更新记录 ↗</a></footer><script src="../assets/research-store.js" defer></script></body></html>
