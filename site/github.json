@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "checked_at": "2026-11-18T12:11:39+08:00",
+  "checked_at": "2026-11-19T12:06:36+08:00",
   "failed_sources": [],
   "repositories": [
     {
@@ -88,6 +88,22 @@
         "高斯渲染"
       ],
       "paper_ids": []
+    },
+    {
+      "id": "1461992873",
+      "name": "apple-aiml-research/ml-fastframes",
+      "url": "https://github.com/apple-aiml-research/ml-fastframes",
+      "description": "FastFrames: Video Generation at Interactive Latency",
+      "created_at": "2026-11-17T21:30:14Z",
+      "first_seen": "2026-11-19",
+      "license": "NOASSERTION",
+      "license_name": "Other",
+      "topics": [
+        "视频生成"
+      ],
+      "paper_ids": [
+        "2611.23226"
+      ]
     },
     {
       "id": "1458477726",
@@ -425,6 +441,20 @@
       ]
     },
     {
+      "id": "1463023815",
+      "name": "Ivy-vivi/long-horizon-real2sim",
+      "url": "https://github.com/Ivy-vivi/long-horizon-real2sim",
+      "description": "GRASE Scene Studio: public multi-view reconstruction results and generation progress",
+      "created_at": "2026-11-18T16:03:29Z",
+      "first_seen": "2026-11-19",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "多视角重建"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1457630994",
       "name": "iyadnou/text-to-image",
       "url": "https://github.com/iyadnou/text-to-image",
@@ -750,6 +780,20 @@
       "paper_ids": []
     },
     {
+      "id": "1462494818",
+      "name": "skygaul/my-open-space-3d",
+      "url": "https://github.com/skygaul/my-open-space-3d",
+      "description": "Silver mirror statue 3D Gaussian splat viewer",
+      "created_at": "2026-11-18T08:02:46Z",
+      "first_seen": "2026-11-19",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1453116642",
       "name": "sohail-ai-dev/machete-media-tool",
       "url": "https://github.com/sohail-ai-dev/machete-media-tool",
@@ -913,6 +957,45 @@
     }
   ],
   "events": [
+    {
+      "id": "repo:1463023815",
+      "repository_id": "1463023815",
+      "kind": "new",
+      "date": "2026-11-18T16:03:29Z",
+      "first_seen": "2026-11-19",
+      "title": "Ivy-vivi/long-horizon-real2sim",
+      "url": "https://github.com/Ivy-vivi/long-horizon-real2sim"
+    },
+    {
+      "id": "release:449900644",
+      "repository_id": "1456230886",
+      "kind": "release",
+      "date": "2026-11-18T11:39:22Z",
+      "first_seen": "2026-11-19",
+      "title": "Release 20261118",
+      "version": "20261118",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/nihui/h3image-ncnn-vulkan/releases/tag/20261118"
+    },
+    {
+      "id": "repo:1462494818",
+      "repository_id": "1462494818",
+      "kind": "new",
+      "date": "2026-11-18T08:02:46Z",
+      "first_seen": "2026-11-19",
+      "title": "skygaul/my-open-space-3d",
+      "url": "https://github.com/skygaul/my-open-space-3d"
+    },
+    {
+      "id": "repo:1461992873",
+      "repository_id": "1461992873",
+      "kind": "new",
+      "date": "2026-11-17T21:30:14Z",
+      "first_seen": "2026-11-19",
+      "title": "apple-aiml-research/ml-fastframes",
+      "url": "https://github.com/apple-aiml-research/ml-fastframes"
+    },
     {
       "id": "repo:1461380419",
       "repository_id": "1461380419",

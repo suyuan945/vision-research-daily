@@ -1,5 +1,119 @@
 [
   {
+    "id": "2611.24940",
+    "title": "$Z$-sight: Unifying Vision-Language-Action and Latent World Modeling",
+    "url": "https://arxiv.org/abs/2611.24940",
+    "first_seen": "2026-11-19",
+    "last_seen": "2026-11-19",
+    "digests": [
+      "2026-11-19"
+    ],
+    "tags": [
+      "世界模型",
+      "多模态 / 具身视觉"
+    ],
+    "abstract": "We introduce $Z$-sight, a unified robot foundation model that couples vision-language-action (VLA) and generative latent world modeling. Video-based world action models (WAMs) show the value of joint future-and-action generation for control, yet inherit the heavy cost of video generators. Recent latent-space policies avoid pixel generation, yet typically align intermediate features or rely on frozen target encoders, decoupling future prediction from the VLM's native feature space. $Z$-sight instead predicts the future directly in the visual token space in which its VLM perceives the present. Coupling a foresight expert and a continuous action expert with the VLM in a mixture-of-transformers, $Z$-sight jointly denoises future spatial tokens and actions at inference without pixel reconstruction or external encoders. Trained on human video and robot trajectories, $Z$-sight achieves 81.9% success on SIMPLE (+9.6 points over the strongest baseline) and 73.3% across six Unitree G1 tasks (+20.0 points) at 110 ms per chunk, while remaining competitive on tabletop benchmarks.",
+    "published": "2026-11-18T18:59:38Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.24925",
+    "title": "Render the Robot, Generate the World: One Video World Model Across Embodiments",
+    "url": "https://arxiv.org/abs/2611.24925",
+    "first_seen": "2026-11-19",
+    "last_seen": "2026-11-19",
+    "digests": [
+      "2026-11-19"
+    ],
+    "tags": [
+      "世界模型",
+      "三维几何"
+    ],
+    "abstract": "Predicting the consequences of an agent's actions requires modeling both the body's motion and the environment's response. Most video world models attempt to learn both from numerical actions, even though geometry and kinematics already specify the intended motion. We introduce Doppel, an embodiment-agnostic video world model conditioned on camera-aligned renderings of future body configurations and numerical action trajectories. By explicitly providing the intended motion, Doppel can focus on predicting object motion and interaction-driven changes in the environment. Rendered motion also provides a common visual interface across different embodiments and action spaces. To train on robot datasets without camera extrinsics, we recover camera poses and align rendered trajectories with recorded observations. We jointly train a single shared video backbone and conditioning adapter on eight datasets spanning eight robot and human embodiments, from single- and bimanual robot arms to a dexterous humanoid and human hands and bodies, using about 600 hours of video without embodiment labels. Across three robot-arm datasets, Doppel improves PSNR over action-only baselines by 1.00 dB on held-o",
+    "published": "2026-11-18T18:52:28Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.24869",
+    "title": "WorldRuler: Interactive World Modeling under Configurable Rules",
+    "url": "https://arxiv.org/abs/2611.24869",
+    "first_seen": "2026-11-19",
+    "last_seen": "2026-11-19",
+    "digests": [
+      "2026-11-19"
+    ],
+    "tags": [
+      "世界模型",
+      "视频生成"
+    ],
+    "abstract": "Rules govern how player actions change interactive worlds. Different rules create distinct gameplay experiences within similar scenes and action spaces. For customizable gameplay, generative world models must follow user-defined rules beyond real-world behaviors. However, realizing user-defined rules presents two challenges: Rule-State Persistence and Rule-to-Visual Realization. The former requires preserving rule definitions, dependencies, and world states across saving and loading, so that restored worlds follow the established rules. The latter requires accurately realizing rule-induced changes on designated objects and attributes, particularly when affected objects are unseen. In this paper, we propose WorldRuler, which organizes rule definitions, dependencies, and object states in an executable 3D rule graph and connects rule execution, video generation, and perceptual feedback in a closed loop. The graph supports joint saving and restoration of rules and world states, while dynamic object binding grounds rule-specified entities in visual instances and uses stored states to constrain generation from their first appearance. We further introduce object attribute state replacemen",
+    "published": "2026-11-18T18:20:39Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.24731",
+    "title": "HandWorldBench: A Unified Benchmark for Hand-Centric World Models",
+    "url": "https://arxiv.org/abs/2611.24731",
+    "first_seen": "2026-11-19",
+    "last_seen": "2026-11-19",
+    "digests": [
+      "2026-11-19"
+    ],
+    "tags": [
+      "世界模型",
+      "多模态 / 具身视觉"
+    ],
+    "abstract": "Recent advances in world models are opening new possibilities for fine-grained embodied tasks, with hand-object interaction offering a particularly demanding setting. Modeling these interactions involves capturing how hand actions change objects and how the resulting states persist over time. Yet systematic evaluation tailored to these hand-centric capabilities remains underdeveloped. To address this gap, we introduce HandWorldBench, a unified benchmark that systematically evaluates hand-centric world models across human hands, simulated dexterous hands, and real dexterous hands along six dimensions: visual quality, hand fidelity, appearance consistency, instruction following, physical consistency, and temporal coherence. To construct the benchmark, we develop a data curation pipeline that extracts hand-object interaction clips and screens them for quality, yielding 20,500 high-quality egocentric clips from over 600 hours of footage. We then manually select 500 clips covering seven task families for evaluation. Benchmarking eleven models under a unified protocol reveals that stronger hand-pose control does not consistently translate into coherent object-state evolution and persiste",
+    "published": "2026-11-18T16:47:46Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.24723",
+    "title": "Multi-Band Galaxy Novel-View Synthesis with Radiative Gaussian Fields",
+    "url": "https://arxiv.org/abs/2611.24723",
+    "first_seen": "2026-11-19",
+    "last_seen": "2026-11-19",
+    "digests": [
+      "2026-11-19"
+    ],
+    "tags": [
+      "三维几何",
+      "高斯渲染"
+    ],
+    "abstract": "We propose a novel view synthesis tool for galaxies based on Gaussian Splatting (GS). Unlike RGB data, where GS has achieved success, galaxy observations consist of multi-band signals from a massive number of bodies, contain complex patterns of cross-band interactions, and capture light propagation in highly heterogeneous media. As a result, the underlying physical process poses great challenges in model representation and optimization, which have not been investigated in existing research. To this end, we propose a physically inspired Gaussian Splatting method, GalaxyGS, which is equipped with physically meaningful components that capture both the energy emission mechanism of different astronomical bodies and the light propagation between them. In the absence of directly comparable baseline methods, we adopt a wide range of possible alternative approaches. Comparisons conclusively demonstrate that GalaxyGS is better in accuracy and physical fidelity across datasets and metrics.",
+    "published": "2026-11-18T16:41:49Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.23417",
+    "title": "Autoregressive View Model",
+    "url": "https://arxiv.org/abs/2611.23417",
+    "first_seen": "2026-11-19",
+    "last_seen": "2026-11-19",
+    "digests": [
+      "2026-11-19"
+    ],
+    "tags": [
+      "视频生成",
+      "动态重建"
+    ],
+    "abstract": "We present the Autoregressive View Model (AVM), which generates a scene as a stream of views without constructing an explicit 3D representation. Through a unified in-context interface, AVM conditions on images or videos to generate short clips along a requested camera path. Visual context grounds reconstruction and interpolation, while a learned prior enables extrapolation into unseen regions. AVM retrieves relevant views from inputs and generated history to form a bounded active context. We fine-tune a pretrained bidirectional video diffusion transformer with flow matching in an N-in-1-out formulation. We then tune a causal model on its own rollouts to improve photorealism, reduce denoising steps, and limit long-horizon drift. We scale training to approximately 8M scenes and video clips. We evaluate generation capacity and scene persistence across benchmarks for camera control, text control, visual quality, dynamics, sparse and 4D reconstruction, and long-horizon consistency. The results demonstrate that AVM adapts to diverse input and output settings through one in-context interface.",
+    "published": "2026-11-17T19:20:06Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
     "id": "2611.23226",
     "title": "FastFrames: Video Generation at Interactive Latency",
     "url": "https://arxiv.org/abs/2611.23226",

@@ -5,11 +5,11 @@
     },
     "量子位": {
       "state": "ok",
-      "newest": "2026-11-16"
+      "newest": "2026-11-18"
     },
     "我爱计算机视觉": {
       "state": "ok",
-      "newest": "2026-11-17"
+      "newest": "2026-11-18"
     },
     "3D视觉工坊": {
       "state": "manual"
@@ -19,6 +19,36 @@
     }
   },
   "articles": [
+    {
+      "account": "量子位",
+      "title": "5个追踪器替掉动捕棚：上海AI Lab把具身数据采集做成了可穿戴管线",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247945013&idx=3&sn=69ce3dd52cab3869a5a371fd6980ea5c",
+      "date": "2026-11-18",
+      "tags": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
+    {
+      "account": "我爱计算机视觉",
+      "title": "TPAMI｜南方科大等提出DepthGS：首度推导深度误差理论上界，高斯表面重建与新视角合成双突破",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ%3D%3D&mid=2247667674&idx=1&sn=0b3bc2f0952d63ce9918320eb75ed927",
+      "date": "2026-11-18",
+      "tags": [
+        "三维几何"
+      ],
+      "paper_ids": []
+    },
+    {
+      "account": "量子位",
+      "title": "李沐加盟的Aimotion，是一家什么AI公司？",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247944524&idx=2&sn=b95b66e6b82e90651c5ea253c9269718",
+      "date": "2026-11-17",
+      "tags": [
+        "世界模型"
+      ],
+      "paper_ids": []
+    },
     {
       "account": "量子位",
       "title": "MEET2027含金量加码：第二批嘉宾强势来袭！",
