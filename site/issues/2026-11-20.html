@@ -1,0 +1,21 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="本期从近期 arXiv 记录中选取 6 篇视觉研究论文，覆盖视频世界模型、可控视频生成、图像编辑、可重光照高斯渲染、几何基础模型与动态重建。重点包括：交互式世界模型的动态条件渲染与动作效应建模；视频世界模型物理评测的一致性缺陷；可重光照神经高斯资产生成；以及冻结三维基础模型在定位任务中的边界。"><title>视觉研究日报：视频世界模型、可重光照高斯与几何基础模型进展 · Vision Research Hub</title><link rel="stylesheet" href="../assets/style.css"></head><body><header class="site-header"><div class="header-inner"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">◈</span><span>Vision <em>Research</em></span></a><nav class="site-nav" aria-label="主导航"><a href="../#today">今日</a><a href="../#papers">论文</a><a href="../#opensource">开源</a><a href="../#articles">文章</a><a href="../#favorites">收藏</a><a href="../#archive">历史</a></nav></div></header><main class="article-shell"><a class="article-back" href="../#archive">← 返回历史日报</a><div class="article-header"><div class="article-kicker">2026-11-20 / 自动生成 · 网页日报</div><h1>视觉研究日报：视频世界模型、可重光照高斯与几何基础模型进展</h1><p class="article-intro">本期从近期 arXiv 记录中选取 6 篇视觉研究论文，覆盖视频世界模型、可控视频生成、图像编辑、可重光照高斯渲染、几何基础模型与动态重建。重点包括：交互式世界模型的动态条件渲染与动作效应建模；视频世界模型物理评测的一致性缺陷；可重光照神经高斯资产生成；以及冻结三维基础模型在定位任务中的边界。</p><div class="tag-list"><span class="tag">视频生成</span><span class="tag">世界模型</span><span class="tag">可控生成</span><span class="tag">高斯渲染</span><span class="tag">三维几何</span><span class="tag">几何基础模型</span></div></div><article class="prose"><h2>ContextRenderer: Dynamic-Context Video Generation for Interactive Game Worlds</h2>
+<p><a href="https://arxiv.org/abs/2611.25838">arXiv</a>
+研究问题：交互游戏世界模型需要把引擎给出的场景表示渲染成观察画面，并在持续游玩中跟随条件变化、保持视觉连续性。方法上，作者提出自回归视频扩散框架，结合动态上下文学习做 chunk 级交互监督，用循环历史压缩在有限 token 预算内保留历史，并用跨表示流对齐连接不同代理表示的重建与外观/交互变化；同时构建 WorldPrism 数据集。证据方面，摘要报告在 GWM-Bench 与 Solar-Bench 上取得改进，但具体数值被截断。适用场景为引擎驱动、代理表示可变的交互式游戏渲染。限制在于依赖代理表示与交互标注，长时稳定性仅由摘要笼统描述；复现状态未核实。</p>
+<h2>What One Sample Cannot See: Why Fewer Denoising Steps Can Score Higher on Physics Benchmarks</h2>
+<p><a href="https://arxiv.org/abs/2611.25632">arXiv</a>
+研究问题：把视频生成器当世界模型评测时，物理基准可能奖励“预测坍缩”。作者给出精确分解，说明 Physics-IQ 只与单条录制未来比较，会奖励生成未来间变异减少，即使分布更不准确。方法上提出 Kernel Physics-IQ，用每个条件两个独立样本消除该激励。证据显示两步采样在五个图像到视频模型上都降低 Kernel Physics-IQ；CogVideoX 官方分数上升 0.055，而新指标下降 0.131，说明评测结论可能相反。适用场景是世界模型物理能力评测与采样步数选择。限制是仍依赖受控物理系统与已知结果概率的验证设置；代码状态未核实。</p>
+<h2>Streaming-AAA: Streaming AAA Game Video Generation at High Resolution, High Frame Rate, and Low Latency</h2>
+<p><a href="https://arxiv.org/abs/2611.26040">arXiv</a>
+研究问题：可控流式视频生成距离可玩游戏仍远，难以同时满足高保真、高帧率与低交互延迟。方法包含三部分：重设计 VAE 以高效解码 1080p；用 diffusion forcing 预训练扩散模型并延长时间训练跨度以捕捉长期依赖；再做后训练蒸馏与记忆压缩提升推理效率。证据方面，摘要称在 NVIDIA A800 上以 1080p、43 FPS、198 ms 端到端延迟生成，并支持长时游玩而不严重退化或崩溃。适用场景是交互式游戏视频与实时可控流式生成。限制是硬件与工程依赖强，长时定性结论需全文核验；复现状态未核实。</p>
+<h2>TRACE: Attribute Execution for Sequential Image Editing</h2>
+<p><a href="https://arxiv.org/abs/2611.25648">arXiv</a>
+研究问题：顺序图像编辑要在满足新指令的同时保留仍有效的旧要求，难点在于同一区域上属性与其视觉载体的协调。方法将持续属性与视觉载体分离，在完整请求检查下优先执行局部外观操作：主动目标绑定确定应保留内容，载体选择提供当前或新生成像素，色调校准减少高光与阴影附近染色。证据来自冻结编辑器、独立视觉读取器、新源图像与完整顺序基准实验，支持颜色—材质联合恢复并保持周围场景。适用场景是多次迭代的图像编辑工作流。限制是主要针对颜色/材质类属性，复杂几何或大幅布局变化未充分覆盖；代码状态未核实。</p>
+<h2>VideoRNG: Relightable Neural Gaussians from Generative Video Models</h2>
+<p><a href="https://arxiv.org/abs/2611.25338">arXiv</a>
+研究问题：生成真实感三维资产受经典表示限制，网格与紧凑 PBR 材质难以表达细几何或复杂光传输，现有高斯生成器常把光照烘焙进外观。方法为两阶段：先由视频扩散骨干生成已知姿态、相机与光照下的 RGBA 转台序列；再由前馈大重建模型把选定帧的 video-VAE 潜帧直接映射为带神经外观特征的各向异性高斯，配合共享方向解码器与随机高斯光线追踪实现新视角与新光照下的辐射。证据为摘要层面的定性描述与设计论证，缺少可引用的定量指标。适用场景是文本或单图到可重光照三维资产。限制是依赖生成视频质量与已知光照条件，定量泛化未核实；复现状态未核实。</p>
+<h2>What Do Learned 3D Models Add to Localization from Posed References?</h2>
+<p><a href="https://arxiv.org/abs/2611.23697">arXiv</a>
+研究问题：在已有若干带位姿参考图像时，学习式三维模型的相机预测相对几何估计究竟带来什么、何时失败。方法上跨八个学习模型及变体、五个测试集，比较参考预算、交换位姿分量并干预模型所见参考。证据显示在细位姿误差阈值下，几何估计加一张参考在 Cambridge 与 NAVER B1 上显著优于所有两参考模型，且作为共享接受门后的回退从不显著更差；三参考时更优方法依场景而定。NAVER Gangnam Station 上检索混入异地参考时模型在不同阶段失败，稳健对齐可将 Pi3X 与 MapAnything 拉近到 3.3 个百分点以内。适用场景是位姿参考定位与学习三维模型选型。限制是结论依赖参考选择策略与数据集；代码状态未核实。</p>
+<hr />
+<p><em>由模型根据 arXiv 元数据生成，复现状态及指标请以官方论文为准。</em></p>
+</article><div class="article-end"><a href="../#papers">浏览论文库 ↗</a></div></main><footer class="site-footer"><span>Vision Research Hub</span><a href="https://github.com/suyuan945/vision-research-daily/actions">查看更新记录 ↗</a></footer><script src="../assets/research-store.js" defer></script></body></html>

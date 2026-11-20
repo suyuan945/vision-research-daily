@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "checked_at": "2026-11-19T12:06:36+08:00",
+  "checked_at": "2026-11-20T11:57:53+08:00",
   "failed_sources": [],
   "repositories": [
     {
@@ -692,6 +692,20 @@
       "paper_ids": []
     },
     {
+      "id": "1463479607",
+      "name": "PedroMarinhoDev/ComfyUI-H3-Image-EasyFix",
+      "url": "https://github.com/PedroMarinhoDev/ComfyUI-H3-Image-EasyFix",
+      "description": "Cleaner MiniMax-H3-Image text-to-image in ComfyUI: Steering and a Re-Noise Sampler against grainy fine texture, and a Resolution Selector up to 256 MP.",
+      "created_at": "2026-11-19T00:16:48Z",
+      "first_seen": "2026-11-20",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "图像生成"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1453382329",
       "name": "pouyasam1996/gaussian-slam",
       "url": "https://github.com/pouyasam1996/gaussian-slam",
@@ -748,6 +762,20 @@
       "license_name": "MIT License",
       "topics": [
         "视频生成"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1462044853",
+      "name": "shack8888/WorldModeler-app",
+      "url": "https://github.com/shack8888/WorldModeler-app",
+      "description": "WorldModeler / ワールドモデラー — a free Windows app for building Roblox maps from block parts. Downloads and docs.",
+      "created_at": "2026-11-17T22:32:21Z",
+      "first_seen": "2026-11-20",
+      "license": "NOASSERTION",
+      "license_name": "Other",
+      "topics": [
+        "世界模型"
       ],
       "paper_ids": []
     },
@@ -868,6 +896,20 @@
       "paper_ids": []
     },
     {
+      "id": "1461805689",
+      "name": "thenukawijekoon51-blip/movavi-video-editor",
+      "url": "https://github.com/thenukawijekoon51-blip/movavi-video-editor",
+      "description": "Movavi Video Editor: Alternative Access Tool for Video Editing Workflows",
+      "created_at": "2026-11-17T18:20:48Z",
+      "first_seen": "2026-11-20",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "视频编辑"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1453933411",
       "name": "tianyi-star/4d_cattle",
       "url": "https://github.com/tianyi-star/4d_cattle",
@@ -892,6 +934,20 @@
       "license_name": "",
       "topics": [
         "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1460718377",
+      "name": "Viprasol-Tech/claude-video-editing-skills",
+      "url": "https://github.com/Viprasol-Tech/claude-video-editing-skills",
+      "description": "40 free Claude Code skills that turn a raw clip into a finished video edit: auto captions, jump cuts, text behind the speaker, motion graphics for reels, shorts, YouTube and podcasts.",
+      "created_at": "2026-11-17T00:15:24Z",
+      "first_seen": "2026-11-20",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "视频编辑"
       ],
       "paper_ids": []
     },
@@ -958,6 +1014,15 @@
   ],
   "events": [
     {
+      "id": "repo:1463479607",
+      "repository_id": "1463479607",
+      "kind": "new",
+      "date": "2026-11-19T00:16:48Z",
+      "first_seen": "2026-11-20",
+      "title": "PedroMarinhoDev/ComfyUI-H3-Image-EasyFix",
+      "url": "https://github.com/PedroMarinhoDev/ComfyUI-H3-Image-EasyFix"
+    },
+    {
       "id": "repo:1463023815",
       "repository_id": "1463023815",
       "kind": "new",
@@ -988,6 +1053,27 @@
       "url": "https://github.com/skygaul/my-open-space-3d"
     },
     {
+      "id": "release:449280225",
+      "repository_id": "1462044853",
+      "kind": "release",
+      "date": "2026-11-17T22:32:33Z",
+      "first_seen": "2026-11-20",
+      "title": "WorldModeler v1.0.0",
+      "version": "v1.0.0",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/shack8888/WorldModeler-app/releases/tag/v1.0.0"
+    },
+    {
+      "id": "repo:1462044853",
+      "repository_id": "1462044853",
+      "kind": "new",
+      "date": "2026-11-17T22:32:21Z",
+      "first_seen": "2026-11-20",
+      "title": "shack8888/WorldModeler-app",
+      "url": "https://github.com/shack8888/WorldModeler-app"
+    },
+    {
       "id": "repo:1461992873",
       "repository_id": "1461992873",
       "kind": "new",
@@ -995,6 +1081,15 @@
       "first_seen": "2026-11-19",
       "title": "apple-aiml-research/ml-fastframes",
       "url": "https://github.com/apple-aiml-research/ml-fastframes"
+    },
+    {
+      "id": "repo:1461805689",
+      "repository_id": "1461805689",
+      "kind": "new",
+      "date": "2026-11-17T18:20:48Z",
+      "first_seen": "2026-11-20",
+      "title": "thenukawijekoon51-blip/movavi-video-editor",
+      "url": "https://github.com/thenukawijekoon51-blip/movavi-video-editor"
     },
     {
       "id": "repo:1461380419",
@@ -1076,6 +1171,15 @@
       "prerelease": false,
       "weights": [],
       "url": "https://github.com/nihui/h3image-ncnn-vulkan/releases/tag/20261117"
+    },
+    {
+      "id": "repo:1460718377",
+      "repository_id": "1460718377",
+      "kind": "new",
+      "date": "2026-11-17T00:15:24Z",
+      "first_seen": "2026-11-20",
+      "title": "Viprasol-Tech/claude-video-editing-skills",
+      "url": "https://github.com/Viprasol-Tech/claude-video-editing-skills"
     },
     {
       "id": "repo:1460502865",

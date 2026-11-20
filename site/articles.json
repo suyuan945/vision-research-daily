@@ -5,11 +5,11 @@
     },
     "量子位": {
       "state": "ok",
-      "newest": "2026-11-18"
+      "newest": "2026-11-19"
     },
     "我爱计算机视觉": {
       "state": "ok",
-      "newest": "2026-11-18"
+      "newest": "2026-11-19"
     },
     "3D视觉工坊": {
       "state": "manual"
@@ -19,6 +19,16 @@
     }
   },
   "articles": [
+    {
+      "account": "量子位",
+      "title": "具身机器人进入真机时代，华为云CloudRobo开始组队发力了",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247945226&idx=1&sn=bbe3666f27255c36bcc25d5e4a436780",
+      "date": "2026-11-19",
+      "tags": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
     {
       "account": "量子位",
       "title": "5个追踪器替掉动捕棚：上海AI Lab把具身数据采集做成了可穿戴管线",

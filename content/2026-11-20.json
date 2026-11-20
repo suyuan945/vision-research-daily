@@ -1,0 +1,86 @@
+{
+  "title": "视觉研究日报：视频世界模型、可重光照高斯与几何基础模型进展",
+  "summary": "本期从近期 arXiv 记录中选取 6 篇视觉研究论文，覆盖视频世界模型、可控视频生成、图像编辑、可重光照高斯渲染、几何基础模型与动态重建。重点包括：交互式世界模型的动态条件渲染与动作效应建模；视频世界模型物理评测的一致性缺陷；可重光照神经高斯资产生成；以及冻结三维基础模型在定位任务中的边界。",
+  "tags": [
+    "视频生成",
+    "世界模型",
+    "可控生成",
+    "高斯渲染",
+    "三维几何",
+    "几何基础模型"
+  ],
+  "highlights": [
+    "ContextRenderer 用动态上下文与历史压缩提升交互式游戏世界渲染连续性。",
+    "Kernel Physics-IQ 指出少步采样可在物理基准上“虚高”，提出双样本评测。",
+    "VideoRNG 从生成视频得到可重光照神经高斯，避免光照烘焙到外观。"
+  ],
+  "markdown": "## ContextRenderer: Dynamic-Context Video Generation for Interactive Game Worlds\n[arXiv](https://arxiv.org/abs/2611.25838)\n研究问题：交互游戏世界模型需要把引擎给出的场景表示渲染成观察画面，并在持续游玩中跟随条件变化、保持视觉连续性。方法上，作者提出自回归视频扩散框架，结合动态上下文学习做 chunk 级交互监督，用循环历史压缩在有限 token 预算内保留历史，并用跨表示流对齐连接不同代理表示的重建与外观/交互变化；同时构建 WorldPrism 数据集。证据方面，摘要报告在 GWM-Bench 与 Solar-Bench 上取得改进，但具体数值被截断。适用场景为引擎驱动、代理表示可变的交互式游戏渲染。限制在于依赖代理表示与交互标注，长时稳定性仅由摘要笼统描述；复现状态未核实。\n\n## What One Sample Cannot See: Why Fewer Denoising Steps Can Score Higher on Physics Benchmarks\n[arXiv](https://arxiv.org/abs/2611.25632)\n研究问题：把视频生成器当世界模型评测时，物理基准可能奖励“预测坍缩”。作者给出精确分解，说明 Physics-IQ 只与单条录制未来比较，会奖励生成未来间变异减少，即使分布更不准确。方法上提出 Kernel Physics-IQ，用每个条件两个独立样本消除该激励。证据显示两步采样在五个图像到视频模型上都降低 Kernel Physics-IQ；CogVideoX 官方分数上升 0.055，而新指标下降 0.131，说明评测结论可能相反。适用场景是世界模型物理能力评测与采样步数选择。限制是仍依赖受控物理系统与已知结果概率的验证设置；代码状态未核实。\n\n## Streaming-AAA: Streaming AAA Game Video Generation at High Resolution, High Frame Rate, and Low Latency\n[arXiv](https://arxiv.org/abs/2611.26040)\n研究问题：可控流式视频生成距离可玩游戏仍远，难以同时满足高保真、高帧率与低交互延迟。方法包含三部分：重设计 VAE 以高效解码 1080p；用 diffusion forcing 预训练扩散模型并延长时间训练跨度以捕捉长期依赖；再做后训练蒸馏与记忆压缩提升推理效率。证据方面，摘要称在 NVIDIA A800 上以 1080p、43 FPS、198 ms 端到端延迟生成，并支持长时游玩而不严重退化或崩溃。适用场景是交互式游戏视频与实时可控流式生成。限制是硬件与工程依赖强，长时定性结论需全文核验；复现状态未核实。\n\n## TRACE: Attribute Execution for Sequential Image Editing\n[arXiv](https://arxiv.org/abs/2611.25648)\n研究问题：顺序图像编辑要在满足新指令的同时保留仍有效的旧要求，难点在于同一区域上属性与其视觉载体的协调。方法将持续属性与视觉载体分离，在完整请求检查下优先执行局部外观操作：主动目标绑定确定应保留内容，载体选择提供当前或新生成像素，色调校准减少高光与阴影附近染色。证据来自冻结编辑器、独立视觉读取器、新源图像与完整顺序基准实验，支持颜色—材质联合恢复并保持周围场景。适用场景是多次迭代的图像编辑工作流。限制是主要针对颜色/材质类属性，复杂几何或大幅布局变化未充分覆盖；代码状态未核实。\n\n## VideoRNG: Relightable Neural Gaussians from Generative Video Models\n[arXiv](https://arxiv.org/abs/2611.25338)\n研究问题：生成真实感三维资产受经典表示限制，网格与紧凑 PBR 材质难以表达细几何或复杂光传输，现有高斯生成器常把光照烘焙进外观。方法为两阶段：先由视频扩散骨干生成已知姿态、相机与光照下的 RGBA 转台序列；再由前馈大重建模型把选定帧的 video-VAE 潜帧直接映射为带神经外观特征的各向异性高斯，配合共享方向解码器与随机高斯光线追踪实现新视角与新光照下的辐射。证据为摘要层面的定性描述与设计论证，缺少可引用的定量指标。适用场景是文本或单图到可重光照三维资产。限制是依赖生成视频质量与已知光照条件，定量泛化未核实；复现状态未核实。\n\n## What Do Learned 3D Models Add to Localization from Posed References?\n[arXiv](https://arxiv.org/abs/2611.23697)\n研究问题：在已有若干带位姿参考图像时，学习式三维模型的相机预测相对几何估计究竟带来什么、何时失败。方法上跨八个学习模型及变体、五个测试集，比较参考预算、交换位姿分量并干预模型所见参考。证据显示在细位姿误差阈值下，几何估计加一张参考在 Cambridge 与 NAVER B1 上显著优于所有两参考模型，且作为共享接受门后的回退从不显著更差；三参考时更优方法依场景而定。NAVER Gangnam Station 上检索混入异地参考时模型在不同阶段失败，稳健对齐可将 Pi3X 与 MapAnything 拉近到 3.3 个百分点以内。适用场景是位姿参考定位与学习三维模型选型。限制是结论依赖参考选择策略与数据集；代码状态未核实。\n\n---\n\n*由模型根据 arXiv 元数据生成，复现状态及指标请以官方论文为准。*",
+  "papers": [
+    {
+      "id": "2611.25838",
+      "title": "ContextRenderer: Dynamic-Context Video Generation for Interactive Game Worlds",
+      "summary": "Interactive game world models separate executable world evolution from visual generation, using video models to render engine-provided scene representations into detailed observations. During sustained gameplay, however, existing generative renderers struggle to follow changing conditions while preserving visual continuity across diverse proxies and target styles. We therefore introduce ContextRenderer, an autoregressive video diffusion framework designed for both dynamic conditioning and cross-proxy generalization. It couples Dynamic-Context Learning (DCL) for chunk-level interaction supervision with Recurrent History Compression (RHC) to follow condition updates while preserving visual continuity within a bounded token budget. Across proxy representations, Cross-Representation Flow Alignment (CRFA) connects proxy reconstruction with appearance and interaction variation through a shared high-fidelity reconstruction. WorldPrism, our interaction-centric dataset constructed from agent-built worlds, AAA gameplay, and open-source videos, supplies the corresponding renderings and chunk-level annotations for these learning tasks. Experiments on GWM-Bench and Solar-Bench show improved rec",
+      "url": "https://arxiv.org/abs/2611.25838",
+      "published": "2026-11-19T09:53:53Z",
+      "topics": [
+        "视频生成",
+        "世界模型"
+      ]
+    },
+    {
+      "id": "2611.25632",
+      "title": "What One Sample Cannot See: Why Fewer Denoising Steps Can Score Higher on Physics Benchmarks",
+      "summary": "When a storm can head north or south, a forecast down the middle may score better under squared error than either plausible path. The same paradox appears when video generators are tested as world models: fewer denoising steps can raise physics scores even as videos blur or stop moving early. Why? Physics-IQ compares each generated video with one recording, although a scene can have multiple valid futures. An exact decomposition shows its scores can reward reduced variation among generated futures, even when their distribution becomes less accurate. We introduce Kernel Physics-IQ to remove this incentive in expectation, needing only two independent samples per condition. Two-step sampling lowers Kernel Physics-IQ in all five image-to-video models. For CogVideoX, the official score rises by 0.055 while ours falls by 0.131. Changing the sampling schedule reveals further differences official scores miss. In controlled physical systems with known outcome probabilities, our metric favors the true distribution over collapsed predictions. In short, a world model should be judged not only by how closely one video matches what happened, but by how faithfully its predictions represent what c",
+      "url": "https://arxiv.org/abs/2611.25632",
+      "published": "2026-11-19T07:18:47Z",
+      "topics": [
+        "视频生成",
+        "世界模型"
+      ]
+    },
+    {
+      "id": "2611.26040",
+      "title": "Streaming-AAA: Streaming AAA Game Video Generation at High Resolution, High Frame Rate, and Low Latency",
+      "summary": "Controllable streaming video generation offers a promising route toward interactive game simulation, yet existing methods remain far from practical gameplay. They often fail to jointly achieve high visual fidelity, high frame rates, and low interaction latency, resulting in poor responsiveness and degraded user experience. We present Streaming-AAA, a new paradigm for controllable infinite generation of AAA-quality game videos. Our system generates 1080p gameplay videos at 43 FPS with 198 ms end-to-end latency interaction on merely NVIDIA A800 GPUs, while supporting long-horizon play without severe temporal degradation or collapse. Streaming-AAA is built upon three key designs. First, we redesign the VAE architecture for efficient high-resolution decoding, enabling real-time synthesis at 1080p. Second, we pretrain the diffusion model using diffusion forcing and significantly extend the temporal training horizon, allowing the model to capture long-term dependencies and maintain persistent memory. Third, we perform post-training distillation and memory compression to improve inference efficiency while retaining visual quality and temporal consistency. Experiments show that Streaming-A",
+      "url": "https://arxiv.org/abs/2611.26040",
+      "published": "2026-11-19T12:50:47Z",
+      "topics": [
+        "视频生成"
+      ]
+    },
+    {
+      "id": "2611.25648",
+      "title": "TRACE: Attribute Execution for Sequential Image Editing",
+      "summary": "Given an image and successive user instructions, sequential image editing should return an updated image that satisfies each new request and preserves earlier requirements that remain active. This lets users develop a result without repeatedly restating or repairing their decisions. The difficulty is that a retrieved image can contain a valid color on an obsolete surface, while the current image may lack the newly requested material. Neither reference selection nor a precise object mask alone specifies how to reconcile attributes occupying the same region. We present TRACE, which separates the continuing attribute from its visual carrier and prioritizes local appearance operations under complete-request checks. Active-goal binding identifies what should persist, carrier selection supplies suitable current or newly generated pixels, and tonal calibration reduces tinting near highlights and shadows. Experiments across frozen editors, independent visual readers, new source images, and complete sequential benchmarks support joint color-material recovery and show how local execution preserves the surrounding scene.",
+      "url": "https://arxiv.org/abs/2611.25648",
+      "published": "2026-11-19T07:32:00Z",
+      "topics": [
+        "可控生成"
+      ]
+    },
+    {
+      "id": "2611.25338",
+      "title": "VideoRNG: Relightable Neural Gaussians from Generative Video Models",
+      "summary": "Generating realistic 3D assets remains constrained by classical representations: surface meshes and compact physically based materials struggle to express objects whose appearance arises from fine geometry or complex light transport, while existing Gaussian-splatting generators typically bake fixed illumination into appearance. We introduce VideoRNG, a two-stage method that generates complete, relightable 3D assets from a text prompt or a single image without prescribing a mesh or analytic material model. A video generator fine-tuned from a pretrained video diffusion backbone first produces a structured RGBA turntable sequence under a known pose, camera, and illumination. A feed-forward large reconstruction model initialized from a pretrained video diffusion backbone then maps the video-VAE latent frames of selected turntable frames directly to millions of anisotropic Gaussians with learned neural appearance features. A shared directional decoder and stochastic Gaussian ray tracer turn this representation, which we call ray-traced Relightable Neural Gaussians (rtRNG), into radiance under novel viewpoints and illumination. To preserve high-frequency appearance while learning geometr",
+      "url": "https://arxiv.org/abs/2611.25338",
+      "published": "2026-11-19T01:25:30Z",
+      "topics": [
+        "视频生成",
+        "高斯渲染",
+        "三维几何"
+      ]
+    },
+    {
+      "id": "2611.23697",
+      "title": "What Do Learned 3D Models Add to Localization from Posed References?",
+      "summary": "Localizing a query from a few posed reference images avoids building a 3D point map. We ask what the camera predictions of learned 3D models add to geometric estimation from the same references, and where failures arise. Across eight learned models and variants and five test sets, we compare reference budgets, swap pose components, and intervene on the references a model sees. At fine pose-error thresholds, geometric estimation with one additional reference is significantly more accurate than every model on two references on Cambridge and NAVER B1 and never significantly worse, alone or as a fallback behind a shared acceptance gate; with the same three references, the more accurate approach depends on the scene. The gain from the learned translation magnitude depends on reference selection: it improves seven of the eight models on 12-Scenes with the spread-out pairs we select, but none of the five we test with the two top-ranked retrieved references. Where retrieval also returns references from other locations, at NAVER Gangnam Station, models fail at different stages. A robust alignment brings Pi3X and MapAnything within 3.3 pp of adding references as needed. In controlled tests, ",
+      "url": "https://arxiv.org/abs/2611.23697",
+      "published": "2026-11-18T01:41:16Z",
+      "topics": [
+        "几何基础模型"
+      ]
+    }
+  ],
+  "date": "2026-11-20",
+  "kind": "自动生成 · 网页日报"
+}
