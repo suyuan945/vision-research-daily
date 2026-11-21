@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "checked_at": "2026-11-20T11:57:53+08:00",
+  "checked_at": "2026-11-21T11:55:35+08:00",
   "failed_sources": [],
   "repositories": [
     {
@@ -76,6 +76,22 @@
       "paper_ids": []
     },
     {
+      "id": "1460600237",
+      "name": "amazon-far/dreamfar",
+      "url": "https://github.com/amazon-far/dreamfar",
+      "description": "DreamFAR: a real-time, long-horizon action-conditioned world model for bimanual robot manipulation",
+      "created_at": "2026-11-16T21:37:46Z",
+      "first_seen": "2026-11-21",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "世界模型"
+      ],
+      "paper_ids": [
+        "2611.22001"
+      ]
+    },
+    {
       "id": "1461380419",
       "name": "amrutha206/NeRF-3DGS",
       "url": "https://github.com/amrutha206/NeRF-3DGS",
@@ -104,6 +120,20 @@
       "paper_ids": [
         "2611.23226"
       ]
+    },
+    {
+      "id": "1465320420",
+      "name": "arrival-space/animated-sog",
+      "url": "https://github.com/arrival-space/animated-sog",
+      "description": "Animated SOG (.asog): compact 4D Gaussian splat clips with motion, SH and sound - spec, Python encoder and flip-book pipeline, PlayCanvas and three.js players",
+      "created_at": "2026-11-20T10:58:53Z",
+      "first_seen": "2026-11-21",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "动态重建"
+      ],
+      "paper_ids": []
     },
     {
       "id": "1458477726",
@@ -408,6 +438,20 @@
       "paper_ids": []
     },
     {
+      "id": "1463273810",
+      "name": "Hearmeman24/Blockflow-Studio",
+      "url": "https://github.com/Hearmeman24/Blockflow-Studio",
+      "description": "Open source visual pipelines for AI image and video generation, with your own API keys.",
+      "created_at": "2026-11-18T19:57:46Z",
+      "first_seen": "2026-11-21",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "视频生成"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "699641579",
       "name": "hustvl/4DGaussians",
       "url": "https://github.com/hustvl/4DGaussians",
@@ -531,6 +575,20 @@
       "paper_ids": []
     },
     {
+      "id": "1465732238",
+      "name": "liming0724/Auto-RTL-4DGS-EDA",
+      "url": "https://github.com/liming0724/Auto-RTL-4DGS-EDA",
+      "description": "Algorithm-Hardware Co-Design & Automated Formal Verification Framework targeting 4D Gaussian Splatting (4DGS) hardware acceleration",
+      "created_at": "2026-11-20T17:47:44Z",
+      "first_seen": "2026-11-21",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "动态重建"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1455794508",
       "name": "lonevetad/WorldModeler",
       "url": "https://github.com/lonevetad/WorldModeler",
@@ -560,6 +618,20 @@
         "2606.10135",
         "2609.15863"
       ]
+    },
+    {
+      "id": "1466003525",
+      "name": "mahmed9321/capcut-pro-malelin-video-editor",
+      "url": "https://github.com/mahmed9321/capcut-pro-malelin-video-editor",
+      "description": "Professional video editing with advanced timeline and effects tools.",
+      "created_at": "2026-11-20T23:35:51Z",
+      "first_seen": "2026-11-21",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "视频编辑"
+      ],
+      "paper_ids": []
     },
     {
       "id": "1453138469",
@@ -658,6 +730,20 @@
       "license_name": "",
       "topics": [
         "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1462212770",
+      "name": "OtakuTTI/Otaku-TTI-1.1",
+      "url": "https://github.com/OtakuTTI/Otaku-TTI-1.1",
+      "description": "A lightweight text-to-image anime generation engine.",
+      "created_at": "2026-11-18T02:19:11Z",
+      "first_seen": "2026-11-21",
+      "license": "NOASSERTION",
+      "license_name": "Other",
+      "topics": [
+        "图像生成"
       ],
       "paper_ids": []
     },
@@ -938,10 +1024,38 @@
       "paper_ids": []
     },
     {
+      "id": "1457821594",
+      "name": "tritant/ComfyUI_Minimax_H3_Image_Conditioning_Plus",
+      "url": "https://github.com/tritant/ComfyUI_Minimax_H3_Image_Conditioning_Plus",
+      "description": "Enhanced MiniMax H3 Image conditioning for ComfyUI. Improves text-to-image generation using virtual Qwen3-VL vision conditioning without creating a reference image. Fully compatible with native multi-image references, dynamic inputs, and VAE processing.",
+      "created_at": "2026-11-14T14:14:41Z",
+      "first_seen": "2026-11-21",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "图像生成"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1462754088",
+      "name": "urbandronedesign/4D-Studio",
+      "url": "https://github.com/urbandronedesign/4D-Studio",
+      "description": "One video of a person -> streamable 4D Gaussian splats (4DAnyone + WebGL2 player). Research/personal use only.",
+      "created_at": "2026-11-18T12:13:34Z",
+      "first_seen": "2026-11-21",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "动态重建"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1460718377",
       "name": "Viprasol-Tech/claude-video-editing-skills",
       "url": "https://github.com/Viprasol-Tech/claude-video-editing-skills",
-      "description": "40 free Claude Code skills that turn a raw clip into a finished video edit: auto captions, jump cuts, text behind the speaker, motion graphics for reels, shorts, YouTube and podcasts.",
+      "description": "Free, local AI video editor for Claude Code: 95 skills turn raw footage into finished Reels, Shorts and YouTube edits - auto cuts, captions (Hindi/Devanagari too), motion graphics, scene sequences, colour, sound mix, QC.",
       "created_at": "2026-11-17T00:15:24Z",
       "first_seen": "2026-11-20",
       "license": "MIT",
@@ -950,6 +1064,23 @@
         "视频编辑"
       ],
       "paper_ids": []
+    },
+    {
+      "id": "1458399524",
+      "name": "VittorioPastore/m1mic-mlx",
+      "url": "https://github.com/VittorioPastore/m1mic-mlx",
+      "description": "Train a Unitree G1 whole-body motion tracker on a MacBook. World-model RL with MuJoCo on the CPU and MLX on the GPU.",
+      "created_at": "2026-11-15T03:14:36Z",
+      "first_seen": "2026-11-21",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "世界模型"
+      ],
+      "paper_ids": [
+        "2610.28480",
+        "2611.16422"
+      ]
     },
     {
       "id": "1455242807",
@@ -978,6 +1109,20 @@
       "license_name": "MIT License",
       "topics": [
         "动态重建"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1465247728",
+      "name": "zhifeiji20/plush-contact-reconstruction",
+      "url": "https://github.com/zhifeiji20/plush-contact-reconstruction",
+      "description": "Multi-view reconstruction of plush toy indentation and recovery with material point simulation. Research code, duck demo and HMDO pig evaluation.",
+      "created_at": "2026-11-20T09:44:16Z",
+      "first_seen": "2026-11-21",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "多视角重建"
       ],
       "paper_ids": []
     },
@@ -1014,6 +1159,81 @@
   ],
   "events": [
     {
+      "id": "repo:1466003525",
+      "repository_id": "1466003525",
+      "kind": "new",
+      "date": "2026-11-20T23:35:51Z",
+      "first_seen": "2026-11-21",
+      "title": "mahmed9321/capcut-pro-malelin-video-editor",
+      "url": "https://github.com/mahmed9321/capcut-pro-malelin-video-editor"
+    },
+    {
+      "id": "release:453209705",
+      "repository_id": "1463273810",
+      "kind": "release",
+      "date": "2026-11-20T21:46:34Z",
+      "first_seen": "2026-11-21",
+      "title": "BlockFlow Studio 0.1.0-beta.1",
+      "version": "v0.1.0-beta.1",
+      "prerelease": true,
+      "weights": [],
+      "url": "https://github.com/Hearmeman24/Blockflow-Studio/releases/tag/v0.1.0-beta.1"
+    },
+    {
+      "id": "repo:1465732238",
+      "repository_id": "1465732238",
+      "kind": "new",
+      "date": "2026-11-20T17:47:44Z",
+      "first_seen": "2026-11-21",
+      "title": "liming0724/Auto-RTL-4DGS-EDA",
+      "url": "https://github.com/liming0724/Auto-RTL-4DGS-EDA"
+    },
+    {
+      "id": "release:452807689",
+      "repository_id": "1460718377",
+      "kind": "release",
+      "date": "2026-11-20T14:41:15Z",
+      "first_seen": "2026-11-21",
+      "title": "v2.2.0 - Pro scene sequences, Hindi first, review app",
+      "version": "v2.2.0",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/Viprasol-Tech/claude-video-editing-skills/releases/tag/v2.2.0"
+    },
+    {
+      "id": "repo:1465320420",
+      "repository_id": "1465320420",
+      "kind": "new",
+      "date": "2026-11-20T10:58:53Z",
+      "first_seen": "2026-11-21",
+      "title": "arrival-space/animated-sog",
+      "url": "https://github.com/arrival-space/animated-sog"
+    },
+    {
+      "id": "repo:1465247728",
+      "repository_id": "1465247728",
+      "kind": "new",
+      "date": "2026-11-20T09:44:16Z",
+      "first_seen": "2026-11-21",
+      "title": "zhifeiji20/plush-contact-reconstruction",
+      "url": "https://github.com/zhifeiji20/plush-contact-reconstruction"
+    },
+    {
+      "id": "release:452066529",
+      "repository_id": "1462212770",
+      "kind": "release",
+      "date": "2026-11-19T23:38:15Z",
+      "first_seen": "2026-11-21",
+      "title": "OtakuTTI 1.1 | Featherweight anime Diffusion engine",
+      "version": "OtakuTTI_1.1",
+      "prerelease": false,
+      "weights": [
+        "otaku_tti_1.1.pt",
+        "otaku_tti_1.1_fp16.pt"
+      ],
+      "url": "https://github.com/OtakuTTI/Otaku-TTI-1.1/releases/tag/OtakuTTI_1.1"
+    },
+    {
       "id": "repo:1463479607",
       "repository_id": "1463479607",
       "kind": "new",
@@ -1023,6 +1243,15 @@
       "url": "https://github.com/PedroMarinhoDev/ComfyUI-H3-Image-EasyFix"
     },
     {
+      "id": "repo:1463273810",
+      "repository_id": "1463273810",
+      "kind": "new",
+      "date": "2026-11-18T19:57:46Z",
+      "first_seen": "2026-11-21",
+      "title": "Hearmeman24/Blockflow-Studio",
+      "url": "https://github.com/Hearmeman24/Blockflow-Studio"
+    },
+    {
       "id": "repo:1463023815",
       "repository_id": "1463023815",
       "kind": "new",
@@ -1030,6 +1259,15 @@
       "first_seen": "2026-11-19",
       "title": "Ivy-vivi/long-horizon-real2sim",
       "url": "https://github.com/Ivy-vivi/long-horizon-real2sim"
+    },
+    {
+      "id": "repo:1462754088",
+      "repository_id": "1462754088",
+      "kind": "new",
+      "date": "2026-11-18T12:13:34Z",
+      "first_seen": "2026-11-21",
+      "title": "urbandronedesign/4D-Studio",
+      "url": "https://github.com/urbandronedesign/4D-Studio"
     },
     {
       "id": "release:449900644",
@@ -1051,6 +1289,30 @@
       "first_seen": "2026-11-19",
       "title": "skygaul/my-open-space-3d",
       "url": "https://github.com/skygaul/my-open-space-3d"
+    },
+    {
+      "id": "release:449463402",
+      "repository_id": "1462212770",
+      "kind": "release",
+      "date": "2026-11-18T02:55:15Z",
+      "first_seen": "2026-11-21",
+      "title": "OtakuTTI 1.0 | Featherweight anime Diffusion engine",
+      "version": "OtakuTTI_1.0",
+      "prerelease": false,
+      "weights": [
+        "otaku_tti_1.0.pt",
+        "otaku_tti_1.0_fp16.pt"
+      ],
+      "url": "https://github.com/OtakuTTI/Otaku-TTI-1.1/releases/tag/OtakuTTI_1.0"
+    },
+    {
+      "id": "repo:1462212770",
+      "repository_id": "1462212770",
+      "kind": "new",
+      "date": "2026-11-18T02:19:11Z",
+      "first_seen": "2026-11-21",
+      "title": "OtakuTTI/Otaku-TTI-1.1",
+      "url": "https://github.com/OtakuTTI/Otaku-TTI-1.1"
     },
     {
       "id": "release:449280225",
@@ -1182,6 +1444,15 @@
       "url": "https://github.com/Viprasol-Tech/claude-video-editing-skills"
     },
     {
+      "id": "repo:1460600237",
+      "repository_id": "1460600237",
+      "kind": "new",
+      "date": "2026-11-16T21:37:46Z",
+      "first_seen": "2026-11-21",
+      "title": "amazon-far/dreamfar",
+      "url": "https://github.com/amazon-far/dreamfar"
+    },
+    {
       "id": "repo:1460502865",
       "repository_id": "1460502865",
       "kind": "new",
@@ -1263,6 +1534,15 @@
       "url": "https://github.com/ArthureCodage/forge-telegram-bot"
     },
     {
+      "id": "repo:1458399524",
+      "repository_id": "1458399524",
+      "kind": "new",
+      "date": "2026-11-15T03:14:36Z",
+      "first_seen": "2026-11-21",
+      "title": "VittorioPastore/m1mic-mlx",
+      "url": "https://github.com/VittorioPastore/m1mic-mlx"
+    },
+    {
       "id": "repo:1458131026",
       "repository_id": "1458131026",
       "kind": "new",
@@ -1270,6 +1550,15 @@
       "first_seen": "2026-11-15",
       "title": "Sanjayyykumar/video-generations",
       "url": "https://github.com/Sanjayyykumar/video-generations"
+    },
+    {
+      "id": "repo:1457821594",
+      "repository_id": "1457821594",
+      "kind": "new",
+      "date": "2026-11-14T14:14:41Z",
+      "first_seen": "2026-11-21",
+      "title": "tritant/ComfyUI_Minimax_H3_Image_Conditioning_Plus",
+      "url": "https://github.com/tritant/ComfyUI_Minimax_H3_Image_Conditioning_Plus"
     },
     {
       "id": "repo:1457732010",

@@ -5,11 +5,11 @@
     },
     "量子位": {
       "state": "ok",
-      "newest": "2026-11-19"
+      "newest": "2026-11-20"
     },
     "我爱计算机视觉": {
       "state": "ok",
-      "newest": "2026-11-19"
+      "newest": "2026-11-20"
     },
     "3D视觉工坊": {
       "state": "manual"
@@ -19,6 +19,27 @@
     }
   },
   "articles": [
+    {
+      "account": "量子位",
+      "title": "昇腾算力训出了双榜SOTA的具身世界模型，华为云这次想把整套底座开放出来",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247947397&idx=1&sn=2ea910643c6599025bf94f0a10fbda1d",
+      "date": "2026-11-20",
+      "tags": [
+        "世界模型",
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
+    {
+      "account": "我爱计算机视觉",
+      "title": "具身评测提速 15.8 倍：上交发布一站式评测工具 RoboScope Kit",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ%3D%3D&mid=2247667818&idx=1&sn=0c2c42e84a8da5e2a55aaa28e6e4e994",
+      "date": "2026-11-20",
+      "tags": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
     {
       "account": "量子位",
       "title": "具身机器人进入真机时代，华为云CloudRobo开始组队发力了",

@@ -1,0 +1,89 @@
+{
+  "title": "视觉研究日报：视频世界模型与可交互三维生成",
+  "summary": "本期从近24小时 arXiv 视觉论文中筛选出6篇，覆盖视频生成与世界模型、可控生成、三维几何/高斯渲染、多模态与具身视觉。重点包括：Plan4D 将视频生成器与三维重建器拼接以预测稠密4D世界；ViDecide 以决策链训练视频扩散模型；OffBeat 针对多相机错峰采样改进4D重建；SGAR 用稀疏几何注意力加速前馈重建；CryoGaussian 将高斯泼溅引入冷冻电镜异质性重建；AURA 实现低延迟流式音频驱动头像。所有论文均只依据输入摘要，未核实代码与复现状态。",
+  "tags": [
+    "视频生成",
+    "世界模型",
+    "三维几何",
+    "高斯渲染",
+    "可控生成",
+    "多模态 / 具身视觉"
+  ],
+  "highlights": [
+    "Plan4D：拼接视频生成器与深度重建器，从动作和场景上下文预测稠密4D几何",
+    "ViDecide：把视频生成重构为状态转移决策链，多步规划严格成功率83.8%",
+    "OffBeat：将错峰多相机建模为多陪集采样，减少4D重建中深度-运动混淆",
+    "SGAR：用几何相似度引导稀疏注意力，前馈重建提速最高12倍",
+    "CryoGaussian：高斯泼溅显式建模冷冻电镜异质性，CryoBench上达到SOTA",
+    "AURA：滚动KV缓存与两阶段蒸馏，单卡实时流式生成说话头像"
+  ],
+  "markdown": "## Plan4D: Generative Plannable 4D Worlds\n[arXiv](https://arxiv.org/abs/2611.26516)\n\n研究问题：现有视频世界模型偏重视觉观感，缺少显式4D建模，导致物理接地弱、时序几何一致性有限。方法：Plan4D 采用模型拼接架构，将 Depth Anything 3 与 LongCat-Video 耦合，并附加 DPT 头预测场景流，从观测场景与文本动作生成未来RGB视频及深度、相机、点云、场景流。证据支持的差异：作者报告在合成与真实数据集上同时提升视觉保真度与几何精度，并支持长时程细粒度动作规划。适用场景：可规划的4D世界模拟、具身规划数据生成。限制：依赖基础视频生成器与重建器的互补先验，稠密4D标注稀缺；代码与复现状态未核实。\n\n## ViDecide: Teaching Video Diffusion Models to Reason and Plan Step by Step\n[arXiv](https://arxiv.org/abs/2611.26389)\n\n研究问题：视频生成模型在多步推理与规划中仍常违反物理和逻辑约束，作者归因于将解视为固定长度片段而非决策链。方法：ViDecide 以决策为中心，训练模型因果预测状态转移并决定停止时机，并提出 Corrective Fine-tuning（CFT），将失败决策的噪声映射到模型自身成功延续上，避免策略梯度优化。证据支持的差异：在抽象游戏、规划任务和新多步机器人规划基准上平均严格成功率达83.8%，标准微调为23.3%，最强先前方法为67.8%，并能泛化到更大谜题与未见布局。适用场景：视频模型作为推理与规划器、机器人多步任务。限制：摘要未给出推理开销与真实机器人部署结果；复现状态未核实。\n\n## OffBeat: Multicoset Sampling for 4D Capture Beyond the Camera Frame Rate\n[arXiv](https://arxiv.org/abs/2611.26347)\n\n研究问题：同步多相机4D重建会丢失帧间运动，而错峰触发在逐行依次触发时会把深度与运动混淆。方法：OffBeat 将错峰相机阵列建模为空间分布的多陪集采样器，仅从标定推导同时触发的相机组与触发顺序；并分析短时基元的透明度需至少持续一个相机帧间隔，才能在Spacetime Gaussians中以平滑盒近似满足。证据支持的差异：在N3DV模拟错峰采集中优于完整4DSloMo流程，且更少闪烁。适用场景：超越相机帧率的动态4D捕获、多相机阵列重建。限制：主要基于模拟和特定N3DV装置，真实硬件验证范围有限；复现状态未核实。\n\n## SGAR: Feed-Forward 3D Reconstruction via Sparse Geometry-Guided Attention\n[arXiv](https://arxiv.org/abs/2611.26493)\n\n研究问题：前馈三维重建的稠密全局注意力随视图数二次增长，限制大规模场景。方法：SGAR 从运动恢复结构视角出发，让每个patch token只关注其他视图中少量由学习到的键选择模块预测三维邻近度的token，从而以几何相似度引导的稀疏注意力替代稠密注意力，可作为通用微调方法应用于不同前馈模型。证据支持的差异：在稠密和稀疏方法中速度最快，稀疏方法中最准确，最高提速12倍。适用场景：大规模多视图前馈重建、需要低延迟的三维基础模型。限制：依赖键选择模块的跨视图三维邻近预测质量；复现状态未核实。\n\n## CryoGaussian: Heterogeneous Cryo-EM Reconstruction Made Explicit with Gaussian Splatting\n[arXiv](https://arxiv.org/abs/2611.26128)\n\n研究问题：冷冻电镜中稀有瞬态组成状态与连续构象变化难以解析。方法：CryoGaussian 用高斯泼溅显式拟合粒子图像，通过可微光栅器渲染受对比传递函数调制的正交线积分；高斯随机初始化，数量由分子密度空间支撑估计，最小尺寸受Nyquist频率约束；学习粒子图像与逐高斯隐变量联合调制位置、幅度和尺度以捕获异质性。证据支持的差异：在CryoBench上组成异质性与构象异质性重建精度均达SOTA。适用场景：冷冻电镜异质性结构解析、科学三维重建。限制：依赖粒子图像质量与空间支撑估计，计算成本未在摘要中量化；复现状态未核实。\n\n## AURA: AUdio-dRiven streaming Avatar\n[arXiv](https://arxiv.org/abs/2611.26540)\n\n研究问题：音频驱动说话头像扩散模型通常需数十步去噪与多秒音频前瞻，难以满足流式低延迟。方法：AURA 以滚动KV缓存逐块生成，仅需当前块音频；采用两阶段蒸馏，先让因果学生匹配教师轨迹并配块级滑动窗口因果注意力，再用DMD与反向模拟缩小质量差距；提供1.3B与5B两档。证据支持的差异：AURA 1.3B在单GPU上实时流式576p（16Hz播放率下20.7fps），比自身双向教师快23倍；5B以9.7fps流式720p。适用场景：语音助手、虚拟头像、交互式流媒体。限制：摘要未给出长时程身份漂移与多语言泛化证据；复现状态未核实。\n\n---\n\n*由模型根据 arXiv 元数据生成，复现状态及指标请以官方论文为准。*",
+  "papers": [
+    {
+      "id": "2611.26516",
+      "title": "Plan4D: Generative Plannable 4D Worlds",
+      "summary": "Most world models for future prediction prioritize aestetic quality of generated videos, but offer only weak physical grounding and limited geometric consistency over time, due to the lack of explicit 4D modeling. In this paper, we introduce plan4d, a possible next milestone towards building a generative plannable 4D world model that predicts future RGB videos together with dense 4D geometry, including depth, cameras, point clouds, and scene flow from an observed scene context and text-specified actions. Since training data with paired actions and dense 4D annotations is inherently scarce, plan4d leverages the complementary priors of foundational video generators and 3D reconstructors. Specifically, we propose a model-stitching architecture that couples Depth Anything 3 with LongCat-Video and augments it with an auxiliary DPT head for scene-flow prediction. The resulting model allows us to plan and generate complex, long-horizon, and fine-grained actions in a dynamic 3D scenes, while substantially improving both visual fidelity and geometric accuracy of the generated future videos. Extensive experiments on both synthetic and real-world datasets demonstrate that plan4d achieves stat",
+      "url": "https://arxiv.org/abs/2611.26516",
+      "published": "2026-11-19T17:59:02Z",
+      "topics": [
+        "世界模型",
+        "三维几何",
+        "几何基础模型"
+      ]
+    },
+    {
+      "id": "2611.26389",
+      "title": "ViDecide: Teaching Video Diffusion Models to Reason and Plan Step by Step",
+      "summary": "Current leading video generation models can synthesize highly realistic videos, while still frequently violating physical and logical constraints in multi-step reasoning and planning, even after training with large-scale reasoning data or existing diffusion RL methods. We attribute these failures to the conventional video training paradigm, which treats a solution as a fixed-length clip rather than a chain of decisions. We present ViDecide, a decision-centric framework that trains video diffusion models to predict state transitions causally and decide when to stop, with a decision-focused training schedule. We further propose Corrective Fine-tuning (CFT), which corrects failed decisions by mapping their noise to the model's own successful continuations, achieving stable improvement without policy-gradient optimization. Across abstract games, planning tasks, and a new benchmark of multi-step robot planning, ViDecide achieves an average strict success rate of 83.8%, far above 23.3% for standard fine-tuning and 67.8% for the strongest prior method, and generalizes to larger puzzles and unseen layouts. Our framework therefore unlocks greater potential for video generation models as rel",
+      "url": "https://arxiv.org/abs/2611.26389",
+      "published": "2026-11-19T16:43:42Z",
+      "topics": [
+        "视频生成"
+      ]
+    },
+    {
+      "id": "2611.26347",
+      "title": "OffBeat: Multicoset Sampling for 4D Capture Beyond the Camera Frame Rate",
+      "summary": "For 4D reconstruction, a synchronized multi-camera rig records all views at the same timestamps and misses the motion between them. Staggered triggers spread the same frames over more timestamps. However, when the cameras along each row fire one after another, as in 4DSloMo's schedule on the N3DV rig, the row acts as one moving camera that confounds depth with motion. We introduce OffBeat, which models a staggered rig as a spatially distributed multicoset sampler: shifted copies of one sampling grid. From the calibration alone, OffBeat derives camera groups that fire together and their firing order. Since one group records each timestamp, a short-lived primitive can fit an error its cameras share, such as a color offset, and flicker in novel views. We show that a primitive's opacity over time weights all groups equally, for every number of groups, only if it lasts at least one camera frame interval. On Spacetime Gaussians, a minimum lifetime approximates this bound, and a closed-form smoothed box of that length satisfies it exactly, with less flicker than a Gaussian in its place at nearly equal PSNR. In simulated staggered capture on N3DV, OffBeat outperforms the full 4DSloMo pipel",
+      "url": "https://arxiv.org/abs/2611.26347",
+      "published": "2026-11-19T16:20:58Z",
+      "topics": [
+        "动态重建",
+        "三维几何"
+      ]
+    },
+    {
+      "id": "2611.26493",
+      "title": "SGAR: Feed-Forward 3D Reconstruction via Sparse Geometry-Guided Attention",
+      "summary": "Feed-forward models have been very successful in 3D reconstruction with ad hoc attention designs that relate all view patches densely. However, the cost of this dense global attention grows quadratically with the number of views, preventing the model from applying to larger-scale reconstruction settings. In this paper, we argue that most dense attention computations are unnecessary from a classical structure-from-motion perspective: 3D structures stem from geometrically matching regions in 2D. We bring this principle to learning-based feed-forward reconstruction with our Sparse Geometric Attention Reconstruction (SGAR) method. In SGAR, each patch token attends to only a small set of patch tokens from other views, chosen by a lightweight learned key selection module trained to predict cross-view 3D proximity of tokens. Thus, dense global attention is replaced by much more efficient geometric-similarity-guided sparse attention. SGAR is a general method that can be applied to different feed-forward models by fine-tuning. In our experiments, we show that SGAR is the fastest among both state-of-the-art dense and sparse methods and the most accurate sparse one. It runs up to 12-times fas",
+      "url": "https://arxiv.org/abs/2611.26493",
+      "published": "2026-11-19T17:46:57Z",
+      "topics": [
+        "三维几何",
+        "几何基础模型"
+      ]
+    },
+    {
+      "id": "2611.26128",
+      "title": "CryoGaussian: Heterogeneous Cryo-EM Reconstruction Made Explicit with Gaussian Splatting",
+      "summary": "Single-particle cryo-electron microscopy (cryo-EM) determines macromolecular structures from noisy particle images. However, rare, transient compositional states and subtle, continuous conformational variation are difficult to resolve. We present CryoGaussian, a Gaussian splatting method for heterogeneous cryo-EM reconstruction that fits an explicit Gaussian density representation directly to the particle images through a differentiable rasterizer rendering orthographic line integrals modulated by the contrast transfer function. The Gaussians are initialized randomly, with their number derived from the estimated spatial support of the molecular density and their minimum size bounded by the Nyquist frequency of the particle images. To capture the compositional and conformational variation across particle images, we learn particle-image and per-Gaussian latents that jointly modulate the base position, amplitude, and scale of each Gaussian. Each structural state is then reconstructed by fitting the Gaussians conditioned on its inferred latent. On CryoBench, CryoGaussian achieves state-of-the-art reconstruction accuracy for both compositional and conformational heterogeneity. On experi",
+      "url": "https://arxiv.org/abs/2611.26128",
+      "published": "2026-11-19T13:51:14Z",
+      "topics": [
+        "高斯渲染"
+      ]
+    },
+    {
+      "id": "2611.26540",
+      "title": "AURA: AUdio-dRiven streaming Avatar",
+      "summary": "Current audio-driven video diffusion models can synthesize realistic talking-head videos but generally require dozens of diffusion denoising steps over multi-second video chunks, making them unsuitable for streaming applications such as voice assistants and virtual avatars, where low-latency and online causal generation are required properties. AURA generates video chunk by chunk with a rolling KV cache, requiring only the audio of the current chunk to start generating, rather than a multi-second audio look-ahead like bidirectional models. It comes in two sizes: AURA 1.3B streams 576p video in real time on a single GPU (20.7 fps for a 16 Hz playback rate), making it suited to interactive avatar applications, and AURA 5B streams 720p video at 9.7 fps. Our two-stage distillation pipeline first aligns the causal student with the teacher, by training it to match the teacher's trajectories with fewer diffusion steps and a chunk-wise sliding window causal attention mask, then applies Distribution Matching Distillation (DMD) with backward simulation to close the remaining quality gap. On standard talking-head benchmarks, AURA 1.3B runs 23x faster than its own bidirectional teacher and rea",
+      "url": "https://arxiv.org/abs/2611.26540",
+      "published": "2026-11-19T18:17:38Z",
+      "topics": [
+        "视频生成"
+      ]
+    }
+  ],
+  "date": "2026-11-21",
+  "kind": "自动生成 · 网页日报"
+}
