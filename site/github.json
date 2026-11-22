@@ -1,8 +1,22 @@
 {
   "status": "ok",
-  "checked_at": "2026-11-21T11:55:35+08:00",
+  "checked_at": "2026-11-22T11:00:58+08:00",
   "failed_sources": [],
   "repositories": [
+    {
+      "id": "1466589026",
+      "name": "AAK121/one-step-text-to-image-dmd2",
+      "url": "https://github.com/AAK121/one-step-text-to-image-dmd2",
+      "description": "From-scratch text-to-image diffusion distilled with DMD2 into a one-step 46.96M-param generator: FID 35.74, CLIP 29.45, 31 ms/image, beating its 18-step teacher.",
+      "created_at": "2026-11-21T13:47:57Z",
+      "first_seen": "2026-11-22",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "图像生成"
+      ],
+      "paper_ids": []
+    },
     {
       "id": "1453122965",
       "name": "AdamPrototype/muvee-reveal-desktop",
@@ -58,6 +72,20 @@
       "license_name": "MIT License",
       "topics": [
         "视频生成"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1466873921",
+      "name": "algo-boyz/o4Dgs",
+      "url": "https://github.com/algo-boyz/o4Dgs",
+      "description": "Odin 4D Gaussian Splats",
+      "created_at": "2026-11-21T19:13:06Z",
+      "first_seen": "2026-11-22",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "动态重建"
       ],
       "paper_ids": []
     },
@@ -120,6 +148,20 @@
       "paper_ids": [
         "2611.23226"
       ]
+    },
+    {
+      "id": "1466762026",
+      "name": "Aroralayla99/capcut-seedance-win",
+      "url": "https://github.com/Aroralayla99/capcut-seedance-win",
+      "description": "CapCut Seedance - AI video generation tool for text-to-video synthesis, image animation and motion effects on Windows 10/11",
+      "created_at": "2026-11-21T16:56:32Z",
+      "first_seen": "2026-11-22",
+      "license": "NOASSERTION",
+      "license_name": "Other",
+      "topics": [
+        "视频生成"
+      ],
+      "paper_ids": []
     },
     {
       "id": "1465320420",
@@ -220,6 +262,20 @@
       "license_name": "Apache License 2.0",
       "topics": [
         "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1466669853",
+      "name": "Cloudcode04/runway-ml-pro-win",
+      "url": "https://github.com/Cloudcode04/runway-ml-pro-win",
+      "description": "Runway - AI video generation platform for text-to-video synthesis, image animation and motion brush editing on Windows 10/11",
+      "created_at": "2026-11-21T15:17:17Z",
+      "first_seen": "2026-11-22",
+      "license": "NOASSERTION",
+      "license_name": "Other",
+      "topics": [
+        "视频生成"
       ],
       "paper_ids": []
     },
@@ -382,6 +438,20 @@
       ]
     },
     {
+      "id": "1463628169",
+      "name": "franciscoliu/SAFI",
+      "url": "https://github.com/franciscoliu/SAFI",
+      "description": "State-Aware Fallback Imitation for vision-language-action policies",
+      "created_at": "2026-11-19T03:43:01Z",
+      "first_seen": "2026-11-22",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1459873094",
       "name": "GillchLee/VideoRC",
       "url": "https://github.com/GillchLee/VideoRC",
@@ -483,6 +553,20 @@
       "paper_ids": [
         "2610.28480"
       ]
+    },
+    {
+      "id": "1466556840",
+      "name": "icitycode/capcut-for-windows",
+      "url": "https://github.com/icitycode/capcut-for-windows",
+      "description": "CapCut for Windows: Visual Video Editing and Screen Recording Workflow",
+      "created_at": "2026-11-21T13:11:07Z",
+      "first_seen": "2026-11-22",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "视频编辑"
+      ],
+      "paper_ids": []
     },
     {
       "id": "1463023815",
@@ -852,6 +936,20 @@
       "paper_ids": []
     },
     {
+      "id": "1467061026",
+      "name": "saraliu1234/WorldModelImplementation",
+      "url": "https://github.com/saraliu1234/WorldModelImplementation",
+      "description": "an attempt to implement world model and ",
+      "created_at": "2026-11-22T00:00:02Z",
+      "first_seen": "2026-11-22",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "世界模型"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1462044853",
       "name": "shack8888/WorldModeler-app",
       "url": "https://github.com/shack8888/WorldModeler-app",
@@ -862,6 +960,20 @@
       "license_name": "Other",
       "topics": [
         "世界模型"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1464196784",
+      "name": "shraddhu1524/AI-Text-to-Image-Generator",
+      "url": "https://github.com/shraddhu1524/AI-Text-to-Image-Generator",
+      "description": "AI-powered text-to-image generator using Flask, Python and Cloudflare Workers AI.",
+      "created_at": "2026-11-19T13:40:34Z",
+      "first_seen": "2026-11-22",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "图像生成"
       ],
       "paper_ids": []
     },
@@ -1141,6 +1253,22 @@
       "paper_ids": []
     },
     {
+      "id": "1463353375",
+      "name": "zju3dv/SADL",
+      "url": "https://github.com/zju3dv/SADL",
+      "description": "Official SADL GitHub repository for the paper \"SADL: On the Demand-Supply Geometry of Representation Collapse\". PyTorch code for Supply And Demand Loss in JEPA world models.",
+      "created_at": "2026-11-18T21:23:52Z",
+      "first_seen": "2026-11-22",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "世界模型"
+      ],
+      "paper_ids": [
+        "2611.21596"
+      ]
+    },
+    {
       "id": "1449039856",
       "name": "ZouShilong1024/Pelican-Sim1.0",
       "url": "https://github.com/ZouShilong1024/Pelican-Sim1.0",
@@ -1158,6 +1286,60 @@
     }
   ],
   "events": [
+    {
+      "id": "repo:1467061026",
+      "repository_id": "1467061026",
+      "kind": "new",
+      "date": "2026-11-22T00:00:02Z",
+      "first_seen": "2026-11-22",
+      "title": "saraliu1234/WorldModelImplementation",
+      "url": "https://github.com/saraliu1234/WorldModelImplementation"
+    },
+    {
+      "id": "repo:1466873921",
+      "repository_id": "1466873921",
+      "kind": "new",
+      "date": "2026-11-21T19:13:06Z",
+      "first_seen": "2026-11-22",
+      "title": "algo-boyz/o4Dgs",
+      "url": "https://github.com/algo-boyz/o4Dgs"
+    },
+    {
+      "id": "repo:1466762026",
+      "repository_id": "1466762026",
+      "kind": "new",
+      "date": "2026-11-21T16:56:32Z",
+      "first_seen": "2026-11-22",
+      "title": "Aroralayla99/capcut-seedance-win",
+      "url": "https://github.com/Aroralayla99/capcut-seedance-win"
+    },
+    {
+      "id": "repo:1466669853",
+      "repository_id": "1466669853",
+      "kind": "new",
+      "date": "2026-11-21T15:17:17Z",
+      "first_seen": "2026-11-22",
+      "title": "Cloudcode04/runway-ml-pro-win",
+      "url": "https://github.com/Cloudcode04/runway-ml-pro-win"
+    },
+    {
+      "id": "repo:1466589026",
+      "repository_id": "1466589026",
+      "kind": "new",
+      "date": "2026-11-21T13:47:57Z",
+      "first_seen": "2026-11-22",
+      "title": "AAK121/one-step-text-to-image-dmd2",
+      "url": "https://github.com/AAK121/one-step-text-to-image-dmd2"
+    },
+    {
+      "id": "repo:1466556840",
+      "repository_id": "1466556840",
+      "kind": "new",
+      "date": "2026-11-21T13:11:07Z",
+      "first_seen": "2026-11-22",
+      "title": "icitycode/capcut-for-windows",
+      "url": "https://github.com/icitycode/capcut-for-windows"
+    },
     {
       "id": "repo:1466003525",
       "repository_id": "1466003525",
@@ -1234,6 +1416,24 @@
       "url": "https://github.com/OtakuTTI/Otaku-TTI-1.1/releases/tag/OtakuTTI_1.1"
     },
     {
+      "id": "repo:1464196784",
+      "repository_id": "1464196784",
+      "kind": "new",
+      "date": "2026-11-19T13:40:34Z",
+      "first_seen": "2026-11-22",
+      "title": "shraddhu1524/AI-Text-to-Image-Generator",
+      "url": "https://github.com/shraddhu1524/AI-Text-to-Image-Generator"
+    },
+    {
+      "id": "repo:1463628169",
+      "repository_id": "1463628169",
+      "kind": "new",
+      "date": "2026-11-19T03:43:01Z",
+      "first_seen": "2026-11-22",
+      "title": "franciscoliu/SAFI",
+      "url": "https://github.com/franciscoliu/SAFI"
+    },
+    {
       "id": "repo:1463479607",
       "repository_id": "1463479607",
       "kind": "new",
@@ -1241,6 +1441,15 @@
       "first_seen": "2026-11-20",
       "title": "PedroMarinhoDev/ComfyUI-H3-Image-EasyFix",
       "url": "https://github.com/PedroMarinhoDev/ComfyUI-H3-Image-EasyFix"
+    },
+    {
+      "id": "repo:1463353375",
+      "repository_id": "1463353375",
+      "kind": "new",
+      "date": "2026-11-18T21:23:52Z",
+      "first_seen": "2026-11-22",
+      "title": "zju3dv/SADL",
+      "url": "https://github.com/zju3dv/SADL"
     },
     {
       "id": "repo:1463273810",

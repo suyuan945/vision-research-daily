@@ -1,0 +1,73 @@
+{
+  "title": "视觉研究重点论文速览：世界模型与可控生成的机制诊断",
+  "summary": "本期从近24小时 arXiv 记录中筛选五篇视觉研究重点论文，覆盖世界模型、视频生成、可控生成与三维几何四个方向。首篇通过受迫响应实验检验视频世界模型是否真正习得物理规律；其余四篇分别关注世界模型对视觉证据的依赖偏差、可控视频生成中的多主体身份绑定、代码代理驱动的视频生成范式，以及高斯泼溅的分辨率鲁棒渲染。多数工作提供机制性诊断与消融证据，代码状态未在摘要中说明。",
+  "tags": [
+    "世界模型",
+    "视频生成",
+    "可控生成",
+    "高斯渲染"
+  ],
+  "highlights": [
+    "用受迫响应分层测试检验六个视频世界模型是否习得线性与非线性动力学",
+    "提出 TailWorld 基准，揭示世界模型在长尾规则下偏向常见先验而非视觉证据",
+    "以“先绑定后叙述”解决个性化视频生成的多主体身份泄漏",
+    "系统刻画 Code2Video 的代理粒度与物理仿真权衡并给出自适应多代理框架",
+    "以残差修正表面协方差改进前馈高斯泼溅的跨分辨率渲染"
+  ],
+  "markdown": "## 物理规律还是运动模仿？用受迫响应检验视频世界模型\n[arXiv](https://arxiv.org/abs/2611.25626)\n研究问题：视频世界模型在没有物理损失的情况下，是习得了物理规律，还是仅模仿训练视频中的运动？整体外观与运动评分无法区分二者。方法：作者用非线性受迫响应构造受控实验，对一个悬挂物体的支撑施加激励，引入双视觉—数值条件，并仅以流匹配损失微调六个图像到视频骨干网络。差异证据：Wan 能准确预测运动，并泛化到未见激励、物体、姿态与场景；反事实测试提示其能力超出回放训练视频。作者用动力学与几何的 Taylor 展开设计三层测试：六个骨干都复现线性响应（含共振），五个捕捉到高阶动力学（含非线性软化），而软化在训练中仅占摆幅平方位移的 0.74%。适用场景：为视频世界模型提供细粒度物理一致性诊断与改进线索。限制：依赖单一受迫响应家族，双摆与摇摆块等扩展显示持续动力学比短暂冲击学得更可靠；当状态估计或传播出错时，习得动力学可能不显现。复现状态：摘要未给出代码或权重，未核实。\n\n## 世界模型偏爱学习先验而非视觉证据\n[arXiv](https://arxiv.org/abs/2611.26366)\n研究问题：跨环境预测需要从短视频中推断当前的物理规则，仅凭外观可能无法识别；物理条件的数据不均衡会造成长尾训练分布，使模型偏向常见规则。方法：作者提出 TailWorld 基准，在受控训练不平衡与校准信息量下，评估示例规则跨初始状态的迁移，并用同一初始状态下的两条参考未来（遵循示例规则与遵循常见规则）衡量预测偏差；同时提出 RIFT（Rule Inference for Transfer），学习不同规则如何影响物体运动并推断当前规则。差异证据：摘要明确指出模型存在向常见规则倾斜的证据偏差，TailWorld 可独立控制失衡程度与校准信息量，从而定位偏差来源。适用场景：世界模型跨环境泛化评测与规则条件化训练。限制：基准为受控设定，向真实复杂场景的外推尚需验证。复现状态：未核实。\n\n## MultiBinder：个性化视频生成中的多主体身份绑定\n[arXiv](https://arxiv.org/abs/2611.26164)\n研究问题：个性化视频生成随定制主体数量增加，出现严重身份泄漏与语义纠缠，产生属性混合与叙事不连贯的视频。作者将其归因于扩散模型融合前，文本实体短语与对应视觉模式缺乏显式绑定。方法：提出“先绑定后叙述”范式，两阶段条件化——跨模态实体绑定用实体感知 Q-Former 从每个主体参考图提取身份特征并与专属实体短语对齐，得到解耦的身份 token；再由多模态大语言模型担任“叙事导演”，从提示中解析每个主体的动作并合成“谁在做什么”的上下文特征后送入视频扩散。差异证据：摘要以身份泄漏与语义纠缠为对照问题说明设计动机，量化指标未在摘要中给出。适用场景：多主体个性化内容创作与角色一致性视频。限制：依赖 MLLM 叙事解析，主体数量继续增长时的可扩展性未在摘要中量化。复现状态：未核实。\n\n## Coda-DaVinci：用代码与三维代理重构视频生成\n[arXiv](https://arxiv.org/abs/2611.26595)\n研究问题：Code2Video 用智能体编写的三维代理引导视频生成，从而显式控制结构与动态，但如何构造代理与提示、该范式的能力边界仍不清楚。方法：作者通过受控实验与盲评人类评估，系统研究代理粒度、物理仿真与提示方式，并据此提出任务自适应多智能体框架 Coda-DaVinci：在代理引导与直接生成之间选择，按实体调整建模粒度，协调仿真与代理对齐提示，并通过视觉检查与独立复核保留场景资产、指导修复。差异证据：实验显示粗粒度代理利于自然运动，中粒度利于一致性；物理仿真与代理对齐提示提升平均质量。在 VTR 上指令遵循领先，在 R2M 上场景一致性领先，物理合理性优于直接生成，视觉真实感优于所比较的 Code2Video 方案。适用场景：需要结构与动态显式可控的视频内容创作。限制：依赖多智能体编排与三维资产构建，成本与失败模式未在摘要中量化。复现状态：未核实。\n\n## PaveSplat：分辨率鲁棒的前馈高斯泼溅\n[arXiv](https://arxiv.org/abs/2611.26045)\n研究问题：像素对齐的前馈高斯泼溅从少量图像一次预测每像素一个基元，其渲染质量取决于基元对表面的覆盖；由深度解析计算的表面对齐协方差在深度帧病态处无法修正朝向，训练分辨率下每个基元的最小像素足迹掩盖缝隙，换到更高分辨率重渲染时便出现孔洞。方法：保留解析协方差作为初始化（轴对齐表面切向），并加入恒等初始化的单位四元数残差，仅在能改善渲染处重定向基元。差异证据：在 RealEstate10K 上取得最佳 PSNR（摘要给出结论，具体数值未列全）。适用场景：少视图前馈重建与跨分辨率新视图合成。限制：仍为前馈单次预测范式，极端视角与病态深度的系统性失效未详述。复现状态：未核实。\n\n---\n\n*由模型根据 arXiv 元数据生成，复现状态及指标请以官方论文为准。*",
+  "papers": [
+    {
+      "id": "2611.25626",
+      "title": "Physical Laws without Physics Loss? Probing Learned Dynamics in Video World Models through Forced Response",
+      "summary": "Do video world models learn physical laws without a physics loss, or merely imitate motion? Overall motion and appearance scores cannot settle it. We investigate this through nonlinear forced response: an excitation shakes the support of a suspended object. We introduce dual visual-numeric conditioning and adapt six image-to-video backbones to predict this motion using only the flow-matching loss. Wan predicts motion accurately and generalizes to unseen excitations, objects, poses, and scenes. Counterfactual tests suggest capabilities beyond replaying training videos. But what laws have they learned? We design three tiers of tests using Taylor expansions of the dynamics and geometry. All six reproduce the linear response, including resonance; five capture higher-order dynamics, including nonlinear softening. Remarkably, softening is barely present in training: only 0.74% of the swing's squared displacement. Extensions to a double pendulum and a rocking block show sustained dynamics are learned more faithfully than brief impacts. Yet learned dynamics may fail to appear when state estimation or propagation goes wrong. We turn these tests and findings into strategies to improve video ",
+      "url": "https://arxiv.org/abs/2611.25626",
+      "published": "2026-11-19T07:14:01Z",
+      "topics": [
+        "视频生成",
+        "世界模型"
+      ]
+    },
+    {
+      "id": "2611.26366",
+      "title": "World Models Favor Learned Priors over Visual Evidence",
+      "summary": "World models are increasingly used to simulate physical interactions, but training a separate model for each environment limits scalability. Cross-environment prediction requires identifying the current physical rule, which appearance alone may not reveal. We therefore study visual calibration: using object motion and interactions in a short video as direct evidence to infer the current rule and predict motion under that rule from a different initial state. However, differences in data availability across physical conditions can yield a long-tailed training distribution, biasing models toward common rules even when evidence supports rare ones. To study this challenge, we introduce TailWorld, which evaluates the transfer of demonstrated rules across initial states while independently controlling training imbalance and calibration informativeness. The benchmark compares predictions with two reference futures from the same prediction initial state, one following the demonstrated rule and the other a common rule, to measure prediction bias toward common dynamics. We further propose Rule Inference for Transfer (RIFT), which learns how different rules affect object motion, infers the cur",
+      "url": "https://arxiv.org/abs/2611.26366",
+      "published": "2026-11-19T16:33:02Z",
+      "topics": [
+        "世界模型"
+      ]
+    },
+    {
+      "id": "2611.26164",
+      "title": "MultiBinder: Preventing Multi-Subject Identity Leakage in Personalized Video Generation",
+      "summary": "Personalized video generation faces a significant scalability challenge: as the number of custom subjects increases, existing methods suffer from severe identity leakage and semantic entanglement, resulting in videos with blended attributes and incoherent narratives. We identify that this stems from a lack of explicit binding between textual entity phrases and their corresponding visual patterns prior to fusion in diffusion models. To address this, we propose MultiBinder, a novel framework built on a ``bind-then-narrate'' paradigm. Our approach introduces a two-stage conditioning process before video diffusion. First, Cross-modal Entity Binding devises an entity-aware Q-Former to extract identity-centric features from each subject's reference image and tightly align them with its unique entity phrase, yielding disentangled ``identity tokens.'' Second, a Multimodal Large Language Model (MLLM) acts as a ``narrative director'' in the Narrative-Aware Subject Arrangement stage, capturing the action of each subject from the text prompt and synthesizes contextualized subject features that encapsulate ``who is doing what'' and preserve role-specific distinctions. These features are then in",
+      "url": "https://arxiv.org/abs/2611.26164",
+      "published": "2026-11-19T14:18:00Z",
+      "topics": [
+        "视频生成"
+      ]
+    },
+    {
+      "id": "2611.26595",
+      "title": "Coda-DaVinci: Reimagining Video Generation with Code2Video",
+      "summary": "Code2Video uses agent-authored 3D proxies to guide video generation, enabling explicit control over structure and dynamics. However, how to construct proxies and prompts for optimal downstream quality remains underexplored, as do the capabilities and limitations of this paradigm. Through controlled experiments and blinded human evaluation, we study proxy granularity, physics simulation, and prompting. The results reveal task-dependent trade-offs: coarse proxies favor natural motion, while medium-grained proxies favor consistency. Physics simulation and proxy-aligned prompting further improve average quality. Guided by these findings, we introduce Coda-DaVinci, a task-adaptive agentic framework for Code2Video generation that selects between proxy-guided and direct generation, adapts modeling granularity to each entity, and coordinates simulation with proxy-grounded prompting. Its multi-agent harness preserves scene assets and guides repairs through visual inspection and independent review. Experiments demonstrate leading instruction following on VTR and scene consistency on R2M, improved physical plausibility over direct generation, and higher visual realism than the compared Code2V",
+      "url": "https://arxiv.org/abs/2611.26595",
+      "published": "2026-11-19T18:51:58Z",
+      "topics": [
+        "视频生成"
+      ]
+    },
+    {
+      "id": "2611.26045",
+      "title": "PaveSplat: Resolution-Robust Feed-Forward Gaussian Splatting with Residually Corrected Surface-Aligned Covariances",
+      "summary": "We present PaveSplat, a feed-forward Gaussian splatting method that adds a learned residual to the analytic surface-aligned covariance, keeping surfels paving the visible surface across rendering resolutions. Pixel-aligned feed-forward Gaussian splatting predicts one primitive per pixel from a few images in a single pass, and its rendering quality depends on how well these primitives cover the surface. Recent surfel-based methods compute the surface-aligned covariance analytically from predicted depth. However, this covariance has no way to correct the surfel orientation where the depth-derived frame is ill-posed. The surfels then cover the surface loosely; at the training resolution each surfel's one-pixel minimum footprint covers the gaps, but they show up as holes when the same prediction is re-rendered at a higher resolution. To address this, we keep the analytic covariance as an initialization, with its axes aligned to the surface tangents, and add an identity-initialized unit-quaternion residual that reorients a surfel only where this improves rendering, turning surfels that the analytic frame mis-aims back onto the surface. On RealEstate10K, PaveSplat achieves the best PSNR,",
+      "url": "https://arxiv.org/abs/2611.26045",
+      "published": "2026-11-19T12:55:04Z",
+      "topics": [
+        "高斯渲染"
+      ]
+    }
+  ],
+  "date": "2026-11-22",
+  "kind": "自动生成 · 网页日报"
+}
