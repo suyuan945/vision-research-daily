@@ -1,0 +1,21 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="本次从近24小时（必要时回溯至7天）的 arXiv 记录中筛选出覆盖世界模型、视频生成、可控生成、三维几何/高斯渲染与多模态具身视觉的重点论文。优先选取方法差异明确、证据可核验的工作，并保持方向分散，避免同一方向过度集中。"><title>视觉生成与具身世界模型精选：从交互视频到三维重建 · Vision Research Hub</title><link rel="stylesheet" href="../assets/style.css"></head><body><header class="site-header"><div class="header-inner"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">◈</span><span>Vision <em>Research</em></span></a><nav class="site-nav" aria-label="主导航"><a href="../#today">今日</a><a href="../#papers">论文</a><a href="../#opensource">开源</a><a href="../#articles">文章</a><a href="../#favorites">收藏</a><a href="../#archive">历史</a></nav></div></header><main class="article-shell"><a class="article-back" href="../#archive">← 返回历史日报</a><div class="article-header"><div class="article-kicker">2026-11-23 / 自动生成 · 网页日报</div><h1>视觉生成与具身世界模型精选：从交互视频到三维重建</h1><p class="article-intro">本次从近24小时（必要时回溯至7天）的 arXiv 记录中筛选出覆盖世界模型、视频生成、可控生成、三维几何/高斯渲染与多模态具身视觉的重点论文。优先选取方法差异明确、证据可核验的工作，并保持方向分散，避免同一方向过度集中。</p><div class="tag-list"><span class="tag">世界模型</span><span class="tag">视频生成</span><span class="tag">三维几何</span><span class="tag">高斯渲染</span><span class="tag">具身视觉</span><span class="tag">可控生成</span></div></div><article class="prose"><h2>MoReWorld：用运动区域统一引导机器人视频世界模型</h2>
+<p><a href="https://arxiv.org/abs/2611.27344">arXiv</a>
+研究问题：动作条件视频世界模型常优化全局重建误差，导致接触效果与机器人-物体交互在局部失真。方法：以“随机器人动作移动的环境区域”作为共享运动区域，同时指导局部运动预测、区域感知监督与运动门控的未来特征条件；推理时从视觉历史与动作预测运动概率图。证据：在 WorldSimProbe 上取得最高综合保真度分数（摘要未给出完整数值）。适用场景：机器人策略评估与交互仿真。限制：依赖对交互区域的可靠定位，接触物理仍为生成近似。复现状态：未核实代码。</p>
+<h2>Ego2Ego：跨协作者的生成式视觉视角采择</h2>
+<p><a href="https://arxiv.org/abs/2611.27459">arXiv</a>
+研究问题：从自我视角视频、场景点云与协作者相机轨迹生成协作者视角的连续视频。方法：与骨干无关的几何模块向视频扩散模型注入共享三维场景几何，渲染稠密时序一致场景坐标图、在三维射线空间对齐跨视角 token，并恢复视野外区域。证据：针对极端视角变化、动态遮挡与稀疏重叠设计，摘要未列完整指标。适用场景：AR/VR 与具身示范合成。限制：依赖点云与相机轨迹质量。复现状态：未核实。</p>
+<h2>Depth Pro 2：锐利且时间一致的度量单目深度</h2>
+<p><a href="https://arxiv.org/abs/2611.26603">arXiv</a>
+研究问题：单帧方法偏锐利、多帧方法偏一致，二者常相互牺牲。方法：单一可扩展网络同时处理图像与视频，在原生分辨率输出深度图。证据：作者称在度量精度、锐度、时间一致性与运行时上同时优于先前工作，并给出新的 Pareto 前沿；提供代码与权重。适用场景：视频重建、几何基础模型下游。限制：摘要未列具体数据集与误差数值。复现状态：已公开代码与权重。</p>
+<h2>ViewDreamer：超越固定相机配置的机器人世界模型</h2>
+<p><a href="https://arxiv.org/abs/2611.26981">arXiv</a>
+研究问题：机器人示范相机数量、位置与顺序随本体变化，现有方法分视角生成或固定拼贴。方法：将单视角生成与跨视角交互解耦，视角仅通过共享 slot token 交互，并以逐步增加视角数的课程稳定训练，用视觉基础模型做跨视角 slot 一致性。证据：在 RoboView-Bench（1 至 4 相机）取得最佳生成质量并提升跨视角一致性，增益传递到 WAM 与动作条件世界模型，在 LIBERO-Plus 等基准优于 FastWAM-Joint。适用场景：多相机机器人学习。限制：slot 数量与课程设计可能需要按本体调整。复现状态：未核实。</p>
+<h2>PP-CFG：少步图像与视频生成中的保极性引导</h2>
+<p><a href="https://arxiv.org/abs/2611.27266">arXiv</a>
+研究问题：少步扩散蒸馏削弱可调 CFG 与运行时负提示。方法：在共享视觉骨干内保持正负文本条件分离，以相反符号组合注意力响应，并用 Scale-Time Polarity Mixer 依据引导尺度与时间步精化各条件。证据：在 Wan2.1 上四步达 81.46 VBench，且在 NegElement-1K 上目标移除率高于对应教师。适用场景：可控少步图像/视频生成。限制：摘要未报告长视频或复杂多主体场景。复现状态：未核实。</p>
+<h2>VeilGS：把暗光视为二维基底映射之幕的 Retinex 3DGS</h2>
+<p><a href="https://arxiv.org/abs/2611.27719">arXiv</a>
+研究问题：暗光退化在空间上不均匀，单一色调曲线或把暗度存入三维表示都会损失细节。方法：每个高斯携带反照率与着色隐变量，每视角以空间变化增益加全局色调曲线形成“幕”，渲染去除该幕即得复原场景；增益基底由小网络预测、系数逐视角求解。证据：无需成对正常光监督，也不存逐视角参数。适用场景：暗光新视角合成。限制：摘要未列定量对比。复现状态：未核实。</p>
+<hr />
+<p><em>由模型根据 arXiv 元数据生成，复现状态及指标请以官方论文为准。</em></p>
+</article><div class="article-end"><a href="../#papers">浏览论文库 ↗</a></div></main><footer class="site-footer"><span>Vision Research Hub</span><a href="https://github.com/suyuan945/vision-research-daily/actions">查看更新记录 ↗</a></footer><script src="../assets/research-store.js" defer></script></body></html>

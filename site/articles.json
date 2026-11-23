@@ -5,11 +5,11 @@
     },
     "量子位": {
       "state": "ok",
-      "newest": "2026-11-21"
+      "newest": "2026-11-22"
     },
     "我爱计算机视觉": {
       "state": "ok",
-      "newest": "2026-11-21"
+      "newest": "2026-11-22"
     },
     "3D视觉工坊": {
       "state": "manual"
@@ -19,6 +19,27 @@
     }
   },
   "articles": [
+    {
+      "account": "量子位",
+      "title": "AI“朋友圈”大聚会——MEET2027喊你来参会",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247947757&idx=1&sn=1f8c07c6825a31d1dc43a24c98e0ff4b",
+      "date": "2026-11-22",
+      "tags": [
+        "世界模型",
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
+    {
+      "account": "我爱计算机视觉",
+      "title": "苹果新开源的Depth Pro 2火了：攻克单目深度锐利度与时序稳定性的双重矛盾",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ%3D%3D&mid=2247667843&idx=1&sn=63fde94f20ffedc9c3d064984abf3f93",
+      "date": "2026-11-22",
+      "tags": [
+        "三维几何"
+      ],
+      "paper_ids": []
+    },
     {
       "account": "量子位",
       "title": "昇腾算力训出了双榜SOTA的具身世界模型，华为云这次想把整套底座开放出来",

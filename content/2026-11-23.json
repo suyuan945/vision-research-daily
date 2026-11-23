@@ -1,0 +1,90 @@
+{
+  "title": "视觉生成与具身世界模型精选：从交互视频到三维重建",
+  "summary": "本次从近24小时（必要时回溯至7天）的 arXiv 记录中筛选出覆盖世界模型、视频生成、可控生成、三维几何/高斯渲染与多模态具身视觉的重点论文。优先选取方法差异明确、证据可核验的工作，并保持方向分散，避免同一方向过度集中。",
+  "tags": [
+    "世界模型",
+    "视频生成",
+    "三维几何",
+    "高斯渲染",
+    "具身视觉",
+    "可控生成"
+  ],
+  "highlights": [
+    "MoReWorld 以运动区域统一引导机器人视频世界模型的动力学学习",
+    "Ego2Ego 用几何模块把跨视角视频生成变成可共享空间参考的任务",
+    "Depth Pro 2 在单网络内同时兼顾度量精度、边界锐度与时间一致性",
+    "ViewDreamer 支持可变数量相机的机器人世界模型",
+    "PP-CFG 在少步蒸馏中保留正负提示的可控性",
+    "VeilGS 将暗光退化显式建模为二维基底映射下的 Retinex 3DGS"
+  ],
+  "markdown": "## MoReWorld：用运动区域统一引导机器人视频世界模型\n[arXiv](https://arxiv.org/abs/2611.27344)\n研究问题：动作条件视频世界模型常优化全局重建误差，导致接触效果与机器人-物体交互在局部失真。方法：以“随机器人动作移动的环境区域”作为共享运动区域，同时指导局部运动预测、区域感知监督与运动门控的未来特征条件；推理时从视觉历史与动作预测运动概率图。证据：在 WorldSimProbe 上取得最高综合保真度分数（摘要未给出完整数值）。适用场景：机器人策略评估与交互仿真。限制：依赖对交互区域的可靠定位，接触物理仍为生成近似。复现状态：未核实代码。\n\n## Ego2Ego：跨协作者的生成式视觉视角采择\n[arXiv](https://arxiv.org/abs/2611.27459)\n研究问题：从自我视角视频、场景点云与协作者相机轨迹生成协作者视角的连续视频。方法：与骨干无关的几何模块向视频扩散模型注入共享三维场景几何，渲染稠密时序一致场景坐标图、在三维射线空间对齐跨视角 token，并恢复视野外区域。证据：针对极端视角变化、动态遮挡与稀疏重叠设计，摘要未列完整指标。适用场景：AR/VR 与具身示范合成。限制：依赖点云与相机轨迹质量。复现状态：未核实。\n\n## Depth Pro 2：锐利且时间一致的度量单目深度\n[arXiv](https://arxiv.org/abs/2611.26603)\n研究问题：单帧方法偏锐利、多帧方法偏一致，二者常相互牺牲。方法：单一可扩展网络同时处理图像与视频，在原生分辨率输出深度图。证据：作者称在度量精度、锐度、时间一致性与运行时上同时优于先前工作，并给出新的 Pareto 前沿；提供代码与权重。适用场景：视频重建、几何基础模型下游。限制：摘要未列具体数据集与误差数值。复现状态：已公开代码与权重。\n\n## ViewDreamer：超越固定相机配置的机器人世界模型\n[arXiv](https://arxiv.org/abs/2611.26981)\n研究问题：机器人示范相机数量、位置与顺序随本体变化，现有方法分视角生成或固定拼贴。方法：将单视角生成与跨视角交互解耦，视角仅通过共享 slot token 交互，并以逐步增加视角数的课程稳定训练，用视觉基础模型做跨视角 slot 一致性。证据：在 RoboView-Bench（1 至 4 相机）取得最佳生成质量并提升跨视角一致性，增益传递到 WAM 与动作条件世界模型，在 LIBERO-Plus 等基准优于 FastWAM-Joint。适用场景：多相机机器人学习。限制：slot 数量与课程设计可能需要按本体调整。复现状态：未核实。\n\n## PP-CFG：少步图像与视频生成中的保极性引导\n[arXiv](https://arxiv.org/abs/2611.27266)\n研究问题：少步扩散蒸馏削弱可调 CFG 与运行时负提示。方法：在共享视觉骨干内保持正负文本条件分离，以相反符号组合注意力响应，并用 Scale-Time Polarity Mixer 依据引导尺度与时间步精化各条件。证据：在 Wan2.1 上四步达 81.46 VBench，且在 NegElement-1K 上目标移除率高于对应教师。适用场景：可控少步图像/视频生成。限制：摘要未报告长视频或复杂多主体场景。复现状态：未核实。\n\n## VeilGS：把暗光视为二维基底映射之幕的 Retinex 3DGS\n[arXiv](https://arxiv.org/abs/2611.27719)\n研究问题：暗光退化在空间上不均匀，单一色调曲线或把暗度存入三维表示都会损失细节。方法：每个高斯携带反照率与着色隐变量，每视角以空间变化增益加全局色调曲线形成“幕”，渲染去除该幕即得复原场景；增益基底由小网络预测、系数逐视角求解。证据：无需成对正常光监督，也不存逐视角参数。适用场景：暗光新视角合成。限制：摘要未列定量对比。复现状态：未核实。\n\n---\n\n*由模型根据 arXiv 元数据生成，复现状态及指标请以官方论文为准。*",
+  "papers": [
+    {
+      "id": "2611.27344",
+      "title": "Learning Interaction Dynamics via Motion-Region Guidance for Robotic Video World Models",
+      "summary": "Action-conditioned video world models imagine future observations under candidate robot actions, providing a promising visual tool for robot policy evaluation and interaction simulation. However, existing video world models often optimize global reconstruction errors instead of emphasizing interaction-relevant regions. As a result, they may preserve overall scene appearance but overlook local interaction details, leading to physically implausible outcomes such as hallucinated contact effects and inconsistent robot-object interactions. We introduce MoReWorld, a unified motion-region-guided framework that uses a shared motion region, the part of the environment that moves in response to the robot's actions, to focus dynamics learning and video generation on interaction-relevant regions. The same motion region guides local motion prediction, region-aware supervision, and motion-gated future-feature conditioning. At inference time, the motion region is predicted as a motion probability map from visual history and robot actions, without requiring future observations or ground-truth motion labels. On WorldSimProbe, MoReWorld achieves the highest overall simulator-faithfulness score, with",
+      "url": "https://arxiv.org/abs/2611.27344",
+      "published": "2026-11-20T09:20:22Z",
+      "topics": [
+        "视频生成",
+        "世界模型"
+      ]
+    },
+    {
+      "id": "2611.27459",
+      "title": "Ego2Ego: Generative Visual Perspective Taking Across Collaborators",
+      "summary": "Visual perspective taking, the ability to infer what another person sees from their position, is fundamental to human collaboration. However, prior works reduced perspective taking to state estimation, geometric reconstruction, or discrete question answering, whereas existing cross-view video generation methods either inferred the target view from the input video alone or required an external camera that observes the target person. We introduce generative visual perspective taking: Given an ego person's egocentric video, a scene point cloud, and a collaborator's camera trajectory, the task is to generate the continuous egocentric video from the collaborator's perspective. This task is challenging given extreme viewpoint shifts, dynamic occlusions, and sparse visual overlap. We address these challenges with Ego2Ego -- a set of backbone-agnostic geometric modules that provide a pretrained video diffusion model with the 3D scene geometry shared by both interactants. Ego2Ego renders dense, temporally consistent scene coordinate maps into every view as a shared spatial reference, aligns cross-view tokens in 3D ray space through relative geometric attention, and recovers regions outside ",
+      "url": "https://arxiv.org/abs/2611.27459",
+      "published": "2026-11-20T11:03:00Z",
+      "topics": [
+        "视频生成",
+        "三维几何"
+      ]
+    },
+    {
+      "id": "2611.26603",
+      "title": "Depth Pro 2: Sharp and Temporally Consistent Metric Monocular Depth",
+      "summary": "We present Depth Pro 2, an approach to estimating dense metric depth for images and video at full resolution. By analyzing prior methods for monocular depth estimation, we find that they commonly trade off temporal consistency and boundary sharpness: multi-frame methods favor consistency, single-frame methods favor sharpness. To overcome this trade-off, we train a single, scalable network that processes both images and video and predicts depth maps at native resolution. Depth Pro 2 produces depth maps that are metrically accurate, sharp, and temporally consistent all at once, outperforming prior work in all of these dimensions. We release a family of models that define a new Pareto frontier in terms of metric accuracy, sharpness, temporal consistency, and runtime. We release code and weights at https://apple-aiml-research.github.io/ml-depth-pro-2/",
+      "url": "https://arxiv.org/abs/2611.26603",
+      "published": "2026-11-19T18:55:41Z",
+      "topics": [
+        "三维几何"
+      ]
+    },
+    {
+      "id": "2611.26981",
+      "title": "ViewDreamer: A Robot World Model beyond Fixed Camera Setups",
+      "summary": "Video generation models are increasingly important for robot learning, yet most generate each camera view separately or tile all views in a fixed layout. Robot demonstrations, however, are captured by synchronized cameras whose number, placement, and order vary across embodiments. We present ViewDreamer, a single world model that handles variable sets of cameras by disentangling per-view generation from cross-view interaction. Each view follows the generation path of a pretrained single-view model, and views interact only through shared slot tokens. We stabilize multi-view training with a curriculum that gradually increases the number of views. Cross-View Slot Agreement uses visual foundation models to group geometrically and semantically similar regions across views into shared slots. On RoboView-Bench, which covers one to four cameras, ViewDreamer achieves the best generation quality among the models evaluated and improves cross-view consistency over independent per-view generation. These gains carry over to our world-action model (WAM) and action-conditioned world model (AC-WM). Our WAM outperforms the FastWAM-Joint baseline on LIBERO-Plus, RoboTwin 2.0, and RoboDojo, and on a r",
+      "url": "https://arxiv.org/abs/2611.26981",
+      "published": "2026-11-20T01:58:31Z",
+      "topics": [
+        "视频生成",
+        "世界模型",
+        "三维几何"
+      ]
+    },
+    {
+      "id": "2611.27266",
+      "title": "PP-CFG: Polarity-Preserving Guidance for Controllable Few-Step Image and Video Generation",
+      "summary": "Few-step diffusion distillation reduces sampling cost but often weakens adjustable classifier-free guidance (CFG) and runtime negative prompting. We introduce PP-CFG, an architecture that keeps positive and negative text conditions separate and combines their attention responses with opposite signs within a shared visual backbone. Its Scale-Time Polarity Mixer refines each condition using the guidance scale and denoising timestep, allowing prompt influence to vary throughout generation. The student retains a continuous scale input and selectable negative prompts with one visual backbone pass per step. We evaluate PP-CFG on Wan2.1 for video generation with distribution matching distillation (DMD), and on Qwen-Image with both latent consistency model (LCM) distillation and DMD. PP-CFG achieves 81.46 VBench in four steps and lower video teacher-student distances across guidance scales than step-distilled DMD. On NegElement-1K, our benchmark of 1,000 matched image and video prompt cases, it achieves higher target-removal rates than the corresponding teachers. These experiments support the method's generality across attention architectures, generation modalities, and distillation object",
+      "url": "https://arxiv.org/abs/2611.27266",
+      "published": "2026-11-20T08:05:41Z",
+      "topics": [
+        "视频生成"
+      ]
+    },
+    {
+      "id": "2611.27719",
+      "title": "VeilGS: Solving Darkness as a Veil of 2D Basis Maps over Retinex 3DGS",
+      "summary": "In a dark capture, the darkness is not uniform. How much light reaches a surface depends on where it lies relative to the few light sources, and the camera compresses what remains with a tone curve. Most low-light 3D reconstruction methods either apply one curve to every pixel of a view, so a dark object beside a lamp and a bright one in an unlit corner receive the same correction, or store the darkness in the 3D representation, where it can absorb scene detail. We present VeilGS, a 3D Gaussian Splatting method for low-light novel view synthesis that treats the degradation as a veil drawn over a clear scene. Each Gaussian carries an albedo and a shading latent instead of spherical harmonics, separating surface colour from illumination. Each view is darkened by a spatially varying gain followed by a global tone curve, and rendering without this veil gives the restored scene. A small network predicts a coarse basis for the gain from the observation, and its coefficients are solved for each view rather than learned. Training through this solve discourages the Gaussians from absorbing what the veil can explain. VeilGS needs no paired normal-light supervision and stores no per-view para",
+      "url": "https://arxiv.org/abs/2611.27719",
+      "published": "2026-11-20T15:23:12Z",
+      "topics": [
+        "高斯渲染",
+        "三维几何"
+      ]
+    }
+  ],
+  "date": "2026-11-23",
+  "kind": "自动生成 · 网页日报"
+}

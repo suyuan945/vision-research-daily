@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "checked_at": "2026-11-22T11:00:58+08:00",
+  "checked_at": "2026-11-23T11:41:26+08:00",
   "failed_sources": [],
   "repositories": [
     {
@@ -188,6 +188,20 @@
       "license_name": "MIT License",
       "topics": [
         "可控生成"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1466433688",
+      "name": "asia272/text-to-image",
+      "url": "https://github.com/asia272/text-to-image",
+      "description": "AI text-to-image generator SaaS with custom authentication, Brevo email verification, credit system and Stripe payments. Built with Next.js, Prisma, Neon and Cloudflare Workers AI.",
+      "created_at": "2026-11-21T10:35:46Z",
+      "first_seen": "2026-11-23",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "图像生成"
       ],
       "paper_ids": []
     },
@@ -890,6 +904,20 @@
       "paper_ids": []
     },
     {
+      "id": "1466712144",
+      "name": "rajpoootanasss789-oss/power-director",
+      "url": "https://github.com/rajpoootanasss789-oss/power-director",
+      "description": "Power Director: Professional Desktop Video Editing Suite with Multi-Track Timeline",
+      "created_at": "2026-11-21T16:02:12Z",
+      "first_seen": "2026-11-23",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "视频编辑"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1456253324",
       "name": "RoboticsResearchHubVN/InstantAMP",
       "url": "https://github.com/RoboticsResearchHubVN/InstantAMP",
@@ -1195,6 +1223,36 @@
       ]
     },
     {
+      "id": "1467140980",
+      "name": "waleedsworld/open-revisualizer",
+      "url": "https://github.com/waleedsworld/open-revisualizer",
+      "description": "Re-render reality from a car's surround cameras as 3D Gaussian splats, then drive through it like a video game. Open-source reality view with SDK.",
+      "created_at": "2026-11-22T02:19:21Z",
+      "first_seen": "2026-11-23",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1466740498",
+      "name": "Yelar/noclip",
+      "url": "https://github.com/Yelar/noclip",
+      "description": "A playable neural world model of the Backrooms",
+      "created_at": "2026-11-21T16:32:49Z",
+      "first_seen": "2026-11-23",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "世界模型"
+      ],
+      "paper_ids": [
+        "2410.10733"
+      ]
+    },
+    {
       "id": "1455242807",
       "name": "yulin-luo/deepvision-vla",
       "url": "https://github.com/yulin-luo/deepvision-vla",
@@ -1287,6 +1345,15 @@
   ],
   "events": [
     {
+      "id": "repo:1467140980",
+      "repository_id": "1467140980",
+      "kind": "new",
+      "date": "2026-11-22T02:19:21Z",
+      "first_seen": "2026-11-23",
+      "title": "waleedsworld/open-revisualizer",
+      "url": "https://github.com/waleedsworld/open-revisualizer"
+    },
+    {
       "id": "repo:1467061026",
       "repository_id": "1467061026",
       "kind": "new",
@@ -1314,6 +1381,24 @@
       "url": "https://github.com/Aroralayla99/capcut-seedance-win"
     },
     {
+      "id": "repo:1466740498",
+      "repository_id": "1466740498",
+      "kind": "new",
+      "date": "2026-11-21T16:32:49Z",
+      "first_seen": "2026-11-23",
+      "title": "Yelar/noclip",
+      "url": "https://github.com/Yelar/noclip"
+    },
+    {
+      "id": "repo:1466712144",
+      "repository_id": "1466712144",
+      "kind": "new",
+      "date": "2026-11-21T16:02:12Z",
+      "first_seen": "2026-11-23",
+      "title": "rajpoootanasss789-oss/power-director",
+      "url": "https://github.com/rajpoootanasss789-oss/power-director"
+    },
+    {
       "id": "repo:1466669853",
       "repository_id": "1466669853",
       "kind": "new",
@@ -1339,6 +1424,15 @@
       "first_seen": "2026-11-22",
       "title": "icitycode/capcut-for-windows",
       "url": "https://github.com/icitycode/capcut-for-windows"
+    },
+    {
+      "id": "repo:1466433688",
+      "repository_id": "1466433688",
+      "kind": "new",
+      "date": "2026-11-21T10:35:46Z",
+      "first_seen": "2026-11-23",
+      "title": "asia272/text-to-image",
+      "url": "https://github.com/asia272/text-to-image"
     },
     {
       "id": "repo:1466003525",
