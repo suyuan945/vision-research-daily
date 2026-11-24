@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "checked_at": "2026-11-23T11:41:26+08:00",
+  "checked_at": "2026-11-24T14:55:40+08:00",
   "failed_sources": [],
   "repositories": [
     {
@@ -46,6 +46,20 @@
       "paper_ids": [
         "2611.12411"
       ]
+    },
+    {
+      "id": "1469381740",
+      "name": "Alastorono/filmora-license-short-video-studio",
+      "url": "https://github.com/Alastorono/filmora-license-short-video-studio",
+      "description": "Short video editing workspace built around Filmora project files.",
+      "created_at": "2026-11-23T22:33:41Z",
+      "first_seen": "2026-11-24",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "视频编辑"
+      ],
+      "paper_ids": []
     },
     {
       "id": "1458573057",
@@ -206,6 +220,20 @@
       "paper_ids": []
     },
     {
+      "id": "1469479696",
+      "name": "bhottu/cultiv-tiktok-ai-affiliate-platform",
+      "url": "https://github.com/bhottu/cultiv-tiktok-ai-affiliate-platform",
+      "description": "Platform SaaS berbasis AI untuk riset produk affiliate, analisis peluang, pembuatan konten promosi, video generation, dan otomasi workflow affiliate lintas kategori produk.",
+      "created_at": "2026-11-24T00:47:44Z",
+      "first_seen": "2026-11-24",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "视频生成"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1454769413",
       "name": "blueif16/vla_final",
       "url": "https://github.com/blueif16/vla_final",
@@ -346,6 +374,20 @@
       "license_name": "MIT License",
       "topics": [
         "视频编辑"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1468514229",
+      "name": "DheerajGupta-2254/TextToImageApp",
+      "url": "https://github.com/DheerajGupta-2254/TextToImageApp",
+      "description": "AI-powered Text-to-Image Generator using MERN Stack and OpenAI API",
+      "created_at": "2026-11-23T08:54:42Z",
+      "first_seen": "2026-11-24",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "图像生成"
       ],
       "paper_ids": []
     },
@@ -659,6 +701,22 @@
       ]
     },
     {
+      "id": "1469024573",
+      "name": "Kingzein/WeaveVLA",
+      "url": "https://github.com/Kingzein/WeaveVLA",
+      "description": "WeaveVLA: 3D Relational Grounding for Vision-Language-Action Models",
+      "created_at": "2026-11-23T16:35:38Z",
+      "first_seen": "2026-11-24",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": [
+        "2611.31126"
+      ]
+    },
+    {
       "id": "1459212988",
       "name": "kokarai/premiere-elements",
       "url": "https://github.com/kokarai/premiere-elements",
@@ -904,6 +962,20 @@
       "paper_ids": []
     },
     {
+      "id": "1466714205",
+      "name": "purvprajapati2504-design/premiere-pro-video-editor",
+      "url": "https://github.com/purvprajapati2504-design/premiere-pro-video-editor",
+      "description": "Professional Multi-Track Video Editing Suite for Windows with 4K/8K Export",
+      "created_at": "2026-11-21T16:04:14Z",
+      "first_seen": "2026-11-24",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "视频编辑"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1466712144",
       "name": "rajpoootanasss789-oss/power-director",
       "url": "https://github.com/rajpoootanasss789-oss/power-director",
@@ -1058,6 +1130,20 @@
       "license_name": "",
       "topics": [
         "视频编辑"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1468726805",
+      "name": "srinivasangokul2026-cpu/Video_Generation",
+      "url": "https://github.com/srinivasangokul2026-cpu/Video_Generation",
+      "description": "Just give the script, ppt and captions.",
+      "created_at": "2026-11-23T12:20:24Z",
+      "first_seen": "2026-11-24",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "视频生成"
       ],
       "paper_ids": []
     },
@@ -1237,6 +1323,20 @@
       "paper_ids": []
     },
     {
+      "id": "1468977309",
+      "name": "X1Agu/VVLA",
+      "url": "https://github.com/X1Agu/VVLA",
+      "description": "High-throughput single-GPU inference and zero-padding dynamic-batching engine for Vision-Language-Action models (π0.5, OpenVLA-OFT, LingBot-VLA2).",
+      "created_at": "2026-11-23T15:55:30Z",
+      "first_seen": "2026-11-24",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1466740498",
       "name": "Yelar/noclip",
       "url": "https://github.com/Yelar/noclip",
@@ -1250,6 +1350,22 @@
       ],
       "paper_ids": [
         "2410.10733"
+      ]
+    },
+    {
+      "id": "1465230277",
+      "name": "yuhangdai427/NoPeWorld",
+      "url": "https://github.com/yuhangdai427/NoPeWorld",
+      "description": "Non-penetrating World Models",
+      "created_at": "2026-11-20T09:26:09Z",
+      "first_seen": "2026-11-24",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "世界模型"
+      ],
+      "paper_ids": [
+        "2611.27963"
       ]
     },
     {
@@ -1341,9 +1457,86 @@
       "paper_ids": [
         "2609.12036"
       ]
+    },
+    {
+      "id": "1468848873",
+      "name": "ZzxArthur/vla-learning",
+      "url": "https://github.com/ZzxArthur/vla-learning",
+      "description": "SmolVLA and vision-language-action learning workspace",
+      "created_at": "2026-11-23T14:07:46Z",
+      "first_seen": "2026-11-24",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
     }
   ],
   "events": [
+    {
+      "id": "repo:1469479696",
+      "repository_id": "1469479696",
+      "kind": "new",
+      "date": "2026-11-24T00:47:44Z",
+      "first_seen": "2026-11-24",
+      "title": "bhottu/cultiv-tiktok-ai-affiliate-platform",
+      "url": "https://github.com/bhottu/cultiv-tiktok-ai-affiliate-platform"
+    },
+    {
+      "id": "repo:1469381740",
+      "repository_id": "1469381740",
+      "kind": "new",
+      "date": "2026-11-23T22:33:41Z",
+      "first_seen": "2026-11-24",
+      "title": "Alastorono/filmora-license-short-video-studio",
+      "url": "https://github.com/Alastorono/filmora-license-short-video-studio"
+    },
+    {
+      "id": "repo:1469024573",
+      "repository_id": "1469024573",
+      "kind": "new",
+      "date": "2026-11-23T16:35:38Z",
+      "first_seen": "2026-11-24",
+      "title": "Kingzein/WeaveVLA",
+      "url": "https://github.com/Kingzein/WeaveVLA"
+    },
+    {
+      "id": "repo:1468977309",
+      "repository_id": "1468977309",
+      "kind": "new",
+      "date": "2026-11-23T15:55:30Z",
+      "first_seen": "2026-11-24",
+      "title": "X1Agu/VVLA",
+      "url": "https://github.com/X1Agu/VVLA"
+    },
+    {
+      "id": "repo:1468848873",
+      "repository_id": "1468848873",
+      "kind": "new",
+      "date": "2026-11-23T14:07:46Z",
+      "first_seen": "2026-11-24",
+      "title": "ZzxArthur/vla-learning",
+      "url": "https://github.com/ZzxArthur/vla-learning"
+    },
+    {
+      "id": "repo:1468726805",
+      "repository_id": "1468726805",
+      "kind": "new",
+      "date": "2026-11-23T12:20:24Z",
+      "first_seen": "2026-11-24",
+      "title": "srinivasangokul2026-cpu/Video_Generation",
+      "url": "https://github.com/srinivasangokul2026-cpu/Video_Generation"
+    },
+    {
+      "id": "repo:1468514229",
+      "repository_id": "1468514229",
+      "kind": "new",
+      "date": "2026-11-23T08:54:42Z",
+      "first_seen": "2026-11-24",
+      "title": "DheerajGupta-2254/TextToImageApp",
+      "url": "https://github.com/DheerajGupta-2254/TextToImageApp"
+    },
     {
       "id": "repo:1467140980",
       "repository_id": "1467140980",
@@ -1388,6 +1581,15 @@
       "first_seen": "2026-11-23",
       "title": "Yelar/noclip",
       "url": "https://github.com/Yelar/noclip"
+    },
+    {
+      "id": "repo:1466714205",
+      "repository_id": "1466714205",
+      "kind": "new",
+      "date": "2026-11-21T16:04:14Z",
+      "first_seen": "2026-11-24",
+      "title": "purvprajapati2504-design/premiere-pro-video-editor",
+      "url": "https://github.com/purvprajapati2504-design/premiere-pro-video-editor"
     },
     {
       "id": "repo:1466712144",
@@ -1493,6 +1695,15 @@
       "first_seen": "2026-11-21",
       "title": "zhifeiji20/plush-contact-reconstruction",
       "url": "https://github.com/zhifeiji20/plush-contact-reconstruction"
+    },
+    {
+      "id": "repo:1465230277",
+      "repository_id": "1465230277",
+      "kind": "new",
+      "date": "2026-11-20T09:26:09Z",
+      "first_seen": "2026-11-24",
+      "title": "yuhangdai427/NoPeWorld",
+      "url": "https://github.com/yuhangdai427/NoPeWorld"
     },
     {
       "id": "release:452066529",

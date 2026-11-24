@@ -1,0 +1,90 @@
+{
+  "title": "视觉研究重点论文日报：世界模型、视频生成与三维几何",
+  "summary": "本期从近24小时（必要时回溯至7天）的 arXiv 记录中筛选出6篇视觉研究重点论文，覆盖世界模型、可控视频生成、图像生成、三维几何与几何基础模型、高斯渲染及多模态具身视觉。重点包括：把预训练视频世界模型改造为原生潜在动作模型、以相机轨迹与3D管状结构控制结肠镜全流程视频生成、将视频生成模型转为前馈式三维重建、把环境预训练转为轻量机器人策略的图像生成路线，以及自动驾驶4D占用的持久世界状态与稀疏三维重建的主动采集。所有论文的代码状态除摘要明确给出者外均未核实。",
+  "tags": [
+    "世界模型",
+    "视频生成",
+    "三维几何",
+    "高斯渲染",
+    "多模态 / 具身视觉"
+  ],
+  "highlights": [
+    "预训练视频扩散模型可改造为原生潜在动作模型，并为VLA提供世界模型式预训练",
+    "结肠镜世界模型实现相机可控的全流程视频生成，轨迹误差与FVD显著下降",
+    "视频生成模型转为前馈三维重建，无需迭代去噪即可输出场景与相机",
+    "图像生成骨干可直接微调为机器人策略，推理时无需未来视觉预测",
+    "自动驾驶4D占用预测转向持久场景状态，IoU大幅提升且速度翻倍",
+    "稀疏三维超声重建用低/高频解码器分离平滑结构与残差细节"
+  ],
+  "markdown": "## World Models as Native Latent Action Models\n[arXiv](https://arxiv.org/abs/2611.30898)\n针对第一人称人类视频与异构机器人录像“有动态、缺动作或缺少共享动作空间”的问题，作者不再从头训练逆/前向动力学模型，而是复用预训练视频扩散 Transformer 同时充当 IDM 与 FDM，仅以可学习的动力学寄存器作为二者之间的因果桥梁，并在仅运动不同的反事实时间对上训练，把视频动态蒸馏为紧凑的潜在动作。进一步提出 PAWlicy，把该潜在动作模型作为大规模视频上的动力学教师，用于视觉-语言-动作策略预训练。其差异在于把世界模型视为原生动作提取器而非像素重建器；适用于跨具身机器人学习与 VLA 预训练场景。限制是摘要提及“不同于世界动作模型，它从不……”后内容被截断，完整评测与代码状态未核实。\n\n## ColonoWorld: Camera-Controlled Full-Procedure Colonoscopy Video Generation\n[arXiv](https://arxiv.org/abs/2611.30372)\n研究问题是：结肠镜自主导航需要能遵循指令运动、保持解剖一致并呈现病灶与操作事件的世界模型，但通用场景的相机可控生成器在运动下丢失结肠结构，内镜生成器又缺少相机控制。方法以相机轨迹和粗糙三维结肠管为条件，在活体视频上训练，可从全结肠管生成盲肠到直肠的完整流程，并在指定位置与时刻放置息肉、器械与冲洗。证据显示相机轨迹误差降低32%、FVD降低29%，并支持未见结肠形状；适用于手术模拟、导航系统评估与训练数据合成。代码与标注承诺在项目页发布，复现状态未核实。\n\n## VG3R: Video Generation Model for Feed-Forward 3D Reconstruction\n[arXiv](https://arxiv.org/abs/2611.28520)\n该工作把预训练视频生成模型转为前馈三维重建器，指出此类模型已隐含深度与相机运动但形式不适配重建。为此引入片段级位移预测以校正解码逆深度的未知偏移，并用多层相机头跨 Transformer 块预测逐帧相机参数；以 Wan2.1 为骨干，无需迭代去噪即可同时重建场景与每帧相机。摘要称其在同类方法中取得最低 ATE 与重建误差，适用于几何基础模型与新视角合成。限制在于摘要未给出具体数据集与数值，代码状态未核实。\n\n## GenPA: Image Generators as Efficient Robot Policies\n[arXiv](https://arxiv.org/abs/2611.27446)\n论文质疑“未来视觉预测是视觉生成预训练通向动作学习的必经环节”，主张图像生成预训练带来的指令跟随、空间理解与视觉想象可直接支撑控制。方法用约19M参数的动作回归适配器微调图像生成骨干，并复用其原生生成目标做感知协同训练，借助图像编辑接口比较当前场景感知、未来预测及其组合。部署时仅需一次骨干前向与动作回归，不生成未来帧。适用于机器人操作策略学习与生成模型复用；与显式世界模型路线形成对照，具体基准数值与复现状态未核实。\n\n## Write, Evolve, Read: Streaming Cameras into a Persistent World State for 4D Occupancy Forecasting\n[arXiv](https://arxiv.org/abs/2611.30573)\n面向自动驾驶4D占用预测，作者把未来空间分为不变、变化与未见三类，发现当前相机世界模型的主要短板是“守不住已见内容”而非预测变化。PersistWorld 将相机帧流式写入以场景为锚的持久三维世界状态，每帧只写一次而非从历史帧重建，并由演化器沿自车轨迹在任意查询时刻预测该状态。在 Occ3D-nuScenes 上，1–3秒最佳相机世界模型 IoU 提升19点，8秒内提升18至24点，速度超过两倍。代码与模型已在摘要给出链接。\n\n## XFreq: Geometry-Aligned Cross-View Residual Learning for Sparse 3D Ultrasound Reconstruction\n[arXiv](https://arxiv.org/abs/2611.30869)\n针对稀疏二维切片三维超声重建中大量体素未被观测的问题，XFreq 利用已知切片位姿与有限足迹在三维位置查询二维特征，与泼溅强度和采样几何互补；低频解码器从泼溅表示预测平滑三维场，高频解码器结合查询到的二维特征预测残差细节，并由学习门控依据几何与跨切片特征变化调节残差贡献。在自建胎儿脑数据集与公开 CETUS 心脏数据集上以五折交叉验证评估。适用于临床超声容积重建与稀疏视图场景；具体指标数值摘要未给出，代码与复现状态未核实。\n\n---\n\n*由模型根据 arXiv 元数据生成，复现状态及指标请以官方论文为准。*",
+  "papers": [
+    {
+      "id": "2611.30898",
+      "title": "World Models as Native Latent Action Models",
+      "summary": "Large and diverse video sources, such as egocentric human video and heterogeneous robot recordings, carry rich dynamics but come either without actions or without a shared action space. Latent action models (LAMs) can recover these dynamics, but they train their inverse- and forward-dynamics models (IDM, FDM) from scratch, trading off pixel reconstruction against latent capacity and accuracy. Pretrained video world models natively generate high-fidelity dynamics, yet represent them densely, entangled across all layers. Viewing the world model as a LAM, we show that these dynamics can be extracted with minimal changes to the model. Native LAM operates one pretrained video diffusion transformer as both IDM and FDM, with learnable dynamics registers as the only causal bridge between the two, and trains on counterfactual temporal pairs that differ in motion alone, so that the registers distill a video's dynamics into a compact native latent action. We further propose a pretraining paradigm for vision-language-action (VLA) policies, Pretraining Actions from World models (PAWlicy), in which Native LAM serves as a dynamics teacher on large-scale video; unlike world action models, it never",
+      "url": "https://arxiv.org/abs/2611.30898",
+      "published": "2026-11-23T16:01:06Z",
+      "topics": [
+        "视频生成",
+        "世界模型",
+        "多模态 / 具身视觉"
+      ]
+    },
+    {
+      "id": "2611.30372",
+      "title": "ColonoWorld: Camera-Controlled Full-Procedure Colonoscopy Video Generation",
+      "summary": "Navigation systems in colonoscopy are advancing from guiding the endoscopist to steering the scope autonomously. Since an incorrect motion can injure the patient, developing and evaluating these systems calls for a world model of colonoscopy. Such a model must follow a commanded scope motion, keep the colon anatomy consistent, and show lesions and procedural events. Yet camera-controlled generators trained on general scenes lose the colon's structure under motion, and endoscopic generators offer no camera control. We present ColonoWorld, a colonoscopy world model conditioned on a camera trajectory and a coarse 3D tube of the colon, trained on in vivo videos. From a whole-colon tube, it generates a full cecum-to-rectum procedure, even for unseen colon shapes. It also places polyps, instruments, and irrigation at specified locations and times. ColonoWorld outperforms state-of-the-art video generators, reducing camera trajectory error by 32% and FVD by 29%. Our code and annotations will be released at https://aidaslab.github.io/ColonoWorld.",
+      "url": "https://arxiv.org/abs/2611.30372",
+      "published": "2026-11-23T09:40:32Z",
+      "topics": [
+        "视频生成",
+        "世界模型",
+        "可控生成"
+      ]
+    },
+    {
+      "id": "2611.28520",
+      "title": "VG3R: Video Generation Model for Feed-Forward 3D Reconstruction",
+      "summary": "Video generation models are widely used as 3D priors for novel view synthesis and 3D scene generation. Fine-tuned for perception, generation models also excel at dense prediction such as depth estimation. However, methods that apply video generation models to 3D reconstruction either predict depth without cameras or generate geometry and estimate cameras through many iterative denoising steps, which makes them slower. In this paper, we present $\\textbf{VG3R}$, which turns a pretrained video generation model into a feed-forward 3D reconstruction model. Our key observation is that such a model already captures the depth and camera motion of a video, but not in the form required for reconstruction. We introduce two components: $\\textit{clip-level shift prediction}$, which corrects depth distortion caused by the unknown shift in decoded inverse depth, and a $\\textit{multi-layer camera head}$, which predicts per-frame cameras parameters by combining features across transformer blocks. Using Wan2.1 as its video backbone, VG3R reconstructs a scene and estimate the camera of every frame without iterative denoising. It achieves the lowest ATE and reconstruction errors among methods built on",
+      "url": "https://arxiv.org/abs/2611.28520",
+      "published": "2026-11-21T03:13:59Z",
+      "topics": [
+        "视频生成",
+        "三维几何",
+        "几何基础模型"
+      ]
+    },
+    {
+      "id": "2611.27446",
+      "title": "GenPA: Image Generators as Efficient Robot Policies",
+      "summary": "Pretrained visual generation models have shown great promise in robotic manipulation. However, a representative line of work still treats future visual prediction as the central link between visual generative pretraining and action learning, retaining it as a training objective even when future scenes are no longer generated at inference time. We argue that the instruction-following, spatial understanding, and visual imagination capabilities acquired through image generation pretraining can support control without future visual prediction: image generation models themselves can be directly adapted into powerful action learners. Building on this perspective, we propose GenPA, which fine-tunes an image generation backbone with a lightweight 19M-parameter action regression adapter and reuses its native generative objective for perception co-training. The native image-editing interface accommodates different visual targets without task-specific perception heads, enabling comparisons of current-scene perception, future prediction, and their combinations within a common policy architecture. At deployment, GenPA requires only a single backbone forward pass and action regression, without v",
+      "url": "https://arxiv.org/abs/2611.27446",
+      "published": "2026-11-20T10:41:53Z",
+      "topics": [
+        "图像生成"
+      ]
+    },
+    {
+      "id": "2611.30573",
+      "title": "Write, Evolve, Read: Streaming Cameras into a Persistent World State for 4D Occupancy Forecasting",
+      "summary": "4D occupancy forecasting predicts the 3D semantic occupancy of a driving scene seconds ahead. Over a few seconds, the scene changes little while the vehicle moves, so most of the space ahead has already been seen. Sorting the future into unchanged, changed, and unseen space, we find that current camera-based world models fall short on the unchanged part: they fail to hold on to what they have already seen, rather than to forecast what will change. We therefore make what the model has seen its state. PersistWorld streams camera frames into a persistent 3D world state anchored in the scene, writing each frame once instead of rebuilding the state from past frames. The state is learned end to end with the forecast, and an evolver predicts it at any queried time along the ego trajectory. On Occ3D-nuScenes, PersistWorld raises the IoU of the best camera-based world model by 19 points at 1-3 s and by 18 to 24 points up to 8 s, while running more than twice as fast. Code and models: https://github.com/wangzian828/PersistWorld. Project page: https://wangzian828.github.io/PersistWorld",
+      "url": "https://arxiv.org/abs/2611.30573",
+      "published": "2026-11-23T12:17:40Z",
+      "topics": [
+        "世界模型"
+      ]
+    },
+    {
+      "id": "2611.30869",
+      "title": "XFreq: Geometry-Aligned Cross-View Residual Learning for Sparse 3D Ultrasound Reconstruction",
+      "summary": "Three-dimensional (3D) ultrasound provides valuable volumetric context for anatomical assessment, motivating reconstruction from widely available two-dimensional (2D) slices. Sparse slices leave much of the volume unobserved, even when their acquisition poses are known. Existing methods interpolate observed intensities or incorporate learned 2D image features into 3D reconstruction, but their complementary roles in predicting smooth structure and residual details remain less explored. We introduce XFreq, a geometry-aligned framework for sparse 3D ultrasound reconstruction. It uses known slice poses and finite footprints to query 2D image features at 3D locations, complementing splatted intensities and sampling geometry. A low-frequency decoder predicts a smooth 3D field from the splat representation, while a high-frequency decoder additionally incorporates the queried 2D features to predict residual details. A learned gating module regulates the residual contribution based on geometry and cross-slice feature variation. We evaluate XFreq on an in-house fetal brain dataset and the public CETUS cardiac dataset, using slices resampled from 3D ultrasound volumes and fivefold cross-valid",
+      "url": "https://arxiv.org/abs/2611.30869",
+      "published": "2026-11-23T15:41:28Z",
+      "topics": [
+        "三维几何"
+      ]
+    }
+  ],
+  "date": "2026-11-24",
+  "kind": "自动生成 · 网页日报"
+}

@@ -5,11 +5,11 @@
     },
     "量子位": {
       "state": "ok",
-      "newest": "2026-11-22"
+      "newest": "2026-11-23"
     },
     "我爱计算机视觉": {
       "state": "ok",
-      "newest": "2026-11-22"
+      "newest": "2026-11-23"
     },
     "3D视觉工坊": {
       "state": "manual"
@@ -19,6 +19,16 @@
     }
   },
   "articles": [
+    {
+      "account": "我爱计算机视觉",
+      "title": "北大联合南大提出Spark-H3：免训练自适应块稀疏注意力，视频生成推理加速超2.4倍",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ%3D%3D&mid=2247667900&idx=1&sn=59b75dcfb38ab8e640b2a325379b8c41",
+      "date": "2026-11-23",
+      "tags": [
+        "视频生成"
+      ],
+      "paper_ids": []
+    },
     {
       "account": "量子位",
       "title": "AI“朋友圈”大聚会——MEET2027喊你来参会",
