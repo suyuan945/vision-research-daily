@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "checked_at": "2026-11-24T14:55:40+08:00",
+  "checked_at": "2026-11-25T13:24:20+08:00",
   "failed_sources": [],
   "repositories": [
     {
@@ -230,6 +230,34 @@
       "license_name": "",
       "topics": [
         "视频生成"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1470155893",
+      "name": "biaani-oax/text-to-image",
+      "url": "https://github.com/biaani-oax/text-to-image",
+      "description": "Repository para usar SD1.5 y crear imagenes con CPU, sin GPU, descargado de hugging faces.",
+      "created_at": "2026-11-24T12:47:07Z",
+      "first_seen": "2026-11-25",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "图像生成"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1466778426",
+      "name": "blotato/contentskills",
+      "url": "https://github.com/blotato/contentskills",
+      "description": "Content Skills for AI Agents: create videos, edit videos, full video editor, write scripts, 100+ themes & effects, post to social media, and create DM automations to turn views into sales.",
+      "created_at": "2026-11-21T17:15:13Z",
+      "first_seen": "2026-11-25",
+      "license": "AGPL-3.0",
+      "license_name": "GNU Affero General Public License v3.0",
+      "topics": [
+        "视频编辑"
       ],
       "paper_ids": []
     },
@@ -494,6 +522,20 @@
       ]
     },
     {
+      "id": "1468374055",
+      "name": "ForeverBlue816/LoopQ",
+      "url": "https://github.com/ForeverBlue816/LoopQ",
+      "description": "Quantizing in the Loop: Drift-Aware Ultra-Low-Bit Vision-Language-Action Models",
+      "created_at": "2026-11-23T06:26:13Z",
+      "first_seen": "2026-11-25",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1463628169",
       "name": "franciscoliu/SAFI",
       "url": "https://github.com/franciscoliu/SAFI",
@@ -576,6 +618,22 @@
         "视频生成"
       ],
       "paper_ids": []
+    },
+    {
+      "id": "1463871970",
+      "name": "hebing-sjtu/GameWM",
+      "url": "https://github.com/hebing-sjtu/GameWM",
+      "description": "GameWM: interaction-centric world models for next-generation video games (engine protocol + VM)",
+      "created_at": "2026-11-19T08:32:45Z",
+      "first_seen": "2026-11-25",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "世界模型"
+      ],
+      "paper_ids": [
+        "2611.19247"
+      ]
     },
     {
       "id": "699641579",
@@ -661,6 +719,20 @@
       "first_seen": "2026-11-14",
       "license": "Apache-2.0",
       "license_name": "Apache License 2.0",
+      "topics": [
+        "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1467973604",
+      "name": "jchacker5/open-tesla-reality-view",
+      "url": "https://github.com/jchacker5/open-tesla-reality-view",
+      "description": "Turn your Tesla's dashcam footage into a 3D Gaussian-splat replay you can fly through",
+      "created_at": "2026-11-22T20:45:54Z",
+      "first_seen": "2026-11-25",
+      "license": "MIT",
+      "license_name": "MIT License",
       "topics": [
         "高斯渲染"
       ],
@@ -958,6 +1030,20 @@
       "license_name": "MIT License",
       "topics": [
         "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1466783475",
+      "name": "praseesh369/youtube-ai-video-editing-system",
+      "url": "https://github.com/praseesh369/youtube-ai-video-editing-system",
+      "description": "Storyboard, capture, and animate: an AI editing workflow for YouTube",
+      "created_at": "2026-11-21T17:21:17Z",
+      "first_seen": "2026-11-25",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "视频编辑"
       ],
       "paper_ids": []
     },
@@ -1399,6 +1485,22 @@
       "paper_ids": []
     },
     {
+      "id": "1464273948",
+      "name": "ZeyuanAn/CrossTemporal3DGS",
+      "url": "https://github.com/ZeyuanAn/CrossTemporal3DGS",
+      "description": "Cross-Temporal 3D Gaussian Splatting for Sparse-View Guided Scene Update",
+      "created_at": "2026-11-19T14:45:03Z",
+      "first_seen": "2026-11-25",
+      "license": "NOASSERTION",
+      "license_name": "Other",
+      "topics": [
+        "高斯渲染"
+      ],
+      "paper_ids": [
+        "2512.00534"
+      ]
+    },
+    {
       "id": "1465247728",
       "name": "zhifeiji20/plush-contact-reconstruction",
       "url": "https://github.com/zhifeiji20/plush-contact-reconstruction",
@@ -1475,6 +1577,15 @@
   ],
   "events": [
     {
+      "id": "repo:1470155893",
+      "repository_id": "1470155893",
+      "kind": "new",
+      "date": "2026-11-24T12:47:07Z",
+      "first_seen": "2026-11-25",
+      "title": "biaani-oax/text-to-image",
+      "url": "https://github.com/biaani-oax/text-to-image"
+    },
+    {
       "id": "repo:1469479696",
       "repository_id": "1469479696",
       "kind": "new",
@@ -1482,6 +1593,18 @@
       "first_seen": "2026-11-24",
       "title": "bhottu/cultiv-tiktok-ai-affiliate-platform",
       "url": "https://github.com/bhottu/cultiv-tiktok-ai-affiliate-platform"
+    },
+    {
+      "id": "release:456157883",
+      "repository_id": "1467973604",
+      "kind": "release",
+      "date": "2026-11-24T00:23:38Z",
+      "first_seen": "2026-11-25",
+      "title": "v0.1.0",
+      "version": "v0.1.0",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/jchacker5/open-tesla-reality-view/releases/tag/v0.1.0"
     },
     {
       "id": "repo:1469381740",
@@ -1538,6 +1661,36 @@
       "url": "https://github.com/DheerajGupta-2254/TextToImageApp"
     },
     {
+      "id": "repo:1468374055",
+      "repository_id": "1468374055",
+      "kind": "new",
+      "date": "2026-11-23T06:26:13Z",
+      "first_seen": "2026-11-25",
+      "title": "ForeverBlue816/LoopQ",
+      "url": "https://github.com/ForeverBlue816/LoopQ"
+    },
+    {
+      "id": "release:454882591",
+      "repository_id": "1466778426",
+      "kind": "release",
+      "date": "2026-11-23T01:16:10Z",
+      "first_seen": "2026-11-25",
+      "title": "ContentSkills 1.0.0",
+      "version": "v1.0.0",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/blotato/contentskills/releases/tag/v1.0.0"
+    },
+    {
+      "id": "repo:1467973604",
+      "repository_id": "1467973604",
+      "kind": "new",
+      "date": "2026-11-22T20:45:54Z",
+      "first_seen": "2026-11-25",
+      "title": "jchacker5/open-tesla-reality-view",
+      "url": "https://github.com/jchacker5/open-tesla-reality-view"
+    },
+    {
       "id": "repo:1467140980",
       "repository_id": "1467140980",
       "kind": "new",
@@ -1563,6 +1716,24 @@
       "first_seen": "2026-11-22",
       "title": "algo-boyz/o4Dgs",
       "url": "https://github.com/algo-boyz/o4Dgs"
+    },
+    {
+      "id": "repo:1466783475",
+      "repository_id": "1466783475",
+      "kind": "new",
+      "date": "2026-11-21T17:21:17Z",
+      "first_seen": "2026-11-25",
+      "title": "praseesh369/youtube-ai-video-editing-system",
+      "url": "https://github.com/praseesh369/youtube-ai-video-editing-system"
+    },
+    {
+      "id": "repo:1466778426",
+      "repository_id": "1466778426",
+      "kind": "new",
+      "date": "2026-11-21T17:15:13Z",
+      "first_seen": "2026-11-25",
+      "title": "blotato/contentskills",
+      "url": "https://github.com/blotato/contentskills"
     },
     {
       "id": "repo:1466762026",
@@ -1721,6 +1892,27 @@
       "url": "https://github.com/OtakuTTI/Otaku-TTI-1.1/releases/tag/OtakuTTI_1.1"
     },
     {
+      "id": "release:451502315",
+      "repository_id": "1464273948",
+      "kind": "release",
+      "date": "2026-11-19T15:15:55Z",
+      "first_seen": "2026-11-25",
+      "title": "CrossTemporal3DGS v1.0.0",
+      "version": "v1.0.0",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/ZeyuanAn/CrossTemporal3DGS/releases/tag/v1.0.0"
+    },
+    {
+      "id": "repo:1464273948",
+      "repository_id": "1464273948",
+      "kind": "new",
+      "date": "2026-11-19T14:45:03Z",
+      "first_seen": "2026-11-25",
+      "title": "ZeyuanAn/CrossTemporal3DGS",
+      "url": "https://github.com/ZeyuanAn/CrossTemporal3DGS"
+    },
+    {
       "id": "repo:1464196784",
       "repository_id": "1464196784",
       "kind": "new",
@@ -1728,6 +1920,15 @@
       "first_seen": "2026-11-22",
       "title": "shraddhu1524/AI-Text-to-Image-Generator",
       "url": "https://github.com/shraddhu1524/AI-Text-to-Image-Generator"
+    },
+    {
+      "id": "repo:1463871970",
+      "repository_id": "1463871970",
+      "kind": "new",
+      "date": "2026-11-19T08:32:45Z",
+      "first_seen": "2026-11-25",
+      "title": "hebing-sjtu/GameWM",
+      "url": "https://github.com/hebing-sjtu/GameWM"
     },
     {
       "id": "repo:1463628169",

@@ -1,0 +1,93 @@
+{
+  "title": "视觉研究日报：世界模型与视频生成的高效化，及几何重建的多路线进展",
+  "summary": "本期从近24小时的 arXiv 记录中筛出 6 篇视觉重点论文，覆盖视频生成、世界模型、三维几何与高斯渲染、动态重建、多模态/具身视觉等方向。视频生成一侧的共同趋势是压缩推理成本与提升可控性；世界模型一侧则集中在如何让预测信号真正服务决策；几何一侧出现了面向动态场景的稠密重建与面向在线 SLAM 的高斯表示。",
+  "tags": [
+    "视频生成",
+    "世界模型",
+    "三维几何",
+    "高斯渲染",
+    "动态重建",
+    "多模态与具身视觉"
+  ],
+  "highlights": [
+    "iWAM 证明无需生成完整未来帧，单次视频模型评估的中间特征即可支撑动作预测",
+    "OmniPersist 用全景演化耦合透视视频生成，缓解相机回转后的动态物体消失",
+    "DraftKV 用几何锚定的分层 KV 检索降低交互式世界模型的延迟",
+    "MoGe-4D 以查询式全向/自我中心点图统一稠密 4D 重建与跟踪",
+    "GOLD-SLAM 将全景高斯泼溅与 LiDAR 深度先验结合并发布新数据集",
+    "GeoMVGen 联合生成多视角 RGB 与点图视频以支撑机器人操作预测"
+  ],
+  "markdown": "## iWAM：不显式预测未来的高效动作预测\n[arXiv](https://arxiv.org/abs/2611.33141)\n\n世界-动作模型依赖预训练视频生成模型预测场景演化，但逐帧生成未来对实时控制过于昂贵。论文提出的关键问题不是“能否生成高分辨率未来帧”，而是“潜在未来之间是否可区分”。作者利用流匹配模型的可逆动力学，把训练中的未来帧反演为对应潜噪声，并学习一个双向流映射来摊销未来生成的计算，使单次模型评估的中间特征即可作为动作策略的条件。证据上，这一“用中间特征替代完整去噪”的设计在动作预测质量上被报告为可行；具体基准分数摘录未给出。适用场景是实时/低成本机器人控制与策略学习；限制在于仍需一个预训练视频模型，且其特征是否有信息量依赖训练出的流映射，代码状态未核实。\n\n## OmniPersist：耦合全景演化的持久动态世界建模\n[arXiv](https://arxiv.org/abs/2611.32473)\n\n动作条件世界模型在相机转开后回到原处时，常出现视野外动态物体突变或消失，根源在于有界透视视角。OmniPersist 在单一扩散模型中耦合透视视频生成与较低帧率全景演化，不需要辅助模型或初始全景输入，并用 Geometric Anchoring 处理空间对应、Temporal Compensation 处理时间聚合；对相机控制架构保持无关，支持 latent 级与 attention 级条件。实验在新构建的动态基准上，于图生视频与视频续写任务报告了视觉质量、相机可控性、回访一致性与动态持久性的稳定增益。适用场景为机器人、自动驾驶的可重访世界模拟；限制是全景流降帧率可能牺牲细节，代码状态未核实。\n\n## DraftKV：面向持久世界的历史 KV 分层检索\n[arXiv](https://arxiv.org/abs/2611.31944)\n\n交互式视频世界模型在重访旧区域时难以保持几何与外观一致，历史 KV 缓存的检索与注意力计算又随历史增长带来延迟。DraftKV 是免训练框架：先用几何锚定与查询相关度检索历史 KV，再结合 CPU 卸载与分块流式注意力降低显存与延迟。作者给出理论分析，说明 draft 相关度精确复现全分辨率块相关度的均值分支，偏差限于 β 加权最大分支，并用 Top-K 选择重叠度界定检索效用损失，同时指出 pooled 描述子相近的块需先做几何锚定。这是三篇中唯一同时覆盖世界模型、可控生成与三维几何的候选，适用于长时交互探索；限制是收益依赖相机位姿等几何信息，代码状态未核实。\n\n## MoGe-4D：统一稠密 4D 重建与跟踪\n[arXiv](https://arxiv.org/abs/2611.32198)\n\n从 RGB 视频重建动态场景需要同时推理 3D 几何与跨视角运动，现有方法要么把重建与跟踪拆成碎片化管线，要么稠密时空解码成本过高。MoGe-4D 用有序查询成对的全向与自我中心动态点图统一几何与运动：每个查询把源像素同时映射到目标时刻的两种相机帧，可闭式解出相对相机位姿，并灵活支持深度、动态配准与稠密 3D 跟踪；为高效稠密查询，它解耦场景建模与查询解码，缓存粗粒度全局时空特征、用轻量查询编码器按需解码。监督端提出 RigIDTrack，用刚性正则的仿射体压缩表面动力学以生成精确任意帧 3D 轨迹。适用场景为动态场景重建与跟踪；限制是依赖合成数据管线，真实域泛化需进一步验证，代码状态未核实。\n\n## GOLD-SLAM：全景高斯泼溅与 LiDAR 深度 SLAM\n[arXiv](https://arxiv.org/abs/2611.32335)\n\n全景相机单帧覆盖近全球面视场，但覆盖率与 LiDAR 视场不匹配，给依赖 LiDAR 深度先验的全景高斯泼溅 SLAM 带来困难。GOLD-SLAM 在球面域内做跟踪与建图，并用无 LiDAR 覆盖区域的跟踪视觉特征改善位姿估计；针对新观测表面覆盖不足与漂浮伪影，提出 Depth-Aware Map Extension and Pruning。为支持评测，作者用无人机采集了覆盖弱几何、高动态、全景、低光与简单场景的新数据集 WHOLE。在公开基准与 WHOLE 上报告了相比透视系统的渲染质量与几何精度提升，相比全景基线平均 PSNR 提高 5.56–9.10 dB。适用场景为无人机与全景建图；限制是依赖 LiDAR 设备，代码与数据集开放状态未核实。\n\n## GeoMVGen：面向机器人操作的多视角外观-几何联合视频生成\n[arXiv](https://arxiv.org/abs/2611.31689)\n\n机器人操作需要预测机器人-物体交互在时间上的演化，多相机设置下还要求跨视角 3D 一致，并支持不同动作与相机配置下的可控生成。GeoMVGen 基于视频扩散 Transformer，用模态专属适配模块分别捕捉外观与几何特性，并通过跨模态残差连接交换信息，联合生成多视角 RGB 与点图视频。证据上，论文报告了在机器人操作条件下生成时间一致外观与几何的可行性；具体指标摘录未给出。适用场景是多相机操作预测与可控生成；限制是点图质量依赖训练数据几何标注，计算成本较高，代码状态未核实。\n\n整体看，本期视频与世界模型方向的共同着力点是“少生成、多利用”：iWAM 用中间特征替代未来帧，DraftKV 用几何锚定检索替代全量 KV 注意力；几何方向则呈现稠密 4D 重建、在线高斯 SLAM 与联合外观-几何生成三条并行路线。所有论文的日期均取自记录中的 2026-11-23 至 2026-11-24，指标仅在摘要明确给出时引用。\n\n---\n\n*由模型根据 arXiv 元数据生成，复现状态及指标请以官方论文为准。*",
+  "papers": [
+    {
+      "id": "2611.33141",
+      "title": "iWAM: Efficient Action Prediction from World Models without Explicit Future Prediction",
+      "summary": "World-action models (WAMs) build policies on pretrained video-generation models, on the premise that predicting how a scene evolves helps determine how to act. However, generating future scenes is expensive for real-time control. This motivates efficient proxies for future imagination, but how to train such proxies without sacrificing action-prediction quality remains unclear. An effective proxy need not generate a high-resolution frame; it only needs to provide enough information to distinguish between possible futures. This leads to the design principle behind iWAM: rather than denoising an entire future frame, can we condition the action policy on intermediate features from a single video-model evaluation? We show that the answer is yes. Exploiting the reversible dynamics of flow-matching models, we invert each training future into the corresponding latent noise vector. However, a single velocity evaluation at this latent does not necessarily yield informative features for action prediction. We therefore learn a bidirectional flow map that amortizes future-generation computation, enabling a single model evaluation to provide effective conditioning features. At inference, we samp",
+      "url": "https://arxiv.org/abs/2611.33141",
+      "published": "2026-11-24T18:56:04Z",
+      "topics": [
+        "世界模型"
+      ]
+    },
+    {
+      "id": "2611.32473",
+      "title": "OmniPersist: Persistent Dynamic World Modeling via Coupled Panoramic Evolution",
+      "summary": "Action-conditioned world models play a vital role in robotics and autonomous driving, yet existing video diffusion models struggle to maintain dynamic object persistence. When the camera turns away and returns, out-of-view moving entities fail to evolve plausibly in latent space, often mutating or vanishing entirely due to bounded perspective views. To resolve this issue, we propose OmniPersist, a unified framework that couples perspective video generation with panoramic evolution within a single-stage diffusion model, without relying on auxiliary models or initial panoramic inputs. To maintain efficiency, we model the panoramic stream at a lower frame rate, bridging both views across space and time via Geometric Anchoring (GeoAnch) for spatial correspondence and Temporal Compensation (TemComp) for temporal aggregation. OmniPersist is agnostic to camera-control architectures, supporting both latent-level and attention-level conditioning. Extensive experiments on a newly constructed dynamic benchmark across image-to-video and video continuation tasks demonstrate consistent gains in visual quality, camera controllability, revisit consistency, and dynamic persistence.",
+      "url": "https://arxiv.org/abs/2611.32473",
+      "published": "2026-11-24T12:03:35Z",
+      "topics": [
+        "视频生成",
+        "世界模型"
+      ]
+    },
+    {
+      "id": "2611.31944",
+      "title": "DraftKV: Protecting Persistent Worlds through Hierarchical Streaming Retrieval",
+      "summary": "Interactive video world models enable action- and camera-controlled exploration, yet struggle to maintain consistent spatial geometry and appearance when revisiting previously explored locations. Historical KV caches help auto-regressive video diffusion models maintain long-term consistency, but their retrieval and attention computation introduce substantial latency as history grows. We propose DraftKV, a training-free framework that retrieves historical KV caches based on geometric grounding and query-conditioned relevance, while combining CPU offloading with tile-wise streaming attention to reduce GPU memory usage and inference latency. Theoretically, we show that draft relevance reproduces the mean branch of full-resolution block relevance exactly, so its deviation is confined to the $β$-weighted max branch, and we bound retrieval utility loss in terms of the measured Top-K selection overlap. We further show that draft relevance cannot distinguish blocks with similar pooled descriptors regardless of camera pose, motivating geometric grounding before refinement. Then, we introduce streaming CG-Attention, which overlaps CPU-to-GPU KV transfers with attention computation through ti",
+      "url": "https://arxiv.org/abs/2611.31944",
+      "published": "2026-11-24T04:50:32Z",
+      "topics": [
+        "视频生成",
+        "世界模型",
+        "可控生成",
+        "三维几何"
+      ]
+    },
+    {
+      "id": "2611.32198",
+      "title": "MoGe-4D: Efficient, Flexible, and Unified Dense 4D Reconstruction and Tracking",
+      "summary": "Reconstructing dynamic scenes from RGB video requires reasoning about both 3D geometry and motion across viewpoints, yet existing methods either split reconstruction and tracking into fragmented pipelines or face prohibitive dense spatiotemporal decoding costs. We introduce MoGe-4D, a feed-forward framework that unifies geometry and motion prediction via ordered queries of paired allocentric and egocentric dynamic point maps. Each query maps source pixels to a target time simultaneously in both camera frames, resolving relative camera pose in closed form while flexibly serving depth, dynamic registration, and dense 3D tracking. For efficient dense querying, MoGe-4D decouples scene modeling from query decoding: a high-capacity context encoder caches coarse global spatiotemporal features once, while a lightweight query encoder rapidly decodes dense point maps at flexible resolutions. Furthermore, as supervising dense 4D queries demands continuous 3D correspondences whose raw trajectory storage is prohibitive, we introduce RigIDTrack, a synthetic data pipeline and dataset that compresses surface dynamics into rigidity-regularized affine bodies, recovering exact arbitrary-frame 3D traj",
+      "url": "https://arxiv.org/abs/2611.32198",
+      "published": "2026-11-24T08:45:41Z",
+      "topics": [
+        "动态重建",
+        "三维几何"
+      ]
+    },
+    {
+      "id": "2611.32335",
+      "title": "GOLD-SLAM: Gaussian-splatting Omnidirectional LiDAR-Depth SLAM",
+      "summary": "Panoramic cameras capture nearly the entire spherical field of view in a single frame. However, the mismatch between this panoramic coverage and the field of view of LiDAR poses a substantial challenge for panoramic Gaussian splatting SLAM that relies on LiDAR depth priors. We introduce GOLD-SLAM, a Gaussian-splatting Omnidirectional LiDAR-Depth SLAM system that combines high-quality rendering with accurate geometric reconstruction. It performs tracking and mapping in the spherical domain and uses tracked visual features in regions without LiDAR coverage to improve pose estimation. To address insufficient coverage of newly observed surfaces and floating artifacts during incremental mapping, we introduce Depth-Aware Map Extension and Pruning (DAEP). To enable broader evaluation, we collect a new dataset, WHOLE, using a UAV platform across Weak-geometry, High-dynamic, Omnidirectional, Low-light, and Easy scenarios. Extensive experiments on public benchmarks and WHOLE demonstrate competitive rendering quality and improved geometric accuracy relative to perspective systems. Compared with existing panoramic baselines, GOLD-SLAM improves mean PSNR by 5.56-9.10 dB and reduces mean Depth-L",
+      "url": "https://arxiv.org/abs/2611.32335",
+      "published": "2026-11-24T10:20:41Z",
+      "topics": [
+        "高斯渲染",
+        "三维几何"
+      ]
+    },
+    {
+      "id": "2611.31689",
+      "title": "GeoMVGen: Joint Appearance-Geometry Modeling for Multi-View Video Generation in Robotic Manipulation",
+      "summary": "Robotic manipulation requires predicting how robot-object interactions evolve over time, encompassing both visual appearance and scene geometry. In multi-camera settings, such predictions need to capture the evolving 3D scene consistently across viewpoints, while supporting controllable generation under different robot actions and camera configurations. Existing video generation models provide strong priors for visual appearance and motion but typically lack explicit geometric modeling. Meanwhile, recent advances in geometry-aware and multi-view generation have explored joint appearance-geometry modeling and cross-view consistency, yet generating temporally coherent appearance and geometry across multiple viewpoints under robotic manipulation conditions remains challenging. In this work, we propose GeoMVGen, a framework for joint multi-view RGB and pointmap video generation in robotic manipulation. Built on a video diffusion transformer, our framework employs modality-specific adaptation modules to capture the distinct characteristics of appearance and geometry, while using cross-modal residual connections to facilitate information exchange between the two modalities. To establish ",
+      "url": "https://arxiv.org/abs/2611.31689",
+      "published": "2026-11-23T23:23:51Z",
+      "topics": [
+        "视频生成",
+        "可控生成",
+        "三维几何"
+      ]
+    }
+  ],
+  "date": "2026-11-25",
+  "kind": "自动生成 · 网页日报"
+}

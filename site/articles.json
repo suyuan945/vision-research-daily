@@ -5,11 +5,11 @@
     },
     "量子位": {
       "state": "ok",
-      "newest": "2026-11-23"
+      "newest": "2026-11-24"
     },
     "我爱计算机视觉": {
       "state": "ok",
-      "newest": "2026-11-23"
+      "newest": "2026-11-24"
     },
     "3D视觉工坊": {
       "state": "manual"
@@ -19,6 +19,26 @@
     }
   },
   "articles": [
+    {
+      "account": "量子位",
+      "title": "3万小时视频教会机器人干活，六项真机任务全登顶！阿里达摩院给出具身新策略",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247948323&idx=3&sn=f554a3311a9945f2a61b4c13d2f3313c",
+      "date": "2026-11-24",
+      "tags": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
+    {
+      "account": "我爱计算机视觉",
+      "title": "北大联合腾讯混元等开源MovieRoll",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIwMTE1NjQxMQ%3D%3D&mid=2247667918&idx=1&sn=deb74c00e2da204de48877305b70f970",
+      "date": "2026-11-24",
+      "tags": [
+        "视频生成"
+      ],
+      "paper_ids": []
+    },
     {
       "account": "我爱计算机视觉",
       "title": "北大联合南大提出Spark-H3：免训练自适应块稀疏注意力，视频生成推理加速超2.4倍",

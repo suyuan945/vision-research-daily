@@ -1,0 +1,22 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="本期从近24小时的 arXiv 记录中筛出 6 篇视觉重点论文，覆盖视频生成、世界模型、三维几何与高斯渲染、动态重建、多模态/具身视觉等方向。视频生成一侧的共同趋势是压缩推理成本与提升可控性；世界模型一侧则集中在如何让预测信号真正服务决策；几何一侧出现了面向动态场景的稠密重建与面向在线 SLAM 的高斯表示。"><title>视觉研究日报：世界模型与视频生成的高效化，及几何重建的多路线进展 · Vision Research Hub</title><link rel="stylesheet" href="../assets/style.css"></head><body><header class="site-header"><div class="header-inner"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">◈</span><span>Vision <em>Research</em></span></a><nav class="site-nav" aria-label="主导航"><a href="../#today">今日</a><a href="../#papers">论文</a><a href="../#opensource">开源</a><a href="../#articles">文章</a><a href="../#favorites">收藏</a><a href="../#archive">历史</a></nav></div></header><main class="article-shell"><a class="article-back" href="../#archive">← 返回历史日报</a><div class="article-header"><div class="article-kicker">2026-11-25 / 自动生成 · 网页日报</div><h1>视觉研究日报：世界模型与视频生成的高效化，及几何重建的多路线进展</h1><p class="article-intro">本期从近24小时的 arXiv 记录中筛出 6 篇视觉重点论文，覆盖视频生成、世界模型、三维几何与高斯渲染、动态重建、多模态/具身视觉等方向。视频生成一侧的共同趋势是压缩推理成本与提升可控性；世界模型一侧则集中在如何让预测信号真正服务决策；几何一侧出现了面向动态场景的稠密重建与面向在线 SLAM 的高斯表示。</p><div class="tag-list"><span class="tag">视频生成</span><span class="tag">世界模型</span><span class="tag">三维几何</span><span class="tag">高斯渲染</span><span class="tag">动态重建</span><span class="tag">多模态与具身视觉</span></div></div><article class="prose"><h2>iWAM：不显式预测未来的高效动作预测</h2>
+<p><a href="https://arxiv.org/abs/2611.33141">arXiv</a></p>
+<p>世界-动作模型依赖预训练视频生成模型预测场景演化，但逐帧生成未来对实时控制过于昂贵。论文提出的关键问题不是“能否生成高分辨率未来帧”，而是“潜在未来之间是否可区分”。作者利用流匹配模型的可逆动力学，把训练中的未来帧反演为对应潜噪声，并学习一个双向流映射来摊销未来生成的计算，使单次模型评估的中间特征即可作为动作策略的条件。证据上，这一“用中间特征替代完整去噪”的设计在动作预测质量上被报告为可行；具体基准分数摘录未给出。适用场景是实时/低成本机器人控制与策略学习；限制在于仍需一个预训练视频模型，且其特征是否有信息量依赖训练出的流映射，代码状态未核实。</p>
+<h2>OmniPersist：耦合全景演化的持久动态世界建模</h2>
+<p><a href="https://arxiv.org/abs/2611.32473">arXiv</a></p>
+<p>动作条件世界模型在相机转开后回到原处时，常出现视野外动态物体突变或消失，根源在于有界透视视角。OmniPersist 在单一扩散模型中耦合透视视频生成与较低帧率全景演化，不需要辅助模型或初始全景输入，并用 Geometric Anchoring 处理空间对应、Temporal Compensation 处理时间聚合；对相机控制架构保持无关，支持 latent 级与 attention 级条件。实验在新构建的动态基准上，于图生视频与视频续写任务报告了视觉质量、相机可控性、回访一致性与动态持久性的稳定增益。适用场景为机器人、自动驾驶的可重访世界模拟；限制是全景流降帧率可能牺牲细节，代码状态未核实。</p>
+<h2>DraftKV：面向持久世界的历史 KV 分层检索</h2>
+<p><a href="https://arxiv.org/abs/2611.31944">arXiv</a></p>
+<p>交互式视频世界模型在重访旧区域时难以保持几何与外观一致，历史 KV 缓存的检索与注意力计算又随历史增长带来延迟。DraftKV 是免训练框架：先用几何锚定与查询相关度检索历史 KV，再结合 CPU 卸载与分块流式注意力降低显存与延迟。作者给出理论分析，说明 draft 相关度精确复现全分辨率块相关度的均值分支，偏差限于 β 加权最大分支，并用 Top-K 选择重叠度界定检索效用损失，同时指出 pooled 描述子相近的块需先做几何锚定。这是三篇中唯一同时覆盖世界模型、可控生成与三维几何的候选，适用于长时交互探索；限制是收益依赖相机位姿等几何信息，代码状态未核实。</p>
+<h2>MoGe-4D：统一稠密 4D 重建与跟踪</h2>
+<p><a href="https://arxiv.org/abs/2611.32198">arXiv</a></p>
+<p>从 RGB 视频重建动态场景需要同时推理 3D 几何与跨视角运动，现有方法要么把重建与跟踪拆成碎片化管线，要么稠密时空解码成本过高。MoGe-4D 用有序查询成对的全向与自我中心动态点图统一几何与运动：每个查询把源像素同时映射到目标时刻的两种相机帧，可闭式解出相对相机位姿，并灵活支持深度、动态配准与稠密 3D 跟踪；为高效稠密查询，它解耦场景建模与查询解码，缓存粗粒度全局时空特征、用轻量查询编码器按需解码。监督端提出 RigIDTrack，用刚性正则的仿射体压缩表面动力学以生成精确任意帧 3D 轨迹。适用场景为动态场景重建与跟踪；限制是依赖合成数据管线，真实域泛化需进一步验证，代码状态未核实。</p>
+<h2>GOLD-SLAM：全景高斯泼溅与 LiDAR 深度 SLAM</h2>
+<p><a href="https://arxiv.org/abs/2611.32335">arXiv</a></p>
+<p>全景相机单帧覆盖近全球面视场，但覆盖率与 LiDAR 视场不匹配，给依赖 LiDAR 深度先验的全景高斯泼溅 SLAM 带来困难。GOLD-SLAM 在球面域内做跟踪与建图，并用无 LiDAR 覆盖区域的跟踪视觉特征改善位姿估计；针对新观测表面覆盖不足与漂浮伪影，提出 Depth-Aware Map Extension and Pruning。为支持评测，作者用无人机采集了覆盖弱几何、高动态、全景、低光与简单场景的新数据集 WHOLE。在公开基准与 WHOLE 上报告了相比透视系统的渲染质量与几何精度提升，相比全景基线平均 PSNR 提高 5.56–9.10 dB。适用场景为无人机与全景建图；限制是依赖 LiDAR 设备，代码与数据集开放状态未核实。</p>
+<h2>GeoMVGen：面向机器人操作的多视角外观-几何联合视频生成</h2>
+<p><a href="https://arxiv.org/abs/2611.31689">arXiv</a></p>
+<p>机器人操作需要预测机器人-物体交互在时间上的演化，多相机设置下还要求跨视角 3D 一致，并支持不同动作与相机配置下的可控生成。GeoMVGen 基于视频扩散 Transformer，用模态专属适配模块分别捕捉外观与几何特性，并通过跨模态残差连接交换信息，联合生成多视角 RGB 与点图视频。证据上，论文报告了在机器人操作条件下生成时间一致外观与几何的可行性；具体指标摘录未给出。适用场景是多相机操作预测与可控生成；限制是点图质量依赖训练数据几何标注，计算成本较高，代码状态未核实。</p>
+<p>整体看，本期视频与世界模型方向的共同着力点是“少生成、多利用”：iWAM 用中间特征替代未来帧，DraftKV 用几何锚定检索替代全量 KV 注意力；几何方向则呈现稠密 4D 重建、在线高斯 SLAM 与联合外观-几何生成三条并行路线。所有论文的日期均取自记录中的 2026-11-23 至 2026-11-24，指标仅在摘要明确给出时引用。</p>
+<hr />
+<p><em>由模型根据 arXiv 元数据生成，复现状态及指标请以官方论文为准。</em></p>
+</article><div class="article-end"><a href="../#papers">浏览论文库 ↗</a></div></main><footer class="site-footer"><span>Vision Research Hub</span><a href="https://github.com/suyuan945/vision-research-daily/actions">查看更新记录 ↗</a></footer><script src="../assets/research-store.js" defer></script></body></html>
