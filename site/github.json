@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "checked_at": "2026-11-25T13:24:20+08:00",
+  "checked_at": "2026-11-26T12:57:24+08:00",
   "failed_sources": [],
   "repositories": [
     {
@@ -28,6 +28,20 @@
       "license_name": "MIT License",
       "topics": [
         "视频编辑"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1470673998",
+      "name": "adityakm24/metal-4dgs-sim",
+      "url": "https://github.com/adityakm24/metal-4dgs-sim",
+      "description": "Metal/MLX 4D Gaussian Splatting + flow-matching closed-loop neural simulator for adversarial policy stress-testing on Apple Silicon",
+      "created_at": "2026-11-24T19:09:55Z",
+      "first_seen": "2026-11-26",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "动态重建"
       ],
       "paper_ids": []
     },
@@ -226,8 +240,8 @@
       "description": "Platform SaaS berbasis AI untuk riset produk affiliate, analisis peluang, pembuatan konten promosi, video generation, dan otomasi workflow affiliate lintas kategori produk.",
       "created_at": "2026-11-24T00:47:44Z",
       "first_seen": "2026-11-24",
-      "license": "",
-      "license_name": "",
+      "license": "MIT",
+      "license_name": "MIT License",
       "topics": [
         "视频生成"
       ],
@@ -322,6 +336,22 @@
       "paper_ids": []
     },
     {
+      "id": "1471100207",
+      "name": "cfahlgren1/idol-mlx",
+      "url": "https://github.com/cfahlgren1/idol-mlx",
+      "description": "Photo to 3D Gaussian splat in ~15 s on a Mac: Idol + Idol Turbo on Apple Silicon (unofficial)",
+      "created_at": "2026-11-25T02:09:12Z",
+      "first_seen": "2026-11-26",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "高斯渲染"
+      ],
+      "paper_ids": [
+        "2512.02899"
+      ]
+    },
+    {
       "id": "1456118951",
       "name": "chakravarthi589/frontier-action-models",
       "url": "https://github.com/chakravarthi589/frontier-action-models",
@@ -332,6 +362,20 @@
       "license_name": "Apache License 2.0",
       "topics": [
         "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1468755180",
+      "name": "chihchao/colab-text-to-image",
+      "url": "https://github.com/chihchao/colab-text-to-image",
+      "description": "Claude Code skill: text-to-image with SDXL-Turbo on a Google Colab GPU via the official colab CLI, with auto setup, verification, and a JSON mode for AI agents",
+      "created_at": "2026-11-23T12:46:42Z",
+      "first_seen": "2026-11-26",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "图像生成"
       ],
       "paper_ids": []
     },
@@ -803,6 +847,22 @@
       "paper_ids": []
     },
     {
+      "id": "1465292000",
+      "name": "KTH-RPL/VG3R",
+      "url": "https://github.com/KTH-RPL/VG3R",
+      "description": "[arXiv'26] VG3R: Video Generation Model for Feed-Forward 3D Reconstruction",
+      "created_at": "2026-11-20T10:29:32Z",
+      "first_seen": "2026-11-26",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "视频生成"
+      ],
+      "paper_ids": [
+        "2611.28520"
+      ]
+    },
+    {
       "id": "1465732238",
       "name": "liming0724/Auto-RTL-4DGS-EDA",
       "url": "https://github.com/liming0724/Auto-RTL-4DGS-EDA",
@@ -916,6 +976,22 @@
         "视频生成"
       ],
       "paper_ids": []
+    },
+    {
+      "id": "1469678505",
+      "name": "nahyeonkaty/residual-guidance",
+      "url": "https://github.com/nahyeonkaty/residual-guidance",
+      "description": "Official PyTorch Implementation of \"Residual Guidance for Real-Time Interactive Video Generation\"",
+      "created_at": "2026-11-24T05:08:22Z",
+      "first_seen": "2026-11-26",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "视频生成"
+      ],
+      "paper_ids": [
+        "2611.32820"
+      ]
     },
     {
       "id": "683223775",
@@ -1250,6 +1326,20 @@
       ]
     },
     {
+      "id": "1465144657",
+      "name": "SUNFlower-027/world_model_cf",
+      "url": "https://github.com/SUNFlower-027/world_model_cf",
+      "description": "反事实干预世界模型想象轨迹分析",
+      "created_at": "2026-11-20T07:55:51Z",
+      "first_seen": "2026-11-26",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "世界模型"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1022300160",
       "name": "Tencent-Hunyuan/HunyuanWorld-1.0",
       "url": "https://github.com/Tencent-Hunyuan/HunyuanWorld-1.0",
@@ -1346,6 +1436,20 @@
       "license_name": "Apache License 2.0",
       "topics": [
         "图像生成"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1471391544",
+      "name": "ukkyz/office-vite-ref",
+      "url": "https://github.com/ukkyz/office-vite-ref",
+      "description": "3d Gaussian Splat Reference",
+      "created_at": "2026-11-25T06:56:43Z",
+      "first_seen": "2026-11-26",
+      "license": "NOASSERTION",
+      "license_name": "Other",
+      "topics": [
+        "高斯渲染"
       ],
       "paper_ids": []
     },
@@ -1545,6 +1649,22 @@
       ]
     },
     {
+      "id": "1471508430",
+      "name": "zju3dv/SPARC",
+      "url": "https://github.com/zju3dv/SPARC",
+      "description": "[ARXIV 2026] SPARC: Geometry-Guided Attention Pruning for Long-Horizon Camera-Controlled Video Generation",
+      "created_at": "2026-11-25T08:51:50Z",
+      "first_seen": "2026-11-26",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "视频生成"
+      ],
+      "paper_ids": [
+        "2606.23455"
+      ]
+    },
+    {
       "id": "1449039856",
       "name": "ZouShilong1024/Pelican-Sim1.0",
       "url": "https://github.com/ZouShilong1024/Pelican-Sim1.0",
@@ -1577,6 +1697,78 @@
   ],
   "events": [
     {
+      "id": "release:458337308",
+      "repository_id": "1471100207",
+      "kind": "release",
+      "date": "2026-11-25T16:10:15Z",
+      "first_seen": "2026-11-26",
+      "title": "v0.2.0",
+      "version": "v0.2.0",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/cfahlgren1/idol-mlx/releases/tag/v0.2.0"
+    },
+    {
+      "id": "release:458214302",
+      "repository_id": "1471100207",
+      "kind": "release",
+      "date": "2026-11-25T14:17:52Z",
+      "first_seen": "2026-11-26",
+      "title": "v0.1.2",
+      "version": "v0.1.2",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/cfahlgren1/idol-mlx/releases/tag/v0.1.2"
+    },
+    {
+      "id": "repo:1471508430",
+      "repository_id": "1471508430",
+      "kind": "new",
+      "date": "2026-11-25T08:51:50Z",
+      "first_seen": "2026-11-26",
+      "title": "zju3dv/SPARC",
+      "url": "https://github.com/zju3dv/SPARC"
+    },
+    {
+      "id": "repo:1471391544",
+      "repository_id": "1471391544",
+      "kind": "new",
+      "date": "2026-11-25T06:56:43Z",
+      "first_seen": "2026-11-26",
+      "title": "ukkyz/office-vite-ref",
+      "url": "https://github.com/ukkyz/office-vite-ref"
+    },
+    {
+      "id": "release:457600708",
+      "repository_id": "1471100207",
+      "kind": "release",
+      "date": "2026-11-25T03:05:54Z",
+      "first_seen": "2026-11-26",
+      "title": "v0.1.1",
+      "version": "v0.1.1",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/cfahlgren1/idol-mlx/releases/tag/v0.1.1"
+    },
+    {
+      "id": "repo:1471100207",
+      "repository_id": "1471100207",
+      "kind": "new",
+      "date": "2026-11-25T02:09:12Z",
+      "first_seen": "2026-11-26",
+      "title": "cfahlgren1/idol-mlx",
+      "url": "https://github.com/cfahlgren1/idol-mlx"
+    },
+    {
+      "id": "repo:1470673998",
+      "repository_id": "1470673998",
+      "kind": "new",
+      "date": "2026-11-24T19:09:55Z",
+      "first_seen": "2026-11-26",
+      "title": "adityakm24/metal-4dgs-sim",
+      "url": "https://github.com/adityakm24/metal-4dgs-sim"
+    },
+    {
       "id": "repo:1470155893",
       "repository_id": "1470155893",
       "kind": "new",
@@ -1584,6 +1776,15 @@
       "first_seen": "2026-11-25",
       "title": "biaani-oax/text-to-image",
       "url": "https://github.com/biaani-oax/text-to-image"
+    },
+    {
+      "id": "repo:1469678505",
+      "repository_id": "1469678505",
+      "kind": "new",
+      "date": "2026-11-24T05:08:22Z",
+      "first_seen": "2026-11-26",
+      "title": "nahyeonkaty/residual-guidance",
+      "url": "https://github.com/nahyeonkaty/residual-guidance"
     },
     {
       "id": "repo:1469479696",
@@ -1641,6 +1842,15 @@
       "first_seen": "2026-11-24",
       "title": "ZzxArthur/vla-learning",
       "url": "https://github.com/ZzxArthur/vla-learning"
+    },
+    {
+      "id": "repo:1468755180",
+      "repository_id": "1468755180",
+      "kind": "new",
+      "date": "2026-11-23T12:46:42Z",
+      "first_seen": "2026-11-26",
+      "title": "chihchao/colab-text-to-image",
+      "url": "https://github.com/chihchao/colab-text-to-image"
     },
     {
       "id": "repo:1468726805",
@@ -1859,6 +2069,15 @@
       "url": "https://github.com/arrival-space/animated-sog"
     },
     {
+      "id": "repo:1465292000",
+      "repository_id": "1465292000",
+      "kind": "new",
+      "date": "2026-11-20T10:29:32Z",
+      "first_seen": "2026-11-26",
+      "title": "KTH-RPL/VG3R",
+      "url": "https://github.com/KTH-RPL/VG3R"
+    },
+    {
       "id": "repo:1465247728",
       "repository_id": "1465247728",
       "kind": "new",
@@ -1875,6 +2094,15 @@
       "first_seen": "2026-11-24",
       "title": "yuhangdai427/NoPeWorld",
       "url": "https://github.com/yuhangdai427/NoPeWorld"
+    },
+    {
+      "id": "repo:1465144657",
+      "repository_id": "1465144657",
+      "kind": "new",
+      "date": "2026-11-20T07:55:51Z",
+      "first_seen": "2026-11-26",
+      "title": "SUNFlower-027/world_model_cf",
+      "url": "https://github.com/SUNFlower-027/world_model_cf"
     },
     {
       "id": "release:452066529",

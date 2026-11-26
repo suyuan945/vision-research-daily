@@ -1,5 +1,119 @@
 [
   {
+    "id": "2611.34944",
+    "title": "AnyCam: Anything Can Represent Camera for Video Generation",
+    "url": "https://arxiv.org/abs/2611.34944",
+    "first_seen": "2026-11-26",
+    "last_seen": "2026-11-26",
+    "digests": [
+      "2026-11-26"
+    ],
+    "tags": [
+      "视频生成",
+      "可控生成",
+      "三维几何"
+    ],
+    "abstract": "Camera-controlled video generation re-renders a video along a target camera trajectory, yet moving the camera around an object, the most natural way to change the viewpoint of an object-centric scene, remains difficult. Existing methods condition either on camera parameters, which are scale-ambiguous in monocular video, or on explicit geometry such as warped point clouds or depth, which breaks down under large viewpoint changes. We present AnyCam, a method that represents the camera with an anchor object in the scene: we reconstruct it in 3D and render it along the target trajectory, a camera signal that is scale-aware, view-complete and easy to specify relative to the object. A video diffusion model transfers the content and dynamics of the source video to the new viewpoint. Its H-Concat layout aligns source and target frames in time, so the model can be distilled into AnyCam-AR, a streaming few-step generator for on-the-fly camera control. Both models are trained on paired videos with pixel-aligned anchor renderings from multi-camera videos and static-scene captures. Experiments on diverse datasets and trajectories show that AnyCam performs favorably against camera-controlled vid",
+    "published": "2026-11-25T18:59:59Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.34939",
+    "title": "A Mesh for Every Moment",
+    "url": "https://arxiv.org/abs/2611.34939",
+    "first_seen": "2026-11-26",
+    "last_seen": "2026-11-26",
+    "digests": [
+      "2026-11-26"
+    ],
+    "tags": [
+      "三维几何",
+      "动态重建",
+      "高斯渲染"
+    ],
+    "abstract": "We present MEMO (a Mesh for Every MOment), a method that reconstructs the geometry of complete dynamic scenes, captured by multiple synchronized cameras, and extracts a mesh at every frame. Existing dynamic Gaussian splatting methods either model appearance alone or target isolated objects segmented by foreground masks, and all of them recover meshes by TSDF fusion or Poisson reconstruction, whose fixed grids limit the detail they can capture. At the core of MEMO is a per-Gaussian motion model inspired by Gaussian processes, which represents each Gaussian's position and rotation over time as a combination of temporal Gaussian kernels. The model keeps every Gaussian a valid surface element throughout the sequence and carries an implicit representation of the dynamic geometry, so a mesh can be derived at any time from a field defined by the Gaussians. Although common in real captures, large and fast motion poses a challenge that dynamic Gaussian splatting methods usually overlook. To account for it, we design a track-based initialization scheme that fits each Gaussian's initial trajectory to point tracks in closed form. We evaluate MEMO on Blender-Moments, a new benchmark of nine ani",
+    "published": "2026-11-25T18:59:45Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.34914",
+    "title": "Cairn: Object-Centric 3D Trajectory Priors for Steering Frozen VLAs",
+    "url": "https://arxiv.org/abs/2611.34914",
+    "first_seen": "2026-11-26",
+    "last_seen": "2026-11-26",
+    "digests": [
+      "2026-11-26"
+    ],
+    "tags": [
+      "三维几何",
+      "多模态 / 具身视觉"
+    ],
+    "abstract": "Vision-language-action models (VLAs) are capable low-level controllers, but they tie where objects go to the layouts they were trained on: when objects are moved or obstacles block the way, they carry them to the wrong place or into collisions. Fine-tuning on new layouts needs robot data for each one and erodes skills the model already has. We introduce Cairn, which keeps the VLA frozen and steers it at test time along learned 3D trajectories of the object in its gripper. A small prior reads point clouds of the scene and the held object, along with its pose when grasped and the instruction, and samples SE(3) trajectories up to its release that lead it around obstacles and turn it to fit through gaps. The prior and the VLA form the two levels of a hierarchical planner in which feedback runs both ways: the VLA's intended motion chooses and reshapes the trajectories, and the chosen one guides the VLA's denoising. Its predicted actions, mapped to the held object's poses through the grasp, are pulled toward the next waypoint, while the VLA's weights stay untouched. Across 1,941 held-out LIBERO scenes with displaced objects and obstacles, Cairn raises the success rate of a frozen π0.5 fr",
+    "published": "2026-11-25T18:57:29Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.34608",
+    "title": "DuCo: Exploiting Dual Cross-Layer Consistency for Sparse Geometric Attention",
+    "url": "https://arxiv.org/abs/2611.34608",
+    "first_seen": "2026-11-26",
+    "last_seen": "2026-11-26",
+    "digests": [
+      "2026-11-26"
+    ],
+    "tags": [
+      "几何基础模型"
+    ],
+    "abstract": "Dense global attention is crucial for capturing cross-view geometry in visual geometry foundation models, yet its quadratic complexity limits efficient inference on long image sequences. Existing sparse attention methods primarily select entries of the global attention matrix based on attention probabilities and construct masks independently across layers, overlooking value redundancy and cross-layer information reuse. By analyzing attention distributions and clustering value representations across layers, we reveal two forms of \\emph{cross-layer consistency}, characterized by highly similar attention probability distributions and localized changes in value redundancy structures. Building on these observations, we propose \\textbf{DuCo}, a training-free sparse attention framework that exploits historical attention information and value redundancy for efficient geometric inference. Specifically, DuCo leverages historical attention information to estimate current-layer dense attention probabilities and introduces value clustering to exploit redundancy, with clusters efficiently refined through local updates across layers. Both factors are integrated through probability-weighted value ",
+    "published": "2026-11-25T15:59:54Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.34435",
+    "title": "Most of the Way There: Turning a Strong Video Prior into an Action-Conditioned World Model",
+    "url": "https://arxiv.org/abs/2611.34435",
+    "first_seen": "2026-11-26",
+    "last_seen": "2026-11-26",
+    "digests": [
+      "2026-11-26"
+    ],
+    "tags": [
+      "世界模型"
+    ],
+    "abstract": "Modern video generators excel at producing visually plausible futures guided by text and image prompts. Yet their emphasis on semantic plausibility does not guarantee fidelity to the physical consequences of specific actions. Action-conditioned world models (ACWMs), in contrast, aim to simulate how the world responds to robot actions, enabling scalable policy evaluation and improvement without costly real-world rollouts. The challenge is not merely to generate a plausible future, but to predict what follows from a specific physical action. As video priors grow stronger, we ask how little adaptation is truly needed to bridge this gap. We introduce Dianjing, a minimal recipe that preserves and unlocks the capabilities of strong video priors through unified physical action conditioning, training concentrated at the high noise levels where motion and layout, and thus the consequences of actions, are decided, and native history conditioning. Built upon MiniMax H3, a 33B video foundation model, Dianjing freezes the pretrained backbone and trains only 0.34% of its parameters using approximately 65 hours of robot video across two embodiments, without additional robot-specific pretraining o",
+    "published": "2026-11-25T14:19:27Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
+    "id": "2611.33467",
+    "title": "SplatWAM: Splatting World Action Models for Real-Time 3D Imagination",
+    "url": "https://arxiv.org/abs/2611.33467",
+    "first_seen": "2026-11-26",
+    "last_seen": "2026-11-26",
+    "digests": [
+      "2026-11-26"
+    ],
+    "tags": [
+      "高斯渲染",
+      "世界模型"
+    ],
+    "abstract": "World models typically predict future observations in pixel or latent space, limiting their ability to directly represent true 3D scene evolution. We present SplatWAM (Splatting World Action Model), a generative world model that learns action-conditioned dynamics directly over compact 3D Gaussian primitives. A tokenizer SplatWAM-T first encodes a variable number of unposed views into a fixed budget of Gaussian tokens. A dynamics model SplatWAM-D then predicts future Gaussian states in a single forward pass per action, using log-Euclidean covariance coordinates and differentiable rendering supervision to facilitate learning in an explicit 3D space. Each predicted state can be rasterized from arbitrary viewpoints, enforcing a shared 3D representation across views by construction. On OGBench Scene, SplatWAM renders novel views 12x faster than video world models (~80 FPS on an RTX 5090) with up to 2.0 dB higher PSNR. We further introduce SplatWAM-P, a lightweight flow-matching policy head jointly trained with the dynamics model. Across 8 task suites, model-free Gaussian-token policies outperform pixel-based counterparts by up to 24.8 percentage points. SplatWAM-P improves over Latent P",
+    "published": "2026-11-24T21:43:32Z",
+    "source": "arxiv_metadata",
+    "code_url": null,
+    "code_status": "未核实"
+  },
+  {
     "id": "2611.33141",
     "title": "iWAM: Efficient Action Prediction from World Models without Explicit Future Prediction",
     "url": "https://arxiv.org/abs/2611.33141",

@@ -1,0 +1,91 @@
+{
+  "title": "视觉研究日报：世界模型与动态重建新进展",
+  "summary": "本期从近24小时arXiv记录中筛选出6篇视觉研究重点论文，覆盖视频生成、世界模型、可控生成、动态重建、高斯渲染、几何基础模型与具身视觉等方向。重点包括AnyCam以物体锚点实现尺度感知的相机控制视频生成，Dianjing以极少量参数将强视频先验转为动作条件世界模型，MEMO用高斯过程运动模型实现完整动态场景逐帧网格重建，DuCo利用跨层一致性加速几何基础模型稀疏注意力，SplatWAM在3D高斯原语上学习动作条件世界模型，以及Cairn以物体中心3D轨迹先验引导冻结VLA。各方向均保留来源证据，代码状态未核实。",
+  "tags": [
+    "视频生成",
+    "世界模型",
+    "动态重建",
+    "高斯渲染",
+    "几何基础模型",
+    "具身视觉"
+  ],
+  "highlights": [
+    "AnyCam以物体锚点在目标轨迹上的渲染作为尺度感知相机信号，支持流式少步生成。",
+    "Dianjing仅训练0.34%参数，将33B视频基座转为动作条件世界模型。",
+    "MEMO用高斯过程运动模型支持任意时刻网格提取，并处理大而快运动。",
+    "SplatWAM在3D高斯原语上直接学习动作条件动力学，渲染比视频世界模型快12倍。",
+    "DuCo揭示几何基础模型跨层注意力与值冗余一致性，训练免费加速稀疏注意力。",
+    "Cairn用物体中心3D轨迹先验在测试时引导冻结VLA，提升扰动场景成功率。"
+  ],
+  "markdown": "## AnyCam: Anything Can Represent Camera for Video Generation\n[arXiv](https://arxiv.org/abs/2611.34944)\n研究问题：单目视频中相机参数存在尺度歧义，显式几何（点云/深度）在大视角变化下易失效，围绕物体移动相机这一最自然视角变化方式仍困难。方法：用场景中锚点物体表示相机——重建其3D并沿目标轨迹渲染，得到尺度感知、视角完整且易指定的相机信号；视频扩散模型迁移源视频内容与动态，H-Concat布局在时间上对齐源帧与目标帧，并可蒸馏为流式少步生成器AnyCam-AR。差异：与相机参数条件相比避免尺度歧义，与显式几何条件相比在大视角变化下更鲁棒；在多数据集与轨迹上优于相机控制视频方法。适用场景：物体中心视频的相机轨迹重渲染与交互式视角控制。限制：依赖锚点物体重建质量，摘要未给出大规模定量对比细节。复现状态：未核实。\n\n## Most of the Way There: Turning a Strong Video Prior into an Action-Conditioned World Model\n[arXiv](https://arxiv.org/abs/2611.34435)\n研究问题：视频生成器擅长语义合理的未来，但不保证遵循特定动作的物理后果；动作条件世界模型需以少量适配桥接这一差距。方法：Dianjing在MiniMax H3（33B视频基座）上冻结主干，仅训练0.34%参数，采用统一物理动作条件、将训练集中在决定运动与布局的高噪声水平，并加入原生历史条件；使用约65小时、两种具身机器人视频，无需额外机器人预训练。差异：证明强视频先验仅需极少适配即可转为ACWM。适用场景：机器人策略评估与改进的可扩展模拟。限制：训练数据规模与具身覆盖有限，摘要未报告下游策略收益。复现状态：未核实。\n\n## A Mesh for Every Moment\n[arXiv](https://arxiv.org/abs/2611.34939)\n研究问题：从多相机同步捕捉中重建完整动态场景几何并逐帧提取网格；现有动态高斯方法或仅建模外观、或依赖前景mask，且TSDF/Poisson固定网格限制细节。方法：MEMO为每个高斯建立受高斯过程启发的运动模型，将位置与旋转表示为时间高斯核组合，使高斯始终是有效表面元并隐含动态几何，可在任意时刻从高斯定义场导出网格；提出基于点轨迹的初始化以应对大而快运动。证据：在新建Blender-Moments基准（九个动画）上评估。差异：支持完整场景而非孤立物体，且网格细节不受固定网格限制。适用场景：多相机动态捕捉、体积视频与影视资产。限制：需多相机同步采集，真实场景泛化未在摘要中充分展开。复现状态：未核实。\n\n## DuCo: Exploiting Dual Cross-Layer Consistency for Sparse Geometric Attention\n[arXiv](https://arxiv.org/abs/2611.34608)\n研究问题：视觉几何基础模型的稠密全局注意力在长图像序列上二次复杂度高；现有稀疏注意力按注意力概率独立选掩码，忽略值冗余与跨层复用。方法：DuCo分析发现跨层注意力概率高度相似、值冗余结构局部变化，据此用历史注意力估计当前层稠密概率，并用值聚类与跨层局部更新利用冗余，概率加权值聚合，训练免费。差异：同时利用两种跨层一致性，而非仅按概率选条目。适用场景：长序列几何推理与三维重建加速。限制：摘要未给出具体加速比与精度保持的完整数据。复现状态：未核实。\n\n## SplatWAM: Splatting World Action Models for Real-Time 3D Imagination\n[arXiv](https://arxiv.org/abs/2611.33467)\n研究问题：世界模型多在像素或隐空间预测未来，难以直接表示真实3D场景演化。方法：SplatWAM在紧凑3D高斯原语上学习动作条件动力学；SplatWAM-T将可变数量无位姿视图编码为固定预算高斯token，SplatWAM-D每次动作单次前向预测未来高斯状态，使用对数欧氏协方差坐标与可微渲染监督；SplatWAM-P为轻量流匹配策略头。证据：OGBench Scene上渲染新视角比视频世界模型快12倍（RTX 5090约80 FPS），PSNR最高提升2.0 dB；8个任务套件上高斯token策略比像素策略最高提升24.8个百分点。适用场景：实时3D想象与机器人策略学习。限制：依赖高斯tokenizer与可微渲染，真实场景验证范围有限。复现状态：未核实。\n\n## Cairn: Object-Centric 3D Trajectory Priors for Steering Frozen VLAs\n[arXiv](https://arxiv.org/abs/2611.34914)\n研究问题：VLA模型把物体去向绑定到训练布局，物体移动或障碍阻挡时抓取位置错误或碰撞；微调需新布局机器人数据且侵蚀已有技能。方法：Cairn保持VLA冻结，在测试时沿被夹持物体的学习3D轨迹引导；小先验读取场景与物体点云、抓取位姿及指令，采样释放前的SE(3)轨迹以绕障并调整朝向穿过间隙；先验与VLA构成双向反馈层级规划器，VLA意图选择并重塑轨迹，选定轨迹引导其去噪，权重不变。证据：在1,941个含位移物体与障碍的LIBERO留出场景上提升冻结π0.5成功率。适用场景：布局变化与障碍环境下的机器人操作。限制：需点云与抓取位姿输入，真实机器人实验规模摘要未详述。复现状态：未核实。\n\n---\n\n*由模型根据 arXiv 元数据生成，复现状态及指标请以官方论文为准。*",
+  "papers": [
+    {
+      "id": "2611.34944",
+      "title": "AnyCam: Anything Can Represent Camera for Video Generation",
+      "summary": "Camera-controlled video generation re-renders a video along a target camera trajectory, yet moving the camera around an object, the most natural way to change the viewpoint of an object-centric scene, remains difficult. Existing methods condition either on camera parameters, which are scale-ambiguous in monocular video, or on explicit geometry such as warped point clouds or depth, which breaks down under large viewpoint changes. We present AnyCam, a method that represents the camera with an anchor object in the scene: we reconstruct it in 3D and render it along the target trajectory, a camera signal that is scale-aware, view-complete and easy to specify relative to the object. A video diffusion model transfers the content and dynamics of the source video to the new viewpoint. Its H-Concat layout aligns source and target frames in time, so the model can be distilled into AnyCam-AR, a streaming few-step generator for on-the-fly camera control. Both models are trained on paired videos with pixel-aligned anchor renderings from multi-camera videos and static-scene captures. Experiments on diverse datasets and trajectories show that AnyCam performs favorably against camera-controlled vid",
+      "url": "https://arxiv.org/abs/2611.34944",
+      "published": "2026-11-25T18:59:59Z",
+      "topics": [
+        "视频生成",
+        "可控生成",
+        "三维几何"
+      ]
+    },
+    {
+      "id": "2611.34435",
+      "title": "Most of the Way There: Turning a Strong Video Prior into an Action-Conditioned World Model",
+      "summary": "Modern video generators excel at producing visually plausible futures guided by text and image prompts. Yet their emphasis on semantic plausibility does not guarantee fidelity to the physical consequences of specific actions. Action-conditioned world models (ACWMs), in contrast, aim to simulate how the world responds to robot actions, enabling scalable policy evaluation and improvement without costly real-world rollouts. The challenge is not merely to generate a plausible future, but to predict what follows from a specific physical action. As video priors grow stronger, we ask how little adaptation is truly needed to bridge this gap. We introduce Dianjing, a minimal recipe that preserves and unlocks the capabilities of strong video priors through unified physical action conditioning, training concentrated at the high noise levels where motion and layout, and thus the consequences of actions, are decided, and native history conditioning. Built upon MiniMax H3, a 33B video foundation model, Dianjing freezes the pretrained backbone and trains only 0.34% of its parameters using approximately 65 hours of robot video across two embodiments, without additional robot-specific pretraining o",
+      "url": "https://arxiv.org/abs/2611.34435",
+      "published": "2026-11-25T14:19:27Z",
+      "topics": [
+        "世界模型"
+      ]
+    },
+    {
+      "id": "2611.34939",
+      "title": "A Mesh for Every Moment",
+      "summary": "We present MEMO (a Mesh for Every MOment), a method that reconstructs the geometry of complete dynamic scenes, captured by multiple synchronized cameras, and extracts a mesh at every frame. Existing dynamic Gaussian splatting methods either model appearance alone or target isolated objects segmented by foreground masks, and all of them recover meshes by TSDF fusion or Poisson reconstruction, whose fixed grids limit the detail they can capture. At the core of MEMO is a per-Gaussian motion model inspired by Gaussian processes, which represents each Gaussian's position and rotation over time as a combination of temporal Gaussian kernels. The model keeps every Gaussian a valid surface element throughout the sequence and carries an implicit representation of the dynamic geometry, so a mesh can be derived at any time from a field defined by the Gaussians. Although common in real captures, large and fast motion poses a challenge that dynamic Gaussian splatting methods usually overlook. To account for it, we design a track-based initialization scheme that fits each Gaussian's initial trajectory to point tracks in closed form. We evaluate MEMO on Blender-Moments, a new benchmark of nine ani",
+      "url": "https://arxiv.org/abs/2611.34939",
+      "published": "2026-11-25T18:59:45Z",
+      "topics": [
+        "动态重建",
+        "高斯渲染",
+        "三维几何"
+      ]
+    },
+    {
+      "id": "2611.34608",
+      "title": "DuCo: Exploiting Dual Cross-Layer Consistency for Sparse Geometric Attention",
+      "summary": "Dense global attention is crucial for capturing cross-view geometry in visual geometry foundation models, yet its quadratic complexity limits efficient inference on long image sequences. Existing sparse attention methods primarily select entries of the global attention matrix based on attention probabilities and construct masks independently across layers, overlooking value redundancy and cross-layer information reuse. By analyzing attention distributions and clustering value representations across layers, we reveal two forms of \\emph{cross-layer consistency}, characterized by highly similar attention probability distributions and localized changes in value redundancy structures. Building on these observations, we propose \\textbf{DuCo}, a training-free sparse attention framework that exploits historical attention information and value redundancy for efficient geometric inference. Specifically, DuCo leverages historical attention information to estimate current-layer dense attention probabilities and introduces value clustering to exploit redundancy, with clusters efficiently refined through local updates across layers. Both factors are integrated through probability-weighted value ",
+      "url": "https://arxiv.org/abs/2611.34608",
+      "published": "2026-11-25T15:59:54Z",
+      "topics": [
+        "几何基础模型"
+      ]
+    },
+    {
+      "id": "2611.33467",
+      "title": "SplatWAM: Splatting World Action Models for Real-Time 3D Imagination",
+      "summary": "World models typically predict future observations in pixel or latent space, limiting their ability to directly represent true 3D scene evolution. We present SplatWAM (Splatting World Action Model), a generative world model that learns action-conditioned dynamics directly over compact 3D Gaussian primitives. A tokenizer SplatWAM-T first encodes a variable number of unposed views into a fixed budget of Gaussian tokens. A dynamics model SplatWAM-D then predicts future Gaussian states in a single forward pass per action, using log-Euclidean covariance coordinates and differentiable rendering supervision to facilitate learning in an explicit 3D space. Each predicted state can be rasterized from arbitrary viewpoints, enforcing a shared 3D representation across views by construction. On OGBench Scene, SplatWAM renders novel views 12x faster than video world models (~80 FPS on an RTX 5090) with up to 2.0 dB higher PSNR. We further introduce SplatWAM-P, a lightweight flow-matching policy head jointly trained with the dynamics model. Across 8 task suites, model-free Gaussian-token policies outperform pixel-based counterparts by up to 24.8 percentage points. SplatWAM-P improves over Latent P",
+      "url": "https://arxiv.org/abs/2611.33467",
+      "published": "2026-11-24T21:43:32Z",
+      "topics": [
+        "世界模型",
+        "高斯渲染"
+      ]
+    },
+    {
+      "id": "2611.34914",
+      "title": "Cairn: Object-Centric 3D Trajectory Priors for Steering Frozen VLAs",
+      "summary": "Vision-language-action models (VLAs) are capable low-level controllers, but they tie where objects go to the layouts they were trained on: when objects are moved or obstacles block the way, they carry them to the wrong place or into collisions. Fine-tuning on new layouts needs robot data for each one and erodes skills the model already has. We introduce Cairn, which keeps the VLA frozen and steers it at test time along learned 3D trajectories of the object in its gripper. A small prior reads point clouds of the scene and the held object, along with its pose when grasped and the instruction, and samples SE(3) trajectories up to its release that lead it around obstacles and turn it to fit through gaps. The prior and the VLA form the two levels of a hierarchical planner in which feedback runs both ways: the VLA's intended motion chooses and reshapes the trajectories, and the chosen one guides the VLA's denoising. Its predicted actions, mapped to the held object's poses through the grasp, are pulled toward the next waypoint, while the VLA's weights stay untouched. Across 1,941 held-out LIBERO scenes with displaced objects and obstacles, Cairn raises the success rate of a frozen π0.5 fr",
+      "url": "https://arxiv.org/abs/2611.34914",
+      "published": "2026-11-25T18:57:29Z",
+      "topics": [
+        "三维几何",
+        "多模态 / 具身视觉"
+      ]
+    }
+  ],
+  "date": "2026-11-26",
+  "kind": "自动生成 · 网页日报"
+}
