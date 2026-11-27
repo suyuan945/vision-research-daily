@@ -1,0 +1,89 @@
+{
+  "title": "视觉研究日报：流式视频与世界模型加速，高斯渲染与具身视觉并进",
+  "summary": "本期从最近24小时arXiv记录中筛选出代表性视觉研究，覆盖视频生成与编辑、世界模型、高斯渲染、动态重建、几何基础模型与多模态具身视觉。重点包括无需配对视频的图像到视频编辑迁移、物理一致的可控流式世界生成、原生4D高斯支持任意相机模型，以及长视频生成中的异步智能体记忆。多数论文附带基准与实验证据，但代码与复现状态未核实。",
+  "tags": [
+    "视频生成",
+    "世界模型",
+    "高斯渲染",
+    "动态重建",
+    "多模态与具身视觉"
+  ],
+  "highlights": [
+    "I2VT仅用单图像将高级图像编辑能力迁移到视频编辑器，并扩展新编辑任务",
+    "WorldInteract以共享速度增量接口解耦材质行为与接触响应，实现跨材质交互生成",
+    "AnyCam4D让原生4D高斯直接基于非针孔原始影像光线光栅化，避免去畸变损失",
+    "Agentic LongLive用异步记忆智能体在长视频流中保持实体一致性且不阻塞生成"
+  ],
+  "markdown": "## Improving and Expanding Video Editing Capabilities Without Videos\n[arXiv](https://arxiv.org/abs/2611.34941)\n研究问题：视频编辑模型落后于图像编辑，核心瓶颈是缺少成对源视频与编辑后视频。方法：提出Image-to-Video Transfer，让视频编辑器在训练时扮演图像编辑器，把单帧图像当作单帧视频进行编辑，并在每个去噪步骤接受图像编辑器引导；无需架构改动与新视频，仅用图像后训练。同时扩展OpenVE++基准，新增动作、表情、身体运动和场景重打光四类任务。证据：摘要称实验覆盖多项编辑能力并保持时间一致性，但未给出具体数值。适用场景：数据稀缺下的视频编辑能力迁移与视频制作。限制：仅摘要信息，复现状态未核实。\n\n## WorldInteract: Controllable Streaming Video Generation for Multi-Material Interactions\n[arXiv](https://arxiv.org/abs/2611.34730)\n研究问题：可控视频生成中材质相关动力学尚未充分探索，不同材质场景可靠控制不足。方法：将跨材质交互分解为材质相关行为生成与接触响应计算；外部推力与接触冲量通过共享速度增量接口表达，物理控制器预测接触并基于估计质量与恢复系数计算增量，因果生成器执行学习到的材质行为；用3万条无交互模拟视频覆盖22类材质训练，并引入材质感知强化学习。证据：摘要称无需监督接触视频即可实现跨材质交互，但未给出量化指标。适用场景：流式交互世界模型与多材质物理场景。限制：依赖模拟数据与物理参数估计；复现状态未核实。\n\n## AnyCam4D: Ray-Based 4D Gaussian Rendering for Arbitrary Camera Models\n[arXiv](https://arxiv.org/abs/2611.34223)\n研究问题：真实相机并非针孔，多数动态高斯泼溅假设针孔并先去畸变，损失视场或细节，尤其广角与鱼眼。方法：AnyCam4D用光线光栅化在原始影像上训练原生4D高斯，保持视场与分辨率；关键是为4D协方差平方根提供数值稳定的方向与尺寸恢复方式。证据：摘要报告在170度鱼眼合成相机上，基于原始图像训练PSNR提升3.0-8.1 dB；真实影像上感知误差低于标准投影适配方案且PSNR相当。适用场景：动态重建与任意相机模型渲染。限制：未报告运行时间细节；复现状态未核实。\n\n## Agentic LongLive: Asynchronous Agentic Memory for Long Video Generation\n[arXiv](https://arxiv.org/abs/2611.34907)\n研究问题：实时自回归视频生成器能流式生成并接受新提示，但长交互故事中人物、物体与场景一致性难保持。方法：记忆智能体运行在独立GPU，仅读取已揭示提示而不读生成视频，为每个实体维护文本状态与演化图像，合成全局图像与分镜记忆图像，由辅助GPU预填充进生成器注意力汇；用小语言模型经强化学习决定记住什么。证据：在LongStory-Online基准上评估，摘要未给出具体数值。适用场景：长时交互式视频生成与故事化内容。限制：依赖多GPU异步系统；复现状态未核实。\n\n## Rehearse in 3D, Render in 2D: Physically Consistent and Editable Robot World Models\n[arXiv](https://arxiv.org/abs/2611.34288)\n研究问题：具身世界模型需同时视觉真实与物理一致，仅显式3D运动预测不保证物体结构与接触关系保持。方法：RehearsalWorld先做3D交互排练，用预训练3D点流模型作为运动先验，通过响应感知物体分组、持久抓取记忆与接触结构精修约束轨迹；再将排练的几何投影作为时间条件微调视频生成器，实现物理响应与视觉合成解耦并支持材质属性独立编辑。证据：摘要称在模拟与真实操作基准上优于基于像素的基线，具体数值未给出。适用场景：机器人操作预测与可编辑世界模型。限制：依赖RGB-D初始观测；复现状态未核实。\n\n## PVWander: 3D Memory-guided Panoramic Video Wandering with Path-Facing Canonicalization\n[arXiv](https://arxiv.org/abs/2611.32443)\n研究问题：长时全景视频漫游需沿用户轨迹连续合成360度一致观测，但运动与朝向关系多样、累积生成伪影与深度误差导致记忆引导不完美。方法：PVWander将生成观测累积为在线点云记忆并重投影引导后续生成；路径朝向规范化利用ERP水平循环对称对齐每段朝向与主平移方向；时间步感知门控调制实现自适应记忆引导。证据：摘要称在长时漫游中提升场景一致性，具体指标未给出。适用场景：全景漫游与虚拟场景探索。限制：依赖ERP全景与深度估计质量；复现状态未核实。\n\n---\n\n*由模型根据 arXiv 元数据生成，复现状态及指标请以官方论文为准。*",
+  "papers": [
+    {
+      "id": "2611.34941",
+      "title": "Improving and Expanding Video Editing Capabilities Without Videos",
+      "summary": "Image editing models can follow a wide range of instructions, but video editing models still lag behind, limited in part by the difficulty of collecting paired source and edited videos. Is it possible to transfer advanced image editing capabilities to video editors without new paired videos? We introduce Image-to-Video Transfer (I2VT), which improves pretrained video editors and expands them to new editing tasks using an image editor. It enables efficient post-training with no architectural changes and no new videos, using only individual images. Our key idea is to let the video editor role-play as an image editor: it edits an image as a one-frame video, with the image editor guiding the video editor's predictions at each denoising step. Although the video editor sees only single images during training, at test time it applies the improved and expanded capabilities to whole video clips while preserving temporal consistency. To push the boundaries of video editing, we introduce OpenVE++, an extension of OpenVE-Bench that adds four new editing tasks useful for video production, including action changes, expression changes, body movements, and scene relighting. Our experiments across ",
+      "url": "https://arxiv.org/abs/2611.34941",
+      "published": "2026-11-25T18:59:55Z",
+      "topics": [
+        "视频生成",
+        "可控生成"
+      ]
+    },
+    {
+      "id": "2611.34730",
+      "title": "WorldInteract: Controllable Streaming Video Generation for Multi-Material Interactions",
+      "summary": "Video world models aim to create interactive physical worlds that capture how diverse materials move and interact. Yet material-dependent dynamics remain underexplored in controllable video generation, limiting reliable control in scenes with different materials. We present WorldInteract, a streaming video generation framework that decomposes cross-material interaction into material-dependent behavior generation and contact response computation. External pushes and contact impulses are expressed through a shared velocity-increment interface, allowing material behaviors learned from interaction-free videos to be reused in interacting scenes. A physics controller predicts contacts and computes velocity increments from estimated masses and restitution coefficients, while a causal generator executes these increments using learned material behaviors. This separation enables cross-material interaction without supervised contact videos spanning diverse material pairings and contact configurations. We train the generator on 30k simulated interaction-free videos spanning 22 material classes and introduce Material-Aware RL, using verifiable physical rewards to refine material behavior and co",
+      "url": "https://arxiv.org/abs/2611.34730",
+      "published": "2026-11-25T17:14:27Z",
+      "topics": [
+        "视频生成",
+        "世界模型",
+        "可控生成"
+      ]
+    },
+    {
+      "id": "2611.34223",
+      "title": "AnyCam4D: Ray-Based 4D Gaussian Rendering for Arbitrary Camera Models",
+      "summary": "Real cameras are not pinholes, yet most dynamic Gaussian splatting assumes they are. Footage is therefore undistorted first, losing field of view or detail, especially with wide-angle and fisheye cameras. Static Gaussian splatting has largely solved this with ray-based rendering, which suits any camera. Native 4D Gaussians, which model motion in space-time, cannot use it directly: each Gaussian's orientation and size cannot be recovered reliably from its covariance. We present AnyCam4D, which trains native 4D Gaussians on original footage by ray-based rasterization, preserving field of view and resolution at about the per-step cost of standard projection. Our key contribution is a numerically stable way to obtain orientation and size: we condition a square root of the 4D covariance. Trained models render through other cameras, with rolling shutter, depth of field or chromatic aberration. With a synthetic 170-degree fisheye camera, training on original images improves peak signal-to-noise ratio (PSNR) by 3.0-8.1 dB. On real footage, AnyCam4D has lower perceptual error than the standard projection adapted to each camera, at comparable PSNR and without camera-specific derivations. Wit",
+      "url": "https://arxiv.org/abs/2611.34223",
+      "published": "2026-11-25T11:47:58Z",
+      "topics": [
+        "动态重建",
+        "高斯渲染",
+        "三维几何"
+      ]
+    },
+    {
+      "id": "2611.34907",
+      "title": "Agentic LongLive: Asynchronous Agentic Memory for Long Video Generation",
+      "summary": "Real-time autoregressive video generators stream minutes of video and accept new prompts on the fly, but struggle to keep people, objects, and places consistent over a long interactive story. Agent systems provide such memory for offline multi-shot generation, yet they read the whole script in advance, plan each shot before generating it, and regenerate failed shots, which a live stream does not allow. We present Agentic LongLive, an asynchronous agentic memory for long video generation. A memory agent on separate GPUs reads only the prompts revealed so far, never the generated video, and keeps a text state and evolving images for every person, object, and scene. From this entity memory it composes a global image and a per-shot memory image, which an auxiliary GPU prefills into the generator's attention sink before the next shot starts, and writes entity cards for the prompts that name them, so the video never waits for memory and video errors are not written back. A small language model, trained with reinforcement learning and an image reward calibrated using downstream video outcomes, decides what to remember before the next prompt is known. On LongStory-Online, a new benchmark o",
+      "url": "https://arxiv.org/abs/2611.34907",
+      "published": "2026-11-25T18:54:03Z",
+      "topics": [
+        "视频生成"
+      ]
+    },
+    {
+      "id": "2611.34288",
+      "title": "Rehearse in 3D, Render in 2D: Physically Consistent and Editable Robot World Models",
+      "summary": "Embodied world models aim to predict future interactions that are both visually realistic and physically consistent. Yet explicit 3D motion prediction alone does not guarantee that object structure and contact relationships are preserved. Beyond motion prediction, 3D representations provide an explicit state space for imposing structural and physical constraints. Building on this insight, we introduce RehearsalWorld, an editable robot world model driven by 3D Interaction Rehearsal (3DIR). Given an initial RGB-D observation and robot actions, Interaction-Consistent Rehearsal (ICR) uses a pretrained 3D point-flow model as a motion prior. It refines the predicted trajectories through response-aware object grouping, persistent grasp memory, and contact structure refiner, preserving scene stability, object structure, and grasp attachments. Rehearsal-Aligned Video Generation (RAVG) then uses geometric projections of the rehearsal as temporal conditioning. We fine-tune a video generator on projection-video pairs to synthesize realistic interaction videos. Thanks to the decoupling of physical response from visual synthesis, RehearsalWorld also supports independent editing of material prope",
+      "url": "https://arxiv.org/abs/2611.34288",
+      "published": "2026-11-25T12:41:56Z",
+      "topics": [
+        "视频生成",
+        "世界模型",
+        "多模态 / 具身视觉"
+      ]
+    },
+    {
+      "id": "2611.32443",
+      "title": "PVWander: 3D Memory-guided Panoramic Video Wandering with Path-Facing Canonicalization",
+      "summary": "Long-horizon panoramic video wandering aims to continuously synthesize scene-consistent $360^\\circ$ observations along user-specified camera trajectories from an initial equirectangular projection (ERP) panorama. Existing panoramic video models have achieved promising results in camera-controlled generation, while recent 3D-guided approaches further provide geometric guidance for improving scene consistency. However, stable long-horizon wandering remains challenging due to diverse motion--orientation relationships and imperfect memory guidance induced by accumulated generation artifacts and depth inaccuracies. To address these challenges, we propose \\textbf{PVWander}, a 3D-memory-guided framework that accumulates generated observations into an online point-cloud memory and reprojects it to guide subsequent generation, with two complementary designs: \\textit{Path-Facing canonicalization} for motion--orientation alignment and \\textit{Timestep-aware gating modulation} for adaptive memory guidance. \\textit{Path-Facing canonicalization} exploits the horizontal cyclic symmetry of ERP panoramas to uniformly align each clip's ERP orientation with its principal translation direction, yieldi",
+      "url": "https://arxiv.org/abs/2611.32443",
+      "published": "2026-11-24T11:41:22Z",
+      "topics": [
+        "可控生成"
+      ]
+    }
+  ],
+  "date": "2026-11-27",
+  "kind": "自动生成 · 网页日报"
+}

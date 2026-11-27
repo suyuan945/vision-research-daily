@@ -5,11 +5,11 @@
     },
     "量子位": {
       "state": "ok",
-      "newest": "2026-11-25"
+      "newest": "2026-11-26"
     },
     "我爱计算机视觉": {
       "state": "ok",
-      "newest": "2026-11-25"
+      "newest": "2026-11-26"
     },
     "3D视觉工坊": {
       "state": "manual"
@@ -19,6 +19,16 @@
     }
   },
   "articles": [
+    {
+      "account": "量子位",
+      "title": "具身公司抱团回应：通用大模型跨维打击？没那么简单",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247949256&idx=3&sn=f5a1c3b3c89d06b4fe191bc2849408ff",
+      "date": "2026-11-26",
+      "tags": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
     {
       "account": "量子位",
       "title": "3万小时视频教会机器人干活，六项真机任务全登顶！阿里达摩院给出具身新策略",

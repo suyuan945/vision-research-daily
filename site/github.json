@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "checked_at": "2026-11-26T12:57:24+08:00",
+  "checked_at": "2026-11-27T12:56:56+08:00",
   "failed_sources": [],
   "repositories": [
     {
@@ -158,6 +158,20 @@
       "license_name": "",
       "topics": [
         "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1472432370",
+      "name": "Apparitiongrefurnish/vegas-pro-edition",
+      "url": "https://github.com/Apparitiongrefurnish/vegas-pro-edition",
+      "description": "Vegas Pro Edition is a professional non-linear video editing (NLE) and audio production suite that equips creators and filmmakers with GPU-accelerated timeline performance, AI-driven masking and transcription tools, advanced HDR color grading, and integrated multitrack sound mixing.",
+      "created_at": "2026-11-25T23:07:20Z",
+      "first_seen": "2026-11-27",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "视频编辑"
       ],
       "paper_ids": []
     },
@@ -322,6 +336,20 @@
       ]
     },
     {
+      "id": "1472008783",
+      "name": "caoyucheng9510/yc-h3-engine",
+      "url": "https://github.com/caoyucheng9510/yc-h3-engine",
+      "description": "Multi-provider execution engine for MiniMax-H3 video generation (RunningHub / Chenyu / Colab)",
+      "created_at": "2026-11-25T15:50:19Z",
+      "first_seen": "2026-11-27",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "视频生成"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1455724310",
       "name": "CatchArtisanDone86/Movavi-Video-Editor-For-Windows",
       "url": "https://github.com/CatchArtisanDone86/Movavi-Video-Editor-For-Windows",
@@ -422,6 +450,22 @@
       "paper_ids": []
     },
     {
+      "id": "1469960911",
+      "name": "cszhilu1998/OmniPersist",
+      "url": "https://github.com/cszhilu1998/OmniPersist",
+      "description": "OmniPersist: Persistent Dynamic World Modeling via Coupled Panoramic Evolution",
+      "created_at": "2026-11-24T09:55:49Z",
+      "first_seen": "2026-11-27",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "世界模型"
+      ],
+      "paper_ids": [
+        "2611.32473"
+      ]
+    },
+    {
       "id": "1449055140",
       "name": "ctrlbysunidhi/task_aware_vla",
       "url": "https://github.com/ctrlbysunidhi/task_aware_vla",
@@ -448,6 +492,22 @@
         "视频编辑"
       ],
       "paper_ids": []
+    },
+    {
+      "id": "1468374055",
+      "name": "deep-efficiency-ntu/LoopQ",
+      "url": "https://github.com/deep-efficiency-ntu/LoopQ",
+      "description": "Quantizing in the Loop: Drift-Aware Ultra-Low-Bit Vision-Language-Action Models",
+      "created_at": "2026-11-23T06:26:13Z",
+      "first_seen": "2026-11-25",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": [
+        "2611.30178"
+      ]
     },
     {
       "id": "1468514229",
@@ -566,20 +626,6 @@
       ]
     },
     {
-      "id": "1468374055",
-      "name": "ForeverBlue816/LoopQ",
-      "url": "https://github.com/ForeverBlue816/LoopQ",
-      "description": "Quantizing in the Loop: Drift-Aware Ultra-Low-Bit Vision-Language-Action Models",
-      "created_at": "2026-11-23T06:26:13Z",
-      "first_seen": "2026-11-25",
-      "license": "",
-      "license_name": "",
-      "topics": [
-        "多模态 / 具身视觉"
-      ],
-      "paper_ids": []
-    },
-    {
       "id": "1463628169",
       "name": "franciscoliu/SAFI",
       "url": "https://github.com/franciscoliu/SAFI",
@@ -592,6 +638,22 @@
         "多模态 / 具身视觉"
       ],
       "paper_ids": []
+    },
+    {
+      "id": "1471514318",
+      "name": "ghost233lism/StateWeaver",
+      "url": "https://github.com/ghost233lism/StateWeaver",
+      "description": "Official code for StateWeaver: Multi-Agent Coordination of Story-State Transitions for Long-Horizon Video Generation",
+      "created_at": "2026-11-25T08:57:10Z",
+      "first_seen": "2026-11-27",
+      "license": "NOASSERTION",
+      "license_name": "Other",
+      "topics": [
+        "视频生成"
+      ],
+      "paper_ids": [
+        "2611.34290"
+      ]
     },
     {
       "id": "1459873094",
@@ -932,6 +994,20 @@
       "license_name": "MIT License",
       "topics": [
         "视频编辑"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1472768150",
+      "name": "megaartaiking-cmd/super-video-generation-prompt",
+      "url": "https://github.com/megaartaiking-cmd/super-video-generation-prompt",
+      "description": "Super Video Generation Prompt — one copy-paste master prompt that turns Meta Muse AI into a professional long-video director: locked characters, no blackouts, no continuity breaks. Style packs for Bollywood, Hollywood, anime, cartoon, Indian and Pakistani videos.",
+      "created_at": "2026-11-26T06:38:01Z",
+      "first_seen": "2026-11-27",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "视频生成"
       ],
       "paper_ids": []
     },
@@ -1412,6 +1488,22 @@
       "paper_ids": []
     },
     {
+      "id": "1468020273",
+      "name": "ToghrulAbbasov19/look-back",
+      "url": "https://github.com/ToghrulAbbasov19/look-back",
+      "description": "Official Codebase for Look Back: Reinforcement Learning with Counterfactual World Models",
+      "created_at": "2026-11-22T21:50:03Z",
+      "first_seen": "2026-11-27",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "世界模型"
+      ],
+      "paper_ids": [
+        "2611.29259"
+      ]
+    },
+    {
       "id": "1456049760",
       "name": "Travis-Yu/Travis-Yu.github.io",
       "url": "https://github.com/Travis-Yu/Travis-Yu.github.io",
@@ -1507,6 +1599,20 @@
       "first_seen": "2026-11-23",
       "license": "MIT",
       "license_name": "MIT License",
+      "topics": [
+        "高斯渲染"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1472870922",
+      "name": "Well-Made/ComfyUI-SHARP-Gaussian-Stereo",
+      "url": "https://github.com/Well-Made/ComfyUI-SHARP-Gaussian-Stereo",
+      "description": "A standalone ComfyUI extension for Apple SHARP, bringing single-image 3D Gaussian Splatting and an interactive stereo viewer with adjustable depth, splat size, and camera controls.",
+      "created_at": "2026-11-26T08:22:38Z",
+      "first_seen": "2026-11-27",
+      "license": "NOASSERTION",
+      "license_name": "Other",
       "topics": [
         "高斯渲染"
       ],
@@ -1697,6 +1803,33 @@
   ],
   "events": [
     {
+      "id": "repo:1472870922",
+      "repository_id": "1472870922",
+      "kind": "new",
+      "date": "2026-11-26T08:22:38Z",
+      "first_seen": "2026-11-27",
+      "title": "Well-Made/ComfyUI-SHARP-Gaussian-Stereo",
+      "url": "https://github.com/Well-Made/ComfyUI-SHARP-Gaussian-Stereo"
+    },
+    {
+      "id": "repo:1472768150",
+      "repository_id": "1472768150",
+      "kind": "new",
+      "date": "2026-11-26T06:38:01Z",
+      "first_seen": "2026-11-27",
+      "title": "megaartaiking-cmd/super-video-generation-prompt",
+      "url": "https://github.com/megaartaiking-cmd/super-video-generation-prompt"
+    },
+    {
+      "id": "repo:1472432370",
+      "repository_id": "1472432370",
+      "kind": "new",
+      "date": "2026-11-25T23:07:20Z",
+      "first_seen": "2026-11-27",
+      "title": "Apparitiongrefurnish/vegas-pro-edition",
+      "url": "https://github.com/Apparitiongrefurnish/vegas-pro-edition"
+    },
+    {
       "id": "release:458337308",
       "repository_id": "1471100207",
       "kind": "release",
@@ -1709,6 +1842,15 @@
       "url": "https://github.com/cfahlgren1/idol-mlx/releases/tag/v0.2.0"
     },
     {
+      "id": "repo:1472008783",
+      "repository_id": "1472008783",
+      "kind": "new",
+      "date": "2026-11-25T15:50:19Z",
+      "first_seen": "2026-11-27",
+      "title": "caoyucheng9510/yc-h3-engine",
+      "url": "https://github.com/caoyucheng9510/yc-h3-engine"
+    },
+    {
       "id": "release:458214302",
       "repository_id": "1471100207",
       "kind": "release",
@@ -1719,6 +1861,15 @@
       "prerelease": false,
       "weights": [],
       "url": "https://github.com/cfahlgren1/idol-mlx/releases/tag/v0.1.2"
+    },
+    {
+      "id": "repo:1471514318",
+      "repository_id": "1471514318",
+      "kind": "new",
+      "date": "2026-11-25T08:57:10Z",
+      "first_seen": "2026-11-27",
+      "title": "ghost233lism/StateWeaver",
+      "url": "https://github.com/ghost233lism/StateWeaver"
     },
     {
       "id": "repo:1471508430",
@@ -1776,6 +1927,15 @@
       "first_seen": "2026-11-25",
       "title": "biaani-oax/text-to-image",
       "url": "https://github.com/biaani-oax/text-to-image"
+    },
+    {
+      "id": "repo:1469960911",
+      "repository_id": "1469960911",
+      "kind": "new",
+      "date": "2026-11-24T09:55:49Z",
+      "first_seen": "2026-11-27",
+      "title": "cszhilu1998/OmniPersist",
+      "url": "https://github.com/cszhilu1998/OmniPersist"
     },
     {
       "id": "repo:1469678505",
@@ -1890,6 +2050,15 @@
       "prerelease": false,
       "weights": [],
       "url": "https://github.com/blotato/contentskills/releases/tag/v1.0.0"
+    },
+    {
+      "id": "repo:1468020273",
+      "repository_id": "1468020273",
+      "kind": "new",
+      "date": "2026-11-22T21:50:03Z",
+      "first_seen": "2026-11-27",
+      "title": "ToghrulAbbasov19/look-back",
+      "url": "https://github.com/ToghrulAbbasov19/look-back"
     },
     {
       "id": "repo:1467973604",

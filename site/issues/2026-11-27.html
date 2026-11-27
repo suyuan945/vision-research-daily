@@ -1,0 +1,21 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="本期从最近24小时arXiv记录中筛选出代表性视觉研究，覆盖视频生成与编辑、世界模型、高斯渲染、动态重建、几何基础模型与多模态具身视觉。重点包括无需配对视频的图像到视频编辑迁移、物理一致的可控流式世界生成、原生4D高斯支持任意相机模型，以及长视频生成中的异步智能体记忆。多数论文附带基准与实验证据，但代码与复现状态未核实。"><title>视觉研究日报：流式视频与世界模型加速，高斯渲染与具身视觉并进 · Vision Research Hub</title><link rel="stylesheet" href="../assets/style.css"></head><body><header class="site-header"><div class="header-inner"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">◈</span><span>Vision <em>Research</em></span></a><nav class="site-nav" aria-label="主导航"><a href="../#today">今日</a><a href="../#papers">论文</a><a href="../#opensource">开源</a><a href="../#articles">文章</a><a href="../#favorites">收藏</a><a href="../#archive">历史</a></nav></div></header><main class="article-shell"><a class="article-back" href="../#archive">← 返回历史日报</a><div class="article-header"><div class="article-kicker">2026-11-27 / 自动生成 · 网页日报</div><h1>视觉研究日报：流式视频与世界模型加速，高斯渲染与具身视觉并进</h1><p class="article-intro">本期从最近24小时arXiv记录中筛选出代表性视觉研究，覆盖视频生成与编辑、世界模型、高斯渲染、动态重建、几何基础模型与多模态具身视觉。重点包括无需配对视频的图像到视频编辑迁移、物理一致的可控流式世界生成、原生4D高斯支持任意相机模型，以及长视频生成中的异步智能体记忆。多数论文附带基准与实验证据，但代码与复现状态未核实。</p><div class="tag-list"><span class="tag">视频生成</span><span class="tag">世界模型</span><span class="tag">高斯渲染</span><span class="tag">动态重建</span><span class="tag">多模态与具身视觉</span></div></div><article class="prose"><h2>Improving and Expanding Video Editing Capabilities Without Videos</h2>
+<p><a href="https://arxiv.org/abs/2611.34941">arXiv</a>
+研究问题：视频编辑模型落后于图像编辑，核心瓶颈是缺少成对源视频与编辑后视频。方法：提出Image-to-Video Transfer，让视频编辑器在训练时扮演图像编辑器，把单帧图像当作单帧视频进行编辑，并在每个去噪步骤接受图像编辑器引导；无需架构改动与新视频，仅用图像后训练。同时扩展OpenVE++基准，新增动作、表情、身体运动和场景重打光四类任务。证据：摘要称实验覆盖多项编辑能力并保持时间一致性，但未给出具体数值。适用场景：数据稀缺下的视频编辑能力迁移与视频制作。限制：仅摘要信息，复现状态未核实。</p>
+<h2>WorldInteract: Controllable Streaming Video Generation for Multi-Material Interactions</h2>
+<p><a href="https://arxiv.org/abs/2611.34730">arXiv</a>
+研究问题：可控视频生成中材质相关动力学尚未充分探索，不同材质场景可靠控制不足。方法：将跨材质交互分解为材质相关行为生成与接触响应计算；外部推力与接触冲量通过共享速度增量接口表达，物理控制器预测接触并基于估计质量与恢复系数计算增量，因果生成器执行学习到的材质行为；用3万条无交互模拟视频覆盖22类材质训练，并引入材质感知强化学习。证据：摘要称无需监督接触视频即可实现跨材质交互，但未给出量化指标。适用场景：流式交互世界模型与多材质物理场景。限制：依赖模拟数据与物理参数估计；复现状态未核实。</p>
+<h2>AnyCam4D: Ray-Based 4D Gaussian Rendering for Arbitrary Camera Models</h2>
+<p><a href="https://arxiv.org/abs/2611.34223">arXiv</a>
+研究问题：真实相机并非针孔，多数动态高斯泼溅假设针孔并先去畸变，损失视场或细节，尤其广角与鱼眼。方法：AnyCam4D用光线光栅化在原始影像上训练原生4D高斯，保持视场与分辨率；关键是为4D协方差平方根提供数值稳定的方向与尺寸恢复方式。证据：摘要报告在170度鱼眼合成相机上，基于原始图像训练PSNR提升3.0-8.1 dB；真实影像上感知误差低于标准投影适配方案且PSNR相当。适用场景：动态重建与任意相机模型渲染。限制：未报告运行时间细节；复现状态未核实。</p>
+<h2>Agentic LongLive: Asynchronous Agentic Memory for Long Video Generation</h2>
+<p><a href="https://arxiv.org/abs/2611.34907">arXiv</a>
+研究问题：实时自回归视频生成器能流式生成并接受新提示，但长交互故事中人物、物体与场景一致性难保持。方法：记忆智能体运行在独立GPU，仅读取已揭示提示而不读生成视频，为每个实体维护文本状态与演化图像，合成全局图像与分镜记忆图像，由辅助GPU预填充进生成器注意力汇；用小语言模型经强化学习决定记住什么。证据：在LongStory-Online基准上评估，摘要未给出具体数值。适用场景：长时交互式视频生成与故事化内容。限制：依赖多GPU异步系统；复现状态未核实。</p>
+<h2>Rehearse in 3D, Render in 2D: Physically Consistent and Editable Robot World Models</h2>
+<p><a href="https://arxiv.org/abs/2611.34288">arXiv</a>
+研究问题：具身世界模型需同时视觉真实与物理一致，仅显式3D运动预测不保证物体结构与接触关系保持。方法：RehearsalWorld先做3D交互排练，用预训练3D点流模型作为运动先验，通过响应感知物体分组、持久抓取记忆与接触结构精修约束轨迹；再将排练的几何投影作为时间条件微调视频生成器，实现物理响应与视觉合成解耦并支持材质属性独立编辑。证据：摘要称在模拟与真实操作基准上优于基于像素的基线，具体数值未给出。适用场景：机器人操作预测与可编辑世界模型。限制：依赖RGB-D初始观测；复现状态未核实。</p>
+<h2>PVWander: 3D Memory-guided Panoramic Video Wandering with Path-Facing Canonicalization</h2>
+<p><a href="https://arxiv.org/abs/2611.32443">arXiv</a>
+研究问题：长时全景视频漫游需沿用户轨迹连续合成360度一致观测，但运动与朝向关系多样、累积生成伪影与深度误差导致记忆引导不完美。方法：PVWander将生成观测累积为在线点云记忆并重投影引导后续生成；路径朝向规范化利用ERP水平循环对称对齐每段朝向与主平移方向；时间步感知门控调制实现自适应记忆引导。证据：摘要称在长时漫游中提升场景一致性，具体指标未给出。适用场景：全景漫游与虚拟场景探索。限制：依赖ERP全景与深度估计质量；复现状态未核实。</p>
+<hr />
+<p><em>由模型根据 arXiv 元数据生成，复现状态及指标请以官方论文为准。</em></p>
+</article><div class="article-end"><a href="../#papers">浏览论文库 ↗</a></div></main><footer class="site-footer"><span>Vision Research Hub</span><a href="https://github.com/suyuan945/vision-research-daily/actions">查看更新记录 ↗</a></footer><script src="../assets/research-store.js" defer></script></body></html>
