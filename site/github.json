@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "checked_at": "2026-11-27T12:56:56+08:00",
+  "checked_at": "2026-11-28T12:42:08+08:00",
   "failed_sources": [],
   "repositories": [
     {
@@ -626,6 +626,20 @@
       ]
     },
     {
+      "id": "1466977311",
+      "name": "ferdinandl007/PrismSplat",
+      "url": "https://github.com/ferdinandl007/PrismSplat",
+      "description": "Metal and Swift renderer for 3D Gaussian splats and 4D Gaussian splat video on Apple Vision Pro, macOS, and iOS.",
+      "created_at": "2026-11-21T21:40:11Z",
+      "first_seen": "2026-11-28",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "动态重建"
+      ],
+      "paper_ids": []
+    },
+    {
       "id": "1463628169",
       "name": "franciscoliu/SAFI",
       "url": "https://github.com/franciscoliu/SAFI",
@@ -785,6 +799,20 @@
       "license_name": "MIT License",
       "topics": [
         "视频编辑"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1474866340",
+      "name": "itsmetamike/mono-4dgs",
+      "url": "https://github.com/itsmetamike/mono-4dgs",
+      "description": "One video of a person -> a 4D gaussian splat, built to run on one rented GPU",
+      "created_at": "2026-11-27T20:12:19Z",
+      "first_seen": "2026-11-28",
+      "license": "MIT",
+      "license_name": "MIT License",
+      "topics": [
+        "动态重建"
       ],
       "paper_ids": []
     },
@@ -1246,6 +1274,22 @@
       ]
     },
     {
+      "id": "1473955004",
+      "name": "rohithpeddi/VeWomRelease",
+      "url": "https://github.com/rohithpeddi/VeWomRelease",
+      "description": "Video World Models Release GitHub Repository",
+      "created_at": "2026-11-27T04:02:07Z",
+      "first_seen": "2026-11-28",
+      "license": "Apache-2.0",
+      "license_name": "Apache License 2.0",
+      "topics": [
+        "世界模型"
+      ],
+      "paper_ids": [
+        "2602.05986"
+      ]
+    },
+    {
       "id": "1449625089",
       "name": "rudranaresh0201/so101-world-model",
       "url": "https://github.com/rudranaresh0201/so101-world-model",
@@ -1308,6 +1352,20 @@
       "description": "AI-powered text-to-image generator using Flask, Python and Cloudflare Workers AI.",
       "created_at": "2026-11-19T13:40:34Z",
       "first_seen": "2026-11-22",
+      "license": "",
+      "license_name": "",
+      "topics": [
+        "图像生成"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1474254396",
+      "name": "shreeyyaa/Text_to_image",
+      "url": "https://github.com/shreeyyaa/Text_to_image",
+      "description": "test to image generation",
+      "created_at": "2026-11-27T09:52:49Z",
+      "first_seen": "2026-11-28",
       "license": "",
       "license_name": "",
       "topics": [
@@ -1484,6 +1542,20 @@
       "license_name": "Apache License 2.0",
       "topics": [
         "动态重建"
+      ],
+      "paper_ids": []
+    },
+    {
+      "id": "1474407115",
+      "name": "TizenryA/drawing-studio-release",
+      "url": "https://github.com/TizenryA/drawing-studio-release",
+      "description": "Mobile-first private Colab & ComfyUI image/video generation studio (v1.0.42 public-ready release).",
+      "created_at": "2026-11-27T12:27:58Z",
+      "first_seen": "2026-11-28",
+      "license": "AGPL-3.0",
+      "license_name": "GNU Affero General Public License v3.0",
+      "topics": [
+        "视频生成"
       ],
       "paper_ids": []
     },
@@ -1803,6 +1875,66 @@
   ],
   "events": [
     {
+      "id": "repo:1474866340",
+      "repository_id": "1474866340",
+      "kind": "new",
+      "date": "2026-11-27T20:12:19Z",
+      "first_seen": "2026-11-28",
+      "title": "itsmetamike/mono-4dgs",
+      "url": "https://github.com/itsmetamike/mono-4dgs"
+    },
+    {
+      "id": "release:460751849",
+      "repository_id": "1474407115",
+      "kind": "release",
+      "date": "2026-11-27T15:06:58Z",
+      "first_seen": "2026-11-28",
+      "title": "Drawing Studio v1.0.43 (AGPL-3.0 + OAuth UI + ARM64 & macOS)",
+      "version": "v1.0.43",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/TizenryA/drawing-studio-release/releases/tag/v1.0.43"
+    },
+    {
+      "id": "release:460646833",
+      "repository_id": "1474407115",
+      "kind": "release",
+      "date": "2026-11-27T13:38:15Z",
+      "first_seen": "2026-11-28",
+      "title": "Drawing Studio v1.0.42 (Public Release)",
+      "version": "v1.0.42",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/TizenryA/drawing-studio-release/releases/tag/v1.0.42"
+    },
+    {
+      "id": "repo:1474407115",
+      "repository_id": "1474407115",
+      "kind": "new",
+      "date": "2026-11-27T12:27:58Z",
+      "first_seen": "2026-11-28",
+      "title": "TizenryA/drawing-studio-release",
+      "url": "https://github.com/TizenryA/drawing-studio-release"
+    },
+    {
+      "id": "repo:1474254396",
+      "repository_id": "1474254396",
+      "kind": "new",
+      "date": "2026-11-27T09:52:49Z",
+      "first_seen": "2026-11-28",
+      "title": "shreeyyaa/Text_to_image",
+      "url": "https://github.com/shreeyyaa/Text_to_image"
+    },
+    {
+      "id": "repo:1473955004",
+      "repository_id": "1473955004",
+      "kind": "new",
+      "date": "2026-11-27T04:02:07Z",
+      "first_seen": "2026-11-28",
+      "title": "rohithpeddi/VeWomRelease",
+      "url": "https://github.com/rohithpeddi/VeWomRelease"
+    },
+    {
       "id": "repo:1472870922",
       "repository_id": "1472870922",
       "kind": "new",
@@ -2070,6 +2202,18 @@
       "url": "https://github.com/jchacker5/open-tesla-reality-view"
     },
     {
+      "id": "release:454553081",
+      "repository_id": "1466977311",
+      "kind": "release",
+      "date": "2026-11-22T15:42:58Z",
+      "first_seen": "2026-11-28",
+      "title": "PrismSplat 0.2.0 · Gaussian splat video playback",
+      "version": "0.2.0",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/ferdinandl007/PrismSplat/releases/tag/0.2.0"
+    },
+    {
       "id": "repo:1467140980",
       "repository_id": "1467140980",
       "kind": "new",
@@ -2086,6 +2230,27 @@
       "first_seen": "2026-11-22",
       "title": "saraliu1234/WorldModelImplementation",
       "url": "https://github.com/saraliu1234/WorldModelImplementation"
+    },
+    {
+      "id": "release:454003749",
+      "repository_id": "1466977311",
+      "kind": "release",
+      "date": "2026-11-21T21:40:50Z",
+      "first_seen": "2026-11-28",
+      "title": "PrismSplat 0.1.0",
+      "version": "0.1.0",
+      "prerelease": false,
+      "weights": [],
+      "url": "https://github.com/ferdinandl007/PrismSplat/releases/tag/0.1.0"
+    },
+    {
+      "id": "repo:1466977311",
+      "repository_id": "1466977311",
+      "kind": "new",
+      "date": "2026-11-21T21:40:11Z",
+      "first_seen": "2026-11-28",
+      "title": "ferdinandl007/PrismSplat",
+      "url": "https://github.com/ferdinandl007/PrismSplat"
     },
     {
       "id": "repo:1466873921",

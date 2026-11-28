@@ -5,11 +5,11 @@
     },
     "量子位": {
       "state": "ok",
-      "newest": "2026-11-26"
+      "newest": "2026-11-27"
     },
     "我爱计算机视觉": {
       "state": "ok",
-      "newest": "2026-11-26"
+      "newest": "2026-11-27"
     },
     "3D视觉工坊": {
       "state": "manual"
@@ -19,6 +19,16 @@
     }
   },
   "articles": [
+    {
+      "account": "量子位",
+      "title": "人形机器人开发者集合！众擎开放大小脑，10亿产业级生态支持计划也来了",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw%3D%3D&mid=2247949529&idx=1&sn=c204866a811a72287aa3873d1d8c3613",
+      "date": "2026-11-27",
+      "tags": [
+        "多模态 / 具身视觉"
+      ],
+      "paper_ids": []
+    },
     {
       "account": "量子位",
       "title": "具身公司抱团回应：通用大模型跨维打击？没那么简单",

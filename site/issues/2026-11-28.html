@@ -1,0 +1,33 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="本期从近24小时arXiv记录中选出五篇视觉研究重点论文，覆盖视频生成与世界模型、可控生成、三维世界生成、几何基础模型与动态重建、以及高斯渲染。重点差异在于：有的以因果窗口注意力解决流式VAE延迟，有的以几何锚定提升长时程相机可控性，有的用散布视角构建可探索三维世界，还有的将冻结三维重建模型改造为免训练相机佩戴者分割器，以及以物理约束改进高斯溅射的训练效率。多数工作尚未核验开源代码。"><title>视觉生成与世界模型前沿：从流式视频到可探索三维世界 · Vision Research Hub</title><link rel="stylesheet" href="../assets/style.css"></head><body><header class="site-header"><div class="header-inner"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">◈</span><span>Vision <em>Research</em></span></a><nav class="site-nav" aria-label="主导航"><a href="../#today">今日</a><a href="../#papers">论文</a><a href="../#opensource">开源</a><a href="../#articles">文章</a><a href="../#favorites">收藏</a><a href="../#archive">历史</a></nav></div></header><main class="article-shell"><a class="article-back" href="../#archive">← 返回历史日报</a><div class="article-header"><div class="article-kicker">2026-11-28 / 自动生成 · 网页日报</div><h1>视觉生成与世界模型前沿：从流式视频到可探索三维世界</h1><p class="article-intro">本期从近24小时arXiv记录中选出五篇视觉研究重点论文，覆盖视频生成与世界模型、可控生成、三维世界生成、几何基础模型与动态重建、以及高斯渲染。重点差异在于：有的以因果窗口注意力解决流式VAE延迟，有的以几何锚定提升长时程相机可控性，有的用散布视角构建可探索三维世界，还有的将冻结三维重建模型改造为免训练相机佩戴者分割器，以及以物理约束改进高斯溅射的训练效率。多数工作尚未核验开源代码。</p><div class="tag-list"><span class="tag">视频生成</span><span class="tag">世界模型</span><span class="tag">可控生成</span><span class="tag">三维几何</span><span class="tag">高斯渲染</span></div></div><article class="prose"><h2>LiveVAE: Causal Window Attention Makes Efficient Streaming Video VAE</h2>
+<p><a href="https://arxiv.org/abs/2611.34912">arXiv</a></p>
+<p><strong>研究问题</strong>：视频扩散模型日趋流式化，但视频VAE的编码与解码仍是交互生成和编辑管线中的主要延迟瓶颈；现有加速方法多依赖重卷积或全帧注意力，且偏重解码。</p>
+<p><strong>方法</strong>：作者先分析预训练视频VAE的有效感受野，发现编码与解码单个patch几乎只依赖时空邻域。据此提出基于因果窗口注意力的流式编码器与解码器，使每帧计算下降并保持有界时间KV缓存；采用编码/解码解耦蒸馏加联合微调以保留原潜空间，使其可作为原VAE的即插即用替代。</p>
+<p><strong>证据支持的差异</strong>：在MiniMax-H3上，编码快5.2–6.2倍、解码快3.0–3.3倍，且PSNR高于官方VAE。相比全帧注意力和纯卷积方案，其优势来自对局部性的显式建模而非仅工程优化。</p>
+<p><strong>适用场景与限制</strong>：适合流式条件生成、视频编辑等低延迟管线。限制在于摘要未报告长时序漂移与极端长视频下的量化评测；代码状态未核实。</p>
+<h2>SPARC: Geometry-Guided Attention Pruning for Long-Horizon Camera-Controlled Video Generation</h2>
+<p><a href="https://arxiv.org/abs/2611.34064">arXiv</a></p>
+<p><strong>研究问题</strong>：长时程相机控制视频生成需同时满足精确相机遵循与场景重访一致性，而全注意力计算代价高。</p>
+<p><strong>方法</strong>：将预训练视频扩散Transformer的自注意力连通性同时用作相机控制的几何条件与历史记忆的空间寻址。对已观测token，仅保留几何对应的历史token与局部时空上下文；对未观测区域保留稠密注意力；引入对应感知注意力偏置与顺序无关历史定位，实现跨长时隙稳定检索。不增加可学习控制或记忆模块。</p>
+<p><strong>证据支持的差异</strong>：摘要称在不新增模块的前提下提升相机遵循、重访一致性与视觉保真度，并显著降低注意力计算、带来推理加速。与显式控制模块方案相比，其卖点是把控制与记忆统一进原生注意力。</p>
+<p><strong>适用场景与限制</strong>：适用于可交互场景漫游、长镜头生成。限制在于强依赖几何对应质量，遮挡与动态物体下的对应可靠性摘要未细述；具体加速倍数与代码状态未核实。</p>
+<h2>WorldBridge: Bridging Scattered Views for Coherent 3D World Generation</h2>
+<p><a href="https://arxiv.org/abs/2611.34079">arXiv</a></p>
+<p><strong>研究问题</strong>：从视觉重叠很少甚至没有重叠的散布图像生成连贯、可探索三维世界，是长期难题；几何感知方法难以处理，图像/视频方法虽能补全未见区域却跨视角几何不一致。</p>
+<p><strong>方法</strong>：将散布参考编码为全局场景上下文以引导跨视角几何与外观生成；提出时空参考注意力增强目标轨迹上时间参考的保真度并支持轨迹外空间参考；引入即插即用的潜参考一致性策略，通过重投影引导的测试时优化提升参考保真度；同时构建面向低重叠参考的WorldBridge基准。</p>
+<p><strong>证据支持的差异</strong>：定性与定量结果均表明其在低重叠输入下优于现有方法，差异点在于同时强调全局场景上下文与测试时重投影一致性，而非单纯依赖生成先验。</p>
+<p><strong>适用场景与限制</strong>：适用于少量照片构建可漫游三维场景。限制在于测试时优化带来的推理开销、极稀疏输入下的几何可靠性摘要未量化；代码状态未核实。</p>
+<h2>Who Is Ego? Scaling Cross-View Camera Wearer Identification and Segmentation beyond Humans</h2>
+<p><a href="https://arxiv.org/abs/2611.34489">arXiv</a></p>
+<p><strong>研究问题</strong>：第一人称图像只说明相机看到什么，不说明谁携带相机。给定同步第三人称图像，需判定“谁是ego”，并扩展到机器人、车辆、动物与无人机，同时回答“ego在哪”。</p>
+<p><strong>方法</strong>：利用几何关系——ego相机在exo图像中的投影（极点）落在其佩戴者身上或附近。提出EgoRay-ZS，把冻结的前馈三维重建模型VGGT-Ω转为免训练方案，按候选掩码与分割提议到ego相机的角度偏移和距离排序，并由相对位姿给出互为相机方向；随后在FindEgo-1M上做位姿监督训练得到完整EgoRay。</p>
+<p><strong>证据支持的差异</strong>：贡献包括1.16M ego-exo对、12类佩戴者、17个域、111个测试设置的新基准；方法将几何基础模型复用为识别与分割器，区别于纯外观匹配。</p>
+<p><strong>适用场景与限制</strong>：适用于第一人称数据理解、多智能体视角对齐。限制在于依赖标定与同步的ego-exo对，野外非同步场景表现未在摘要中确认；代码状态未核实。</p>
+<h2>SprintGS: Eliminating Redundancy for Fast 3D Gaussian Splatting Training</h2>
+<p><a href="https://arxiv.org/abs/2611.33796">arXiv</a></p>
+<p><strong>研究问题</strong>：3D高斯溅射可实时渲染，但逐场景训练仍慢；即使FastGS把模型压缩到几分钟训练，光栅化仍是最大开销，且损失计算不随高斯数量缩减而下降。</p>
+<p><strong>方法</strong>：在FastGS基础上保留紧凑模型并削减两类成本。光栅化侧采用调度式tile剔除，用粗足迹限制每颗高斯只进入有影响的tile并在训练结束前退火到精确足迹；收敛感知剪枝移除已收敛的近透明高斯；洗牌高效反向传播减少GPU线程间数据交换。损失侧采用融合损失，在前向中直接计算损失及图像梯度，省去损失图。</p>
+<p><strong>证据支持的差异</strong>：在质量相当条件下训练比FastGS快2.15倍。差异在于同时针对光栅化冗余与损失计算两项成本，而非仅减少高斯数量。</p>
+<p><strong>适用场景与限制</strong>：适合需要快速重建新场景的工程管线。限制在于依赖FastGS生态，跨数据集泛化与极端场景稳定性摘要未展开；代码状态未核实。</p>
+<hr />
+<p><em>由模型根据 arXiv 元数据生成，复现状态及指标请以官方论文为准。</em></p>
+<h2>同日 GitHub 动态</h2><ul><li>新仓库 · <a href="https://github.com/itsmetamike/mono-4dgs">itsmetamike/mono-4dgs</a></li></ul></article><div class="article-end"><a href="../#papers">浏览论文库 ↗</a></div></main><footer class="site-footer"><span>Vision Research Hub</span><a href="https://github.com/suyuan945/vision-research-daily/actions">查看更新记录 ↗</a></footer><script src="../assets/research-store.js" defer></script></body></html>
